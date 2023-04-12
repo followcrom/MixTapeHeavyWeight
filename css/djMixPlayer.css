@@ -1,0 +1,259 @@
+body {
+  padding: 0px;
+  margin: 0;
+  background-color: white;
+}
+
+
+
+
+.content_box {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+  background-color: #85cdff;
+  padding: 15px;
+  border: 5px solid black;
+  border-radius: 20px;
+}
+
+
+/* .clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+} */
+
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 15px;
+}
+
+.header img {
+  width: 150px;
+  height: auto;
+  border-radius: 20px;
+  margin-left: 10px; /* Add some space between the image and text */
+}
+
+.header p {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 2em;
+  text-align: center;
+  color: rebeccapurple;
+
+}
+
+
+.img-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  /* background-color: hsl(60, 100%, 90%); */
+}
+
+.img-container img {
+  height: 110px;
+  animation: rotate 1.5s linear infinite;
+  animation-play-state: paused;
+}
+
+.music-container.play .img-container img {
+  animation-play-state: running;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.music-container {
+  /* border: blue dotted 5px; */
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+}
+
+.transport-container {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  /* margin-top: 1vh; */
+  /* margin-bottom: 1vh; */
+}
+
+
+.navigation {
+  /* border: orange dotted 5px; */
+  background-color: white;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-btn {
+  background-color: white;
+  border: 0;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px;
+  margin: 10px 10px;
+}
+
+.action-btn:hover {
+  color: red;
+}
+
+.action-btn.action-btn-big {
+  font-size: 30px;
+}
+
+.action-btn.action-btn-big:hover {
+  color: red;
+}
+
+
+.audioPlayer {
+  display: none;
+}
+
+#volume-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20%;
+  height: 16px;
+  border-radius: 4px;
+  background-color: #ddd;
+  outline: none;
+  margin: 0px 80px 0px 60px;
+}
+
+#volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #2196f3;
+  cursor: pointer;
+}
+
+#volume-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #2196f3;
+  cursor: pointer;
+}
+
+.progress-container {
+  display: flex;
+}
+
+.progress-background {
+  background-color: #ddd;
+  cursor: pointer;
+  width: 85%;
+  height: 40px;
+}
+
+.progress {
+  background-color: blue;
+  height: 100%;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.currTime {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: hsl(60, 100%, 90%); */
+  background-color: white;
+  color: #2196f3;
+  width: 15%;
+  height: 40px;
+}
+
+.track-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  /* background-color: white;
+  border-radius: 5px; */
+  color: rebeccapurple;
+  height: 50px;
+  font-size: 2em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.tracklist {
+  /* display: inline-block; */
+  float: left;
+  width: 40%;
+  background-color: black;
+  font-family: "Open Sans", sans-serif;
+  color: #85cdff;
+  font-size: 1.2em;
+  line-height: 2em;
+  text-align: center;
+  cursor: pointer;
+  overflow-y: scroll;
+  max-height: 500px;
+}
+
+.track:hover {
+  background-color: white;
+  border-radius: 10px;
+  width: 90%;
+  margin: auto;
+  color: #2e97ff;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2196f3;
+  border-radius: 10px;
+}
+
+
+
+
+#canvas-container {
+  display: inline-block;
+  /* float: right; */
+  width: 60%;
+  background: black;
+  height: 500px;
+}
+
+#canvas1 {
+  width: 100%;
+  height: 100%;
+  filter: blur(2px) contrast(10);
+}
