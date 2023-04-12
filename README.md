@@ -6,14 +6,21 @@ To access the Mixtape Heavyweight website, simply navigate to https://www.follow
 ## Features
 MixTapeHeavyWeight includes the following features:
 
-Audio playback: Listen to DJ mixes directly on the website.
-Download: Download the DJ mixes to your local device.
-Play/pause: Control the audio playback with the click of a button.
-Skip forward/backward: Skip ahead or go back in the audio track.
-Progress bar: See how much of the audio track has played and skip to a specific position.
-Volume control: Adjust the volume of the audio playback.
-Visualizer: Enjoy a visual representation of the audio track while listening.
-Song information: See the current track name and artist while listening.
+- Audio playback: Listen to DJ mixes directly on the website.
+
+- Download: Download the DJ mixes to your local device.
+
+- Play/pause: Control the audio playback with the click of a button.
+
+- Skip forward/backward: Skip ahead or go back in the audio track.
+
+- Progress bar: See how much of the audio track has played and skip to a specific position.
+
+- Volume control: Adjust the volume of the audio playback.
+
+- Visualizer: Enjoy a visual representation of the audio track while listening.
+
+- Song information: See the current track name and artist while listening.
 
 ## Built With
 MixTapeHeavyWeight is built using the following technologies:
