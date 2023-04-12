@@ -1,9 +1,11 @@
 # MixTapeHeavyWeight
-![Mixtape Heavyweight website](https://followcrom.online/images/github/mixtapeHW_github_readme.jpg "Mixtape Heavyweight website")
+A web audio player made specifically for DJ mixes. As the mix plays, the tracklisting updates automatically, so the listener knows at a glance exactly which song the DJ is spinning. Also allows users to jump to specific songs in the mix with a click/tap, despite using a single audio file.
 
 
 ## Getting Started
 To access the Mixtape Heavyweight website, simply navigate to https://www.followcrom.online/djmixes/supafly.php in your web browser.
+
+![Mixtape Heavyweight website](https://followcrom.online/images/github/mixtapeHW_github_readme.jpg "Mixtape Heavyweight website")
 
 ## Features
 MixTapeHeavyWeight includes the following features:
