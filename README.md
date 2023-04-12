@@ -1,5 +1,5 @@
 # MixTapeHeavyWeight
-A web audio player made specifically for DJ mixes. As the mix plays, the tracklisting updates automatically, so the listener knows at a glance exactly which song the DJ is spinning. Also allows users to jump to specific songs in the mix with a click/tap, despite using a single audio file.
+A web audio player made specifically for DJ mixes. As the mix plays, the tracklisting updates automatically, so the listener knows at a glance which song the DJ is spinning. Also allows users to jump to specific songs in the mix with a click/tap, despite using a single audio file.
 
 
 ## Getting Started
