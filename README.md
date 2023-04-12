@@ -1,4 +1,6 @@
 # MixTapeHeavyWeight
+![Mixtape Heavyweight website](https://followcrom.online/images/github/mixtapeHW_github_readme.jpg "Mixtape Heavyweight website")
+
 
 ## Getting Started
 To access the Mixtape Heavyweight website, simply navigate to https://www.followcrom.online/djmixes/supafly.php in your web browser.
