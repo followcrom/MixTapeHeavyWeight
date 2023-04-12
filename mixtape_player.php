@@ -1,8 +1,8 @@
-<!-- include your HTML header here. Alternatively, remove the review section and use plain HTML -->
+<!-- include your HTML header here. Alternatively, remove the Review section and use plain HTML -->
 <?php include 'header.html';?>
 
 
-<div class="control_box">
+<div class="content_box">
 
     <div class="header">
 
@@ -203,9 +203,9 @@
 <div class="content_box">
 
     <?php
-  $host_name = 'db5011559101.hosting-data.io';
-  $database = 'dbs9747952';
-  $user_name = 'dbu626955';
+  $host_name = 'xxx';
+  $database = 'xxx';
+  $user_name = 'xxx';
   $config = parse_ini_file('config.ini');
   $password = $config['password'];
 
