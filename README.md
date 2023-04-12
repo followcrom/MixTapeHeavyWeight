@@ -45,7 +45,7 @@ MixTapeHeavyWeight is built using the following technologies:
 If you would like to contribute to the development of MixTapeHeavyWeight, please fork the repository and submit a pull request.
 
 ## Authors
-followCrom - followcrom.online
+followCrom - [followcrom.online](https://followcrom.online/index.html)
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
