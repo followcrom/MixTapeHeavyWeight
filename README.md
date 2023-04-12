@@ -24,17 +24,24 @@ MixTapeHeavyWeight includes the following features:
 
 ## Built With
 MixTapeHeavyWeight is built using the following technologies:
-HTML
-CSS
-JavaScript
-PHP
-Web Audio API
-Canvas API
-Contributing
-If you would like to contribute to the development of Mixtape Heavyweight, please fork the repository and submit a pull request.
+
+- HTML
+
+- CSS
+
+- JavaScript
+
+- PHP
+
+- Web Audio API
+
+- Canvas API
+
+## Contributing
+If you would like to contribute to the development of MixTapeHeavyWeight, please fork the repository and submit a pull request.
 
 ## Authors
-FOLLOWcROM - followcrom.online
+followCrom - followcrom.online
 
 ## License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
