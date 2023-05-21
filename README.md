@@ -10,7 +10,7 @@ Try the U.I for yourself by going to the [Mixtape Heavyweight website](https://w
 
 ## Features
 
-MixTapeHeavyWeight includes the following features:
+**MixTapeHeavyWeight** includes the following features:
 
 - Stream and download DJ mixes
 - Play, pause, and stop playback
@@ -23,7 +23,7 @@ MixTapeHeavyWeight includes the following features:
 
 ## Technologies
 
-MixTapeHeavyWeight is built using the following technologies:
+**MixTapeHeavyWeight** is built using the following technologies:
 
 - HTML5: Markup language for structuring the content
 - CSS3: Stylesheet language for styling the web page
@@ -34,7 +34,14 @@ MixTapeHeavyWeight is built using the following technologies:
 
 ## Usage
 
-To use MixTapeHeavyWeight on your own project, clone the repository and add your own DJ mix files and associated metadata. You can customize the design and functionality as needed.
+To use **MixTapeHeavyWeight** into your project, follow these steps:
+
+1. Clone the repository:
+   `git clone https://github.com/followcrom/MixTapeHeavyWeight.git`
+
+2. Add your DJ mix files to the cloned repository. Include the associated metadata such as tracklists and timings in the specified sections within the PHP page.
+
+3. Customize the design and functionality of the application to meet your specific requirements. Make the necessary modifications in the CSS file to achieve the desired visual appearance and functionality.
 
 ![GitHub stars](https://img.shields.io/github/stars/followcrom/MixTapeHeavyWeight?style=social) ![GitHub forks](https://img.shields.io/github/forks/followcrom/MixTapeHeavyWeight?style=social)
 
