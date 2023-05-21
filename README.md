@@ -32,7 +32,7 @@ Try the U.I for yourself by going to the [Mixtape Heavyweight website](https://w
 - Canvas API: Used for rendering the audio visualizer
 - Fetch API: For submitting comments and ratings without page reload
 
-## Usage
+## How To Use
 
 To use **MixTapeHeavyWeight** into your project, follow these steps:
 
@@ -49,9 +49,9 @@ To use **MixTapeHeavyWeight** into your project, follow these steps:
 
 ## Authors
 
-followCrom - [followcrom.online](https://followcrom.online/index.html)
+followCrom - [followcrom.online](https://followcrom.online/index.html){:target="\_blank"}
 
-Please do [get in touch](https://followcrom.online/contact/contact.php)
+Please do [get in touch](https://followcrom.online/contact/contact.php){:target="\_blank"}.
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/followcrom/MixTapeHeavyWeight)
 
