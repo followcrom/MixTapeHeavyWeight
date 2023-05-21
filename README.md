@@ -1,10 +1,10 @@
 # MixTapeHeavyWeight
 
-**MixTapeHeavyWeight** is a feature-rich, responsive web application, built specifically for streaming and downloading DJ mixes. With its intuitive user interface, the app offers an array of features, including an audio visualizer, a skippable playlist (despite loading just a single audio file), and a comments section. As the mix plays, the tracklisting updates automatically, so the listener knows at a glance which song the DJ is spinning.
+**MixTapeHeavyWeight** is a feature-rich web application, built specifically for streaming and downloading DJ mixes. With its intuitive user interface, the app offers an array of features, including an audio visualizer, a skippable playlist (click through mulitple tracks despite only loading a single audio file), and a comments section. (Leaving a comment does not interupt playback.) As the mix plays, the tracklisting updates automatically, so the listener knows at a glance which song the DJ is spinning.
 
 ## Getting Started
 
-Try the U.I for yourself by going to the [Mixtape Heavyweight website](https://www.followcrom.online/djmixes/supafly.php).
+Try the U.I for yourself by going to the [Mixtape Heavyweight website](https://www.followcrom.online/djmixes/noodles.php).
 
 ![Mixtape Heavyweight website](https://www.followcrom.online/embeds/mixtape-heavyweight_screenshot.png "Mixtape Heavyweight website")
 
@@ -43,6 +43,8 @@ To use MixTapeHeavyWeight on your own project, clone the repository and add your
 ## Authors
 
 followCrom - [followcrom.online](https://followcrom.online/index.html)
+
+Please do [get in touch](https://followcrom.online/contact/contact.php)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/followcrom/MixTapeHeavyWeight)
 
