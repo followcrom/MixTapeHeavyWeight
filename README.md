@@ -21,17 +21,6 @@ Try the U.I for yourself by going to the [Mixtape Heavyweight website](https://w
 - Volume control with a slider
 - Post comments with star ratings using Fetch API
 
-## Technologies
-
-**MixTapeHeavyWeight** is built using the following technologies:
-
-- HTML5: Markup language for structuring the content
-- CSS3: Stylesheet language for styling the web page
-- JavaScript: Programming language for implementing the functionality
-- Web Audio API: Provides methods and interfaces for audio processing
-- Canvas API: Used for rendering the audio visualizer
-- Fetch API: For submitting comments and ratings without page reload
-
 ## How To Use
 
 To use **MixTapeHeavyWeight** into your project, follow these steps:
@@ -47,11 +36,20 @@ To use **MixTapeHeavyWeight** into your project, follow these steps:
 
 ![GitHub issues](https://img.shields.io/github/issues/followcrom/MixTapeHeavyWeight) ![GitHub pull requests](https://img.shields.io/github/issues-pr/followcrom/MixTapeHeavyWeight)
 
+## Technologies
+
+**MixTapeHeavyWeight** is built using the following technologies:
+
+- HTML5 for structuring the content
+- CSS3 for styling the web page
+- JavaScript for implementing the functionality
+- Web Audio API for audio processing
+- Canvas API for rendering the audio visualizer
+- Fetch API for submitting comments and ratings without page reload
+
 ## Authors
 
-followCrom - [followcrom.online](https://followcrom.online/index.html)
-
-Please do [get in touch](https://followcrom.online/contact/contact.php).
+followCrom - [followcrom.online](https://followcrom.online/index.html). Please do [get in touch](https://followcrom.online/contact/contact.php).
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/followcrom/MixTapeHeavyWeight)
 
