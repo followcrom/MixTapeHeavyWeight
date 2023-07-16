@@ -6,7 +6,7 @@
 
 🚀 Try it for yourself: [Mixtape Heavyweight](https://www.followcrom.online/djmixes/gf/noodles.php) 🚀
 
-🎓 Read the: [Blog Post](https://medium.com/@followcrom/mixtape-heavyweight-259444d11ca9) 🎓
+🎓 Read the [Blog Post](https://medium.com/@followcrom/mixtape-heavyweight-259444d11ca9) 🎓
 
 ![Mixtape Heavyweight website](https://www.followcrom.online/embeds/gh_readme_img.jpg "Mixtape Heavyweight website")
 
@@ -24,13 +24,13 @@
 1. Clone the repository:
    `git clone https://github.com/followcrom/MixTapeHeavyWeight.git`
 
-2. Link to your DJ mix audio files in the sections marked on the PHP page.
+2. Link to your DJ mix audio files in the sections marked in the PHP.
 
-3. Add the associated metadata, such as tracklists and timings, in the marked section in the PHP page.
+3. Add the associated metadata, such as tracklists and timings, in the marked section in the PHP.
 
-4. Make the necessary modifications in the CSS file to achieve the desired visual appearance.
+4. Make modifications to the CSS to achieve your desired visual appearance.
 
-5. Edit the .js file to customize the functionality of the application to meet your requirements.
+5. Edit the .js files to customize the functionality of the application to meet your requirements.
 
 ![GitHub stars](https://img.shields.io/github/stars/followcrom/MixTapeHeavyWeight?style=social) ![GitHub forks](https://img.shields.io/github/forks/followcrom/MixTapeHeavyWeight?style=social)
 
