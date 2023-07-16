@@ -1,12 +1,14 @@
 # MixTapeHeavyWeight
 
-**MixTapeHeavyWeight** is a feature-rich web application built specifically for streaming and downloading DJ mixes. The intuitive user interface incorporates skeuomorphic design elements reminiscent of classic old-school mixtapes. JavaScript provides an array of features, including an audio visualizer, a skippable playlist (allowing you to click through multiple tracks despite only loading a single audio file), and a comments section (which doesn't interrupt playback). As the mix plays, the tracklisting updates automatically, so the listener knows at a glance which song the DJ is spinning!
+**MixTapeHeavyWeight** is a feature-rich web app built for streaming and downloading DJ mixes. The intuitive user interface incorporates skeuomorphic design elements reminiscent of a hi-fi stacking system and classic old-school mixtapes. An array of features include an audio visualizer, a skippable playlist (allowing you to click through multiple tracks despite only loading a single audio file), and a comments section (which doesn't interrupt playback). As the mix plays, the tracklisting updates automatically, so the listener knows at a glance which song the DJ is spinning!
 
 ## Getting Started
 
-Try it for yourself: [Mixtape Heavyweight Online](https://www.followcrom.online/djmixes/gf/noodles.php)
+🚀 Try it for yourself: [Mixtape Heavyweight](https://www.followcrom.online/djmixes/gf/noodles.php) 🚀
 
-Read the: [Blog Post](https://medium.com/@followcrom/mixtape-heavyweight-259444d11ca9{:target="_blank"})
+🎓 Read the: [Blog Post](https://medium.com/@followcrom/mixtape-heavyweight-259444d11ca9) 🎓
+
+**MixTapeHeavyWeight**
 
 ![Mixtape Heavyweight website](https://www.followcrom.online/embeds/gh_readme_img.jpg "Mixtape Heavyweight website")
 
@@ -38,8 +40,6 @@ Read the: [Blog Post](https://medium.com/@followcrom/mixtape-heavyweight-259444d
 ![GitHub issues](https://img.shields.io/github/issues/followcrom/MixTapeHeavyWeight) ![GitHub pull requests](https://img.shields.io/github/issues-pr/followcrom/MixTapeHeavyWeight)
 
 ## Technologies
-
-**MixTapeHeavyWeight** is built using the following technologies:
 
 - JavaScript for implementing the functionality
 - Web Audio API for audio processing
