@@ -4,7 +4,7 @@
 
 ## Getting Started
 
-Try it for yourself: [Mixtape Heavyweight Online](hhttps://www.followcrom.online/djmixes/gf/noodles.php)
+Try it for yourself: [Mixtape Heavyweight Online](https://www.followcrom.online/djmixes/gf/noodles.php)
 
 Read the: [Blog Post](https://medium.com/@followcrom/mixtape-heavyweight-259444d11ca9)
 
