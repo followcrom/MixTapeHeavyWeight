@@ -5,8 +5,8 @@ const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
 const stopBtn = document.getElementById('stop');
 const title = document.getElementById('title');
+const initialTitle = title.innerText;
 const progressContainer = document.getElementById('progress-container');
-
 
 
 playBtn.addEventListener('click', () => {
@@ -19,28 +19,31 @@ playBtn.addEventListener('click', () => {
 });
 
 
-
-stopBtn.addEventListener('click', () => {
+function stopAudio() {
   audio.pause();
   audio.currentTime = 0;
   musicContainer.classList.remove('play');
   playBtn.querySelector('i.fas').classList.add('fa-play');
   playBtn.querySelector('i.fas').classList.remove('fa-pause');
+}
+
+stopBtn.addEventListener('click', stopAudio);
+
+audio.addEventListener('ended', function() {
+  stopAudio();
 });
 
 
-// Play song
+
 function playSong() {
-    musicContainer.classList.add('play');
-    playBtn.querySelector('i.fas').classList.remove('fa-play');
-    playBtn.querySelector('i.fas').classList.add('fa-pause');
-  
-    audio.play();
-  }
+  musicContainer.classList.add('play');
+  playBtn.querySelector('i.fas').classList.remove('fa-play');
+  playBtn.querySelector('i.fas').classList.add('fa-pause');
+
+  audio.play();
+}
 
 
-
-// Pause song
 function pauseSong() {
   musicContainer.classList.remove('play');
   playBtn.querySelector('i.fas').classList.add('fa-play');
@@ -64,13 +67,11 @@ function skipForward() {
 
 
 
-
 function updatePosition(clicked) {
   var tracktime = clicked.dataset.time;
   audio.currentTime = tracktime;
   playSong()
 }
-
 
 
 
@@ -105,46 +106,39 @@ function seektimeupdate(){
 }
 
 
-
-// skip
+// Event Listeners
 prevBtn.addEventListener('click', skipBackward);
 nextBtn.addEventListener('click', skipForward);
-
-// Time/song update
 audio.addEventListener('timeupdate', updateProgress);
-
-// Click on progress bar
 progressContainer.addEventListener('click', setProgress);
-
-// Time of song
 audio.addEventListener('timeupdate', seektimeupdate);
-
+audio.addEventListener('ended', pauseSong);
 
 
 // Sync playlist data
 const timings = document.querySelector('.timings')
 const lines = timings.textContent.trim().split('\n')
 
-
-
 let syncData = []
 
 lines.map((line) => {
     const [time, text] = line.trim().split('|')
-    // console.log("time:" + time)
-    // console.log("text:" + text)
     syncData.push({'start': time.trim(), 'text': text.trim()})
 })
 
 audio.addEventListener('timeupdate', () => {
+  if (audio.paused || audio.ended) {
+    title.innerText = initialTitle;
+  } else {
     syncData.forEach((item) => {
-        if (audio.currentTime >= item.start) title.innerText = item.text
-    })
-})
-
+      if (audio.currentTime >= item.start) {
+        title.innerText = item.text;
+      }
+    });
+  }
+});
 
 // use Fetch API to submit a form without reloading the page:
-
 const form = document.getElementById('form');
 const reviewFeedback = document.getElementById('review-feedback');
 
@@ -174,15 +168,14 @@ return false;
   .then(response => {
     if (response.ok) {
       // Form submission was successful
-      console.log('Form submission successful!');
       reviewFeedback.innerHTML = 'Thanks for your review!';
     } else {
       // Form submission failed
-      console.log('Form submission failed.');
+      reviewFeedback.innerHTML = 'Form submission failed.';
     }
   })
   .catch(error => {
     // An error occurred while submitting the form
-    console.log('An error occurred while submitting the form:', error);
+    reviewFeedback.innerHTML = 'An error occurred while submitting the form.';
   });
 });

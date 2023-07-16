@@ -1,3 +1,18 @@
+@font-face {
+  font-family: 'Digital';
+  src: url('../Led Panel Station On.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Spray';
+  src: url('../kosalsayshy.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 body {
   padding: 0px;
   margin: 0;
@@ -6,23 +21,52 @@ body {
 
 
 .banner {
-  background-image: url(../images/banner.png);
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #85cdff;
-  height: 194px;
-  margin-bottom: 2vh;
+  padding: 0px;
+  margin: 0;
+  text-align: center;
+  font-family: 'Spray', Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 6rem;
+  background: linear-gradient(260deg, gold, beige, #85cdff, pink, green);
+  background-size: 200% 200%;
+  animation-direction: reverse;
+  -webkit-animation: enticing 5s ease infinite;
+  -moz-animation: enticing 5s ease infinite;
+  animation: enticing 5s ease infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+
+@keyframes enticing {
+  0%{background-position:10% 0%}
+  50%{background-position:91% 110%}
+  100%{background-position:10% 0%}
+}
+
+
+.content {
+  padding: 10px;
+  margin: 0;
+  background-color: #CCC;
+}
+
+
+a:link, a:visited, a:hover a:visited {
+  color: inherit;
+  text-decoration: inherit;
 }
 
 
 .tape {
-  width: 55%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 2vh;
+  margin-top: 1.5vh;
+  margin-bottom: 1.5vh;
   padding: 20px;
-  border: 8px solid black;
+  border: 6px solid black;
   border-radius: 20px;
   background-image: linear-gradient(45deg, #CCCCCC 25%, #555555 25%);
   background-size: 10px 10px;
@@ -31,9 +75,8 @@ body {
 
 .transportContainer {
   display: flex;
-  margin-right: auto;
-  /* margin-bottom: 15px; */
 }
+
 
 .transportControls {
   width: 80%;
@@ -46,7 +89,7 @@ body {
 .navigation {
   background-color: #FFF;
   width: 100%;
-  height: 80px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,6 +106,7 @@ body {
   background-color: #aebcd7;
   border-radius: 90px;
 }
+
 
 .tape_reel-container {
   width: 100%;
@@ -121,8 +165,8 @@ body {
   height: 100%;
   width: 0%;
   transition: width 0.1s linear;
-
 }
+
 
 .currTime {
   display: flex;
@@ -137,7 +181,8 @@ body {
   height: 50px;
 }
 
-.track-info {
+
+.top_label {
   border-top: red solid 10px;
   border-bottom: red solid 10px;
   text-align: center;
@@ -147,59 +192,159 @@ body {
   border-radius: 15px;
   color: #555555;
   width: 85%;
-  margin: 0px auto 15px auto;
-  height: 50px;
-  font-size: 2em;
+  margin: 0px auto 20px auto;
+  font-size: 2.5em;
   padding: 10px;
 }
 
-.colorStrip {
-  background-color: #85cdff;
-  padding-top: 10px;
-  padding-bottom: 10px;
+
+.stack2 {
+  width: 85%;
+  margin: auto;
+  border: 6px solid black;
+  border-radius: 20px;
+  background-image: linear-gradient(135deg, #CCCCCC 20%, #999999 20%, #555555 40%);
+  background-size: 15px 15px;
+  margin-bottom: 1.5vh;
+  display: flex;
+  height: 200px;
+  align-items: center;
+  padding: 10px;
 }
 
-.visuals_box {
-  display: flex;
+
+.eq_viz {
   width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 15px;
   background-color: black;
   border-radius: 15px;
+  height: 180px;
+  float: left;
+  padding: 10px;
 }
 
 
-#canvas-container {
-float: left;
-width: 60%;
-  background: black;
-  height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.eqSliders {
+  width: 20%;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  display: flex; /* Display the sliders inline */
+  align-items: center; /* Center sliders vertically */
+  justify-content: space-between; /* Add space between sliders */
 }
+
+.eqSliders div {
+  background-color: #555555;
+  border-radius: 10px;
+  opacity: 0.85;
+  flex: 1; /* Distribute available space evenly */
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+
+.eqSliders input[type='range'] {
+  writing-mode: bt-lr; /* IE/Edge */
+  -webkit-appearance: slider-vertical; /* WebKit */
+  -moz-appearance: slider-vertical; /* Firefox */
+  appearance: slider-vertical; /* Standard */
+  width: 10px;
+  height: 140px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+
+/* Chrome, Safari, new versions of Opera and Edge */
+.eqSliders input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 20px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+/* Old versions of Firefox */
+.eqSliders input::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 20px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+/* Old versions of Edge */
+.eqSliders input::-ms-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 20px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+
+.eqSliders input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 20px;
+  margin: 10px;
+  cursor: pointer;
+}
+
 
 #canvas1 {
   width: 100%;
   height: 100%;
-  filter: blur(2px) contrast(5);
+}
+
+
+.stack3 {
+  width: 85%;
+  margin: auto;
+  border: 6px solid black;
+  background-image: linear-gradient(225deg, #CCCCCC 20%, #999999 20%, #555555 40%);
+  background-size: 20px 20px;
+  border-radius: 20px;
+  margin-bottom: 1.5vh;
+  align-items: center;
+  padding: 10px;
+}
+
+
+.playing {
+  margin: auto;
+  text-align: center;
+  font-family: 'Digital', sans-serif;
+  font-weight: bold;
+  color: greenyellow;
+  background-color: #000;
+  font-size: 2em;
+  line-height: 1.2em;
+  padding-top: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 
 .tracklist {
   background-color: black;
-  float: right;
-  width: 40%;
-  font-family: "Open Sans", sans-serif;
-  color: #85cdff;
-  font-size: 1.2em;
+  margin: auto;
+  font-family: 'Digital', sans-serif;
+  color: white;
+  font-size: 1.4em;
   line-height: 2em;
   text-align: center;
   cursor: pointer;
   overflow-y: scroll;
   max-height: 500px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
+
 
 .track:hover {
   background-color: white;
@@ -208,34 +353,28 @@ width: 60%;
   margin: auto;
   color: #004AAD;
 }
+  
 
-
-.tracklist h1 {
-    color: gold;
-    font-size: 1.2em;
-    text-align: center;
-    line-height: 1em;
+.reviewsStrip {
+  display: flex;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5vh;
+  border-radius: 15px;
+  background-color: black;
 }
 
-
-  .reviewsStrip {
-    display: flex;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 15px;
-    border-radius: 15px;
-    background-color: black;
-  }
 
 .reviewContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   order: 2;
   width: 30%;
 }
+  
 
 .reviewContainer h1 {
   font-family: 'Raleway', sans-serif;
@@ -246,6 +385,7 @@ width: 60%;
   padding-left: 5px;
   padding-right: 5px;
 }
+
 
 .reviewContainer form {
   display: flex;
@@ -266,10 +406,12 @@ width: 60%;
   padding: 10px;
 }
 
+
 .icon {
   width: 32px;
   height: 32px;
 }
+
 
 .action-btn {
   background-color: white;
@@ -297,6 +439,7 @@ width: 60%;
   display: none;
 }
 
+
 #volume-slider {
   -webkit-appearance: none;
   appearance: none;
@@ -322,17 +465,18 @@ width: 60%;
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: #85cdff;
+  background-color: #555555;
   cursor: pointer;
 }
 
 
 ::-webkit-scrollbar {
-  width: 10px;
-  background-color: white;
+  width: 8px;
+  background-color: #ddd;
+  border-radius: 15px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #004AAD;
+  background-color: #555555;
   border-radius: 15px;
 }

@@ -6,6 +6,7 @@ const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
 const stopBtn = document.getElementById('stop');
 const title = document.getElementById('title');
+const initialTitle = title.innerText;
 const progressContainer = document.getElementById('progress-container');
 
 
@@ -20,21 +21,27 @@ playBtn.addEventListener('click', () => {
 });
 
 
-// Initialize audio context
+// Create a MediaElementAudioSourceNode and connect it to the audio element
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+const audioSource = audioContext.createMediaElementSource(audio);
 
 
-// Stop button event listener
-stopBtn.addEventListener('click', () => {
+function stopAudio() {
   audio.pause();
   audio.currentTime = 0;
   musicContainer.classList.remove('play');
   playBtn.querySelector('i.fas').classList.add('fa-play');
   playBtn.querySelector('i.fas').classList.remove('fa-pause');
+}
+
+stopBtn.addEventListener('click', stopAudio);
+
+audio.addEventListener('ended', function() {
+  stopAudio();
 });
 
 
-// Play song
+
 function playSong() {
   if (audioContext.state === 'suspended') {
     audioContext.resume();
@@ -47,8 +54,6 @@ function playSong() {
 }
 
 
-
-// Pause song
 function pauseSong() {
   musicContainer.classList.remove('play');
   playBtn.querySelector('i.fas').classList.add('fa-play');
@@ -58,13 +63,12 @@ function pauseSong() {
 }
 
 
-// Skip Backward
 function skipBackward() {
   const now = audio.currentTime;
   audio.currentTime = now - 10;
 }
 
-// Skip Forward
+
 function skipForward() {
     const now = audio.currentTime;
     audio.currentTime = now + 10;
@@ -113,18 +117,15 @@ function seektimeupdate(){
 
 
 
-// Skip button event listeners
+// Event Listeners
 prevBtn.addEventListener('click', skipBackward);
 nextBtn.addEventListener('click', skipForward);
-
-// Time/song update
 audio.addEventListener('timeupdate', updateProgress);
-
-// Click on progress bar
 progressContainer.addEventListener('click', setProgress);
-
-// Time of song
 audio.addEventListener('timeupdate', seektimeupdate);
+audio.addEventListener('ended', () => {
+  musicContainer.classList.remove('play');
+});
 
 
 
@@ -139,12 +140,18 @@ lines.map((line) => {
     syncData.push({'start': time.trim(), 'text': text.trim()})
 })
 
-audio.addEventListener('timeupdate', () => {
-    syncData.forEach((item) => {
-        if (audio.currentTime >= item.start) title.innerText = item.text
-    })
-})
 
+audio.addEventListener('timeupdate', () => {
+  if (audio.paused || audio.ended) {
+    title.innerText = initialTitle;
+  } else {
+    syncData.forEach((item) => {
+      if (audio.currentTime >= item.start) {
+        title.innerText = item.text;
+      }
+    });
+  }
+});
 
 
 
@@ -158,9 +165,6 @@ const ctx = canvas.getContext("2d");
 
 // Create an AnalyserNode
 let analyser;
-
-// Create a MediaElementAudioSourceNode and connect it to the audio element
-const audioSource = audioContext.createMediaElementSource(audio);
 
 // Call kickOff function when the audio starts playing
 audio.addEventListener("play", kickOff);
@@ -177,52 +181,53 @@ function kickOff() {
   audioSource.connect(audioContext.destination);
   
   // Set the size of the Fast Fourier Transform used for frequency analysis
-  analyser.fftSize = 512;
+  analyser.fftSize = 64;
   
   // Get the frequency data from the AnalyserNode
   const bufferLength = analyser.frequencyBinCount;
   const dataArray = new Uint8Array(bufferLength);
 
-  // Define the width of each bar in the visualizer
-  const barWidth = canvas.width;
-  let barHeight;
+  const barWidth = (canvas.width/2) / bufferLength;
+  let barHeight
   let x;
 
-  // Define the function to animate the visualizer
   function animate() {
-    x = 0;
+    x = 0
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     analyser.getByteFrequencyData(dataArray);
     drawVisualiser(bufferLength, x, barWidth, barHeight, dataArray);
 
     requestAnimationFrame(animate);
   }
-  
-  // Call animate function to start the animation loop
   animate();
 }
 
 
-
-// circular analyser
-function drawVisualiser(bufferLength, x, barWidth, barHeight, dataArray){
-  // Iterate over each item in the dataArray
+// Define drawVisualiser function
+function drawVisualiser(bufferLength, x, barWidth, barHeight, dataArray) {
   for (let i = 0; i < bufferLength; i++) {
-    barHeight = dataArray[i]; // Get the value of the current item in the dataArray
-    ctx.save(); // Save the current state of the canvas
-    ctx.translate(canvas.width/2, canvas.height); // Move the origin to the center of the canvas
-    ctx.rotate(i * Math.PI * 10 / bufferLength); // Rotate the canvas by a certain amount based on the index of the current item
-    const red = (i * barHeight)/30; // Calculate the red component of the fill color
-    const green = i * 1.5; // Calculate the green component of the fill color
-    const blue = barHeight * 1.5; // Calculate the blue component of the fill color
-    ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`; // Set the fill color
-    ctx.fillRect(0, 0, barWidth, barHeight); // Draw a rectangle at the current position with the calculated color and dimensions
-    x += barWidth; // Update the x position for the next item
-    ctx.restore(); // Restore the canvas to its previous state
+    barHeight = dataArray[i] * 2;
+    const red = (i * barHeight)/20;
+    const green = i * 4;
+    const blue = barHeight / 2;
+    ctx.fillStyle = `white`;
+    ctx.fillRect(canvas.width/2 - x, canvas.height - barHeight - 30, barWidth, 15);
+    ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`;
+    ctx.fillRect(canvas.width/2 - x, canvas.height - barHeight, barWidth, barHeight);
+    x += barWidth;
+  }
+  for (let i = 0; i < bufferLength; i++) {
+    barHeight = dataArray[i] * 2;
+    const red = (i * barHeight)/30;
+    const green = 200;
+    const blue = barHeight;
+    ctx.fillStyle = `white`;
+    ctx.fillRect(x, canvas.height - barHeight - 30, barWidth, 15);
+    ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`;
+    ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
+    x += barWidth;
   }
 }
-
-
 
 
 // Create a GainNode to control the volume
@@ -233,12 +238,10 @@ gainNode.gain.value = -0.1;
 audioSource.connect(gainNode);
 gainNode.connect(audioContext.destination);
 
-
 const volumeSlider = document.getElementById("volume-slider");
+
 volumeSlider.addEventListener("input", () => {
-  // set gain value to slider value
   gainNode.gain.value = volumeSlider.value;
-  // console.log("volumeSlider value: " + volumeSlider.value)
 });
 
 
@@ -272,16 +275,82 @@ return false;
   })
   .then(response => {
     if (response.ok) {
-      // Form submission was successful
-      console.log('Form submission successful!');
       reviewFeedback.innerHTML = 'Thanks for your review!';
     } else {
-      // Form submission failed
-      console.log('Form submission failed.');
+      reviewFeedback.innerHTML = 'Form submission failed.';
     }
   })
   .catch(error => {
-    // An error occurred while submitting the form
     console.log('An error occurred while submitting the form:', error);
+    reviewFeedback.innerHTML = 'An error occurred while submitting the form.';
   });
 });
+
+
+// Get the sliders
+const lowsSlider = document.getElementById('lows-slider');
+const midsSlider = document.getElementById('mids-slider');
+const highsSlider = document.getElementById('highs-slider');
+
+// Create low, mid, and high filter nodes
+const lowFilter = audioContext.createBiquadFilter();
+const midFilter = audioContext.createBiquadFilter();
+const highFilter = audioContext.createBiquadFilter();
+
+// Connect the source to the filters and then to the AudioContext destination
+audioSource.connect(lowFilter);
+lowFilter.connect(midFilter);
+midFilter.connect(highFilter);
+highFilter.connect(audioContext.destination);
+
+// Set initial filter values
+lowFilter.type = 'lowshelf';
+lowFilter.frequency.setValueAtTime(200, audioContext.currentTime);
+lowFilter.gain.setValueAtTime(-10, audioContext.currentTime);
+
+midFilter.type = 'peaking';
+midFilter.frequency.setValueAtTime(1000, audioContext.currentTime);
+midFilter.Q.setValueAtTime(3, audioContext.currentTime);
+midFilter.gain.setValueAtTime(0, audioContext.currentTime);
+
+highFilter.type = 'highshelf';
+highFilter.frequency.setValueAtTime(5000, audioContext.currentTime);
+highFilter.gain.setValueAtTime(0, audioContext.currentTime);
+
+// Lows slider event listener
+lowsSlider.addEventListener('input', () => {
+  const lowValue = lowsSlider.value;
+  const gainValue = convertSliderValueToGain(lowValue);
+  lowFilter.gain.setValueAtTime(gainValue, audioContext.currentTime);
+  // console.log('Lows:', lowValue);
+});
+
+// Mids slider event listener
+midsSlider.addEventListener('input', () => {
+  const midValue = midsSlider.value;
+  const gainValue = convertSliderValueToGain(midValue);
+  midFilter.gain.setValueAtTime(gainValue, audioContext.currentTime);
+  // console.log('Mids:', midValue);
+});
+
+// Highs slider event listener
+highsSlider.addEventListener('input', () => {
+  const highValue = highsSlider.value;
+  const gainValue = convertSliderValueToGain(highValue);
+  highFilter.gain.setValueAtTime(gainValue, audioContext.currentTime);
+  // console.log('Highs:', highValue);
+});
+
+// Function to convert slider value to gain value
+function convertSliderValueToGain(value) {
+  // Map the slider range (0-100) to a gain range (-10 dB to +10 dB)
+  const minSliderValue = 0;
+  const maxSliderValue = 100;
+  const minGainValue = -10;
+  const maxGainValue = 10;
+  const sliderRange = maxSliderValue - minSliderValue;
+  const gainRange = maxGainValue - minGainValue;
+  const normalizedValue = (value - minSliderValue) / sliderRange;
+  const gainValue = (normalizedValue * gainRange) + minGainValue;
+  return gainValue;
+}

@@ -2,14 +2,14 @@
 <?php include 'header.html';?>
 
 <div class="tape">
-    <div class="track-info" id="title">A: Noodles - Breakbeat mix (1:22:27)</div>
+    <div class="top_label"><b>Side A:</b> Bludclot Jungle Techno</div>
 
     <div class="tapeReelBox">
 
         <div class="tape_reel-container" id="music-container">
 
             <div class="img-container">
-                <img src="images/tape_cog.png" alt="Spinning tape cog" id="cover" />
+                <img src="../images/tape_cog.png" alt="Spinning tape cog" id="cover" />
             </div>
 
             <div class="progress-container" id="progress-container">
@@ -24,8 +24,10 @@
             </div>
 
 
+
             <div class="img-container">
-                <img src="images/tape_cog.png" alt="Spinning tape cog" id="cover" />
+                <!-- link to your tape cog image -->
+                <img src="./images/tape_cog.png" alt="Spinning tape cog" id="cover" />
             </div>
         </div>
 
@@ -53,7 +55,7 @@
                 <input type="range" min="-1" max="1" step="0.1" value="-0.1" id="volume-slider">
 
                 <!-- link to your audio source file -->
-                <a href="audio/xxx.mp3" download><button class="action-btn action-btn-big">
+                <a href="./audio/xxx.mp3" download><button class="action-btn action-btn-big">
                         <i class="fas fa-download"></i>
                     </button></a>
             </div>
@@ -67,7 +69,7 @@
 <div class="audioPlayer">
     <audio id="audio" preload="none">
         <!-- link to your audio source file -->
-        <source src="audio/xxx.mp3" type="audio/mpeg">
+        <source src="../audio/xxx.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
     </audio>
 </div>
@@ -80,63 +82,78 @@
 </div>
 
 
-<div class=colorStrip>
-    <div class="visuals_box">
-        <div id="canvas-container">
-            <canvas id="canvas1"></canvas>
+<div class=stack2>
+    <div class="eq_viz">
+
+        <canvas id="canvas1"></canvas>
+    </div>
+    <div class="eqSliders">
+        <div>
+            <label for="lows">Lows</label>
+            <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
         </div>
-
-
-        <div class="tracklist">
-            <h1>Tracklist (click to jump to a song):</h1>
-            <!-- follow the below format for the tracklistings that will appear on the page -->
-            <div class="track" onclick="updatePosition(this)" data-time="0"><b>Beastie Boys</b> - Make Some Noise (Mr
-                Ours & WBBL Remix)</div>
-            <div class="track" onclick="updatePosition(this)" data-time="125"><b>Dubra & Arteo</b> - Bounce With Me
-            </div>
-
+        <div>
+            <label for="mids">Mids</label>
+            <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
+        </div>
+        <div>
+            <label for="highs">Highs</label>
+            <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
         </div>
     </div>
 
+</div>
 
-    <div class="reviewsStrip">
 
-
-        <div class="reviewContainer">
-            <h1>Leave a comment without stopping playback. (Reload the page to view.)</h1>
-            <form id="form" method="post">
-                <div style="display: inline-flex;">
-                    <fieldset class="rating">
-                        <input type="radio" id="star1" name="stars" value="5" /><label for="star1"
-                            title="5 stars">star</label>
-                        <input type="radio" id="star2" name="stars" value="4" /><label for="star2"
-                            title="4 stars">star</label>
-                        <input type="radio" id="star3" name="stars" value="3" /><label for="star3"
-                            title="3 stars">star</label>
-                        <input type="radio" id="star4" name="stars" value="2" /><label for="star4"
-                            title="2 stars">star</label>
-                        <input type="radio" id="star5" name="stars" value="1" /><label for="star5"
-                            title="1 star">star</label>
-                    </fieldset>
-
-                </div>
-                <div>
-                    <textarea name="comments" id="comments" rows="12" cols="40" required></textarea>
-                </div>
-                <input type="submit" value="Submit">
-            </form>
-
-            <div class="reviewFeedback" id="review-feedback"></div>
+<div class=stack3>
+    <div class="playing" id="title">Tracklist (click on a song to play)</div>
+    <div class="tracklist">
+        <!-- follow the below format for the tracklistings that will appear on the page -->
+        <div class="track" onclick="updatePosition(this)" data-time="0"><b>Beastie Boys</b> - Make Some Noise (Mr
+            Ours & WBBL Remix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="125"><b>Dubra & Arteo</b> - Bounce With Me
         </div>
+    </div>
+</div>
 
 
-        <div class="reviewsBox">
+<div class="reviewsStrip">
 
-            <?php
+    <div class="reviewContainer">
+        <h1>Leave a comment without stopping playback. (Reload the page to view.)</h1>
+        <form id="form" method="post">
+            <div style="display: inline-flex;">
+                <fieldset class="rating">
+                    <input type="radio" id="star1" name="stars" value="5" /><label for="star1"
+                        title="5 stars">star</label>
+                    <input type="radio" id="star2" name="stars" value="4" /><label for="star2"
+                        title="4 stars">star</label>
+                    <input type="radio" id="star3" name="stars" value="3" /><label for="star3"
+                        title="3 stars">star</label>
+                    <input type="radio" id="star4" name="stars" value="2" /><label for="star4"
+                        title="2 stars">star</label>
+                    <input type="radio" id="star5" name="stars" value="1" /><label for="star5"
+                        title="1 star">star</label>
+                </fieldset>
+
+            </div>
+            <div>
+                <textarea name="comments" id="comments" rows="12" cols="40" required></textarea>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+
+        <div class="reviewFeedback" id="review-feedback"></div>
+    </div>
+
+
+    <div class="reviewsBox">
+
+        <?php
   $host_name = 'xxx';
   $database = 'xxx';
   $user_name = 'xxx';
-  $config = parse_ini_file('config.ini');
+  $config = parse_ini_file('../config.ini');
   $password = $config['password'];
 
   $link = new mysqli($host_name, $user_name, $password, $database);
@@ -183,18 +200,18 @@
 
     ?>
 
-        </div>
+    </div>
 
 
-        <!-- some mobile browsers disable Web Audio API. This media query can handle those exceptions -->
-        <script>
-        if (window.matchMedia("(max-width: 320px)").matches) {
-            document.write('<script src="./js/djMixPlayer_Sma.js"><\/script>');
-        }
-        </script>
+    <!-- this media query can handle exceptions thrown up by some mobile browsers -->
+    <script>
+    if (window.matchMedia("(max-width: 320px)").matches) {
+        document.write('<script src="./js/djMixPlayer_Sma.js"><\/script>');
+    }
+    </script>
 
-        <script src="./js/djMixPlayer.js"></script>
+    <script src="./js/djMixPlayer.js"></script>
 
-        </body>
+    </body>
 
-        </html>
+    </html>
