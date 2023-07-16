@@ -8,19 +8,16 @@
 
 🎓 Read the: [Blog Post](https://medium.com/@followcrom/mixtape-heavyweight-259444d11ca9) 🎓
 
-**MixTapeHeavyWeight**
-
 ![Mixtape Heavyweight website](https://www.followcrom.online/embeds/gh_readme_img.jpg "Mixtape Heavyweight website")
 
 ## Features
 
-- Dynamic track title updates synchronized with the audio playback
-- Audio visualizer with color-coded bars to represent the music
+- Dynamic track title updates synchronized with audio playback
+- Audio visualizer with color-coded bars represents the music
 - Sliders to EQ the sound
 - Post comments and star ratings using Fetch API
-- Play, pause, stop, and download DJ mixes
+- Jump to a song by clicking on the playlist
 - Skip forward and backward in the mix
-- Update song position by clicking on the progress bar
 
 ## How To Use
 
@@ -52,7 +49,7 @@
 
 🌐 followCrom: [followcrom.online](https://followcrom.online/index.html) 🌐
 
-📫 [Get in touch](https://followcrom.online/contact/contact.php) 📫
+📫 followCrom: [get in touch](https://followcrom.online/contact/contact.php) 📫
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/followcrom/MixTapeHeavyWeight)
 
