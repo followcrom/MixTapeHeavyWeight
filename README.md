@@ -6,37 +6,32 @@
 
 Try it for yourself: [Mixtape Heavyweight Online](https://www.followcrom.online/djmixes/gf/noodles.php)
 
-Read the: [Blog Post](https://medium.com/@followcrom/mixtape-heavyweight-259444d11ca9)
+Read the: [Blog Post](https://medium.com/@followcrom/mixtape-heavyweight-259444d11ca9{:target="_blank"})
 
 ![Mixtape Heavyweight website](https://www.followcrom.online/embeds/gh_readme_img.jpg "Mixtape Heavyweight website")
 
 ## Features
 
-**MixTapeHeavyWeight** includes the following features:
-
-- Stream and download DJ mixes
-- Play, pause, and stop playback
-- Skip forward and backward in the playlist
-- Update song position by clicking on the progress bar
 - Dynamic track title updates synchronized with the audio playback
 - Audio visualizer with color-coded bars to represent the music
-- Volume control slider
+- Sliders to EQ the sound
 - Post comments and star ratings using Fetch API
+- Play, pause, stop, and download DJ mixes
+- Skip forward and backward in the mix
+- Update song position by clicking on the progress bar
 
 ## How To Use
-
-To use **MixTapeHeavyWeight** into your project, follow these steps:
 
 1. Clone the repository:
    `git clone https://github.com/followcrom/MixTapeHeavyWeight.git`
 
-2. Add your DJ mix files to the cloned repository.
+2. Link to your DJ mix audio files in the sections marked on the PHP page.
 
-3. Add the associated metadata, such as tracklists and timings, in the marked sections in the PHP page.
+3. Add the associated metadata, such as tracklists and timings, in the marked section in the PHP page.
 
-4. Make the necessary modifications in the CSS file to achieve the desired visual appearance and functionality.
+4. Make the necessary modifications in the CSS file to achieve the desired visual appearance.
 
-5. Customize the design and functionality of the application to meet your requirements.
+5. Edit the .js file to customize the functionality of the application to meet your requirements.
 
 ![GitHub stars](https://img.shields.io/github/stars/followcrom/MixTapeHeavyWeight?style=social) ![GitHub forks](https://img.shields.io/github/forks/followcrom/MixTapeHeavyWeight?style=social)
 
@@ -46,18 +41,18 @@ To use **MixTapeHeavyWeight** into your project, follow these steps:
 
 **MixTapeHeavyWeight** is built using the following technologies:
 
-- HTML5 for structuring the content
-- CSS3 for styling the web page
 - JavaScript for implementing the functionality
 - Web Audio API for audio processing
 - Canvas API for rendering the audio visualizer
 - Fetch API for submitting comments and ratings without page reload
+- HTML5 for structuring the content
+- CSS3 for styling
 
 ## Authors
 
-followCrom - [followcrom.online](https://followcrom.online/index.html)
+🌐 followCrom: [followcrom.online](https://followcrom.online/index.html) 🌐
 
-[Get in touch](https://followcrom.online/contact/contact.php).
+📫 [Get in touch](https://followcrom.online/contact/contact.php) 📫
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/followcrom/MixTapeHeavyWeight)
 
