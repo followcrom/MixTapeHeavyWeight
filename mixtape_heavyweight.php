@@ -1,4 +1,4 @@
-<!-- include your HTML header here. Alternatively, remove the reviewsStrip section and use HTML -->
+<!-- Include your HTML header here. Alternatively, remove the reviewsStrip section and use HTML -->
 <?php include 'header.html';?>
 
 <div class="tape">
@@ -26,7 +26,7 @@
 
 
             <div class="img-container">
-                <!-- link to your tape cog image -->
+                <!-- Link to your tape cog image -->
                 <img src="./images/tape_cog.png" alt="Spinning tape cog" id="cover" />
             </div>
         </div>
@@ -54,7 +54,7 @@
 
                 <input type="range" min="-1" max="1" step="0.1" value="-0.1" id="volume-slider">
 
-                <!-- link to your audio source file -->
+                <!-- Link to your audio source file -->
                 <a href="./audio/xxx.mp3" download><button class="action-btn action-btn-big">
                         <i class="fas fa-download"></i>
                     </button></a>
@@ -68,7 +68,7 @@
 
 <div class="audioPlayer">
     <audio id="audio" preload="none">
-        <!-- link to your audio source file -->
+        <!-- Link to your audio source file -->
         <source src="../audio/xxx.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
     </audio>
@@ -76,7 +76,7 @@
 
 
 <div class="timings" style="display: none">
-    <!-- these serve as the time markers to change the 'div class="track-info" id="title"' div. Note they will not appear on the page. -->
+    <!-- These serve as the time markers to change the 'div class="track-info" id="title"' div. Note - they will not appear on the page. -->
     0 | Beastie Boys - Make Some Noise (Mr Ours & WBBL Remix)
     125 | Dubra & Arteo - Bounce With Me
 </div>
@@ -89,15 +89,15 @@
     </div>
     <div class="eqSliders">
         <div>
-            <label for="lows">Lows</label>
+            <label for="lows-slider">Lows</label>
             <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
         </div>
         <div>
-            <label for="mids">Mids</label>
+            <label for="mids-slider">Mids</label>
             <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
         </div>
         <div>
-            <label for="highs">Highs</label>
+            <label for="highs-slider">Highs</label>
             <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
         </div>
     </div>
@@ -108,7 +108,7 @@
 <div class=stack3>
     <div class="playing" id="title">Tracklist (click on a song to play)</div>
     <div class="tracklist">
-        <!-- follow the below format for the tracklistings that will appear on the page -->
+        <!-- Follow the below format for the tracklistings that will appear on the page -->
         <div class="track" onclick="updatePosition(this)" data-time="0"><b>Beastie Boys</b> - Make Some Noise (Mr
             Ours & WBBL Remix)</div>
         <div class="track" onclick="updatePosition(this)" data-time="125"><b>Dubra & Arteo</b> - Bounce With Me
@@ -203,14 +203,21 @@
     </div>
 
 
-    <!-- this media query can handle exceptions thrown up by some mobile browsers -->
+    <!-- This will handle exceptions thrown up by some mobile browsers -->
     <script>
-    if (window.matchMedia("(max-width: 320px)").matches) {
-        document.write('<script src="./js/djMixPlayer_Sma.js"><\/script>');
-    }
-    </script>
+    (function() {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
 
-    <script src="./js/djMixPlayer.js"></script>
+        if (window.matchMedia("(max-width: 480px)").matches) {
+            script.src = "../js/djMixPlayer_Sma.js";
+        } else {
+            script.src = "../js/djMixPlayer.js";
+        }
+
+        document.head.appendChild(script);
+    })();
+    </script>
 
     </body>
 
