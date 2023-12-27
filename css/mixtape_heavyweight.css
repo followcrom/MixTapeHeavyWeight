@@ -1,18 +1,3 @@
-@font-face {
-  font-family: 'Digital';
-  src: url('../Led Panel Station On.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Spray';
-  src: url('../kosalsayshy.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-
 body {
   padding: 0px;
   margin: 0;
@@ -24,7 +9,7 @@ body {
   padding: 0px;
   margin: 0;
   text-align: center;
-  font-family: 'Spray', Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: normal;
   font-size: 6rem;
   background: linear-gradient(260deg, gold, beige, #85cdff, pink, green);
@@ -172,7 +157,7 @@ a:link, a:visited, a:hover a:visited {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: Verdana, Tahoma, sans-serif;
   font-weight: bold;
   font-size: 14px;
   background-color: white;
@@ -186,7 +171,7 @@ a:link, a:visited, a:hover a:visited {
   border-top: red solid 10px;
   border-bottom: red solid 10px;
   text-align: center;
-  font-family: 'Shadows Into Light', cursive;
+  font-family: Verdana, Tahoma, sans-serif;
   font-weight: bold;
   background-color: antiquewhite;
   border-radius: 15px;
@@ -226,7 +211,7 @@ a:link, a:visited, a:hover a:visited {
 .eqSliders {
   width: 20%;
   color: white;
-  font-family: "Open Sans", sans-serif;
+  font-family: Verdana, Tahoma, sans-serif;
   text-align: center;
   display: flex; /* Display the sliders inline */
   align-items: center; /* Center sliders vertically */
@@ -245,9 +230,9 @@ a:link, a:visited, a:hover a:visited {
 
 .eqSliders input[type='range'] {
   writing-mode: bt-lr; /* IE/Edge */
-  -webkit-appearance: slider-vertical; /* WebKit */
-  -moz-appearance: slider-vertical; /* Firefox */
-  appearance: slider-vertical; /* Standard */
+  -webkit-writing-mode: vertical-lr; /* Chrome, Safari, New Edge */
+  -moz-writing-mode: vertical-lr; /* Firefox */
+  writing-mode: vertical-lr; /* Standard syntax */
   width: 10px;
   height: 140px;
   margin: 10px;
@@ -318,7 +303,7 @@ a:link, a:visited, a:hover a:visited {
 .playing {
   margin: auto;
   text-align: center;
-  font-family: 'Digital', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: greenyellow;
   background-color: #000;
@@ -333,7 +318,7 @@ a:link, a:visited, a:hover a:visited {
 .tracklist {
   background-color: black;
   margin: auto;
-  font-family: 'Digital', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: white;
   font-size: 1.4em;
   line-height: 2em;
@@ -377,7 +362,7 @@ a:link, a:visited, a:hover a:visited {
   
 
 .reviewContainer h1 {
-  font-family: 'Raleway', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: gold;
   font-size: 1.2em;
   line-height: 2em;
