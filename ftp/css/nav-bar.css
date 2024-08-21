@@ -1,0 +1,128 @@
+.icon_row {
+  text-align: center;
+  padding: 0.5vw 0px 0vw 0px;
+  margin-top: 0;
+  width : 100%;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 5% 5% 5% 5% 5%;
+  justify-content: center;
+  gap: 2em;
+  padding: 0px;
+}
+
+
+/* .grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  padding: 0px;
+} */
+
+
+.grid-item {
+  text-align: center;
+}
+
+
+.icon {
+  width: 48px;
+  height: 48px;
+}
+
+
+.rollover_row {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  /* font-size: clamp(2vw, 3vw, 4vw); */
+  font-size: 4vw;
+  margin-bottom: 2vh;
+  font-family: 'Exo 2', sans-serif;
+  margin: 0 auto; /* add this line to center the element horizontally */
+  border-bottom: 5px solid #000;
+}
+
+
+
+
+/* .rollover_row {
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 3vw;
+  margin-bottom: 2vh;
+  font-family: 'Raleway', sans-serif;
+} */
+
+
+.left-div {
+  width: 50%;
+  margin-left: 5vw;
+  text-align: right;
+  color: #0f4c81;
+}
+
+.nav_hover {
+  width: 50%;
+  text-align: left;
+  color: #85cdff;
+}
+
+
+
+
+
+a:link, a:visited, a:hover {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+
+@media only screen and (max-width: 1023px) {
+  .grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5vw;
+    padding: 10px;
+  }
+
+  .rollover_row {
+    height: 0;
+    overflow: hidden;
+    border-bottom: 2px solid #000;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+
+/* For high-resolution screens (e.g., Retina displays) */
+@media only screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
+      only screen and (min-device-width: 768px) and (min-resolution: 192dpi) {
+  .grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5vw;
+    padding: 10px;
+  }
+  
+  .rollover_row {
+    height: 0;
+    overflow: hidden;
+    border-bottom: 2px solid #000;
+  }
+}

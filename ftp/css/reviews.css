@@ -1,0 +1,142 @@
+@font-face {
+  font-family: "ColfaxAI";
+  src: url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff2)
+      format("woff2"),
+    url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+fieldset {
+  border: 0;
+  /* text-align: center; */
+}
+
+
+.rating {
+  float:left;
+}
+
+.rating:not(:checked) > input {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.rating:not(:checked) > label {
+  float:right;
+  width:1em;
+  padding:0 .1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:150%;
+  line-height:1;
+  color:#ddd;
+  text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+  content: '★ ';
+}
+
+.rating > input:checked ~ label {
+  color: gold;
+  text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: gold;
+  text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+  color: #ea0;
+  text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+  position:relative;
+  top:2px;
+  left:2px;
+}
+
+
+textarea {
+width: 85%;
+padding: 12px;
+margin: 5px 0;
+display: inline-block;
+border: 1px solid #7d9a90;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+
+
+input[type=submit] {
+  width: 50%;
+  padding: 12px;
+  margin: 8px 0 8px 0;
+  border: none;
+  background-color: gold;
+  color: #000;
+  font-size: 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+  
+  
+input[type=submit]:hover {
+  background-color: #004AAD;
+  color: #FFF;
+}
+
+
+.review-container {
+  display: flex;
+  justify-content: center;
+  font-family: ColfaxAI;
+  color: #85cdff;
+} 
+
+
+.reviewFeedback {
+  justify-content: center;
+  font-family: ColfaxAI;
+  color: gold;
+  padding: 5px;
+} 
+
+
+.stars_div {
+  flex: 1;
+  font-size: 2em;
+  color: gold;
+  text-align: right;
+  border-bottom: gold 2px solid;
+}
+
+.comments_div {
+  flex: 2;
+  padding: 5px;
+  font-size: 1.2em;
+  font-style: italic;
+  text-align: center;
+  border-bottom: gold 2px solid;
+} 
+
+.date_div {
+  flex: 1;
+  padding: 5px;
+  font-size: 1em;
+  border-bottom: gold 2px solid;
+}

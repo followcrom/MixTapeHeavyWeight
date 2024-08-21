@@ -1,0 +1,466 @@
+@font-face {
+  font-family: 'Digital';
+  src: url('../fonts/Led-Panel-Station-On.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+body {
+  padding: 0px;
+  margin: 0;
+  background-color: #FFF;
+}
+
+
+.content {
+  padding: 10px;
+  margin: 0;
+  background-color: #CCC;
+}
+
+a:link, a:visited, a:hover a:visited {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.tape {
+  width: 55%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5vh;
+  margin-bottom: 1.5vh;
+  padding: 20px;
+  border: 6px solid black;
+  border-radius: 20px;
+  background-image: linear-gradient(45deg, #CCCCCC 25%, #555555 25%);
+  background-size: 10px 10px;
+}
+
+
+.top_label {
+  border-top: red solid 10px;
+  border-bottom: red solid 10px;
+  text-align: center;
+  font-family: 'Shadows Into Light', cursive;
+  font-weight: bold;
+  background-color: antiquewhite;
+  border-radius: 15px;
+  color: #555555;
+  width: 85%;
+  margin: 0px auto 20px auto;
+  font-size: 2.5em;
+  padding: 10px;
+}
+
+
+.transportContainer {
+  display: flex;
+}
+
+
+.transportControls {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.navigation {
+  background-color: #FFF;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+
+.tapeReelBox {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+  padding: 20px;
+  background-color: #aebcd7;
+  border-radius: 90px;
+}
+
+
+.tape_reel-container {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  gap: 1rem;
+}
+
+
+.img-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 8px;
+  background-color: #626262;
+  border-radius: 180px;
+}
+
+.img-container img {
+  height: 100px;
+  animation: rotate 1.5s linear infinite;
+  animation-play-state: paused;
+}
+
+.tape_reel-container.play .img-container img {
+  animation-play-state: running;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.progress-background {
+  background-color: #ddd;
+  cursor: pointer;
+  width: 80%;
+  height: 50px;
+}
+
+.progress {
+  background-color: blue;
+  height: 100%;
+  width: 0%;
+  transition: width 0.1s linear;
+
+}
+
+
+.currTime {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: white;
+  color: black;
+  width: 20%;
+  height: 50px;
+}
+
+
+.action-btn {
+  background-color: white;
+  border: 0;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px;
+  margin: 10px 10px;
+}
+
+.action-btn:hover {
+  color: red;
+}
+
+.action-btn.action-btn-big {
+  font-size: 30px;
+}
+
+.action-btn.action-btn-big:hover {
+  color: red;
+}
+
+
+.audioPlayer {
+  display: none;
+}
+
+
+#volume-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20%;
+  height: 16px;
+  border-radius: 4px;
+  background-color: #ddd;
+  outline: none;
+  margin: 0px 80px 0px 60px;
+}
+
+#volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #555555;
+  cursor: pointer;
+}
+
+#volume-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #555555;
+  cursor: pointer;
+}
+
+
+
+
+
+.stack2 {
+  width: 60%;
+  margin: auto;
+  border: 6px solid black;
+  border-radius: 20px;
+  background-image: linear-gradient(135deg, #CCCCCC 20%, #999999 20%, #555555 40%);
+  background-size: 15px 15px;
+  margin-bottom: 1.5vh;
+  display: flex;
+  height: 200px;
+  align-items: center; /* Vertically center content */
+  padding: 10px;
+}
+
+
+.eq_viz {
+  width: 80%;
+  background-color: black;
+  border-radius: 15px;
+  height: 180px;
+  float: left;
+  padding: 10px;
+}
+
+
+.eqSliders {
+  width: 20%;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.eqSliders div {
+  background-color: #555555;
+  border-radius: 10px;
+  opacity: 0.85;
+  flex: 1; /* Distribute available space evenly */
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+
+.eqSliders input[type='range'] {
+  writing-mode: bt-lr; /* IE/Edge */
+    /* Deprecated feature */
+  -webkit-appearance: slider-vertical; /* WebKit */
+  -moz-appearance: slider-vertical; /* Firefox */
+  appearance: slider-vertical; /* Standard */
+  width: 10px;
+  height: 140px;
+  margin: 10px;
+  cursor: pointer;
+  color: white;
+}
+
+
+/* Chrome, Safari, new versions of Opera and Edge */
+.eqSliders input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 20px;
+  margin: 10px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Old versions of Firefox */
+.eqSliders input::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 20px;
+  margin: 10px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Old versions of Edge */
+.eqSliders input::-ms-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 20px;
+  margin: 10px;
+  cursor: pointer;
+  color: white;
+}
+
+
+.eqSliders input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 20px;
+  margin: 10px;
+  cursor: pointer;
+  color: white;
+}
+
+
+#canvas1 {
+  width: 100%;
+  height: 100%;
+  /* filter: blur(2px) contrast(5); */
+}
+
+
+.stack3 {
+  width: 60%;
+  margin: auto;
+  border: 6px solid black;
+  background-image: linear-gradient(225deg, #CCCCCC 20%, #999999 20%, #555555 40%);
+  background-size: 20px 20px;
+  border-radius: 20px;
+  margin-bottom: 1.5vh;
+  align-items: center;
+  padding: 10px;
+}
+
+
+.playing {
+  margin: auto;
+  text-align: center;
+  font-family: 'Digital', sans-serif;
+  font-weight: bold;
+  color: greenyellow;
+  background-color: #000;
+  font-size: 2em;
+  line-height: 1.2em;
+  padding-top: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+
+.tracklist {
+  background-color: black;
+  margin: auto;
+  font-family: 'Digital', sans-serif;
+  color: white;
+  font-size: 1.5em;
+  line-height: 2em;
+  text-align: center;
+  cursor: pointer;
+  overflow-y: scroll;
+  max-height: 500px;
+  padding: 10px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.track:hover {
+  background-color: white;
+  border-radius: 10px;
+  width: 85%;
+  margin: auto;
+  color: #004AAD;
+}
+
+
+/* .tracklist h1 {
+  color: #85cdff;
+  font-size: 1.2em;
+  text-align: center;
+  line-height: 1em;
+} */
+  
+
+.reviewsStrip {
+  display: flex;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5vh;
+  border-radius: 15px;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(255,255,255,1));
+  /* background-image: 
+    linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0.8)), 
+    url('../images/sleeves.png');
+  background-position: center center;
+  background-size: cover; */
+}
+
+
+
+.reviewContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* move to top of container */
+  order: 2;
+  width: 30%;
+}
+  
+
+.reviewContainer h1 {
+  font-family: 'Raleway', sans-serif;
+  color: gold;
+  font-size: 1.2em;
+  line-height: 2em;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+
+.reviewContainer form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.reviewsBox {
+  order: 1;
+  width: 70%;
+  color: #85cdff;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: #ddd;
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #555555;
+  border-radius: 15px;
+}
