@@ -155,7 +155,7 @@ body {
 /* For screens larger than or equal to 2500px */
 @media only screen and (min-width: 2500px) {
   .content {
-    background-size: 38vw auto;
+    background-size: 40vw auto;
     background-position: right center;
   }
 

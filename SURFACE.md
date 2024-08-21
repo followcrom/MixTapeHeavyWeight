@@ -1,5 +1,11 @@
 # 🖭 MixTape HeavyWeight 🤼 on the Digital Ocean `domdom` box 🌊🪸🐚🐬
 
+ssh into the Digital Ocean box:
+
+```bash
+ssh -i ~/.ssh/digiocean root@188.166.155.230
+```
+
 ## 🖨️ Copy the `mthw` files to the server:
 
 ```bash
@@ -457,6 +463,7 @@ server {
 }
 ```
 
+
 ## 👀 To Do
 
 - Need a custom error page for 404 errors.
@@ -464,3 +471,92 @@ server {
 - Upload db directory to the server.
 
 - Upload audio files to the server.
+
+<br>
+
+# Audio Files on AWS S3 🎵
+
+## Configure the S3 bucket to serve audio files publicly
+
+Step 1: Unblock Public Access
+
+- Select your S3 bucket.
+- Go to the Permissions tab.
+- Edit the "Block Public Access" settings:
+- Uncheck "Block all public access".
+- Confirm the change by clicking Save.
+
+Step 2: Add a Bucket Policy
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::followcrom-online/*"
+        }
+    ]
+}
+```
+
+Step 3: Add or Modify the CORS Configuration
+    
+```json
+[
+    {
+        "AllowedHeaders": [
+            "*"
+        ],
+        "AllowedMethods": [
+            "GET",
+            "HEAD"
+        ],
+        "AllowedOrigins": [
+            "https://mixtape.followcrom.online"
+        ],
+        "ExposeHeaders": [
+            "Content-Length",
+            "Content-Type",
+            "ETag",
+            "Content-Range"
+        ],
+        "MaxAgeSeconds": 3000
+    }
+]
+```
+
+
+## Update the HTML
+
+Ensure your audio tag looks like this:
+
+```html
+<audio id="audio" preload="none" crossorigin="anonymous">
+    <source src="https://followcrom-online.s3.eu-west-2.amazonaws.com/audio/supafly.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+</audio>
+```
+
+- The `crossorigin attribute` ensures consistent behavior across different browsers and scenarios. It explicitly tells the browser to make a CORS request, which can prevent certain types of attacks and unintended behavior.
+
+- Use the Object URL as the source for the audio file (`https://your-bucket-name.s3.amazonaws.com/path/to/your-file.mp3`). This is a publicly accessible HTTP(S) URL that you can use directly in web browsers or embed in web pages, and is ideal for streaming or linking to files from websites.
+
+- The S3 URI (e.g. `s3://your-bucket-name/path/to/your-file.mp3`) is mainly used within AWS services, SDKs, and CLI for referencing objects in S3 and is not directly usable in a web browser or for embedding in web pages.
+
+## Debugging
+
+**Use curl** to test your S3 endpoint directly. This can help determine if it's a server-side or client-side issue:
+
+```bash
+curl -I -H "Origin: https://mixtape.followcrom.online" https://followcrom-online.s3.eu-west-2.amazonaws.com/audio/supafly.mp3
+```
+
+This should return headers including Access-Control-Allow-Origin if CORS is correctly configured.
+
+**Network Tab:** In the browser's developer tools, go to the Network tab, filter for your MP3 file, and examine the request and response headers in detail. Look for any discrepancies with the curl results.
+
+**Browser Cache:** Perform a hard refresh (Ctrl+F5 on Windows) to ensure you're not seeing cached results.
