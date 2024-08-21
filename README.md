@@ -1,14 +1,14 @@
-# 🖭 MixTapeHeavyWeight 🥊
+# 🖭 MixTape HeavyWeight 🥊
 
-**MixTapeHeavyWeight** is a feature-rich web app built for streaming and downloading DJ mixes. The intuitive user interface incorporates skeuomorphic design elements reminiscent of a hi-fi stacking system and classic old-school mixtapes. An array of features include an audio visualizer, a skippable playlist (allowing you to click through multiple tracks despite only loading a single audio file), and a comments section (which doesn't interrupt playback). As the mix plays, the tracklisting updates automatically, so the listener knows at a glance which song the DJ is spinning!
+**MixTape HeavyWeight** is a feature-rich web app built for streaming and downloading DJ mixes. The intuitive user interface incorporates skeuomorphic design elements reminiscent of a hi-fi stacking system and classic old-school mixtapes. An array of features include an audio visualizer, a skippable playlist (allowing you to click through multiple tracks despite only loading a single audio file), and a comments section (which doesn't interrupt playback). As the mix plays, the tracklisting updates automatically, so the listener knows at a glance which song the DJ is spinning!
 
 ## Getting Started
 
-🏋 Try it for yourself: [Mixtape Heavyweight](https://www.followcrom.online/djmixes/gf/noodles.php) 𝄞⨾𓍢ִ໋
+🏋 Try it for yourself: [MixTape HeavyWeight](https://www.followcrom.online/djmixes/gf/noodles.php) 𝄞⨾𓍢ִ໋
 
-🏋🏼 Read the [Blog Post](https://medium.com/@followcrom/mixtape-heavyweight-259444d11ca9) 🤼🏼
+💪🏾 Read the [Blog Post](https://medium.com/@followcrom/mixtape-heavyweight-259444d11ca9) 🤼
 
-![Mixtape Heavyweight website](https://www.followcrom.online/embeds/gh_readme_img.jpg "Mixtape Heavyweight website")
+![MixTape HeavyWeight website](https://www.followcrom.online/embeds/gh_readme_img.jpg "MixTape HeavyWeight website")
 
 ## Features
 
