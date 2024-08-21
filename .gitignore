@@ -1,5 +1,5 @@
-docs/
-
+# Ignore database configuration file
 ftp/config.php
 
+# Ignore the audio files
 ftp/audio/
