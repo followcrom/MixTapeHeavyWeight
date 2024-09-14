@@ -1,4 +1,4 @@
-# 🖭 MixTape HeavyWeight 🤼 on the Digital Ocean `domdom` box 🌊🪸🐚🐬
+# 🖭 MixTape HeavyWeight 🤼 on Digital Ocean 🌊🪸🐚🐬
 
 ssh into the Digital Ocean box:
 
