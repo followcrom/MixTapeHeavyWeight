@@ -16,38 +16,67 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 # Install required packages (Nginx, MySQL, PHP)
 sudo apt install -y mysql-server nginx php-fpm php-mysql git curl
 
+echo "Package installation complete."
+
 # Restart and enable Nginx to run on startup
 sudo systemctl restart nginx
 sudo systemctl enable nginx
 
-# Variables
-APP_DIR="/var/www/mthw"
 
-# Set ownership of app directory
-sudo mkdir -p "$APP_DIR"
-sudo chown www-data:www-data "$APP_DIR"
-sudo chmod 755 "$APP_DIR"
+# Git just the ftp dir
 
-# Initialize the Git repository
-git init "$APP_DIR"
+# Download and unzip the specific folder
+curl -L https://github.com/followcrom/MixTapeHeavyWeight/archive/refs/heads/main.zip -o mixtape.zip
+unzip mixtape.zip
+mv MixTapeHeavyWeight-main/ftp "$APP_DIR"
+rm -rf MixTapeHeavyWeight-main mixtape.zip
+
+# or
+# Clone the entire repository
+git clone https://github.com/followcrom/MixTapeHeavyWeight.git "$APP_DIR"
+
+# Move into the application directory
 cd "$APP_DIR"
 
-# Set the remote URL
-git remote add origin https://github.com/followcrom/MixTapeHeavyWeight.git
+# If only the 'ftp' directory is needed, clean up everything else
+find . -maxdepth 1 ! -name 'ftp' ! -name '.' | xargs rm -rf
 
-# Enable sparse checkout
-git config core.sparseCheckout true
-
-# Specify the 'ftp' directory in the sparse-checkout configuration
-echo "ftp/" >> .git/info/sparse-checkout
-
-# Pull the specified directory
-git pull origin main
 
 # Dynamically find the PHP version
 PHP_VERSION=$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;")
 
-# Create Nginx configuration for the app
+# Having seperate server blocks with the same server_name is an issue. They can be combined, i.e.:
+server {
+    listen 80;
+    server_name 139.59.161.31;
+
+    location /momcon/ {
+        proxy_pass http://localhost:5000/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location / {
+        root /var/www/mthw;
+        index index.php index.html;
+
+        try_files $uri $uri/ /index.html?$query_string;
+        error_page 404 /404.html;
+
+        location ~ \.php$ {
+            include snippets/fastcgi-php.conf;
+            fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            include fastcgi_params;
+        }
+    }
+}
+
+# Or get different domain names
+
+# Here is the Nginx configuration for PHP_VERSION. Note the escape chars needed for the sh script.
 sudo bash -c "cat > /etc/nginx/sites-available/mthw" <<EOF
 server {
     listen 80;
@@ -129,7 +158,7 @@ return [
 EOF'
 
 # Set proper permissions for the config.php file
-sudo chmod 644 /var/www/mthw/config.php
+sudo chmod 600 /var/www/mthw/config.php
 sudo chown www-data:www-data /var/www/mthw/config.php
 
 # Restart PHP and Nginx services to apply changes
