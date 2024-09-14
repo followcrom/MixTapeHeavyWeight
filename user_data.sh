@@ -135,10 +135,14 @@ sudo mysql -e "CREATE USER 'heavyweight'@'localhost' IDENTIFIED BY 'digiocean_db
 sudo mysql -e "GRANT ALL PRIVILEGES ON mixtape_reviews.* TO 'heavyweight'@'localhost';"
 sudo mysql -e "FLUSH PRIVILEGES;"
 
+
+
 # Create the reviews table
+# add a col for which mixtape was reviewed
 sudo mysql -u heavyweight -pdigiocean_db -D mixtape_reviews -e "
 CREATE TABLE reviews (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    mixtape VARCHAR(100) NOT NULL,
     stars INT NOT NULL,
     comments TEXT NOT NULL,
     date DATETIME DEFAULT CURRENT_TIMESTAMP

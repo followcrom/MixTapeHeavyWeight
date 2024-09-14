@@ -53,7 +53,7 @@
                 <input type="range" min="-1" max="1" step="0.1" value="-0.1" id="volume-slider">
 
 
-                <a href="../audio/rufus_sound.mp3" download><button class="action-btn action-btn-big">
+                <a href="https://mthw.s3.eu-west-2.amazonaws.com/gf/rufus_sound.mp3" download><button class="action-btn action-btn-big">
                         <i class="fas fa-download"></i>
                     </button></a>
             </div>
@@ -65,9 +65,8 @@
 
 
 <div class="audioPlayer">
-    <audio id="audio" preload="none">
-        <!-- <source src="../audio/supafly.ogg" type="../audio/ogg"> -->
-        <source src="../audio/rufus_sound.mp3" type="audio/mpeg">
+<audio id="audio" preload="none" crossorigin="anonymous">
+        <source src="https://mthw.s3.eu-west-2.amazonaws.com/gf/rufus_sound.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
     </audio>
 </div>

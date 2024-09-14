@@ -1,7 +1,7 @@
 <?php include '../header.html';?>
 
 <div class="tape">
-    <div class="top_label">A: Ghetto Housing Project (1:18:30)</div>
+    <div class="top_label">Side 2: Groño Don (1:14:11)</div>
 
     <div class="tapeReelBox">
 
@@ -53,7 +53,7 @@
                 <input type="range" min="-1" max="1" step="0.1" value="-0.1" id="volume-slider">
 
 
-                <a href="https://mthw.s3.eu-west-2.amazonaws.com/gf/housing.mp3" download><button class="action-btn action-btn-big">
+                <a href="https://mthw.s3.eu-west-2.amazonaws.com/db/bcjt.mp3" download><button class="action-btn action-btn-big">
                         <i class="fas fa-download"></i>
                     </button></a>
             </div>
@@ -66,7 +66,7 @@
 
 <div class="audioPlayer">
 <audio id="audio" preload="none" crossorigin="anonymous">
-        <source src="https://mthw.s3.eu-west-2.amazonaws.com/gf/housing.mp3" type="audio/mpeg">
+        <source src="https://mthw.s3.eu-west-2.amazonaws.com/db/bcjt.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
     </audio>
 </div>
@@ -77,29 +77,38 @@
 
 
 <div class="timings" style="display: none">
-    0 | WBBL - Real Thing
-    193 | Prince - Funk 'n' Roll (Sammy Senior Edit)
-    278 | Phibes - Good People
-    499 | Lack Jemmon - Don't Get Stupid
-    715 | B-Side & Sammy Senior - Kill Em Wit It
-    830 | Dubra & Arteo - Get On Up
-    996 | The Chicken Brothers - Funky Chicken
-    1234 | The Doors - Soul Kitchen (DJ Inko Booty)
-    1386 | Alex Adair - Heaven
-    1588 | Bobby C Sound TV - Beatcatcher
-    1754 | Kidda - Under The Sun
-    1948 | Tough Love ft. Ginuwine - Pony (Leon Lour Remix)
-    2140 | OMI - Cheerleader (Felix Jaehn Mix)
-    2305 | Purple Disco Machine - This 1994 Feeling (L Tric Switcheroo Bootleg)
-    2566 | Stardust - Music Sounds Better With You (WBBL Edit)
-    2788 | Alex Schulz - In The Morning Light
-    2980 | Sigala - Sweet Lovin'
-    3190 | Passion Pit - Little Secrets (Felix Da Housecat Remix)
-    3388 | Kissy Sell Out ft. Angie Brown - Ecstasy
-    3599 | Vance Joy - Wasted Time (Lost Kings Remix)
-    3876 | Disco Fries ft. Hope Murphy - Born Ready (Halogen Mix)
-    4044 | Gary Caos - My Love Is Free 2010
-    4408 | Serum & Serial Killaz - Shot A Talk
+    0 | Bladerunner - Interceptor
+    129 | Upgrade - Terrorick
+    240 | JFB - 5 On It
+    383 | Bladerunner - Spartan Law (VIP)
+    521 | Alpha - Frozen Black (Upgrade Mix)
+    595 | K Jah - Heavy Hitter
+    721 | Jam Thieves - Minimal Funk
+    863 | Annix - Crash
+    918 | DJ Marky & Makoto - Roundabout
+    1094 | K Jah - Get Out Of My Life
+    1266 | Brother Culture - Sound Killer (Ed Solo Remix)
+    1430 | Beast Mode - Original Junglist
+    1528 | Dope Ammo - Big Summer (Panik & M-Rode Mix)
+    1630 | Beast Mode - Cool It Down
+    1780 | The Wildlife Collective - Ragga Tip
+    1956 | Heist & Turno - Glad You Came
+    2060 | Taxman - Nightshade (Upgrade Remix)
+    2215 | Beast Mode - Twisted Creatures
+    2281 | Veak - Land Of Gold
+    2424 | Blend Mishkin ft. Peppery - Foundation Style (Danny T, Tradesman & Jakey Banton Mix)
+    2532 | Dope Ammo - Warning (Serum Mix)
+    2685 | K Jah - All Rhodes Lead Here
+    2798 | DJ SS - Lighter (Bladerunner Remix)
+    2995 | DJ Hybrid - Lickshot
+    3101 | K Jah - Destination
+    3259 | Sub Zero & Majistrate - Weapon of Choice
+    3418 | Serum - The Finger
+    3592 | Upgrade - Blow
+    3772 | Serum & Voltage - Offline
+    3897 | Marvellous Cain ft. Cutty Ranks - The Hit Man (Jungle Citizenz Remix)
+    4027 | Ed Solo ft. MC Spyda - Soundsystem Entertainer
+    4159 | Beast Mode - Bossman
 </div>
 
 
@@ -131,46 +140,52 @@
 
 
     <div class="tracklist">
-        <div class="track" onclick="updatePosition(this)" data-time="0"><b>WBBL</b> - Real Thing</div>
-        <div class="track" onclick="updatePosition(this)" data-time="193"><b>Prince</b> - Funk 'n' Roll (Sammy
-            Senior Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="278"><b>Phibes</b> - Good People</div>
-        <div class="track" onclick="updatePosition(this)" data-time="499"><b>Lack Jemmon</b> - Don't Get Stupid
+        <div class="track" onclick="updatePosition(this)" data-time="0"><b>Bladerunner</b> - Interceptor</div>
+        <div class="track" onclick="updatePosition(this)" data-time="129"><b>Upgrade</b> - Terrorick</div>
+        <div class="track" onclick="updatePosition(this)" data-time="240"><b>JFB</b> - 5 On
+            It</div>
+        <div class="track" onclick="updatePosition(this)" data-time="383"><b>Bladerunner</b> - Spartan Law (VIP)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="521"><b>Alpha</b> - Frozen Black (Upgrade Mix)
         </div>
-        <div class="track" onclick="updatePosition(this)" data-time="715"><b>B-Side & Sammy
-                Senior</b> - Kill Em Wit It</div>
-        <div class="track" onclick="updatePosition(this)" data-time="830"><b>Dubra & Arteo</b> - Get On Up</div>
-        <div class="track" onclick="updatePosition(this)" data-time="996"><b>The Chicken Brothers</b> - Funky
-            Chicken</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1234"><b>The Doors</b>
-            - Soul Kitchen (DJ Inko Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1386"><b>Alex Adair</b> - Heaven</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1588"><b>Bobby C Sound
-                TV</b> - Beatcatcher</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1754"><b>Kidda</b> - Under The Sun</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1948"><b>Tough Love ft. Ginuwine</b> - Pony
-            (Leon Lour Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2140"><b>OMI</b> - Cheerleader (Felix Jaehn
-            Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2305"><b>Purple Disco Machine</b> - This 1994
-            Feeling (L Tric Switcheroo Bootleg)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2566"><b>Stardust</b> - Music Sounds Better
-            With You (WBBL Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2788"><b>Alex Schulz</b> - In The Morning Light
+        <div class="track" onclick="updatePosition(this)" data-time="595"><b>K Jah </b> - Heavy Hitter</div>
+        <div class="track" onclick="updatePosition(this)" data-time="721"><b>Jam Thieves </b> - Minimal Funk</div>
+        <div class="track" onclick="updatePosition(this)" data-time="863"><b>Annix</b> - Crash</div>
+        <div class="track" onclick="updatePosition(this)" data-time="918"><b>DJ Marky & Makoto</b> - Roundabout</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1094"><b>K Jah</b> - Get Out Of My Life</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1266"><b>Brother Culture</b> - Sound Killer (Ed
+            Solo Remix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1430"><b>Beast Mode</b> - Original Junglist</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1528"><b>Dope Ammo </b> - Big Summer (Panik &
+            M-Rode Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1630"><b>Beast Mode</b> - Cool It Down</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1780"><b>The Wildlife Collective</b> - Ragga Tip
         </div>
-        <div class="track" onclick="updatePosition(this)" data-time="2980"><b>Sigala</b> - Sweet Lovin'</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3190"><b>Passion Pit</b> - Little Secrets
-            (Felix Da Housecat Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3388"><b>Kissy Sell Out ft. Angie Brown</b> -
-            Ecstasy</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3599"><b>Vance Joy</b>
-            - Wasted Time (Lost Kings Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3876"><b>Disco Fries ft. Hope Murphy</b> - Born
-            Ready (Halogen Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4044"><b>Gary Caos</b>
-            - My Love Is Free 2010</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4408"><b>Serum & Serial Killaz</b> - Shot A
-            Talk</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1956"><b>Heist & Turno</b> - Glad You Came</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2060"><b>Taxman</b> - Nightshade (Upgrade Remix)
+        </div>
+        <div class="track" onclick="updatePosition(this)" data-time="2215"><b>Beast Mode</b> - Twisted Creatures</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2281"><b>Veak</b> - Land Of Gold</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2424"><b>Blend Mishkin
+                ft. Peppery</b> - Foundation Style (Danny T, Tradesman & Jakey Banton Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2532"><b>Dope Ammo</b>
+            - Warning (Serum Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2685"><b>K Jah</b> - All Rhodes Lead Here</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2798"><b>DJ SS</b> - Lighter (Bladerunner Remix)
+        </div>
+        <div class="track" onclick="updatePosition(this)" data-time="2995"><b>DJ Hybrid</b>
+            - Lickshot</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3101"><b>K Jah</b> - Destination</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3259"><b>Sub Zero & Majistrate</b> - Weapon of
+            Choice</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3418"><b>Serum</b> - The Finger</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3592"><b>Upgrade</b> -
+            Blow</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3772"><b>Serum & Voltage</b> - Offline</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3897"><b>Marvellous Cain ft. Cutty Ranks</b> - The
+            Hit Man (Jungle Citizenz Remix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="4027"><b>Ed Solo ft. MC Spyda</b> - Soundsystem
+            Entertainer</div>
+        <div class="track" onclick="updatePosition(this)" data-time="4159"><b>Beast Mode</b> - Bossman</div>
 
     </div>
 </div>
@@ -237,13 +252,13 @@ $comments = mysqli_escape_string($link, $_POST['comments']);
 //   date_default_timezone_set('Europe/London');
 $date = date("Y-m-d H:i:s");
 
-$query = "INSERT INTO ghetto_funk (stars, comments, date) VALUES ($stars, '$comments', '$date')";
+$query = "INSERT INTO bcjt (stars, comments, date) VALUES ($stars, '$comments', '$date')";
 mysqli_query($link, $query);
 }
 }
 
 
-$returned = "SELECT * FROM ghetto_funk ORDER BY date DESC";
+$returned = "SELECT * FROM bcjt ORDER BY date DESC";
 $result = mysqli_query($link, $returned);
 
 if ($result) {

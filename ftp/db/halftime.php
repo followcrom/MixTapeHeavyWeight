@@ -1,7 +1,7 @@
 <?php include '../header.html';?>
 
 <div class="tape">
-    <div class="top_label">A: Ghetto Housing Project (1:18:30)</div>
+    <div class="top_label">A: Mixtape Heavyweight - Halftime</div>
 
     <div class="tapeReelBox">
 
@@ -53,7 +53,7 @@
                 <input type="range" min="-1" max="1" step="0.1" value="-0.1" id="volume-slider">
 
 
-                <a href="https://mthw.s3.eu-west-2.amazonaws.com/gf/housing.mp3" download><button class="action-btn action-btn-big">
+                <a href="https://mthw.s3.eu-west-2.amazonaws.com/db/halftime.mp3" download><button class="action-btn action-btn-big">
                         <i class="fas fa-download"></i>
                     </button></a>
             </div>
@@ -66,7 +66,7 @@
 
 <div class="audioPlayer">
 <audio id="audio" preload="none" crossorigin="anonymous">
-        <source src="https://mthw.s3.eu-west-2.amazonaws.com/gf/housing.mp3" type="audio/mpeg">
+        <source src="https://mthw.s3.eu-west-2.amazonaws.com/db/halftime.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
     </audio>
 </div>
@@ -77,29 +77,29 @@
 
 
 <div class="timings" style="display: none">
-    0 | WBBL - Real Thing
-    193 | Prince - Funk 'n' Roll (Sammy Senior Edit)
-    278 | Phibes - Good People
-    499 | Lack Jemmon - Don't Get Stupid
-    715 | B-Side & Sammy Senior - Kill Em Wit It
-    830 | Dubra & Arteo - Get On Up
-    996 | The Chicken Brothers - Funky Chicken
-    1234 | The Doors - Soul Kitchen (DJ Inko Booty)
-    1386 | Alex Adair - Heaven
-    1588 | Bobby C Sound TV - Beatcatcher
-    1754 | Kidda - Under The Sun
-    1948 | Tough Love ft. Ginuwine - Pony (Leon Lour Remix)
-    2140 | OMI - Cheerleader (Felix Jaehn Mix)
-    2305 | Purple Disco Machine - This 1994 Feeling (L Tric Switcheroo Bootleg)
-    2566 | Stardust - Music Sounds Better With You (WBBL Edit)
-    2788 | Alex Schulz - In The Morning Light
-    2980 | Sigala - Sweet Lovin'
-    3190 | Passion Pit - Little Secrets (Felix Da Housecat Remix)
-    3388 | Kissy Sell Out ft. Angie Brown - Ecstasy
-    3599 | Vance Joy - Wasted Time (Lost Kings Remix)
-    3876 | Disco Fries ft. Hope Murphy - Born Ready (Halogen Mix)
-    4044 | Gary Caos - My Love Is Free 2010
-    4408 | Serum & Serial Killaz - Shot A Talk
+    0 | Poly Pines - Let's Escape
+    154 | Après - Chicago (Technimatic Mix)
+    308 | Wilkinson ft. Thabo - Hopelessly Coping
+    515 | Erykah Badu - Soldier (Supa Ape Mix)
+    735 | Sigma ft. Birdy - Find Me (Sigma VIP)
+    855 | Showtek & Justin Prime ft. Matthew Koma - Cannonball (Matrix & Futurebound Mix)
+    998 | Rico Tubbs - Chemistry
+    1111 | RZA & Method Man - Built For This (Serial Killaz Mix)
+    1200 | M.I.A - Paper Planes (Phibes Booty)
+    1420 | A.M Sniper ft. Currency - Hype (Dope Ammo Mix)
+    1573 | DJ Krome & Mr. Time - The Licence (Serial Killaz Mix)
+    1769 | DJ Hazard - Machete
+    1987 | Sigala - Easy Love (Danny Byrd Mix)
+    2265 | Jam Thieves - Out Of Memory
+    2330 | Culture Shock ft. Josh Parkinson - No More (Back To You)
+    2516 | Dillon Francis ft. Will Heard - Anywhere (Fred V & Grafix Mix)
+    2780 | Aphrodite - Stalker (Benny Page Mix)
+    2933 | Jeff Wayne - War Of The Worlds (Drumsound & Bassline Smith Mix)
+    3164 | Timmokk - Helicopter
+    3262 | Critical - Hype The Funk (Rhythmicon Mix)
+    3375 | Serial Killaz - Traffic Blocking
+    3595 | Emeli Sande - Breathing Underwater (Matrix & Futurebound Mix)
+    3846 | The 1975 - You (Andrea Mix)
 </div>
 
 
@@ -131,46 +131,49 @@
 
 
     <div class="tracklist">
-        <div class="track" onclick="updatePosition(this)" data-time="0"><b>WBBL</b> - Real Thing</div>
-        <div class="track" onclick="updatePosition(this)" data-time="193"><b>Prince</b> - Funk 'n' Roll (Sammy
-            Senior Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="278"><b>Phibes</b> - Good People</div>
-        <div class="track" onclick="updatePosition(this)" data-time="499"><b>Lack Jemmon</b> - Don't Get Stupid
+        <div class="track" onclick="updatePosition(this)" data-time="0"><b>Poly Pines</b> -
+            Let's Escape</div>
+        <div class="track" onclick="updatePosition(this)" data-time="154"><b>Après</b> - Chicago (Technimatic Mix)
         </div>
-        <div class="track" onclick="updatePosition(this)" data-time="715"><b>B-Side & Sammy
-                Senior</b> - Kill Em Wit It</div>
-        <div class="track" onclick="updatePosition(this)" data-time="830"><b>Dubra & Arteo</b> - Get On Up</div>
-        <div class="track" onclick="updatePosition(this)" data-time="996"><b>The Chicken Brothers</b> - Funky
-            Chicken</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1234"><b>The Doors</b>
-            - Soul Kitchen (DJ Inko Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1386"><b>Alex Adair</b> - Heaven</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1588"><b>Bobby C Sound
-                TV</b> - Beatcatcher</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1754"><b>Kidda</b> - Under The Sun</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1948"><b>Tough Love ft. Ginuwine</b> - Pony
-            (Leon Lour Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2140"><b>OMI</b> - Cheerleader (Felix Jaehn
+        <div class="track" onclick="updatePosition(this)" data-time="308"><b>Wilkinson ft. Thabo</b> - Hopelessly
+            Coping</div>
+        <div class="track" onclick="updatePosition(this)" data-time="515"><b>Erykah Badu</b> - Soldier (Supa Ape
             Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2305"><b>Purple Disco Machine</b> - This 1994
-            Feeling (L Tric Switcheroo Bootleg)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2566"><b>Stardust</b> - Music Sounds Better
-            With You (WBBL Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2788"><b>Alex Schulz</b> - In The Morning Light
+        <div class="track" onclick="updatePosition(this)" data-time="735"><b>Sigma ft. Birdy</b> - Find Me (Sigma
+            VIP)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="855"><b>Showtek & Justin Prime ft. Matthew Koma
+            </b> - Cannonball (Matrix & Futurebound Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="998"><b>Rico Tubbs </b> - Chemistry</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1111"><b>RZA & Method Man </b> - Built For This
+            (Serial Killaz Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1200"><b>M.I.A</b> - Paper Planes (Phibes
+            Booty)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1420"><b>A.M Sniper ft. Currency</b> - Hype
+            (Dope Ammo Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1573"><b>DJ Krome & Mr. Time</b> - The Licence
+            (Serial Killaz Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1769"><b>DJ Hazard</b>
+            - Machete</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1987"><b>Sigala</b> - Easy Love (Danny Byrd
+            Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2265"><b>Jam Thieves</b> - Out Of Memory</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2330"><b>Culture Shock
+                ft. Josh Parkinson </b> - No More (Back To You)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2516"><b>Dillon Francis ft. Will Heard</b> -
+            Anywhere (Fred V & Grafix Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2780"><b>Aphrodite</b>
+            - Stalker (Benny Page Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2933"><b>Jeff Wayne</b> - War Of The Worlds
+            (Drumsound & Bassline Smith Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3164"><b>Timmokk</b> -
+            Helicopter</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3262"><b>Critical</b> - Hype The Funk
+            (Rhythmicon Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3375"><b>Serial Killaz</b> - Traffic Blocking
         </div>
-        <div class="track" onclick="updatePosition(this)" data-time="2980"><b>Sigala</b> - Sweet Lovin'</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3190"><b>Passion Pit</b> - Little Secrets
-            (Felix Da Housecat Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3388"><b>Kissy Sell Out ft. Angie Brown</b> -
-            Ecstasy</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3599"><b>Vance Joy</b>
-            - Wasted Time (Lost Kings Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3876"><b>Disco Fries ft. Hope Murphy</b> - Born
-            Ready (Halogen Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4044"><b>Gary Caos</b>
-            - My Love Is Free 2010</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4408"><b>Serum & Serial Killaz</b> - Shot A
-            Talk</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3595"><b>Emeli Sande</b> - Breathing Underwater
+            (Matrix & Futurebound Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3846"><b>The 1975</b> - You (Andrea Mix)</div>
 
     </div>
 </div>
@@ -237,13 +240,13 @@ $comments = mysqli_escape_string($link, $_POST['comments']);
 //   date_default_timezone_set('Europe/London');
 $date = date("Y-m-d H:i:s");
 
-$query = "INSERT INTO ghetto_funk (stars, comments, date) VALUES ($stars, '$comments', '$date')";
+$query = "INSERT INTO halftime (stars, comments, date) VALUES ($stars, '$comments', '$date')";
 mysqli_query($link, $query);
 }
 }
 
 
-$returned = "SELECT * FROM ghetto_funk ORDER BY date DESC";
+$returned = "SELECT * FROM halftime ORDER BY date DESC";
 $result = mysqli_query($link, $returned);
 
 if ($result) {

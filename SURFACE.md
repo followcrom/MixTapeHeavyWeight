@@ -529,6 +529,18 @@ Step 3: Add or Modify the CORS Configuration
 ]
 ```
 
+Step 4: Mak the aduio files downloadable
+
+You can set the Content-Disposition header to attachment in your S3 bucket settings. This header can force the browser to download the file instead of displaying it.
+
+In an object's properties window, click the ‘metadata’ tab.
+
+genrally one metadata is set, ‘Key’ was by default set to ‘Content-Type’ and ‘Value’ was set to ‘audio/mp3’.
+Click the ‘add more metadata’ button, and add:
+
+Key: Content-Disposition Value: attachment
+
+Click ‘save’ to save the changes.
 
 ## Update the HTML
 
@@ -536,7 +548,7 @@ Ensure your audio tag looks like this:
 
 ```html
 <audio id="audio" preload="none" crossorigin="anonymous">
-    <source src="https://followcrom-online.s3.eu-west-2.amazonaws.com/audio/supafly.mp3" type="audio/mpeg">
+    <source src="https://mthw.s3.eu-west-2.amazonaws.com/gf/supafly.mp3" type="audio/mpeg">
     Your browser does not support the audio tag.
 </audio>
 ```
@@ -552,7 +564,7 @@ Ensure your audio tag looks like this:
 **Use curl** to test your S3 endpoint directly. This can help determine if it's a server-side or client-side issue:
 
 ```bash
-curl -I -H "Origin: https://mixtape.followcrom.online" https://followcrom-online.s3.eu-west-2.amazonaws.com/audio/supafly.mp3
+curl -I -H "Origin: https://mixtape.followcrom.online" https://mthw.s3.eu-west-2.amazonaws.com/gf/supafly.mp3
 ```
 
 This should return headers including Access-Control-Allow-Origin if CORS is correctly configured.

@@ -1,7 +1,7 @@
 <?php include '../header.html';?>
 
 <div class="tape">
-    <div class="top_label">A: Ghetto Housing Project (1:18:30)</div>
+    <div class="top_label">B: Dubwise Selection (1:10:30)</div>
 
     <div class="tapeReelBox">
 
@@ -53,7 +53,7 @@
                 <input type="range" min="-1" max="1" step="0.1" value="-0.1" id="volume-slider">
 
 
-                <a href="https://mthw.s3.eu-west-2.amazonaws.com/gf/housing.mp3" download><button class="action-btn action-btn-big">
+                <a href="https://mthw.s3.eu-west-2.amazonaws.com/db/dubwise.mp3" download><button class="action-btn action-btn-big">
                         <i class="fas fa-download"></i>
                     </button></a>
             </div>
@@ -66,7 +66,7 @@
 
 <div class="audioPlayer">
 <audio id="audio" preload="none" crossorigin="anonymous">
-        <source src="https://mthw.s3.eu-west-2.amazonaws.com/gf/housing.mp3" type="audio/mpeg">
+        <source src="https://mthw.s3.eu-west-2.amazonaws.com/db/dubwise.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
     </audio>
 </div>
@@ -77,29 +77,29 @@
 
 
 <div class="timings" style="display: none">
-    0 | WBBL - Real Thing
-    193 | Prince - Funk 'n' Roll (Sammy Senior Edit)
-    278 | Phibes - Good People
-    499 | Lack Jemmon - Don't Get Stupid
-    715 | B-Side & Sammy Senior - Kill Em Wit It
-    830 | Dubra & Arteo - Get On Up
-    996 | The Chicken Brothers - Funky Chicken
-    1234 | The Doors - Soul Kitchen (DJ Inko Booty)
-    1386 | Alex Adair - Heaven
-    1588 | Bobby C Sound TV - Beatcatcher
-    1754 | Kidda - Under The Sun
-    1948 | Tough Love ft. Ginuwine - Pony (Leon Lour Remix)
-    2140 | OMI - Cheerleader (Felix Jaehn Mix)
-    2305 | Purple Disco Machine - This 1994 Feeling (L Tric Switcheroo Bootleg)
-    2566 | Stardust - Music Sounds Better With You (WBBL Edit)
-    2788 | Alex Schulz - In The Morning Light
-    2980 | Sigala - Sweet Lovin'
-    3190 | Passion Pit - Little Secrets (Felix Da Housecat Remix)
-    3388 | Kissy Sell Out ft. Angie Brown - Ecstasy
-    3599 | Vance Joy - Wasted Time (Lost Kings Remix)
-    3876 | Disco Fries ft. Hope Murphy - Born Ready (Halogen Mix)
-    4044 | Gary Caos - My Love Is Free 2010
-    4408 | Serum & Serial Killaz - Shot A Talk
+    0 | Top Cat - Champion DJ (Shy FX Mix)
+    154 | Benny Page - Can't Test
+    280 | Mist-I-Cal - Just A Little Herb
+    425 | Visionary - Gimmie Your Love
+    595 | Top Cat - We Love Weh Sess (Congo Natty Mix)
+    777 | Aries - Herb Smoke
+    1129 | Visionary - Sail On
+    1252 | Benny Page - Rub-A-Dub
+    1361 | Beenie Man - Gimme Di Gal (D&B Mix)
+    1450 | Sizzla - Show Us The Way (D&B Mix)
+    1685 | Chase & Status - Duppy Man
+    1821 | Heist - Creeping Dub
+    1935 | Shout - You Love Me
+    2024 | Visionary - Ruling Sound
+    2156 | Shy FX - Everyday (Chase & Status Mix)
+    2270 | Herbal T - Give It 2 Dem
+    2397 | Benny Page - Turn Down The Lights
+    2536 | Rhythm Beater - Dub Room (Mix)
+    2832 | Collie Budz - Herb Come Around (D&B Mix)
+    3148 | I Wayne - Can't Satisfy Her (Shout Mix)
+    3362 | Tribe of Issachar - Wardance (Serial Killaz Mix)
+    3697 | Damian Marley - Welcome To Jamrock (Roughcut Mix)
+    3798 | Ini Kamoze - World A Reggae (D&B Mix)
 </div>
 
 
@@ -131,47 +131,41 @@
 
 
     <div class="tracklist">
-        <div class="track" onclick="updatePosition(this)" data-time="0"><b>WBBL</b> - Real Thing</div>
-        <div class="track" onclick="updatePosition(this)" data-time="193"><b>Prince</b> - Funk 'n' Roll (Sammy
-            Senior Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="278"><b>Phibes</b> - Good People</div>
-        <div class="track" onclick="updatePosition(this)" data-time="499"><b>Lack Jemmon</b> - Don't Get Stupid
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="715"><b>B-Side & Sammy
-                Senior</b> - Kill Em Wit It</div>
-        <div class="track" onclick="updatePosition(this)" data-time="830"><b>Dubra & Arteo</b> - Get On Up</div>
-        <div class="track" onclick="updatePosition(this)" data-time="996"><b>The Chicken Brothers</b> - Funky
-            Chicken</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1234"><b>The Doors</b>
-            - Soul Kitchen (DJ Inko Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1386"><b>Alex Adair</b> - Heaven</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1588"><b>Bobby C Sound
-                TV</b> - Beatcatcher</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1754"><b>Kidda</b> - Under The Sun</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1948"><b>Tough Love ft. Ginuwine</b> - Pony
-            (Leon Lour Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2140"><b>OMI</b> - Cheerleader (Felix Jaehn
+        <div class="track" onclick="updatePosition(this)" data-time="0"><b>Top Cat</b> - Champion DJ (Shy FX Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="154"><b>Benny Page</b> - Can't Test</div>
+        <div class="track" onclick="updatePosition(this)" data-time="280"><b>Mist-I-Cal</b> - Just A Little Herb</div>
+        <div class="track" onclick="updatePosition(this)" data-time="425"><b>Visionary</b> - Gimmie Your Love</div>
+        <div class="track" onclick="updatePosition(this)" data-time="595"><b>Top Cat</b> - We Love Weh Sess (Congo Natty
             Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2305"><b>Purple Disco Machine</b> - This 1994
-            Feeling (L Tric Switcheroo Bootleg)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2566"><b>Stardust</b> - Music Sounds Better
-            With You (WBBL Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2788"><b>Alex Schulz</b> - In The Morning Light
+        <div class="track" onclick="updatePosition(this)" data-time="777"><b>Aries</b> - Herb Smoke</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1129"><b>Visionary</b> - Sail On</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1252"><b>Benny Page</b> - Rub-A-Dub</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1361"><b>Beenie
+                Man</b> - Gimme Di Gal (D&B Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1450"><b>Sizzla</b> - Show Us The Way (D&B Mix)
         </div>
-        <div class="track" onclick="updatePosition(this)" data-time="2980"><b>Sigala</b> - Sweet Lovin'</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3190"><b>Passion Pit</b> - Little Secrets
-            (Felix Da Housecat Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3388"><b>Kissy Sell Out ft. Angie Brown</b> -
-            Ecstasy</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3599"><b>Vance Joy</b>
-            - Wasted Time (Lost Kings Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3876"><b>Disco Fries ft. Hope Murphy</b> - Born
-            Ready (Halogen Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4044"><b>Gary Caos</b>
-            - My Love Is Free 2010</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4408"><b>Serum & Serial Killaz</b> - Shot A
-            Talk</div>
-
+        <div class="track" onclick="updatePosition(this)" data-time="1685"><b>Chase & Status</b> - Duppy Man</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1821"><b>Heist</b> - Creeping Dub</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1935"><b>Shout</b> - You Love Me</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2024"><b>Visionary</b> - Ruling Sound</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2156"><b>Shy FX</b> - Everyday (Chase & Status Mix)
+        </div>
+        <div class="track" onclick="updatePosition(this)" data-time="2270"><b>Herbal
+                T</b> - Give It 2 Dem</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2397"><b>Benny Page</b> - Turn Down The Lights
+        </div>
+        <div class="track" onclick="updatePosition(this)" data-time="2536"><b>Rhythm
+                Beater</b> - Dub Room (Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2832"><b>Collie
+                Budz</b> - Herb Come Around (D&B Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3148"><b>I Wayne</b> - Can't Satisfy Her (Shout
+            Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3362"><b>Tribe of Issachar</b> - Wardance (Serial
+            Killaz Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3697"><b>Damian
+                Marley</b> - Welcome To Jamrock (Roughcut Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3798"><b>Ini Kamoze</b> - World A Reggae (D&B Mix)
+        </div>
     </div>
 </div>
 
@@ -237,13 +231,13 @@ $comments = mysqli_escape_string($link, $_POST['comments']);
 //   date_default_timezone_set('Europe/London');
 $date = date("Y-m-d H:i:s");
 
-$query = "INSERT INTO ghetto_funk (stars, comments, date) VALUES ($stars, '$comments', '$date')";
+$query = "INSERT INTO bcjt (stars, comments, date) VALUES ($stars, '$comments', '$date')";
 mysqli_query($link, $query);
 }
 }
 
 
-$returned = "SELECT * FROM ghetto_funk ORDER BY date DESC";
+$returned = "SELECT * FROM bcjt ORDER BY date DESC";
 $result = mysqli_query($link, $returned);
 
 if ($result) {
