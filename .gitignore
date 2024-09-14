@@ -7,11 +7,9 @@ ftp/audio/
 # Ignore user_data.sh
 user_data.sh
 
-# Ignore the editor files
-ftp/gf/editor.html
-ftp/db/editor.html
-
 # Ignore all shell scripts
 *.sh
 
-
+# Ignore the editor files
+ftp/gf/editor.html
+ftp/db/editor.html

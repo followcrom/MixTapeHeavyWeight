@@ -315,6 +315,10 @@ SELECT * FROM reviews;
 
 ### 📦 Storing Credentials in a MySQL Configuration File 🪪
 
+Will this work without doing the below?
+
+`mysql -u heavyweight`
+
 You can store credentials in a MySQL configuration file (`~/.my.cnf`) to avoid passing the password directly:
 
 ```bash
