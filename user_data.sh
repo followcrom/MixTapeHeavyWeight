@@ -14,7 +14,7 @@ sudo apt update -y
 sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 
 # Install required packages (Nginx, MySQL, PHP)
-sudo apt install -y mysql-server nginx php-fpm php-mysql git curl
+sudo apt install -y mysql-server nginx php-fpm php-mysql git curl unzip
 
 echo "Package installation complete."
 
@@ -26,10 +26,16 @@ sudo systemctl enable nginx
 # Git just the ftp dir
 
 # Download and unzip the specific folder
-curl -L https://github.com/followcrom/MixTapeHeavyWeight/archive/refs/heads/main.zip -o mixtape.zip
-unzip mixtape.zip
-mv MixTapeHeavyWeight-main/ftp "$APP_DIR"
+curl -L https://github.com/followcrom/MixTapeHeavyWeight/archive/refs/heads/main.zip -o mixtape.zip && \
+unzip mixtape.zip && \
+mv MixTapeHeavyWeight-main/ftp/* /var/www/mthw
+
+
+curl -L https://github.com/followcrom/MixTapeHeavyWeight/archive/refs/heads/main.zip -o mixtape.zip && \
+unzip -d MixTapeHeavyWeight-main mixtape.zip && \
+mv MixTapeHeavyWeight-main/ftp/* /var/www/mthw && \
 rm -rf MixTapeHeavyWeight-main mixtape.zip
+
 
 # or
 # Clone the entire repository
@@ -56,6 +62,11 @@ server {
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    
+    location /static/ {
+        alias /var/www/momento_contento/app/static/;
     }
 
     location / {
@@ -102,6 +113,60 @@ server {
     }
 }
 EOF
+
+# After running certbot
+
+server {
+    server_name mixtape-heavyweight.one www.mixtape-heavyweight.one;
+
+    location /momcon/ {
+        proxy_pass http://localhost:5000/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location / {
+        root /var/www/mthw;
+        index index.php index.html;
+
+        try_files $uri $uri/ /index.html?$query_string;
+        error_page 404 /404.html;
+
+        location ~ \.php$ {
+            include snippets/fastcgi-php.conf;
+            fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            include fastcgi_params;
+        }
+    }
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/mixtape-heavyweight.one/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/mixtape-heavyweight.one/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+
+}
+
+server {
+    if ($host = www.mixtape-heavyweight.one) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    if ($host = mixtape-heavyweight.one) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80;
+    server_name mixtape-heavyweight.one www.mixtape-heavyweight.one;
+    return 404; # managed by Certbot
+
+}
 
 # Enable the Nginx site and restart the service
 sudo ln -sf /etc/nginx/sites-available/mthw /etc/nginx/sites-enabled

@@ -65,7 +65,7 @@
 
 
 <div class="audioPlayer">
-    <audio id="audio" preload="auto">
+<audio id="audio" preload="none" crossorigin="anonymous">
         <source src="https://mthw.s3.eu-west-2.amazonaws.com/db/bbtempo.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
     </audio>
@@ -183,57 +183,62 @@
 
     <div class="reviewsBox">
 
-        <?php
-$host_name = 'db5011559101.hosting-data.io';
-$database = 'dbs9747952';
-$user_name = 'dbu626955';
-$config = parse_ini_file('../config.ini');
+    <?php
+$config = include('../config.php');
+
+$host_name = $config['host_name'];
+$database = $config['database'];
+$user_name = $config['user_name'];
 $password = $config['password'];
 
+// Create a connection
 $link = new mysqli($host_name, $user_name, $password, $database);
 
-
-if (!$link) {
-// Handle database connection errors
-$response = array(
-'success' => false,
-'message' => 'Database connection error'
-);
-echo json_encode($response);
-exit;
+// Check connection
+if ($link->connect_error) {
+    die("Connection failed: " . $link->connect_error);
 }
 
+// Set the mixtape label manually for each page
+$mixtape = 'Big Boy Tempo';  // Change this value for each PHP page to reflect the mixtape
 
+// Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-if(isset($_POST['stars']) && isset($_POST['comments'])) {
-$stars = intval($_POST['stars']);
-$comments = mysqli_escape_string($link, $_POST['comments']);
-//   date_default_timezone_set('Europe/London');
-$date = date("Y-m-d H:i:s");
+    if (isset($_POST['stars']) && isset($_POST['comments'])) {
+        $stars = intval($_POST['stars']);
+        $comments = $link->real_escape_string($_POST['comments']); // Use real_escape_string
 
-$query = "INSERT INTO bcjt (stars, comments, date) VALUES ($stars, '$comments', '$date')";
-mysqli_query($link, $query);
+        $date = date("Y-m-d H:i:s");
+
+        // Prepare and execute the INSERT query
+        $stmt = $link->prepare("INSERT INTO reviews (mixtape, stars, comments, date) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("siss", $mixtape, $stars, $comments, $date);
+        $stmt->execute();
+        $stmt->close();
+    }
 }
-}
 
+// Prepare and execute the SELECT query
+$stmt = $link->prepare("SELECT stars, comments, date FROM reviews WHERE mixtape = ? ORDER BY date DESC");
+$stmt->bind_param("s", $mixtape);
+$stmt->execute();
+$result = $stmt->get_result();
 
-$returned = "SELECT * FROM bcjt ORDER BY date DESC";
-$result = mysqli_query($link, $returned);
-
-if ($result) {
-while ($row = mysqli_fetch_array($result)) {
-    // $row = array_reverse($row);
-    $num = $row['stars'];
-echo "<div class='review-container'>";
-    echo "<div class='stars_div'>" . str_repeat("*", $num) . "</div>";
-    echo "<div class='comments_div'><i>" . $row['comments'] . "</i></div>";
-    echo "<div class='date_div'>" . $row['date'] . "</div>";
-echo "</div>";
-}
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $num = $row['stars'];
+        echo "<div class='review-container'>";
+        echo "<div class='stars_div'>" . str_repeat("*", $num) . "</div>";
+        echo "<div class='comments_div'><i>" . htmlspecialchars($row['comments']) . "</i></div>"; // Use htmlspecialchars for output
+        echo "<div class='date_div'>" . htmlspecialchars($row['date']) . "</div>"; // Use htmlspecialchars for output
+        echo "</div>";
+    }
 } else {
-echo "No reviews found.";
+    echo "No reviews found.";
 }
 
+$stmt->close();
+$link->close();
 ?>
 
     </div>

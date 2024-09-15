@@ -53,11 +53,18 @@
                 <input type="range" min="-1" max="1" step="0.1" value="-0.1" id="volume-slider">
 
 
-                <a href="https://mthw.s3.eu-west-2.amazonaws.com/db/original.mp3" download="original.mp3" type="audio/mpeg">
+                <!-- <a href="https://mthw.s3.eu-west-2.amazonaws.com/db/original.mp3" download="original.mp3" type="audio/mpeg">
   <button class="action-btn action-btn-big">
     <i class="fas fa-download"></i>
   </button>
+</a> -->
+
+<a href="https://mthw.s3.eu-west-2.amazonaws.com/db/original.mp3?response-content-disposition=attachment; filename=original.mp3">
+    <button class="action-btn action-btn-big">
+        <i class="fas fa-download"></i>
+    </button>
 </a>
+
             </div>
 
         </div>
@@ -220,18 +227,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Prepare and execute the SELECT query
-$stmt = $link->prepare("SELECT stars, comments, date FROM reviews WHERE mixtape = ? ORDER BY date DESC");
+$stmt = $link->prepare("SELECT mixtape, stars, comments, date FROM reviews WHERE mixtape = ? ORDER BY date DESC");
 $stmt->bind_param("s", $mixtape);
 $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
+    echo "<div class='mixtape_div'>Feedback for " . htmlspecialchars($mixtape) . ":</div>";
     while ($row = $result->fetch_assoc()) {
         $num = $row['stars'];
         echo "<div class='review-container'>";
         echo "<div class='stars_div'>" . str_repeat("*", $num) . "</div>";
-        echo "<div class='comments_div'><i>" . htmlspecialchars($row['comments']) . "</i></div>"; // Use htmlspecialchars for output
-        echo "<div class='date_div'>" . htmlspecialchars($row['date']) . "</div>"; // Use htmlspecialchars for output
+        echo "<div class='comments_div'><i>" . htmlspecialchars($row['comments']) . "</i></div>";
+        echo "<div class='date_div'>" . htmlspecialchars($row['date']) . "</div>";
         echo "</div>";
     }
 } else {

@@ -117,6 +117,14 @@ input[type=submit]:hover {
 } 
 
 
+.mixtape_div {
+  font-family: ColfaxAI;
+  font-size: 1.2em;
+  text-align: center;
+  padding-bottom: 10px;
+  color: #FFF;
+}
+
 .stars_div {
   flex: 1;
   font-size: 2em;

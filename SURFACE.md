@@ -3,56 +3,130 @@
 ssh into the Digital Ocean box:
 
 ```bash
-ssh -i ~/.ssh/digiocean root@188.166.155.230
+ssh -i ~/.ssh/digiocean root@139.59.161.31
 ```
 
-## 🖨️ Copy the `mthw` files to the server:
+## Update Files
 
 ```bash
-rsync -avz -e "ssh -i ~/.ssh/digiocean" ftp/ root@188.166.155.230:/var/www/mthw/
+rsync -avz -e "ssh -i ~/.ssh/digiocean" ftp/ root@139.59.161.31:/var/www/mthw
 ```
 
-## Subdomain Configuration 📤
+**rsync** is an efficient tool for synchronizing files between your local machine and the VM. It’s particularly useful if you regularly update files, as it only copies the differences, making the process faster.
 
-Create a new subdomain for the Mixtape site. Point the A record of the subdomain (`mixtape.followcrom.online`) to the public IP address of the VM.
+- a: Archive mode (preserves permissions, symlinks, etc.)
+- v: Verbose (shows the transfer process)
+- z: Compresses files during transfer for faster copying
 
-- Name: mixtape (or mixtape.followcrom.online depending on the interface)
-- Type: A
-- Value: The public IP address of your VM (188.166.155.230)
-- TTL: You can leave this at the default (e.g. 5 minutes).
-- Save the DNS settings.
+## 👀 Point Your Domain to the Droplet’s IP Address
 
-Once you've added the A record, it might take a few minutes to propagate. Verify that the DNS record has been updated:
+- On the Namecheap dashboard, click on Domain List from the left-hand menu.
+- Find the domain and click Manage next to it.
+- In the Domain tab, click on the Advanced DNS tab.
+- Scroll to the Host Records section.
+- Add or update the following records:
+
+1. **A Record for the root domain (@)**:
+- Host: @
+- Value: Your Droplet's IP address
+- TTL: Leave it as Automatic or set it to a low value like 300 seconds for faster propagation.
+2. **A Record for www**:
+- Host: www
+- Value: Your Droplet's IP address
+- TTL: Leave it as Automatic or set it to a low value like 300 seconds for faster propagation.
+
+Click the green checkmark or Save All Changes.
+
+It might take anywhere from a few minutes to a few hours for the DNS changes to propagate worldwide, but it's often quite fast. You can use a tool like [DNS Checker](https://dnschecker.org/#A/mixtape-heavyweight.one) to see if the domain is resolving to the correct IP address, or verify that the DNS record has been updated by running the following command:
 
 ```bash
-nslookup mixtape.followcrom.online
+nslookup mixtape-heavyweight.one
 ```
 
-This should return the public IP address of your VM (188.166.155.230).
+This should return the public IP address of your VM.
 
-## 📜 Obtain an SSL Certificate for the New Subdomain 👑
+## 📜 SSL Certificate 👑
 
-Use Certbot to generate an SSL certificate for your new subdomain. This command will automatically configure the SSL settings in your Nginx configuration for the new subdomain.
+Use Certbot to generate an SSL certificate for your domain.
 
 ```bash
-sudo certbot --nginx -d mixtape.followcrom.online
+sudo apt install python3-certbot-nginx
 ```
 
-The output will be similar to the following:
+This command will automatically configure the SSL settings in your Nginx configuration.
 
 ```bash
-Requesting a certificate for mixtape.followcrom.online
+sudo certbot --nginx
+```
 
-Successfully received certificate.
-Certificate is saved at: /etc/letsencrypt/live/mixtape.followcrom.online/fullchain.pem
-Key is saved at:         /etc/letsencrypt/live/mixtape.followcrom.online/privkey.pem
-This certificate expires on 2024-11-18.
-These files will be updated when the certificate renews.
-Certbot has set up a scheduled task to automatically renew this certificate in the background.
+Let's Encrypt certificates are valid for 90 days, but Certbot can automate the renewal process. The command below can be used to manually test renewal:
 
-Deploying certificate
-Successfully deployed certificate for mixtape.followcrom.online to /etc/nginx/sites-enabled/ttt
-Congratulations! You have successfully enabled HTTPS on https://mixtape.followcrom.online
+```bash
+sudo certbot renew --dry-run
+```
+
+The `--dry-run` flag is a test to simulate the renewal process without actually renewing the certificate. It's useful to check if the renewal will work without issues. You typically run `--dry-run` after initial setup or when you're debugging a renewal issue, but not every time you get an expiry warning.
+
+### Automated Renewal Process
+
+Certbot, by default, installs a cron job or systemd timer that automatically checks for certificate renewals twice a day. You can check for the presence of these tasks:
+
+```bash
+sudo systemctl list-timers | grep certbot
+```
+
+If your certificate is due to expire (within 30 days), Certbot will automatically attempt to renew it.
+
+### What to Do When You Get an Expiry Email
+
+Nothing, if Certbot is working properly: Certbot should automatically renew your certificate before it expires, so no action is needed.
+
+If you're concerned: You can manually trigger the renewal by running:
+
+```bash
+sudo certbot renew
+```
+
+### Transfer Your SSL Certificate to Another VM
+
+Simply reissue the certificate by installing Certbot and running it again on the new server, or copy the following files from your existing server:
+
+- Certificate file (e.g., /etc/letsencrypt/live/yourdomain.com/fullchain.pem)
+- Private key (e.g., /etc/letsencrypt/live/yourdomain.com/privkey.pem)
+- Certificate chain (e.g., /etc/letsencrypt/live/yourdomain.com/chain.pem)
+
+You can use scp or another secure file transfer method to copy them to your new server. Example:
+
+```bash
+scp -r /etc/letsencrypt/live/yourdomain.com user@new_vm_ip:/path/to/destination/
+```
+
+### Install the Certificate on the New Server
+
+Move the certificates to the appropriate location on the new server, like `/etc/letsencrypt/live/yourdomain.com/`.
+
+Update your web server configuration to point to the certificate and private key on the new VM. In Nginx:
+
+```nginx
+server {
+    listen 443 ssl;
+    server_name yourdomain.com;
+
+    ssl_certificate /etc/letsencrypt/live/yourdomain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/yourdomain.com/privkey.pem;
+
+    # Other configurations...
+}
+```
+
+### Install Certbot on the New VM (Optional):
+
+If you plan to continue using Let's Encrypt for automatic renewals, you'll need to install Certbot on the new server.
+
+### Let's Encrypt Logs
+
+```bash
+sudo cat /var/log/letsencrypt/letsencrypt.log
 ```
 
 <br>
@@ -62,7 +136,7 @@ Congratulations! You have successfully enabled HTTPS on https://mixtape.followcr
 Add a new server block for the **Mixtape site** in the Nginx configuration file:
 
 ```bash
-nano /etc/nginx/sites-available/ttt
+nano /etc/nginx/sites-available/mthw
 ```
 
 ```nginx
@@ -315,10 +389,6 @@ SELECT * FROM reviews;
 
 ### 📦 Storing Credentials in a MySQL Configuration File 🪪
 
-Will this work without doing the below?
-
-`mysql -u heavyweight`
-
 You can store credentials in a MySQL configuration file (`~/.my.cnf`) to avoid passing the password directly:
 
 ```bash
@@ -333,6 +403,10 @@ password = password # (in `config.php`)
 # Set the permissions of the file:
 chmod 600 ~/.my.cnf
 ```
+
+With this config file, you can use the `mysql` command without the password:
+
+`mysql -u heavyweight`
 
 ### 🏃 Running SQL Scripts
 
@@ -468,13 +542,23 @@ server {
 ```
 
 
-## 👀 To Do
 
-- Need a custom error page for 404 errors.
 
-- Upload db directory to the server.
 
-- Upload audio files to the server.
+
+## Speed Up Your Server
+
+When PHP-FPM is set to spawn new workers on demand, the first request can take longer because it has to spin up workers. To address this:
+
+Increase PHP-FPM pool settings in /etc/php/8.1/fpm/pool.d/www.conf (or your specific pool config):
+ini
+Copy code
+pm = dynamic
+pm.max_children = 10         # Increase if the server has enough resources
+pm.start_servers = 3         # Start more servers to avoid cold starts
+pm.min_spare_servers = 2     # Ensure a minimum number of idle workers
+pm.max_spare_servers = 5
+This configuration ensures that enough PHP-FPM workers are already running when the first request hits.
 
 <br>
 
