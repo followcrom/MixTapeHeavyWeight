@@ -345,7 +345,7 @@ sudo mysql -u root -p
 
 ```sql
 -- Change the password for an heavyweight user:
-ALTER USER 'heavyweight'@'localhost' IDENTIFIED BY 'digiocean_db';
+ALTER USER 'heavyweight'@'localhost' IDENTIFIED BY '*****';
 
 -- Flush privileges to ensure changes take effect:
 FLUSH PRIVILEGES;
@@ -689,7 +689,3 @@ This should return headers including Access-Control-Allow-Origin if CORS is corr
 **Network Tab:** In the browser's developer tools, go to the Network tab, filter for your MP3 file, and examine the request and response headers in detail. Look for any discrepancies with the curl results.
 
 **Browser Cache:** Perform a hard refresh (Ctrl+F5 on Windows) to ensure you're not seeing cached results.
-
-```
-
-```
