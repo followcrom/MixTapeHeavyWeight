@@ -345,7 +345,7 @@ sudo mysql -u root -p
 
 ```sql
 -- Change the password for an heavyweight user:
-ALTER USER 'heavyweight'@'localhost' IDENTIFIED BY '*****';
+ALTER USER 'heavyweight'@'localhost' IDENTIFIED BY '********';
 
 -- Flush privileges to ensure changes take effect:
 FLUSH PRIVILEGES;
