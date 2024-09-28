@@ -1,44 +1,65 @@
 @font-face {
-  font-family: 'Digital';
-  src: url('../fonts/Led-Panel-Station-On.ttf') format('truetype');
+  font-family: "Digital";
+  src: url("../fonts/Led-Panel-Station-On.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Graff";
+  src: url("../fonts/kosalsayshy.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 body {
   padding: 0px;
   margin: 0;
-  background-color: #FFF;
+  background-image: url("../images/tile_back.png");
+  background-repeat: repeat;
+  /* background: linear-gradient(to bottom, #000, #FFF 40%); */
 }
 
+.topBox {
+  padding: 0px;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 0vh;
+}
+
+.banner {
+  padding: 0px;
+  color: gold;
+  text-align: center;
+  font-family: "Graff", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 7vw;
+}
 
 .content {
   padding: 10px;
   margin: 0;
-  background-color: #CCC;
 }
-
 
 .tape {
   width: 55%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 1.5vh;
+  /* margin-top: 1.5vh; */
   margin-bottom: 1.5vh;
   padding: 20px;
   border: 6px solid black;
   border-radius: 20px;
-  background-image: linear-gradient(45deg, #CCCCCC 25%, #555555 25%);
+  background-image: linear-gradient(45deg, #cccccc 25%, #555555 25%);
   background-size: 10px 10px;
+  box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.75);
 }
-
 
 .top_label {
   border-top: red solid 10px;
   border-bottom: red solid 10px;
   text-align: center;
-  font-family: 'Shadows Into Light', cursive;
+  font-family: "Shadows Into Light", cursive;
   font-weight: bold;
   background-color: antiquewhite;
   border-radius: 15px;
@@ -49,11 +70,9 @@ body {
   padding: 10px;
 }
 
-
 .transportContainer {
   display: flex;
 }
-
 
 .transportControls {
   width: 80%;
@@ -62,9 +81,8 @@ body {
   flex-direction: column;
 }
 
-
 .navigation {
-  background-color: #FFF;
+  background-color: #fff;
   width: 100%;
   height: 80px;
   display: flex;
@@ -72,7 +90,6 @@ body {
   justify-content: center;
   border-radius: 10px;
 }
-
 
 .tapeReelBox {
   width: 75%;
@@ -84,14 +101,12 @@ body {
   border-radius: 90px;
 }
 
-
 .tape_reel-container {
   width: 100%;
   margin: auto;
   display: flex;
   gap: 1rem;
 }
-
 
 .img-container {
   flex: 1;
@@ -123,7 +138,6 @@ body {
   }
 }
 
-
 .progress-container {
   display: flex;
   align-items: center;
@@ -142,9 +156,7 @@ body {
   height: 100%;
   width: 0%;
   transition: width 0.1s linear;
-
 }
-
 
 .currTime {
   display: flex;
@@ -158,7 +170,6 @@ body {
   width: 20%;
   height: 50px;
 }
-
 
 .action-btn {
   background-color: white;
@@ -181,11 +192,9 @@ body {
   color: red;
 }
 
-
 .audioPlayer {
   display: none;
 }
-
 
 #volume-slider {
   -webkit-appearance: none;
@@ -216,22 +225,25 @@ body {
   cursor: pointer;
 }
 
-
-
-
 /* EQ Container */
 .stack2 {
   width: 60%;
   margin: auto;
   border: 6px solid black;
   border-radius: 20px;
-  background-image: linear-gradient(135deg, #CCCCCC 20%, #999999 20%, #555555 40%);
+  background-image: linear-gradient(
+    135deg,
+    #cccccc 20%,
+    #999999 20%,
+    #555555 40%
+  );
   background-size: 15px 15px;
   margin-bottom: 1.5vh;
   display: flex;
   height: 200px;
   align-items: center; /* Vertically center content */
   padding: 10px;
+  box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.75);
 }
 
 /* Visualization Section */
@@ -271,7 +283,7 @@ body {
 }
 
 /* Slider Input */
-.eqSliders input[type='range'] {
+.eqSliders input[type="range"] {
   /* Ensure vertical orientation */
   -webkit-appearance: slider-vertical; /* Safari */
   height: 140px;
@@ -314,26 +326,29 @@ body {
   height: 100%;
 }
 
-
-
 /* Tracklist */
 .stack3 {
   width: 60%;
   margin: auto;
   border: 6px solid black;
-  background-image: linear-gradient(225deg, #CCCCCC 20%, #999999 20%, #555555 40%);
+  background-image: linear-gradient(
+    225deg,
+    #cccccc 20%,
+    #999999 20%,
+    #555555 40%
+  );
   background-size: 20px 20px;
   border-radius: 20px;
   margin-bottom: 1.5vh;
   align-items: center;
   padding: 10px;
+  box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.75);
 }
-
 
 .playing {
   margin: auto;
   text-align: center;
-  font-family: 'Digital', sans-serif;
+  font-family: "Digital", sans-serif;
   font-weight: bold;
   color: greenyellow;
   background-color: #000;
@@ -344,11 +359,10 @@ body {
   border-top-right-radius: 15px;
 }
 
-
 .tracklist {
   background-color: black;
   margin: auto;
-  font-family: 'Digital', sans-serif;
+  font-family: "Digital", sans-serif;
   color: white;
   font-size: 1.5em;
   line-height: 2em;
@@ -366,10 +380,8 @@ body {
   border-radius: 10px;
   width: 85%;
   margin: auto;
-  color: #004AAD;
+  color: #004aad;
 }
-  
-
 
 /* Reviews */
 .reviewsStrip {
@@ -379,10 +391,13 @@ body {
   margin-right: auto;
   margin-bottom: 1.5vh;
   border-radius: 15px;
-  background-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(255,255,255,1));
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1),
+    rgba(255, 255, 255, 1)
+  );
+  box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.75);
 }
-
-
 
 .reviewContainer {
   display: flex;
@@ -392,10 +407,9 @@ body {
   order: 2;
   width: 30%;
 }
-  
 
 .reviewContainer h1 {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   color: gold;
   font-size: 1.2em;
   line-height: 2em;
@@ -404,7 +418,6 @@ body {
   padding-right: 5px;
 }
 
-
 .reviewContainer form {
   display: flex;
   flex-direction: column;
@@ -412,7 +425,6 @@ body {
   justify-content: center;
   text-align: center;
 }
-
 
 .reviewsBox {
   order: 1;
@@ -423,7 +435,6 @@ body {
   margin-bottom: 15px;
   padding: 10px;
 }
-
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -436,12 +447,12 @@ body {
   border-radius: 15px;
 }
 
-
-a:link, a:visited, a:hover {
+a:link,
+a:visited,
+a:hover {
   color: inherit;
   text-decoration: inherit;
 }
-
 
 /* Screens between 1024px and 1439px */
 @media (min-width: 1024px) and (max-width: 1439px) {
@@ -449,25 +460,22 @@ a:link, a:visited, a:hover {
     width: 80%;
   }
 
-  
-.navigation {
-  height: 70px;
-}
+  .navigation {
+    height: 70px;
+  }
 
-.stack2 {
-  width: 85%;
-}
+  .stack2 {
+    width: 85%;
+  }
 
-.stack3 {
-  width: 85%;
-}
+  .stack3 {
+    width: 85%;
+  }
 
-.reviewsStrip {
-  width: 95%;
+  .reviewsStrip {
+    width: 95%;
+  }
 }
-}
-
-
 
 /* Screens between 640px and 1023px */
 @media (min-width: 640px) and (max-width: 1023px) {
@@ -482,50 +490,50 @@ a:link, a:visited, a:hover {
     width: 90%;
   }
 
-.navigation {
-  height: 70px;
+  .navigation {
+    height: 70px;
+  }
+
+  .tapeReelBox {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .img-container img {
+    height: 80px;
+  }
+
+  .stack2 {
+    width: 95%;
+    margin-bottom: 2vh;
+  }
+
+  .eqSliders div {
+    margin-right: 1px;
+    margin-left: 1px;
+  }
+
+  .stack3 {
+    width: 95%;
+    margin-bottom: 2vh;
+  }
+
+  .tracklist {
+    padding: 0px;
+    font-size: 1.2em;
+  }
+
+  .reviewsStrip {
+    width: 95%;
+  }
 }
-
-.tapeReelBox {
-  width: 90%;
-  padding: 15px;
-}
-
-.img-container img {
-  height: 80px;
-}
-
-.stack2 {
-  width: 95%;
-  margin-bottom: 2vh;
-}
-
-.eqSliders div {
-  margin-right: 1px;
-  margin-left: 1px;
-}
-
-.stack3 {
-  width: 95%;
-  margin-bottom: 2vh;
-}
-
-
-.tracklist {
-padding: 0px;
-  font-size: 1.2em;
-}
-
-.reviewsStrip {
-  width: 95%;
-}
-}
-
-
-
 
 /* Screens less than 640px */
 @media (max-width: 639px) {
+  .topBox {
+    padding-top: 10px;
+  }
+
   .tape {
     width: 85%;
     margin-bottom: 1vh;
@@ -533,132 +541,123 @@ padding: 0px;
     border: 4px solid black;
   }
 
-  
+  .top_label {
+    border-top: red solid 8px;
+    border-bottom: red solid 8px;
+    color: black;
+    margin: 0px auto 10px auto;
+    font-size: 1rem;
+  }
 
-.top_label {
-  border-top: red solid 8px;
-  border-bottom: red solid 8px;
-  color: black;
-  margin: 0px auto 10px auto;
-  font-size: 1rem;
-}
-
-
-.transportContainer {
-  width: 95%;
-  margin: auto;
-}
+  .transportContainer {
+    width: 95%;
+    margin: auto;
+  }
 
   .transportControls {
     width: 100%;
   }
 
-.navigation {
-  height: 50px;
-}
+  .navigation {
+    height: 50px;
+  }
 
-.tapeReelBox {
-  width: 90%;
-  padding: 8px;
-}
+  .tapeReelBox {
+    width: 90%;
+    padding: 8px;
+  }
 
-.tape_reel-container {
-  gap: 0rem;
-}
+  .tape_reel-container {
+    gap: 0rem;
+  }
 
+  .action-btn {
+    font-size: 15px;
+    padding: 0px;
+    margin: 10px 15px;
+  }
 
-.action-btn {
-  font-size: 15px;
-  padding: 0px;
-  margin: 10px 15px;
-}
+  .action-btn.action-btn-big {
+    font-size: 24px;
+  }
 
+  .audioPlayer {
+    display: none;
+  }
 
-.action-btn.action-btn-big {
-  font-size: 24px;
-}
+  #volume-slider {
+    display: none;
+  }
 
+  .img-container {
+    padding: 4px 4px;
+  }
 
-.audioPlayer {
-  display: none;
-}
+  .img-container img {
+    height: 40px;
+  }
 
-#volume-slider {
-  display: none;
-}
+  .progress-background {
+    width: 90%;
+    margin: auto;
+    height: 30px;
+  }
 
-.img-container {
-  padding: 4px 4px;
-}
+  .currTime {
+    display: none;
+  }
 
-.img-container img {
-  height: 40px;
-}
+  .stack2 {
+    display: none;
+  }
 
-.progress-background {
-  width: 90%;
-  margin: auto;
-  height: 30px;
-}
+  .eqSliders {
+    display: none;
+  }
 
-.currTime {
-  display: none;
-}
+  .stack3 {
+    width: 90%;
+    border: 4px solid black;
+    margin-bottom: 1vh;
+  }
 
-.stack2 {
-  display: none;
-}
+  .playing {
+    font-size: 1.2em;
+  }
 
-.eqSliders {
-  display: none;
-}
+  .tracklist {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
 
-.stack3 {
-  width: 90%;
-  border: 4px solid black;
-  margin-bottom: 1vh;
-}
+  .reviewsStrip {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    width: 95%;
+    background: none;
+  }
 
-.playing {
-  font-size: 1.2em;
-}
+  .reviewContainer {
+    order: -1;
+    width: 80%;
+    margin: auto;
+    background-color: #000;
+    border-radius: 15px;
+    margin-bottom: 1.5vh;
+  }
 
-.tracklist {
-  padding: 8px;
-font-size: 0.9rem;
-}
+  .reviewContainer h1 {
+    font-size: 1em;
+  }
 
-.reviewsStrip {
-  display: flex;
-  flex-direction: column; /* Stack items vertically */
-  width: 95%;
-  background: none;
-}
+  .reviewsBox {
+    width: 90%;
+    background-color: #000;
+    border-radius: 15px;
+    color: #004aad;
+  }
 
-
-.reviewContainer {
-  order: -1;
-  width: 80%;
-  margin: auto;
-  background-color: #000;
-  border-radius: 15px;
-  margin-bottom: 1.5vh;
-}
-  
-
-.reviewContainer h1 {
-  font-size: 1em;
-}
-
-
-.reviewsBox {
-  width: 90%;
-  background-color: #000;
-  border-radius: 15px;
-  color: #004AAD;
-}
-
-#volume-slider {
-  display: none;
-}
+  #volume-slider {
+    display: none;
+  }
 }
