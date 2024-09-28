@@ -1,4 +1,4 @@
-<?php include '../header.html';?>
+<?php include '../header.html'; ?>
 
 <div class="tape">
     <div class="top_label">A: Under the Black Rainbow (1:19:05)</div>
@@ -53,7 +53,7 @@
                 <input type="range" min="-1" max="1" step="0.1" value="-0.1" id="volume-slider">
 
 
-                <a href="https://mthw.s3.eu-west-2.amazonaws.com/db/rainbow.mp3" download><button class="action-btn action-btn-big">
+                <a href="../audio/db/rainbow.mp3" download><button class="action-btn action-btn-big">
                         <i class="fas fa-download"></i>
                     </button></a>
             </div>
@@ -65,8 +65,8 @@
 
 
 <div class="audioPlayer">
-<audio id="audio" preload="none" crossorigin="anonymous">
-        <source src="https://mthw.s3.eu-west-2.amazonaws.com/db/rainbow.mp3" type="audio/mpeg">
+    <audio id="audio" preload="none" crossorigin="anonymous">
+        <source src="../audio/db/rainbow.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
     </audio>
 </div>
@@ -277,84 +277,33 @@
 
 
 <div class="reviewsStrip">
-
-<?php include '../reviewForm.php'; ?>
-
+    <?php include '../reviewForm.php'; ?>
 
     <div class="reviewsBox">
 
         <?php
-$host_name = 'db5011559101.hosting-data.io';
-$database = 'dbs9747952';
-$user_name = 'dbu626955';
-$config = parse_ini_file('../config.ini');
-$password = $config['password'];
+        $mixtape = 'Under the Black Rainbow';
+        include('../review_handler.php');
+        ?>
 
-$link = new mysqli($host_name, $user_name, $password, $database);
-
-
-if (!$link) {
-// Handle database connection errors
-$response = array(
-'success' => false,
-'message' => 'Database connection error'
-);
-echo json_encode($response);
-exit;
-}
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-if(isset($_POST['stars']) && isset($_POST['comments'])) {
-$stars = intval($_POST['stars']);
-$comments = mysqli_escape_string($link, $_POST['comments']);
-//   date_default_timezone_set('Europe/London');
-$date = date("Y-m-d H:i:s");
-
-$query = "INSERT INTO rainbow (stars, comments, date) VALUES ($stars, '$comments', '$date')";
-mysqli_query($link, $query);
-}
-}
-
-
-$returned = "SELECT * FROM rainbow ORDER BY date DESC";
-$result = mysqli_query($link, $returned);
-
-if ($result) {
-while ($row = mysqli_fetch_array($result)) {
-    // $row = array_reverse($row);
-    $num = $row['stars'];
-echo "<div class='review-container'>";
-    echo "<div class='stars_div'>" . str_repeat("*", $num) . "</div>";
-    echo "<div class='comments_div'><i>" . $row['comments'] . "</i></div>";
-    echo "<div class='date_div'>" . $row['date'] . "</div>";
-echo "</div>";
-}
-} else {
-echo "No reviews found.";
-}
-
-?>
 
     </div>
 </div>
 
-</div>
-
 
 <script>
-(function() {
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
+    (function() {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
 
-    if (window.matchMedia("(max-width: 480px)").matches) {
-        script.src = "../js/djMixPlayer_Sma.js";
-    } else {
-        script.src = "../js/djMixPlayer.js";
-    }
+        if (window.matchMedia("(max-width: 480px)").matches) {
+            script.src = "../js/djMixPlayer_Sma.js";
+        } else {
+            script.src = "../js/djMixPlayer.js";
+        }
 
-    document.head.appendChild(script);
-})();
+        document.head.appendChild(script);
+    })();
 </script>
 
 </body>

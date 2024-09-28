@@ -2,15 +2,15 @@
 
 **MixTape HeavyWeight** is a feature-rich web app built for streaming and downloading DJ mixes. The intuitive user interface incorporates skeuomorphic design elements reminiscent of a hi-fi stacking system and classic old-school mixtapes. An array of features include an audio visualizer, a skippable playlist (allowing you to click through multiple tracks despite only loading a single audio file), and a comments section (which doesn't interrupt playback). As the mix plays, the tracklisting updates automatically, so the listener knows at a glance which song the DJ is spinning!
 
-## Getting Started
+## ▶️ Getting Started 🚦
 
-🏋 Try it for yourself: [MixTape HeavyWeight](https://www.followcrom.online/djmixes/gf/noodles.php) 𝄞⨾𓍢ִ໋
+🏋 Try it for yourself: [MixTape HeavyWeight](https://mixtape-heavyweight.one/gf/noodles.php) 𝄞⨾𓍢ִ໋
 
 💪🏾 Read the [Blog Post](https://medium.com/@followcrom/mixtape-heavyweight-259444d11ca9) 🤼
 
-![MixTape HeavyWeight website](https://www.followcrom.online/embeds/gh_readme_img.jpg "MixTape HeavyWeight website")
+![MixTape HeavyWeight website](imgs/gh_readme_img.jpg "MixTape HeavyWeight website")
 
-## Features
+## 💫 Features
 
 - Dynamic track title updates synchronized with audio playback
 - Audio visualizer with color-coded bars represents the music
@@ -19,7 +19,7 @@
 - Jump to a song by clicking on the playlist
 - Skip forward and backward in the mix
 
-## How To Use
+## How To Use 🕹️
 
 1. Clone the repository:
    `git clone https://github.com/followcrom/MixTapeHeavyWeight.git`
@@ -32,13 +32,13 @@
 
 5. Edit the .js files to customize the functionality of the application to meet your requirements.
 
-![GitHub stars](https://img.shields.io/github/stars/followcrom/MixTapeHeavyWeight?style=social) ![GitHub forks](https://img.shields.io/github/forks/followcrom/MixTapeHeavyWeight?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/followcrom/MixTapeHeavyWeight?style=social) ![GitHub followers](https://img.shields.io/github/followers/followcrom?style=social)
 
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/followcrom/MixTapeHeavyWeight)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/followcrom/MixTapeHeavyWeight)
 
-## Technologies
+## 🤖 Technologies 🦾
 
 - JavaScript for implementing the functionality
 - Web Audio API for audio processing
@@ -47,14 +47,12 @@
 - HTML5 for structuring the content
 - CSS3 for styling
 
-## Authors
+## ✍🏻 Authors 🙋‍♂️
 
-🌐 followCrom: [followcrom.online](https://followcrom.online/index.html) 🌐
+🌐 followCrom: [followcrom.online](https://followcrom.com/index.html) 🌐
 
-📫 followCrom: [get in touch](https://followcrom.online/contact/contact.php) 📫
+📫 followCrom: [get in touch](https://followcrom.com/contact/contact.php) 📫
 
-## License
+## License 🎓
 
-This project is open source and available under the MIT License. See the LICENSE file for details.
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+This project is open source and available under the MIT License. Find out more: [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)

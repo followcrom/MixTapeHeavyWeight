@@ -1,7 +1,7 @@
-<?php include '../header.html';?>
+<?php include '../header.html'; ?>
 
 <div class="tape">
-    <div class="top_label">This Side: The Original (1:1x:xx)</div>
+    <div class="top_label">Side B: The Original (1:15:03)</div>
 
     <div class="tapeReelBox">
 
@@ -53,17 +53,9 @@
                 <input type="range" min="-1" max="1" step="0.1" value="-0.1" id="volume-slider">
 
 
-                <!-- <a href="https://mthw.s3.eu-west-2.amazonaws.com/db/original.mp3" download="original.mp3" type="audio/mpeg">
-  <button class="action-btn action-btn-big">
-    <i class="fas fa-download"></i>
-  </button>
-</a> -->
-
-<a href="https://mthw.s3.eu-west-2.amazonaws.com/db/original.mp3?response-content-disposition=attachment; filename=original.mp3">
-    <button class="action-btn action-btn-big">
-        <i class="fas fa-download"></i>
-    </button>
-</a>
+                <a href="../audio/db/original.mp3" download><button class="action-btn action-btn-big">
+                        <i class="fas fa-download"></i>
+                    </button></a>
 
             </div>
 
@@ -74,50 +66,47 @@
 
 
 <div class="audioPlayer">
-<audio id="audio" preload="none" crossorigin="anonymous">
-    <source src="https://mthw.s3.eu-west-2.amazonaws.com/db/original.mp3" type="audio/mpeg">
-    Your browser does not support the audio tag.
-</audio>
+    <audio id="audio" preload="none">
+        <source src="../audio/db/original.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
 </div>
 
 
 
-
-
-
 <div class="timings" style="display: none">
-0 | Veak - The Original
- 120 | Marcus Visionary ft. Hopeton James - Number 1 Sound
- 208 | Desmond Dekker & The Aces - Israelites (JFB Remix)
- 340 | Isaac Maya ft. King Toppa & Gento Jamal - Sound Di Alarm
- 456 | Chopstick Dubplate ft. Ragga Twins & Bunny Lye Lye - Give Me a Dubplate
- 641 | Brian Brainstorm & Ricky Tuff - Gunshot
- 751 | Sikka - Alright
- 884 | DJ Hybrid - Run Tune Now (Formula Remix)
- 1016 | Shumba Youth & Sleepy Time Ghost - Right Way (Aries & Nicky Blackmarket Remix)
- 1190 | Herve - Together (Deekline & Benny Page Remix)
- 1365 | DJ Brockie ft. MC Det - BBC
- 1520 | Veak - Resistant
- 1651 | JFB - Shake It
- 1770 | Serial Killaz - Put It On
- 1892 | Uzimon - The Rum Anthem (Father Funk Remix)
- 2125 | Rumble ft. Junior Dangerous - I Like (Liondub & Chatta B Remix)
- 2298 | Marcus Visionary ft. Sugar Minott - Ruff & Tuff (Rollers Mix)
- 2430 | Ricky Tuff - Good Ol' Days
- 2561 | Marcus Visionary ft. Pad Anthony - Murder
- 2695 | Origin8a & Propa ft. Benny Page - Harmony (Instrumental)
- 2879 | Benny Page ft. Topcat - Sound Fi Dead (Aries & Tuffist Remix)
- 3031 | Brian Brainstorm - So Easy
- 3221 | Kumo - Signal
- 3308 | Delly Ranx - Move Left The Crowd (Jamie Bostron Remix)
- 3470 | Rise - Respect
- 3528 | Ed Solo ft. General Levy - Junglist
- 3659 | Luciano - Computerize (Jamie Bostron Remix)
- 3760 | Chopstick Dubplate ft. General Jah Mikey - My Sound Ah Murda
- 3900 | Wrongtom - Jump + Move + Rock (Benny Page Remix)
- 3990 | Dave & Ansel Collins - Double Barrel (Ed Solo Remix)
- 4121 | Dub Pistols ft. Natty Campbell - Wicked & Wild (King Yoof Remix)
- 4244 | LTJ Bukem - Atlantis (Marky & S.P.Y. Rework)
+    0 | Veak - The Original
+    120 | Marcus Visionary ft. Hopeton James - Number 1 Sound
+    208 | Desmond Dekker & The Aces - Israelites (JFB Remix)
+    340 | Isaac Maya ft. King Toppa & Gento Jamal - Sound Di Alarm
+    456 | Chopstick Dubplate ft. Ragga Twins & Bunny Lye Lye - Give Me a Dubplate
+    641 | Brian Brainstorm & Ricky Tuff - Gunshot
+    751 | Sikka - Alright
+    884 | DJ Hybrid - Run Tune Now (Formula Remix)
+    1016 | Shumba Youth & Sleepy Time Ghost - Right Way (Aries & Nicky Blackmarket Remix)
+    1190 | Herve - Together (Deekline & Benny Page Remix)
+    1365 | DJ Brockie ft. MC Det - BBC
+    1520 | Veak - Resistant
+    1651 | JFB - Shake It
+    1770 | Serial Killaz - Put It On
+    1892 | Uzimon - The Rum Anthem (Father Funk Remix)
+    2125 | Rumble ft. Junior Dangerous - I Like (Liondub & Chatta B Remix)
+    2298 | Marcus Visionary ft. Sugar Minott - Ruff & Tuff (Rollers Mix)
+    2430 | Ricky Tuff - Good Ol' Days
+    2561 | Marcus Visionary ft. Pad Anthony - Murder
+    2695 | Origin8a & Propa ft. Benny Page - Harmony (Instrumental)
+    2879 | Benny Page ft. Topcat - Sound Fi Dead (Aries & Tuffist Remix)
+    3031 | Brian Brainstorm - So Easy
+    3221 | Kumo - Signal
+    3308 | Delly Ranx - Move Left The Crowd (Jamie Bostron Remix)
+    3470 | Rise - Respect
+    3528 | Ed Solo ft. General Levy - Junglist
+    3659 | Luciano - Computerize (Jamie Bostron Remix)
+    3760 | Chopstick Dubplate ft. General Jah Mikey - My Sound Ah Murda
+    3900 | Wrongtom - Jump + Move + Rock (Benny Page Remix)
+    3990 | Dave & Ansel Collins - Double Barrel (Ed Solo Remix)
+    4121 | Dub Pistols ft. Natty Campbell - Wicked & Wild (King Yoof Remix)
+    4244 | LTJ Bukem - Atlantis (Marky & S.P.Y. Rework)
 </div>
 
 
@@ -149,127 +138,69 @@
 
 
     <div class="tracklist">
-    <div class="track" onclick="updatePosition(this)" data-time="0"><b>Veak<b> - The Original</div>
-<div class="track" onclick="updatePosition(this)" data-time="120"><b>Marcus Visionary ft. Hopeton James<b> - Number 1 Sound</div>
-<div class="track" onclick="updatePosition(this)" data-time="208"><b>Desmond Dekker & The Aces<b> - Israelites (JFB Remix)</div>
-<div class="track" onclick="updatePosition(this)" data-time="340"><b>Isaac Maya ft. King Toppa & Gento Jamal <b> - Sound Di Alarm</div>
-<div class="track" onclick="updatePosition(this)" data-time="456"><b>Chopstick Dubplate ft. Ragga Twins & Bunny Lye Lye<b> - Give Me a Dubplate</div>
-<div class="track" onclick="updatePosition(this)" data-time="641"><b>Brian Brainstorm & Ricky Tuff<b> - Gunshot</div>
-<div class="track" onclick="updatePosition(this)" data-time="751"><b>Sikka<b> - Alright</div>
-<div class="track" onclick="updatePosition(this)" data-time="884"><b>DJ Hybrid<b> - Run Tune Now (Formula Remix)</div>
-<div class="track" onclick="updatePosition(this)" data-time="1016"><b>Shumba Youth & Sleepy Time Ghost<b> - Right Way (Aries & Nicky Blackmarket Remix)</div>
-<div class="track" onclick="updatePosition(this)" data-time="1190"><b>Herve<b> - Together (Deekline & Benny Page Remix)</div>
-<div class="track" onclick="updatePosition(this)" data-time="1365"><b>DJ Brockie ft. MC Det<b> - BBC</div>
-<div class="track" onclick="updatePosition(this)" data-time="1520"><b>Veak<b> - Resistant</div>
-<div class="track" onclick="updatePosition(this)" data-time="1651"><b>JFB<b> - Shake It</div>
-<div class="track" onclick="updatePosition(this)" data-time="1770"><b>Serial Killaz<b> - Put It On</div>
-<div class="track" onclick="updatePosition(this)" data-time="1892"><b>Uzimon<b> - The Rum Anthem (Father Funk Remix)</div>
-<div class="track" onclick="updatePosition(this)" data-time="2125"><b>Rumble ft. Junior Dangerous<b> - I Like (Liondub & Chatta B Remix)</div>
-<div class="track" onclick="updatePosition(this)" data-time="2298"><b>Marcus Visionary ft. Sugar Minott<b> - Ruff & Tuff (Rollers Mix)</div>
-<div class="track" onclick="updatePosition(this)" data-time="2430"><b>Ricky Tuff<b> - Good Ol' Days</div>
-<div class="track" onclick="updatePosition(this)" data-time="2561"><b>Marcus Visionary ft. Pad Anthony<b> - Murder</div>
-<div class="track" onclick="updatePosition(this)" data-time="2695"><b>Origin8a & Propa ft. Benny Page<b> - Harmony (Instrumental)</div>
-<div class="track" onclick="updatePosition(this)" data-time="2879"><b>Benny Page ft. Topcat<b> - Sound Fi Dead (Aries & Tuffist Remix)</div>
-<div class="track" onclick="updatePosition(this)" data-time="3031"><b>Brian Brainstorm<b> - So Easy</div>
-<div class="track" onclick="updatePosition(this)" data-time="3221"><b>Kumo<b> - Signal</div>
-<div class="track" onclick="updatePosition(this)" data-time="3308"><b>Delly Ranx<b> - Move Left The Crowd (Jamie Bostron Remix)</div>
-<div class="track" onclick="updatePosition(this)" data-time="3470"><b>Rise<b> - Respect</div>
-<div class="track" onclick="updatePosition(this)" data-time="3528"><b>Ed Solo ft. General Levy<b> - Junglist</div>
-<div class="track" onclick="updatePosition(this)" data-time="3659"><b>Luciano<b> - Computerize (Jamie Bostron Remix)</div>
-<div class="track" onclick="updatePosition(this)" data-time="3760"><b>Chopstick Dubplate ft. General Jah Mikey<b> - My Sound Ah Murda</div>
-<div class="track" onclick="updatePosition(this)" data-time="3900"><b>Wrongtom<b> - Jump + Move + Rock (Benny Page Remix)</div>
-<div class="track" onclick="updatePosition(this)" data-time="3990"><b>Dave & Ansel Collins<b> - Double Barrel (Ed Solo Remix)</div>
-<div class="track" onclick="updatePosition(this)" data-time="4121"><b>Dub Pistols ft. Natty Campbell<b> - Wicked & Wild (King Yoof Remix)</div>
-<div class="track" onclick="updatePosition(this)" data-time="4244"><b>LTJ Bukem<b> - Atlantis (Marky & S.P.Y. Rework)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="0"><b>Veak<b> - The Original</div>
+        <div class="track" onclick="updatePosition(this)" data-time="120"><b>Marcus Visionary ft. Hopeton James<b> - Number 1 Sound</div>
+        <div class="track" onclick="updatePosition(this)" data-time="208"><b>Desmond Dekker & The Aces<b> - Israelites (JFB Remix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="340"><b>Isaac Maya ft. King Toppa & Gento Jamal <b> - Sound Di Alarm</div>
+        <div class="track" onclick="updatePosition(this)" data-time="456"><b>Chopstick Dubplate ft. Ragga Twins & Bunny Lye Lye<b> - Give Me a Dubplate</div>
+        <div class="track" onclick="updatePosition(this)" data-time="641"><b>Brian Brainstorm & Ricky Tuff<b> - Gunshot</div>
+        <div class="track" onclick="updatePosition(this)" data-time="751"><b>Sikka<b> - Alright</div>
+        <div class="track" onclick="updatePosition(this)" data-time="884"><b>DJ Hybrid<b> - Run Tune Now (Formula Remix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1016"><b>Shumba Youth & Sleepy Time Ghost<b> - Right Way (Aries & Nicky Blackmarket Remix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1190"><b>Herve<b> - Together (Deekline & Benny Page Remix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1365"><b>DJ Brockie ft. MC Det<b> - BBC</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1520"><b>Veak<b> - Resistant</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1651"><b>JFB<b> - Shake It</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1770"><b>Serial Killaz<b> - Put It On</div>
+        <div class="track" onclick="updatePosition(this)" data-time="1892"><b>Uzimon<b> - The Rum Anthem (Father Funk Remix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2125"><b>Rumble ft. Junior Dangerous<b> - I Like (Liondub & Chatta B Remix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2298"><b>Marcus Visionary ft. Sugar Minott<b> - Ruff & Tuff (Rollers Mix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2430"><b>Ricky Tuff<b> - Good Ol' Days</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2561"><b>Marcus Visionary ft. Pad Anthony<b> - Murder</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2695"><b>Origin8a & Propa ft. Benny Page<b> - Harmony (Instrumental)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="2879"><b>Benny Page ft. Topcat<b> - Sound Fi Dead (Aries & Tuffist Remix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3031"><b>Brian Brainstorm<b> - So Easy</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3221"><b>Kumo<b> - Signal</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3308"><b>Delly Ranx<b> - Move Left The Crowd (Jamie Bostron Remix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3470"><b>Rise<b> - Respect</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3528"><b>Ed Solo ft. General Levy<b> - Junglist</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3659"><b>Luciano<b> - Computerize (Jamie Bostron Remix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3760"><b>Chopstick Dubplate ft. General Jah Mikey<b> - My Sound Ah Murda</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3900"><b>Wrongtom<b> - Jump + Move + Rock (Benny Page Remix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="3990"><b>Dave & Ansel Collins<b> - Double Barrel (Ed Solo Remix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="4121"><b>Dub Pistols ft. Natty Campbell<b> - Wicked & Wild (King Yoof Remix)</div>
+        <div class="track" onclick="updatePosition(this)" data-time="4244"><b>LTJ Bukem<b> - Atlantis (Marky & S.P.Y. Rework)</div>
     </div>
 </div>
 
 
 <div class="reviewsStrip">
-
     <?php include '../reviewForm.php'; ?>
 
     <div class="reviewsBox">
 
-    <?php
-$config = include('../config.php');
-
-$host_name = $config['host_name'];
-$database = $config['database'];
-$user_name = $config['user_name'];
-$password = $config['password'];
-
-// Create a connection
-$link = new mysqli($host_name, $user_name, $password, $database);
-
-// Check connection
-if ($link->connect_error) {
-    die("Connection failed: " . $link->connect_error);
-}
-
-// Set the mixtape label manually for each page
-$mixtape = 'The Original';  // Change this value for each PHP page to reflect the mixtape
-
-// Handle form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['stars']) && isset($_POST['comments'])) {
-        $stars = intval($_POST['stars']);
-        $comments = $link->real_escape_string($_POST['comments']); // Use real_escape_string
-
-        $date = date("Y-m-d H:i:s");
-
-        // Prepare and execute the INSERT query
-        $stmt = $link->prepare("INSERT INTO reviews (mixtape, stars, comments, date) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("siss", $mixtape, $stars, $comments, $date);
-        $stmt->execute();
-        $stmt->close();
-    }
-}
-
-// Prepare and execute the SELECT query
-$stmt = $link->prepare("SELECT mixtape, stars, comments, date FROM reviews WHERE mixtape = ? ORDER BY date DESC");
-$stmt->bind_param("s", $mixtape);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows > 0) {
-    echo "<div class='mixtape_div'>Feedback for " . htmlspecialchars($mixtape) . ":</div>";
-    while ($row = $result->fetch_assoc()) {
-        $num = $row['stars'];
-        echo "<div class='review-container'>";
-        echo "<div class='stars_div'>" . str_repeat("*", $num) . "</div>";
-        echo "<div class='comments_div'><i>" . htmlspecialchars($row['comments']) . "</i></div>";
-        echo "<div class='date_div'>" . htmlspecialchars($row['date']) . "</div>";
-        echo "</div>";
-    }
-} else {
-    echo "No reviews found.";
-}
-
-$stmt->close();
-$link->close();
-?>
-
+        <?php
+        $mixtape = 'The Original';
+        include('../review_handler.php');
+        ?>
 
     </div>
 </div>
 
-</div>
-
 
 <script>
-(function() {
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
+    (function() {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
 
-    if (window.matchMedia("(max-width: 480px)").matches) {
-        script.src = "../js/djMixPlayer_Sma.js";
-    } else {
-        script.src = "../js/djMixPlayer.js";
-    }
+        if (window.matchMedia("(max-width: 480px)").matches) {
+            script.src = "../js/djMixPlayer_Sma.js";
+        } else {
+            script.src = "../js/djMixPlayer.js";
+        }
 
-    document.head.appendChild(script);
-})();
+        document.head.appendChild(script);
+    })();
 </script>
 
 </body>

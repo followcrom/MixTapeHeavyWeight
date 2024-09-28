@@ -1,4 +1,4 @@
-<?php include '../header.html';?>
+<?php include '../header.html'; ?>
 
 <div class="content">
 
@@ -55,7 +55,7 @@
                     <input type="range" min="-1" max="1" step="0.1" value="-0.1" id="volume-slider">
 
 
-                    <a href="https://mthw.s3.eu-west-2.amazonaws.com/db/solution.mp3" download><button class="action-btn action-btn-big">
+                    <a href="../audio/db/solution.mp3" download><button class="action-btn action-btn-big">
                             <i class="fas fa-download"></i>
                         </button></a>
                 </div>
@@ -68,8 +68,8 @@
 
     <div class="audioPlayer">
         <audio id="audio" preload="none">
-            <!-- <source src="https://mthw.s3.eu-west-2.amazonaws.com/db/supafly.ogg" type="https://mthw.s3.eu-west-2.amazonaws.com/db/ogg"> -->
-            <source src="https://mthw.s3.eu-west-2.amazonaws.com/db/solution.mp3" type="audio/mpeg">
+            <!-- <source src="../audio/db/supafly.ogg" type="../audio/db/ogg"> -->
+            <source src="../audio/db/solution.mp3" type="audio/mpeg">
             Your browser does not support the audio tag.
         </audio>
     </div>
@@ -197,89 +197,34 @@
 
 
     <div class="reviewsStrip">
-
-<?php include '../reviewForm.php'; ?>
+        <?php include '../reviewForm.php'; ?>
 
         <div class="reviewsBox">
 
-    <?php
-$config = include('../config.php');
+            <?php
+            $mixtape = '7% Solution';
+            include('../review_handler.php');
+            ?>
 
-$host_name = $config['host_name'];
-$database = $config['database'];
-$user_name = $config['user_name'];
-$password = $config['password'];
-
-// Create a connection
-$link = new mysqli($host_name, $user_name, $password, $database);
-
-// Check connection
-if ($link->connect_error) {
-    die("Connection failed: " . $link->connect_error);
-}
-
-// Set the mixtape label manually for each page
-$mixtape = '7% Solution';  // Change this value for each PHP page to reflect the mixtape
-
-// Handle form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['stars']) && isset($_POST['comments'])) {
-        $stars = intval($_POST['stars']);
-        $comments = $link->real_escape_string($_POST['comments']); // Use real_escape_string
-
-        $date = date("Y-m-d H:i:s");
-
-        // Prepare and execute the INSERT query
-        $stmt = $link->prepare("INSERT INTO reviews (mixtape, stars, comments, date) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("siss", $mixtape, $stars, $comments, $date);
-        $stmt->execute();
-        $stmt->close();
-    }
-}
-
-// Prepare and execute the SELECT query
-$stmt = $link->prepare("SELECT stars, comments, date FROM reviews WHERE mixtape = ? ORDER BY date DESC");
-$stmt->bind_param("s", $mixtape);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $num = $row['stars'];
-        echo "<div class='review-container'>";
-        echo "<div class='stars_div'>" . str_repeat("*", $num) . "</div>";
-        echo "<div class='comments_div'><i>" . htmlspecialchars($row['comments']) . "</i></div>"; // Use htmlspecialchars for output
-        echo "<div class='date_div'>" . htmlspecialchars($row['date']) . "</div>"; // Use htmlspecialchars for output
-        echo "</div>";
-    }
-} else {
-    echo "No reviews found.";
-}
-
-$stmt->close();
-$link->close();
-?>
 
         </div>
     </div>
 
-</div>
+    <script>
+        (function() {
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
 
-<script>
-(function() {
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
+            if (window.matchMedia("(max-width: 480px)").matches) {
+                script.src = "../js/djMixPlayer_Sma.js";
+            } else {
+                script.src = "../js/djMixPlayer.js";
+            }
 
-    if (window.matchMedia("(max-width: 480px)").matches) {
-        script.src = "../js/djMixPlayer_Sma.js";
-    } else {
-        script.src = "../js/djMixPlayer.js";
-    }
+            document.head.appendChild(script);
+        })();
+    </script>
 
-    document.head.appendChild(script);
-})();
-</script>
+    </body>
 
-</body>
-
-</html>
+    </html>

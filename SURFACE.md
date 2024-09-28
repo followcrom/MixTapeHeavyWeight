@@ -1,5 +1,7 @@
 # 🖭 MixTape HeavyWeight 🤼 on Digital Ocean 🌊🪸🐚🐬
 
+git push origin SURFACE:main --force
+
 ssh into the Digital Ocean box:
 
 ```bash
@@ -27,10 +29,13 @@ rsync -avz -e "ssh -i ~/.ssh/digiocean" ftp/ root@139.59.161.31:/var/www/mthw
 - Add or update the following records:
 
 1. **A Record for the root domain (@)**:
+
 - Host: @
 - Value: Your Droplet's IP address
 - TTL: Leave it as Automatic or set it to a low value like 300 seconds for faster propagation.
+
 2. **A Record for www**:
+
 - Host: www
 - Value: Your Droplet's IP address
 - TTL: Leave it as Automatic or set it to a low value like 300 seconds for faster propagation.
@@ -57,6 +62,12 @@ This command will automatically configure the SSL settings in your Nginx configu
 
 ```bash
 sudo certbot --nginx
+```
+
+or more specifically:
+
+```bash
+certbot --nginx -d mixtape-heavyweight.one -d www.mixtape-heavyweight.one
 ```
 
 Let's Encrypt certificates are valid for 90 days, but Certbot can automate the renewal process. The command below can be used to manually test renewal:
@@ -89,7 +100,9 @@ sudo certbot renew
 
 ### Transfer Your SSL Certificate to Another VM
 
-Simply reissue the certificate by installing Certbot and running it again on the new server, or copy the following files from your existing server:
+You do not need to delete the old certificate before generating a new one on the new VM. Using the same domain name for a new certificate is perfectly fine; Let's Encrypt allows this. Simply reissue the certificate by installing Certbot and running it again on the new server.
+
+If you really want to, you can copy the following files from your existing server:
 
 - Certificate file (e.g., /etc/letsencrypt/live/yourdomain.com/fullchain.pem)
 - Private key (e.g., /etc/letsencrypt/live/yourdomain.com/privkey.pem)
@@ -541,11 +554,6 @@ server {
 }
 ```
 
-
-
-
-
-
 ## Speed Up Your Server
 
 When PHP-FPM is set to spawn new workers on demand, the first request can take longer because it has to spin up workers. To address this:
@@ -554,9 +562,9 @@ Increase PHP-FPM pool settings in /etc/php/8.1/fpm/pool.d/www.conf (or your spec
 ini
 Copy code
 pm = dynamic
-pm.max_children = 10         # Increase if the server has enough resources
-pm.start_servers = 3         # Start more servers to avoid cold starts
-pm.min_spare_servers = 2     # Ensure a minimum number of idle workers
+pm.max_children = 10 # Increase if the server has enough resources
+pm.start_servers = 3 # Start more servers to avoid cold starts
+pm.min_spare_servers = 2 # Ensure a minimum number of idle workers
 pm.max_spare_servers = 5
 This configuration ensures that enough PHP-FPM workers are already running when the first request hits.
 
@@ -578,66 +586,87 @@ Step 2: Add a Bucket Policy
 
 ```json
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "PublicReadGetObject",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::followcrom-online/*"
-        }
-    ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::followcrom-online/*"
+    }
+  ]
 }
 ```
 
 Step 3: Add or Modify the CORS Configuration
-    
+
 ```json
 [
-    {
-        "AllowedHeaders": [
-            "*"
-        ],
-        "AllowedMethods": [
-            "GET",
-            "HEAD"
-        ],
-        "AllowedOrigins": [
-            "https://mixtape.followcrom.online"
-        ],
-        "ExposeHeaders": [
-            "Content-Length",
-            "Content-Type",
-            "ETag",
-            "Content-Range"
-        ],
-        "MaxAgeSeconds": 3000
-    }
+  {
+    "AllowedHeaders": ["*"],
+    "AllowedMethods": ["GET", "HEAD"],
+    "AllowedOrigins": ["https://mixtape.followcrom.online"],
+    "ExposeHeaders": [
+      "Content-Length",
+      "Content-Type",
+      "ETag",
+      "Content-Range"
+    ],
+    "MaxAgeSeconds": 3000
+  }
 ]
 ```
 
-Step 4: Mak the aduio files downloadable
+Step 4: Make the audio files downloadable
 
-You can set the Content-Disposition header to attachment in your S3 bucket settings. This header can force the browser to download the file instead of displaying it.
+You can set the `Content-Disposition` header to `attachment `in your S3 bucket settings. This header can force the browser to download the file instead of displaying it.
 
-In an object's properties window, click the ‘metadata’ tab.
+In an object's properties window, click the `metadata` tab. Generally, **Key** is by default set to **Content-Type** and **Value** is set to **audio/mp3**.
 
-genrally one metadata is set, ‘Key’ was by default set to ‘Content-Type’ and ‘Value’ was set to ‘audio/mp3’.
-Click the ‘add more metadata’ button, and add:
+Click the `Add more metadata` button, and add:
 
-Key: Content-Disposition Value: attachment
+`Key: Content-Disposition Value: attachment`
 
-Click ‘save’ to save the changes.
+Save the changes.
+
+In the HTML page, try:
+
+```html
+<a
+  href="https://mthw.s3.eu-west-2.amazonaws.com/db/original.mp3"
+  download="original.mp3"
+  type="audio/mpeg"
+>
+  <button class="action-btn action-btn-big">
+    <i class="fas fa-download"></i>
+  </button>
+</a>
+```
+
+or
+
+```html
+<a
+  href="https://mthw.s3.eu-west-2.amazonaws.com/db/original.mp3?response-content-disposition=attachment; filename=original.mp3"
+>
+  <button class="action-btn action-btn-big">
+    <i class="fas fa-download"></i>
+  </button>
+</a>
+```
 
 ## Update the HTML
 
-Ensure your audio tag looks like this:
+Ensure the streaming audio tag looks like this:
 
 ```html
 <audio id="audio" preload="none" crossorigin="anonymous">
-    <source src="https://mthw.s3.eu-west-2.amazonaws.com/gf/supafly.mp3" type="audio/mpeg">
-    Your browser does not support the audio tag.
+  <source
+    src="https://mthw.s3.eu-west-2.amazonaws.com/gf/supafly.mp3"
+    type="audio/mpeg"
+  />
+  Your browser does not support the audio tag.
 </audio>
 ```
 
@@ -660,3 +689,7 @@ This should return headers including Access-Control-Allow-Origin if CORS is corr
 **Network Tab:** In the browser's developer tools, go to the Network tab, filter for your MP3 file, and examine the request and response headers in detail. Look for any discrepancies with the curl results.
 
 **Browser Cache:** Perform a hard refresh (Ctrl+F5 on Windows) to ensure you're not seeing cached results.
+
+```
+
+```

@@ -1,4 +1,4 @@
-<?php include '../header.html';?>
+<?php include '../header.html'; ?>
 
 <div class="tape">
     <div class="top_label">A: Beyond the Silver Lake (1:18:32)</div>
@@ -53,7 +53,7 @@
                 <input type="range" min="-1" max="1" step="0.1" value="-0.1" id="volume-slider">
 
 
-                <a href="https://mthw.s3.eu-west-2.amazonaws.com/db/lake.mp3" download><button class="action-btn action-btn-big">
+                <a href="../audio/db/lake.mp3" download><button class="action-btn action-btn-big">
                         <i class="fas fa-download"></i>
                     </button></a>
             </div>
@@ -65,8 +65,8 @@
 
 
 <div class="audioPlayer">
-<audio id="audio" preload="none" crossorigin="anonymous">
-        <source src="https://mthw.s3.eu-west-2.amazonaws.com/db/lake.mp3" type="audio/mpeg">
+    <audio id="audio" preload="none" crossorigin="anonymous">
+        <source src="../audio/db/lake.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
     </audio>
 </div>
@@ -154,34 +154,34 @@
         <div class="track" onclick="updatePosition(this)" data-time="1174"><b>Chopstick Dubplate</b> - Uber Ride Version
         </div>
         <div class="track" onclick="updatePosition(this)" data-time="1378"><b>Protoje ft. Chronixx</b> - Who Knows (Shy
-                    FX Mix)</div>
+            FX Mix)</div>
         <div class="track" onclick="updatePosition(this)" data-time="1561"><b>Pasco</b> - Pussyhole</div>
         <div class="track" onclick="updatePosition(this)" data-time="1670"><b>Damian Marley</b> - Is It Worth It? (Jamie
-                    Bostron Remix)</div>
+            Bostron Remix)</div>
         <div class="track" onclick="updatePosition(this)" data-time="1843"><b>Deekline</b> - Brick City with Bounce</div>
         <div class="track" onclick="updatePosition(this)" data-time="1997"><b>Popcaan</b> - Ravin' (J Bostron Bootleg
-                    Remix)</div>
+            Remix)</div>
         <div class="track" onclick="updatePosition(this)" data-time="2152"><b>Benny Page ft. Mr Williamz</b> - Pass The
-                    Kutchie</div>
+            Kutchie</div>
         <div class="track" onclick="updatePosition(this)" data-time="2274"><b>Mr Explicit</b> - The Unknown</div>
         <div class="track" onclick="updatePosition(this)" data-time="2378"><b>Masker</b> - Jungle Lick</div>
         <div class="track" onclick="updatePosition(this)" data-time="2489"><b>Rodney P & Skitz</b> - Left (Serial Killaz
-                    Mix)</div>
+            Mix)</div>
         <div class="track" onclick="updatePosition(this)" data-time="2694"><b>MA2</b> - Hearing is Believing (Serum
-                    Remix)</div>
+            Remix)</div>
         <div class="track" onclick="updatePosition(this)" data-time="2803"><b>Upgrade</b> - Get Excited</div>
         <div class="track" onclick="updatePosition(this)" data-time="2959"><b>Dubtime</b> - Badman Nuh Inna Dat</div>
         <div class="track" onclick="updatePosition(this)" data-time="3097"><b>Java</b> - Tune Fe Tune</div>
         <div class="track" onclick="updatePosition(this)" data-time="3229"><b>Chopstick Dubplatet. Mr Williamz</b> -
-                    Saturday Night (Jungle Mix)</div>
+            Saturday Night (Jungle Mix)</div>
         <div class="track" onclick="updatePosition(this)" data-time="3425"><b>Agent Sasco</b> - Give Thanks (Jinx Remix)
         </div>
         <div class="track" onclick="updatePosition(this)" data-time="3569"><b>Selecta J-Man & Vinyl Junkie</b> - Buss It
         </div>
         <div class="track" onclick="updatePosition(this)" data-time="3707"><b>Nitty Gritty</b> - Sweet Reggae Music
-                    (Jamie Bostron Remix)</div>
+            (Jamie Bostron Remix)</div>
         <div class="track" onclick="updatePosition(this)" data-time="3813"><b>Major Lazer</b> - Can't Stop Now (Serial
-                    Killaz Version)</div>
+            Killaz Version)</div>
         <div class="track" onclick="updatePosition(this)" data-time="3908"><b>Chronixx</b> - Out Deh (Jamie Bostron Mix)
         </div>
         <div class="track" onclick="updatePosition(this)" data-time="4071"><b>Serial Killaz</b> - Who the Bombaclart
@@ -195,90 +195,32 @@
 
 
 <div class="reviewsStrip">
-
-<?php include '../reviewForm.php'; ?>
-
+    <?php include '../reviewForm.php'; ?>
 
     <div class="reviewsBox">
 
-    <?php
-$config = include('../config.php');
-
-$host_name = $config['host_name'];
-$database = $config['database'];
-$user_name = $config['user_name'];
-$password = $config['password'];
-
-// Create a connection
-$link = new mysqli($host_name, $user_name, $password, $database);
-
-// Check connection
-if ($link->connect_error) {
-    die("Connection failed: " . $link->connect_error);
-}
-
-// Set the mixtape label manually for each page
-$mixtape = 'Beyond the Silver Lake';  // Change this value for each PHP page to reflect the mixtape
-
-// Handle form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['stars']) && isset($_POST['comments'])) {
-        $stars = intval($_POST['stars']);
-        $comments = $link->real_escape_string($_POST['comments']); // Use real_escape_string
-
-        $date = date("Y-m-d H:i:s");
-
-        // Prepare and execute the INSERT query
-        $stmt = $link->prepare("INSERT INTO reviews (mixtape, stars, comments, date) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("siss", $mixtape, $stars, $comments, $date);
-        $stmt->execute();
-        $stmt->close();
-    }
-}
-
-// Prepare and execute the SELECT query
-$stmt = $link->prepare("SELECT mixtape, stars, comments, date FROM reviews WHERE mixtape = ? ORDER BY date DESC");
-$stmt->bind_param("s", $mixtape);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows > 0) {
-    echo "<div class='mixtape_div'>Feedback for " . htmlspecialchars($mixtape) . ":</div>";
-    while ($row = $result->fetch_assoc()) {
-        $num = $row['stars'];
-        echo "<div class='review-container'>";
-        echo "<div class='stars_div'>" . str_repeat("*", $num) . "</div>";
-        echo "<div class='comments_div'><i>" . htmlspecialchars($row['comments']) . "</i></div>";
-        echo "<div class='date_div'>" . htmlspecialchars($row['date']) . "</div>";
-        echo "</div>";
-    }
-} else {
-    echo "No reviews found.";
-}
-
-$stmt->close();
-$link->close();
-?>
+        <?php
+        $mixtape = 'Beyond the Silver Lake';
+        include('../review_handler.php');
+        ?>
 
     </div>
 </div>
 
-</div>
-
 
 <script>
-(function() {
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
+    (function() {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
 
-    if (window.matchMedia("(max-width: 480px)").matches) {
-        script.src = "../js/djMixPlayer_Sma.js";
-    } else {
-        script.src = "../js/djMixPlayer.js";
-    }
+        if (window.matchMedia("(max-width: 480px)").matches) {
+            script.src = "../js/djMixPlayer_Sma.js";
+        } else {
+            script.src = "../js/djMixPlayer.js";
+        }
 
-    document.head.appendChild(script);
-})();
+        document.head.appendChild(script);
+    })();
 </script>
 
 </body>
