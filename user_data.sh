@@ -16,7 +16,7 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 # Install required packages (Nginx, MySQL, PHP)
 sudo apt install -y mysql-server nginx php-fpm php-mysql git curl unzip
 
-echo "Package installation complete."
+echo "Package installation complete."       
 
 # Restart and enable Nginx to run on startup
 sudo systemctl restart nginx
@@ -91,7 +91,7 @@ server {
 sudo bash -c "cat > /etc/nginx/sites-available/mthw" <<EOF
 server {
     listen 80;
-    server_name 139.59.161.31;
+    server_name 178.62.84.97;
 
     # Set the root directory for serving static files
     root /var/www/mthw;
@@ -107,7 +107,7 @@ server {
     # Location block for PHP files
     location ~ \.php\$ {
         include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/var/run/php/php${PHP_VERSION}-fpm.sock;
+        fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
         fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
         include fastcgi_params;
     }
@@ -196,7 +196,7 @@ sudo mysql -e "FLUSH PRIVILEGES;"
 
 # Create a new database and user
 sudo mysql -e "CREATE DATABASE mixtape_reviews;"
-sudo mysql -e "CREATE USER 'heavyweight'@'localhost' IDENTIFIED BY 'digiocean_db';"
+sudo mysql -e "CREATE USER 'heavyweight'@'localhost' IDENTIFIED BY '********';"
 sudo mysql -e "GRANT ALL PRIVILEGES ON mixtape_reviews.* TO 'heavyweight'@'localhost';"
 sudo mysql -e "FLUSH PRIVILEGES;"
 
@@ -204,7 +204,7 @@ sudo mysql -e "FLUSH PRIVILEGES;"
 
 # Create the reviews table
 # add a col for which mixtape was reviewed
-sudo mysql -u heavyweight -pdigiocean_db -D mixtape_reviews -e "
+sudo mysql -u heavyweight -p******** -D mixtape_reviews -e "
 CREATE TABLE reviews (
     id INT AUTO_INCREMENT PRIMARY KEY,
     mixtape VARCHAR(100) NOT NULL,
@@ -222,7 +222,7 @@ return [
     "host_name" => "localhost",
     "database" => "mixtape_reviews",
     "user_name" => "heavyweight",
-    "password" => "digiocean_db"
+    "password" => "********"
 ];
 EOF'
 
