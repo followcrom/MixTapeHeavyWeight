@@ -1,4 +1,6 @@
-<?php include '../header.html'; ?>
+<?php
+$mixtape = 'Soothing Syrup';
+include '../header.html'; ?>
 
 <div class="tape">
     <div class="top_label">A: Mrs. Winslow's Soothing Syrup (1:02:11)</div>
@@ -188,7 +190,6 @@
     <div class="reviewsBox">
 
         <?php
-        $mixtape = 'Soothing Syrup';
         include('../review_handler.php');
         ?>
 

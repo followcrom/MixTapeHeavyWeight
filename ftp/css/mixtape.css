@@ -19,6 +19,7 @@ body {
   background-repeat: no-repeat;
   background-color: #000;
   padding: 0px;
+  margin-bottom: 10vh;
 }
 
 .topBox {
@@ -125,6 +126,7 @@ a:hover a:visited {
   .content {
     background-size: 40vw auto;
     background-position: right center;
+    margin-bottom: 20px;
   }
 
   .content_boxes {

@@ -1,4 +1,6 @@
-<?php include '../header.html'; ?>
+<?php
+$mixtape = 'Rufus Sound';
+include '../header.html'; ?>
 
 <div class="tape">
     <div class="top_label">A: The Rufus Sound (1:24:29)</div>
@@ -66,7 +68,9 @@
 
 <div class="audioPlayer">
     <audio id="audio" preload="none" crossorigin="anonymous">
-        <source src="https://mthw.s3.eu-west-2.amazonaws.com/gf/rufus_sound.mp3" type="audio/mpeg">
+        <source
+            src="https://mthw.s3.eu-west-2.amazonaws.com/gf/rufus_sound.mp3"
+            type="audio/mpeg" />
         Your browser does not support the audio tag.
     </audio>
 </div>
@@ -137,7 +141,6 @@
 
     <div class="playing" id="title">Tracklist (click on a song to play)</div>
 
-
     <div class="tracklist">
         <div class="track" onclick="updatePosition(this)" data-time="0"><b>Mr Stabalina</b> - Can We Do
             It Again?</div>
@@ -204,7 +207,6 @@
     <div class="reviewsBox">
 
         <?php
-        $mixtape = 'Rufus Sound';
         include('../review_handler.php');
         ?>
 
