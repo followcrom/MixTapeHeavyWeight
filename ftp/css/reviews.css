@@ -12,9 +12,8 @@ fieldset {
   /* text-align: center; */
 }
 
-
 .rating {
-  float:left;
+  float: left;
 }
 
 .rating:not(:checked) > input {
@@ -27,31 +26,32 @@ fieldset {
 }
 
 .rating:not(:checked) > label {
-  float:right;
-  width:1em;
-  padding:0 .1em;
-  overflow:hidden;
-  white-space:nowrap;
-  cursor:pointer;
-  font-size:150%;
-  line-height:1;
-  color:#ddd;
-  text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+  float: right;
+  width: 1em;
+  padding: 0 0.1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 150%;
+  line-height: 1;
+  color: #ddd;
+  text-shadow: 1px 1px #bbb, 2px 2px #666, 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
 }
 
 .rating:not(:checked) > label:before {
-  content: '★ ';
+  content: "★ ";
 }
 
 .rating > input:checked ~ label {
   color: gold;
-  text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+  text-shadow: 1px 1px #c60, 2px 2px #940, 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
 }
 
 .rating:not(:checked) > label:hover,
 .rating:not(:checked) > label:hover ~ label {
   color: gold;
-  text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+  text-shadow: 1px 1px goldenrod, 2px 2px #b57340,
+    0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
 }
 
 .rating > input:checked + label:hover,
@@ -60,29 +60,27 @@ fieldset {
 .rating > input:checked ~ label:hover ~ label,
 .rating > label:hover ~ input:checked ~ label {
   color: #ea0;
-  text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+  text-shadow: 1px 1px goldenrod, 2px 2px #b57340,
+    0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
 }
 
 .rating > label:active {
-  position:relative;
-  top:2px;
-  left:2px;
+  position: relative;
+  top: 2px;
+  left: 2px;
 }
-
 
 textarea {
-width: 85%;
-padding: 12px;
-margin: 5px 0;
-display: inline-block;
-border: 1px solid #7d9a90;
-border-radius: 4px;
-box-sizing: border-box;
+  width: 85%;
+  padding: 12px;
+  margin: 5px 0;
+  display: inline-block;
+  border: 1px solid #7d9a90;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-
-
-input[type=submit] {
+input[type="submit"] {
   width: 50%;
   padding: 12px;
   margin: 8px 0 8px 0;
@@ -93,36 +91,33 @@ input[type=submit] {
   border-radius: 4px;
   cursor: pointer;
 }
-  
-  
-input[type=submit]:hover {
-  background-color: #004AAD;
-  color: #FFF;
-}
 
+input[type="submit"]:hover {
+  background-color: #004aad;
+  color: #fff;
+}
 
 .review-container {
   display: flex;
   justify-content: center;
   font-family: ColfaxAI;
   color: #85cdff;
-} 
-
+}
 
 .reviewFeedback {
   justify-content: center;
   font-family: ColfaxAI;
   color: gold;
   padding: 5px;
-} 
-
+}
 
 .mixtape_div {
   font-family: ColfaxAI;
   font-size: 1.2em;
   text-align: center;
   padding-bottom: 10px;
-  color: #FFF;
+  color: gold;
+  border-bottom: #85cdff 2px solid;
 }
 
 .stars_div {
@@ -140,7 +135,7 @@ input[type=submit]:hover {
   font-style: italic;
   text-align: center;
   border-bottom: gold 2px solid;
-} 
+}
 
 .date_div {
   flex: 1;

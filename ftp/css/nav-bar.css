@@ -12,9 +12,11 @@ footer {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  background-color: white;
+  background-image: linear-gradient(to bottom, transparent, gold 60%);
+  /* background-image: linear-gradient(to bottom, black, gold 60%); */
   margin: 0px;
   padding: 0px;
+  padding-top: 5px;
 }
 
 .icon_row {
@@ -34,8 +36,8 @@ footer {
 }
 
 .icon {
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
 }
 
 .rollover_row {
@@ -44,12 +46,12 @@ footer {
   flex: 1;
   align-items: center;
   justify-content: left;
-  font-family: "Raleway", sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 2.15vw;
 }
 
 .static-div {
-  color: #85cdff;
+  color: white;
 }
 .nav_hover {
   font-family: "Graff", Arial, Helvetica, sans-serif;
@@ -65,8 +67,82 @@ a:hover {
   text-decoration: inherit;
 }
 
-@media only screen and (max-width: 1023px) {
-  .footer {
+/* For screens larger than or equal to 2500px */
+@media only screen and (min-width: 2500px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 8%); /* Adjust grid columns */
+    justify-content: right;
+  }
+
+  .static-div {
+    padding-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
+
+/* For screens larger than 1024px and less than 1439px */
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+  /* footer {
+    background-color: lightcoral;
+  } */
+
+  .rollover_row {
+    font-size: 2.5vw;
+  }
+
+  .static-div {
+    color: white;
+    padding-left: 10px;
+  }
+  .nav_hover {
+    font-size: 2.5vm;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Screens between 640px and 1023px */
+@media (min-width: 640px) and (max-width: 1023px) {
+  footer {
+    position: relative;
+  }
+
+  .static-div {
+    color: white;
+  }
+  .nav_hover {
+    font-size: 2vm;
+  }
+  .icon_row {
+    width: 100%;
+  }
+
+  .grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5vw;
+    padding: 2px;
+  }
+
+  .icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .rollover_row {
+    display: none;
+  }
+}
+
+/* Screens less than 640px */
+@media (max-width: 639px) {
+  footer {
+    position: relative;
     background-color: gold;
   }
 
@@ -87,34 +163,7 @@ a:hover {
   }
 
   .icon {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-/* For high-resolution screens (e.g., Retina displays) */
-@media only screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
-  only screen and (min-device-width: 768px) and (min-resolution: 192dpi) {
-  .footer {
-    background-color: gold;
-  }
-
-  .grid-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5vw;
-    padding: 2px;
-  }
-
-  .rollover_row {
-    height: 0;
-    overflow: hidden;
-    border-bottom: 2px solid #000;
-  }
-
-  .icon {
-    width: 40px;
-    height: 40px;
+    width: 24px;
+    height: 24px;
   }
 }

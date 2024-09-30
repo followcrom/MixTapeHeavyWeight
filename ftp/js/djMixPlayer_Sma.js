@@ -6,7 +6,7 @@ const prevBtn = document.getElementById("prev");
 const nextBtn = document.getElementById("next");
 const stopBtn = document.getElementById("stop");
 const title = document.getElementById("title");
-const initialTitle = "Now playing";
+const initialTitle = title.innerText;
 const progressContainer = document.getElementById("progress-container");
 
 playBtn.addEventListener("click", () => {
@@ -180,54 +180,77 @@ function kickOff() {
   audioSource.connect(audioContext.destination);
   
   // Set the size of the Fast Fourier Transform used for frequency analysis
-  analyser.fftSize = 64;
+  analyser.fftSize = 64; // Increased to capture more data points
   
   // Get the frequency data from the AnalyserNode
   const bufferLength = analyser.frequencyBinCount;
   const dataArray = new Uint8Array(bufferLength);
 
-  const barWidth = (canvas.width/2) / bufferLength;
-  let barHeight
-  let x;
+  const centerX = canvas.width / 2;
+  const centerY = canvas.height / 2;
+  const radius = 15; // Distance from the center to start drawing bars
 
   function animate() {
-    x = 0
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     analyser.getByteFrequencyData(dataArray);
-    drawVisualiser(bufferLength, x, barWidth, barHeight, dataArray);
+    
+    // First visualizer (Radial Bars)
+    drawRadialBars(bufferLength, centerX, centerY, radius, dataArray);
+    
+    // Second visualizer (Pulsing Circles)
+    drawPulsingCircles(bufferLength, centerX, centerY, dataArray);
 
     requestAnimationFrame(animate);
   }
   animate();
 }
 
+// First visualizer: Radial Bars (as before)
+function drawRadialBars(bufferLength, centerX, centerY, radius, dataArray) {
+  const angleStep = (Math.PI * 2) / bufferLength; // Divide 360 degrees into number of bars
 
-
-
-function drawVisualiser(bufferLength, x, barWidth, barHeight, dataArray) {
   for (let i = 0; i < bufferLength; i++) {
-    barHeight = dataArray[i] * 2;
-    const red = (i * barHeight)/20;
-    const green = i * 4;
-    const blue = barHeight / 2;
-    ctx.fillStyle = `white`;
-    ctx.fillRect(canvas.width/2 - x, canvas.height - barHeight - 30, barWidth, 15);
+    const barHeight = dataArray[i] * 1.5; // Adjust height multiplier to scale visualization
+    const angle = i * angleStep; // Calculate angle for each bar
+
+    // Dynamic color effect
+    const red = Math.min(255, (i * barHeight));  // Increase red by adding 100
+    const green = Math.min(255, 0 + Math.sin(angle) * 100 + 100);  // Increase green similarly
+    const blue = Math.min(255, 0 + Math.cos(angle) * 5 + 100);  // Increase blue
+
+    ctx.save();
+    ctx.translate(centerX, centerY); // Move origin to center of canvas
+    ctx.rotate(angle); // Rotate the canvas to draw each bar in a circular pattern
+
+    // Draw each bar
     ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`;
-    ctx.fillRect(canvas.width/2 - x, canvas.height - barHeight, barWidth, barHeight);
-    x += barWidth;
-  }
-  for (let i = 0; i < bufferLength; i++) {
-    barHeight = dataArray[i] * 2;
-    const red = (i * barHeight)/30;
-    const green = 200;
-    const blue = barHeight;
-    ctx.fillStyle = `white`;
-    ctx.fillRect(x, canvas.height - barHeight - 30, barWidth, 15);
-    ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`;
-    ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
-    x += barWidth;
+    ctx.fillRect(radius, -barHeight / 2, 15, barHeight); // Draw the bar at the calculated angle
+
+    ctx.restore(); // Reset transformations after each bar is drawn
   }
 }
+
+// Second visualizer: Pulsing Circles
+function drawPulsingCircles(bufferLength, centerX, centerY, dataArray) {
+  const maxRadius = 100;
+  
+  for (let i = 0; i < bufferLength; i++) {
+    const intensity = dataArray[i] / 255; // Normalize dataArray values
+    const circleRadius = maxRadius * intensity; // Set radius based on intensity
+    const alpha = intensity; // Alpha transparency based on intensity
+
+    // Create a colorful gradient for each circle
+    const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, circleRadius);
+    gradient.addColorStop(0, `rgba(${255 - (i * 5)}, ${i * 5}, 255, ${alpha})`);  // Inner color
+    gradient.addColorStop(1, `rgba(${i * 5}, 255, ${255 - (i * 5)}, 0)`);  // Outer color    
+
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, circleRadius, 0, Math.PI * 2);
+    ctx.fillStyle = gradient;
+    ctx.fill();
+  }
+}
+
 
 
 // use Fetch API to submit a form without reloading the page:

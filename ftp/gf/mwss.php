@@ -2,66 +2,63 @@
 $mixtape = 'Soothing Syrup';
 include '../header.html'; ?>
 
-<div class="tape">
-    <div class="top_label">A: Mrs. Winslow's Soothing Syrup (1:02:11)</div>
+<div class="tapeReelBox">
 
-    <div class="tapeReelBox">
+    <div class="tape_reel-container" id="music-container">
 
-        <div class="tape_reel-container" id="music-container">
+        <div class="img-container">
+            <img src="../images/tape_cog.png" alt="Spinning tape cog" id="cover">
+        </div>
 
-            <div class="img-container">
-                <img src="../images/tape_cog.png" alt="Spinning tape cog" id="cover">
+        <div class="progress-container" id="progress-container">
+
+
+            <div class="progress-background" id="progress-background">
+
+                <div class="progress" id="progress"></div>
             </div>
 
-            <div class="progress-container" id="progress-container">
-
-
-                <div class="progress-background" id="progress-background">
-
-                    <div class="progress" id="progress"></div>
-                </div>
-
-                <div class="currTime" id="currTime">00:00:00</div>
-            </div>
+            <div class="currTime" id="currTime">00:00:00</div>
+        </div>
 
 
 
-            <div class="img-container">
-                <img src="../images/tape_cog.png" alt="Spinning tape cog" id="cover">
-            </div>
+        <div class="img-container">
+            <img src="../images/tape_cog.png" alt="Spinning tape cog" id="cover">
+        </div>
+    </div>
+
+</div>
+
+<div class="transportContainer">
+
+    <div class="transportControls">
+
+        <div class="navigation" id="navigation">
+            <button class="action-btn" id="stop">
+                <i class="fas fa-stop"></i>
+            </button>
+            <button id="prev" class="action-btn">
+                <i class="fas fa-backward"></i>
+            </button>
+            <button id="play" class="action-btn action-btn-big">
+                <i class="fas fa-play"></i>
+            </button>
+            <button id="next" class="action-btn">
+                <i class="fas fa-forward"></i>
+            </button>
+
+
+            <input type="range" min="-1" max="1" step="0.1" value="-0.1" id="volume-slider">
+
+
+            <a href="../audio/gf/mwss.mp3" download><button class="action-btn action-btn-big">
+                    <i class="fas fa-download"></i>
+                </button></a>
         </div>
 
     </div>
-
-    <div class="transportContainer">
-
-        <div class="transportControls">
-
-            <div class="navigation" id="navigation">
-                <button class="action-btn" id="stop">
-                    <i class="fas fa-stop"></i>
-                </button>
-                <button id="prev" class="action-btn">
-                    <i class="fas fa-backward"></i>
-                </button>
-                <button id="play" class="action-btn action-btn-big">
-                    <i class="fas fa-play"></i>
-                </button>
-                <button id="next" class="action-btn">
-                    <i class="fas fa-forward"></i>
-                </button>
-
-
-                <input type="range" min="-1" max="1" step="0.1" value="-0.1" id="volume-slider">
-
-
-                <a href="../audio/gf/mwss.mp3" download><button class="action-btn action-btn-big">
-                        <i class="fas fa-download"></i>
-                    </button></a>
-            </div>
-
-        </div>
-    </div>
+</div>
 
 </div>
 
@@ -79,7 +76,7 @@ include '../header.html'; ?>
 
 
 <div class="timings" style="display: none">
-    0 | Withnail & I - Intro
+    0 | Withnail & I intro
     31 | Kool Hertz - Supadupa Bad
     150 | A Skillz vs Beatvandals - Hot Dogg
     245 | The Funk Hunters - Rollin Young
@@ -132,12 +129,11 @@ include '../header.html'; ?>
 
 <div class=stack3>
 
-    <div class="playing" id="title">Tracklist (click on a song to play)</div>
+    <div class="playing" id="title">Mrs. Winslow's Soothing Syrup (1:02:11)</div>
 
 
     <div class="tracklist">
-        <div class="track" onclick="updatePosition(this)" data-time="0"><b>Withnail & I</b>
-            - Intro</div>
+        <div class="track" onclick="updatePosition(this)" data-time="0"><b>Withnail & I</b>intro</div>
         <div class="track" onclick="updatePosition(this)" data-time="31"><b>Kool Hertz</b> - Supadupa Bad</div>
         <div class="track" onclick="updatePosition(this)" data-time="150"><b>A Skillz vs Beatvandals</b> - Hot Dogg
         </div>
