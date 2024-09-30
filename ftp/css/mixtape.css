@@ -20,7 +20,7 @@ body {
   background-repeat: no-repeat;
   background-color: #000;
   padding: 0px;
-  padding-bottom: 10vh;
+  /* padding-bottom: 10vh; */
 }
 
 .topBox {
