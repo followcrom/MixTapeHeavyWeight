@@ -102,75 +102,77 @@ include '../header.html'; ?>
 </div>
 
 
-<div class=stack2>
-    <div class="eq_viz">
+<div class="restack">
+    <div class=stack2>
+        <div class="eq_viz">
 
-        <canvas id="canvas1"></canvas>
+            <canvas id="canvas1"></canvas>
+        </div>
+        <div class="eqSliders">
+            <div>
+                <label for="lows-slider">Lows</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
+            </div>
+            <div>
+                <label for="mids-slider">Mids</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
+            </div>
+            <div>
+                <label for="highs-slider">Highs</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
+            </div>
+        </div>
+
     </div>
-    <div class="eqSliders">
-        <div>
-            <label for="lows-slider">Lows</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
+
+    <div class=stack3>
+
+        <div class="playing" id="title">Ghetto Housing Project (1:18:30)</div>
+
+
+        <div class="tracklist">
+            <div class="track" onclick="updatePosition(this)" data-time="0"><b>WBBL</b> - Real Thing</div>
+            <div class="track" onclick="updatePosition(this)" data-time="193"><b>Prince</b> - Funk 'n' Roll (Sammy
+                Senior Edit)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="278"><b>Phibes</b> - Good People</div>
+            <div class="track" onclick="updatePosition(this)" data-time="499"><b>Lack Jemmon</b> - Don't Get Stupid
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="715"><b>B-Side & Sammy
+                    Senior</b> - Kill Em Wit It</div>
+            <div class="track" onclick="updatePosition(this)" data-time="830"><b>Dubra & Arteo</b> - Get On Up</div>
+            <div class="track" onclick="updatePosition(this)" data-time="996"><b>The Chicken Brothers</b> - Funky
+                Chicken</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1234"><b>The Doors</b>
+                - Soul Kitchen (DJ Inko Booty)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1386"><b>Alex Adair</b> - Heaven</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1588"><b>Bobby C Sound
+                    TV</b> - Beatcatcher</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1754"><b>Kidda</b> - Under The Sun</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1948"><b>Tough Love ft. Ginuwine</b> - Pony
+                (Leon Lour Remix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2140"><b>OMI</b> - Cheerleader (Felix Jaehn
+                Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2305"><b>Purple Disco Machine</b> - This 1994
+                Feeling (L Tric Switcheroo Bootleg)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2566"><b>Stardust</b> - Music Sounds Better
+                With You (WBBL Edit)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2788"><b>Alex Schulz</b> - In The Morning Light
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="2980"><b>Sigala</b> - Sweet Lovin'</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3190"><b>Passion Pit</b> - Little Secrets
+                (Felix Da Housecat Remix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3388"><b>Kissy Sell Out ft. Angie Brown</b> -
+                Ecstasy</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3599"><b>Vance Joy</b>
+                - Wasted Time (Lost Kings Remix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3876"><b>Disco Fries ft. Hope Murphy</b> - Born
+                Ready (Halogen Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4044"><b>Gary Caos</b>
+                - My Love Is Free 2010</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4408"><b>Serum & Serial Killaz</b> - Shot A
+                Talk</div>
+
         </div>
-        <div>
-            <label for="mids-slider">Mids</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
-        </div>
-        <div>
-            <label for="highs-slider">Highs</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
-        </div>
-    </div>
-
-</div>
-
-<div class=stack3>
-
-    <div class="playing" id="title">Ghetto Housing Project (1:18:30)</div>
-
-
-    <div class="tracklist">
-        <div class="track" onclick="updatePosition(this)" data-time="0"><b>WBBL</b> - Real Thing</div>
-        <div class="track" onclick="updatePosition(this)" data-time="193"><b>Prince</b> - Funk 'n' Roll (Sammy
-            Senior Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="278"><b>Phibes</b> - Good People</div>
-        <div class="track" onclick="updatePosition(this)" data-time="499"><b>Lack Jemmon</b> - Don't Get Stupid
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="715"><b>B-Side & Sammy
-                Senior</b> - Kill Em Wit It</div>
-        <div class="track" onclick="updatePosition(this)" data-time="830"><b>Dubra & Arteo</b> - Get On Up</div>
-        <div class="track" onclick="updatePosition(this)" data-time="996"><b>The Chicken Brothers</b> - Funky
-            Chicken</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1234"><b>The Doors</b>
-            - Soul Kitchen (DJ Inko Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1386"><b>Alex Adair</b> - Heaven</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1588"><b>Bobby C Sound
-                TV</b> - Beatcatcher</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1754"><b>Kidda</b> - Under The Sun</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1948"><b>Tough Love ft. Ginuwine</b> - Pony
-            (Leon Lour Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2140"><b>OMI</b> - Cheerleader (Felix Jaehn
-            Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2305"><b>Purple Disco Machine</b> - This 1994
-            Feeling (L Tric Switcheroo Bootleg)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2566"><b>Stardust</b> - Music Sounds Better
-            With You (WBBL Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2788"><b>Alex Schulz</b> - In The Morning Light
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="2980"><b>Sigala</b> - Sweet Lovin'</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3190"><b>Passion Pit</b> - Little Secrets
-            (Felix Da Housecat Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3388"><b>Kissy Sell Out ft. Angie Brown</b> -
-            Ecstasy</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3599"><b>Vance Joy</b>
-            - Wasted Time (Lost Kings Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3876"><b>Disco Fries ft. Hope Murphy</b> - Born
-            Ready (Halogen Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4044"><b>Gary Caos</b>
-            - My Love Is Free 2010</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4408"><b>Serum & Serial Killaz</b> - Shot A
-            Talk</div>
-
     </div>
 </div>
 

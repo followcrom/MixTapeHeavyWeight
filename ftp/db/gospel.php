@@ -110,78 +110,80 @@ include '../header.html'; ?>
 </div>
 
 
-<div class=stack2>
-    <div class="eq_viz">
+<div class="restack">
+    <div class=stack2>
+        <div class="eq_viz">
 
-        <canvas id="canvas1"></canvas>
+            <canvas id="canvas1"></canvas>
+        </div>
+        <div class="eqSliders">
+            <div>
+                <label for="lows-slider">Lows</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
+            </div>
+            <div>
+                <label for="mids-slider">Mids</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
+            </div>
+            <div>
+                <label for="highs-slider">Highs</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
+            </div>
+        </div>
+
     </div>
-    <div class="eqSliders">
-        <div>
-            <label for="lows-slider">Lows</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
+
+    <div class=stack3>
+
+        <div class="playing" id="title">The Sound of Gospel (1:05:42)</div>
+
+
+        <div class="tracklist">
+            <div class="track" onclick="updatePosition(this)" data-time="0"><b>Onmi Trio</b> - Renegade Snares (Bladerunner
+                Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="135"><b>Marcus Visionary</b> - Blackboard</div>
+            <div class="track" onclick="updatePosition(this)" data-time="267"><b>6Blocc</b> - Artikal Junglist</div>
+            <div class="track" onclick="updatePosition(this)" data-time="402"><b>Brian Brainstorm</b> - Nuh Ramp</div>
+            <div class="track" onclick="updatePosition(this)" data-time="528"><b>Selecta J-Man</b> - Kill Sound</div>
+            <div class="track" onclick="updatePosition(this)" data-time="630"><b>Serial Killaz</b> - Kill Tune Time</div>
+            <div class="track" onclick="updatePosition(this)" data-time="752"><b>Selecta J-Man</b> - Drum Song</div>
+            <div class="track" onclick="updatePosition(this)" data-time="884"><b>Nico D & Turbulence</b> - Inna Mi Draw
+                (Serial Killaz Remix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1013"><b>Dez</b> - Dubplate</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1122"><b>Ed Solo & Deekline</b> - Wa Do Dem</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1210"><b>Aries & Tuffist</b> - Love Has Gone</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1319"><b>Courtney John & Ticklah</b> - Born to Fly
+                (Upgrade Remix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1449"><b>Brian Brainstorm</b> - Right Now</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1603"><b>Hoogs</b> - Pussy</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1734"><b>Upgrade</b> - More (Sub Zero Remix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1844"><b>Janaka Selekta</b> - Good Vibes (Ed Solo &
+                Stickybuds Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1976"><b>True Tactix</b> - Bun Up</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2135"><b>Code Red</b> - Whatever You Want</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2214"><b>T-Kay ft. Peppery</b> - More Ganja</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2322"><b>Fleck</b> - Bullet Proof Vest</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2420"><b>Furniss</b> - Afraid</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2562"><b>Furniss ft. MC Spyda</b> - Creeping
+                (Serial
+                Killaz Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2671"><b>DJ Hybrid</b> - Special Request</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2851"><b>G Duppy ft. Daddy Freddy</b> - Sen It On
+                (Veak Remix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2982"><b>Liondub & Jah Boogs ft. Blackout JA</b> -
+                Dread</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3092"><b>Selecta J-Man</b> - Big Bout Ya</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3204"><b>Deekline ft. Rubi Dan</b> - Murder Them
+                All
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="3376"><b>Selecta J-Man & Cheshire Cat</b> - Coconut
+                Chalwa (Aries Remix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3484"><b>Jamie Bostron</b> - Blaze Up Fiyah</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3656"><b>Deekline</b> - Hold Up</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3781"><b>Shy FX ft. Mr Williamz</b> - Raggamuffin
+            </div>
+
         </div>
-        <div>
-            <label for="mids-slider">Mids</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
-        </div>
-        <div>
-            <label for="highs-slider">Highs</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
-        </div>
-    </div>
-
-</div>
-
-<div class=stack3>
-
-    <div class="playing" id="title">The Sound of Gospel (1:05:42)</div>
-
-
-    <div class="tracklist">
-        <div class="track" onclick="updatePosition(this)" data-time="0"><b>Onmi Trio</b> - Renegade Snares (Bladerunner
-            Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="135"><b>Marcus Visionary</b> - Blackboard</div>
-        <div class="track" onclick="updatePosition(this)" data-time="267"><b>6Blocc</b> - Artikal Junglist</div>
-        <div class="track" onclick="updatePosition(this)" data-time="402"><b>Brian Brainstorm</b> - Nuh Ramp</div>
-        <div class="track" onclick="updatePosition(this)" data-time="528"><b>Selecta J-Man</b> - Kill Sound</div>
-        <div class="track" onclick="updatePosition(this)" data-time="630"><b>Serial Killaz</b> - Kill Tune Time</div>
-        <div class="track" onclick="updatePosition(this)" data-time="752"><b>Selecta J-Man</b> - Drum Song</div>
-        <div class="track" onclick="updatePosition(this)" data-time="884"><b>Nico D & Turbulence</b> - Inna Mi Draw
-            (Serial Killaz Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1013"><b>Dez</b> - Dubplate</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1122"><b>Ed Solo & Deekline</b> - Wa Do Dem</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1210"><b>Aries & Tuffist</b> - Love Has Gone</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1319"><b>Courtney John & Ticklah</b> - Born to Fly
-            (Upgrade Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1449"><b>Brian Brainstorm</b> - Right Now</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1603"><b>Hoogs</b> - Pussy</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1734"><b>Upgrade</b> - More (Sub Zero Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1844"><b>Janaka Selekta</b> - Good Vibes (Ed Solo &
-            Stickybuds Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1976"><b>True Tactix</b> - Bun Up</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2135"><b>Code Red</b> - Whatever You Want</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2214"><b>T-Kay ft. Peppery</b> - More Ganja</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2322"><b>Fleck</b> - Bullet Proof Vest</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2420"><b>Furniss</b> - Afraid</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2562"><b>Furniss ft. MC Spyda</b> - Creeping
-            (Serial
-            Killaz Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2671"><b>DJ Hybrid</b> - Special Request</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2851"><b>G Duppy ft. Daddy Freddy</b> - Sen It On
-            (Veak Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2982"><b>Liondub & Jah Boogs ft. Blackout JA</b> -
-            Dread</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3092"><b>Selecta J-Man</b> - Big Bout Ya</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3204"><b>Deekline ft. Rubi Dan</b> - Murder Them
-            All
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="3376"><b>Selecta J-Man & Cheshire Cat</b> - Coconut
-            Chalwa (Aries Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3484"><b>Jamie Bostron</b> - Blaze Up Fiyah</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3656"><b>Deekline</b> - Hold Up</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3781"><b>Shy FX ft. Mr Williamz</b> - Raggamuffin
-        </div>
-
     </div>
 </div>
 

@@ -101,64 +101,66 @@ include '../header.html'; ?>
 </div>
 
 
-<div class=stack2>
-    <div class="eq_viz">
+<div class="restack">
+    <div class=stack2>
+        <div class="eq_viz">
 
-        <canvas id="canvas1"></canvas>
+            <canvas id="canvas1"></canvas>
+        </div>
+        <div class="eqSliders">
+            <div>
+                <label for="lows-slider">Lows</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
+            </div>
+            <div>
+                <label for="mids-slider">Mids</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
+            </div>
+            <div>
+                <label for="highs-slider">Highs</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
+            </div>
+        </div>
+
     </div>
-    <div class="eqSliders">
-        <div>
-            <label for="lows-slider">Lows</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
-        </div>
-        <div>
-            <label for="mids-slider">Mids</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
-        </div>
-        <div>
-            <label for="highs-slider">Highs</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
-        </div>
-    </div>
 
-</div>
+    <div class=stack3>
 
-<div class=stack3>
-
-    <div class="playing" id="title">Yard Stick (57:07)</div>
+        <div class="playing" id="title">Yard Stick (57:07)</div>
 
 
-    <div class="tracklist">
-        <div class="track" onclick="updatePosition(this)" data-time="0"><b>Bassface Sascha & DJ Phlex</b> - Yard Clart
+        <div class="tracklist">
+            <div class="track" onclick="updatePosition(this)" data-time="0"><b>Bassface Sascha & DJ Phlex</b> - Yard Clart
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="196"><b>Wilkinson</b> - Decompression</div>
+            <div class="track" onclick="updatePosition(this)" data-time="348"><b>Zen</b> - Turnstyle (Baron Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="480"><b>Brian Brainstorm</b> - Inside The Vaults
+                (Bassface Sascha & DJ Phlex Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="659"><b>Dope Ammo & Tonedef</b> - Rollin' (Sub Zero
+                Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="720"><b>Dope Ammo & Marvellous Cain</b> - Everyday
+                Jump Up</div>
+            <div class="track" onclick="updatePosition(this)" data-time="892"><b>Punky Donch</b> - Balang Beng (Mystic Pulse
+                Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1066"><b>Truespirit</b> - Deep In The Jungle</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1255"><b>Beastmode</b> - Redfox</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1464"><b>Rowney & Trigga</b> - Dark Business</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1539"><b>Upgrade</b> - Handle It</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1648"><b>Rowney</b> - Rice an' Pea</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1735"><b>Taxman</b> - Original Ninja (Bass Brothers
+                Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1970"><b>Supa Ape</b> - Greenfinch</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2133"><b>Bladerunner</b> - 48K Soundboy</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2264"><b>Bassface Sascha</b> - Killa Instinct</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2420"><b>Benny Page</b> - Rub A Dub</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2657"><b>DJ Rap</b> - Spiritual Aura (Neumatic Mix)
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="2723"><b>DJ Rap</b> - Spiritual Aura (Bladerunner &
+                Saxxon Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2854"><b>Veak</b> - Shadow</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3039"><b>Brian Brainstorm</b> - Nuh Matta</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3179"><b>Om Unit ft. Jehst</b> - The War</div>
         </div>
-        <div class="track" onclick="updatePosition(this)" data-time="196"><b>Wilkinson</b> - Decompression</div>
-        <div class="track" onclick="updatePosition(this)" data-time="348"><b>Zen</b> - Turnstyle (Baron Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="480"><b>Brian Brainstorm</b> - Inside The Vaults
-            (Bassface Sascha & DJ Phlex Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="659"><b>Dope Ammo & Tonedef</b> - Rollin' (Sub Zero
-            Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="720"><b>Dope Ammo & Marvellous Cain</b> - Everyday
-            Jump Up</div>
-        <div class="track" onclick="updatePosition(this)" data-time="892"><b>Punky Donch</b> - Balang Beng (Mystic Pulse
-            Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1066"><b>Truespirit</b> - Deep In The Jungle</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1255"><b>Beastmode</b> - Redfox</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1464"><b>Rowney & Trigga</b> - Dark Business</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1539"><b>Upgrade</b> - Handle It</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1648"><b>Rowney</b> - Rice an' Pea</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1735"><b>Taxman</b> - Original Ninja (Bass Brothers
-            Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1970"><b>Supa Ape</b> - Greenfinch</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2133"><b>Bladerunner</b> - 48K Soundboy</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2264"><b>Bassface Sascha</b> - Killa Instinct</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2420"><b>Benny Page</b> - Rub A Dub</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2657"><b>DJ Rap</b> - Spiritual Aura (Neumatic Mix)
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="2723"><b>DJ Rap</b> - Spiritual Aura (Bladerunner &
-            Saxxon Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2854"><b>Veak</b> - Shadow</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3039"><b>Brian Brainstorm</b> - Nuh Matta</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3179"><b>Om Unit ft. Jehst</b> - The War</div>
     </div>
 </div>
 

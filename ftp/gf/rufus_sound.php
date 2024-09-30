@@ -112,88 +112,90 @@ include '../header.html'; ?>
 </div>
 
 
-<div class=stack2>
-    <div class="eq_viz">
+<div class="restack">
+    <div class=stack2>
+        <div class="eq_viz">
 
-        <canvas id="canvas1"></canvas>
+            <canvas id="canvas1"></canvas>
+        </div>
+        <div class="eqSliders">
+            <div>
+                <label for="lows-slider">Lows</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
+            </div>
+            <div>
+                <label for="mids-slider">Mids</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
+            </div>
+            <div>
+                <label for="highs-slider">Highs</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
+            </div>
+        </div>
+
     </div>
-    <div class="eqSliders">
-        <div>
-            <label for="lows-slider">Lows</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
-        </div>
-        <div>
-            <label for="mids-slider">Mids</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
-        </div>
-        <div>
-            <label for="highs-slider">Highs</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
-        </div>
-    </div>
 
-</div>
+    <div class=stack3>
 
-<div class=stack3>
+        <div class="playing" id="title">The Rufus Sound (1:24:29)</div>
 
-    <div class="playing" id="title">The Rufus Sound (1:24:29)</div>
-
-    <div class="tracklist">
-        <div class="track" onclick="updatePosition(this)" data-time="0"><b>Mr Stabalina</b> - Can We Do
-            It Again?</div>
-        <div class="track" onclick="updatePosition(this)" data-time="216"><b>The Meters</b> - Cissy Strut (J-Sound
-            Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="320"><b>Bobby C Sound TV</b> - Last Call</div>
-        <div class="track" onclick="updatePosition(this)" data-time="451"><b>Bobby C Sound TV</b> - Home Schooled
+        <div class="tracklist">
+            <div class="track" onclick="updatePosition(this)" data-time="0"><b>Mr Stabalina</b> - Can We Do
+                It Again?</div>
+            <div class="track" onclick="updatePosition(this)" data-time="216"><b>The Meters</b> - Cissy Strut (J-Sound
+                Edit)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="320"><b>Bobby C Sound TV</b> - Last Call</div>
+            <div class="track" onclick="updatePosition(this)" data-time="451"><b>Bobby C Sound TV</b> - Home Schooled
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="569"><b>Mr Stabalina </b> - Freak The Funk
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="747"><b>Prince </b> - Alphabet Street (DJP
+                Remix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="956"><b>Mr Stabalina</b> - Rock The Party</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1076"><b>Bondi Stereo</b> - Say Hey!</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1201"><b>Dubra</b> - I Can't Get No Sleep</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1343"><b>Bondi Stereo</b> - Pretty
+                Girl</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1467"><b>SkiiTour</b> - The Program</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1598"><b>WBBL & Joe Revell</b> - Default</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1703"><b>Mr Stabalina</b> - Don't Stop</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1849"><b>J-Sound</b> - Shake Ya Funkin' Ass
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="1934"><b>Cockney Nutjob</b> - Sunshine</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2120"><b>Extra Medium ft. Mr Switch & Cab
+                    Canavaral</b> - Size Up</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2244"><b>Ray Parker Jr.</b> - Ghostbusters
+                (Dusty Tonez Booty)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2372"><b>B-Side</b> - Stylin’</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2562"><b>DJ Fresh ft. Ms. Dynamite
+                </b> - Dibby Dibby Sound (Dubra Remix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2720"><b>De La Soul</b> - Say No Go (Bobby C
+                Sound TV Booty)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2927"><b>Bondi Stereo </b> - Hot Summer Bombs
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="3066"><b>J-Sound</b> - Express Yo'Self</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3158"><b>Dave RMX</b> - Acrobatic Soul</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3310"><b>Dave RMX</b> - Champ Rocker</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3390"><b>Cockney Nutjob</b> - I'm Skankin' Out
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="3538"><b>Breach</b> - Jack (DJP Remix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3628"><b>Funktomas</b> - Let Me Clear My Throat
+                (Wobble Edit)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3858"><b>Extra Medium</b> - Blues Boogie Bass
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="3925"><b>Dave RMX</b> - Magnetic Funk</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4034"><b>Cockney Nutjob</b> - Heads Boppin'
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="4204"><b>Sonz Of A Loop Da Loop Era</b> - Far
+                Out (Box Rocket Booty)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4310"><b>A Skillz vs Beatvandals</b> - Feelin’
+                Kinda Insane</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4470"><b>Nina Simone</b> - My Baby
+                Don't (Cockney Nutjob Booty)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4600"><b>Extra Medium</b> - Lazy Bones</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4752"><b>Karen Harding</b> - Open My Eyes (Zed
+                Bias Mix)</div>
         </div>
-        <div class="track" onclick="updatePosition(this)" data-time="569"><b>Mr Stabalina </b> - Freak The Funk
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="747"><b>Prince </b> - Alphabet Street (DJP
-            Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="956"><b>Mr Stabalina</b> - Rock The Party</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1076"><b>Bondi Stereo</b> - Say Hey!</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1201"><b>Dubra</b> - I Can't Get No Sleep</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1343"><b>Bondi Stereo</b> - Pretty
-            Girl</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1467"><b>SkiiTour</b> - The Program</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1598"><b>WBBL & Joe Revell</b> - Default</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1703"><b>Mr Stabalina</b> - Don't Stop</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1849"><b>J-Sound</b> - Shake Ya Funkin' Ass
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="1934"><b>Cockney Nutjob</b> - Sunshine</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2120"><b>Extra Medium ft. Mr Switch & Cab
-                Canavaral</b> - Size Up</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2244"><b>Ray Parker Jr.</b> - Ghostbusters
-            (Dusty Tonez Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2372"><b>B-Side</b> - Stylin’</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2562"><b>DJ Fresh ft. Ms. Dynamite
-            </b> - Dibby Dibby Sound (Dubra Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2720"><b>De La Soul</b> - Say No Go (Bobby C
-            Sound TV Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2927"><b>Bondi Stereo </b> - Hot Summer Bombs
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="3066"><b>J-Sound</b> - Express Yo'Self</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3158"><b>Dave RMX</b> - Acrobatic Soul</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3310"><b>Dave RMX</b> - Champ Rocker</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3390"><b>Cockney Nutjob</b> - I'm Skankin' Out
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="3538"><b>Breach</b> - Jack (DJP Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3628"><b>Funktomas</b> - Let Me Clear My Throat
-            (Wobble Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3858"><b>Extra Medium</b> - Blues Boogie Bass
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="3925"><b>Dave RMX</b> - Magnetic Funk</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4034"><b>Cockney Nutjob</b> - Heads Boppin'
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="4204"><b>Sonz Of A Loop Da Loop Era</b> - Far
-            Out (Box Rocket Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4310"><b>A Skillz vs Beatvandals</b> - Feelin’
-            Kinda Insane</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4470"><b>Nina Simone</b> - My Baby
-            Don't (Cockney Nutjob Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4600"><b>Extra Medium</b> - Lazy Bones</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4752"><b>Karen Harding</b> - Open My Eyes (Zed
-            Bias Mix)</div>
     </div>
 </div>
 

@@ -113,88 +113,90 @@ include '../header.html'; ?>
 </div>
 
 
-<div class=stack2>
-    <div class="eq_viz">
+<div class="restack">
+    <div class=stack2>
+        <div class="eq_viz">
 
-        <canvas id="canvas1"></canvas>
+            <canvas id="canvas1"></canvas>
+        </div>
+        <div class="eqSliders">
+            <div>
+                <label for="lows-slider">Lows</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
+            </div>
+            <div>
+                <label for="mids-slider">Mids</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
+            </div>
+            <div>
+                <label for="highs-slider">Highs</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
+            </div>
+        </div>
+
     </div>
-    <div class="eqSliders">
-        <div>
-            <label for="lows-slider">Lows</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
-        </div>
-        <div>
-            <label for="mids-slider">Mids</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
-        </div>
-        <div>
-            <label for="highs-slider">Highs</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
-        </div>
-    </div>
 
-</div>
+    <div class=stack3>
 
-<div class=stack3>
-
-    <div class="playing" id="title">Straight Time (1:17:34)</div>
+        <div class="playing" id="title">Straight Time (1:17:34)</div>
 
 
-    <div class="tracklist">
-        <div class="track" onclick="updatePosition(this)" data-time="0"><b>Etta James</b> -
-            Leave Your Hat On (Funk Ferret Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="193"><b>The Meters</b>
-            - Cissy Strut (D-Funk Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="334"><b>Father Funk</b> - Gotta Be Me</div>
-        <div class="track" onclick="updatePosition(this)" data-time="513"><b>Marky & XRS ft. Stamina MC</b> - LK ( J
-            Sound Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="658"><b>Wu-Tang Clan</b> - Da Mystery Of
-            Chessboxin' (Gram of Fun Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="769"><b>Basement Freaks</b> - Insane Brains
+        <div class="tracklist">
+            <div class="track" onclick="updatePosition(this)" data-time="0"><b>Etta James</b> -
+                Leave Your Hat On (Funk Ferret Edit)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="193"><b>The Meters</b>
+                - Cissy Strut (D-Funk Edit)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="334"><b>Father Funk</b> - Gotta Be Me</div>
+            <div class="track" onclick="updatePosition(this)" data-time="513"><b>Marky & XRS ft. Stamina MC</b> - LK ( J
+                Sound Edit)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="658"><b>Wu-Tang Clan</b> - Da Mystery Of
+                Chessboxin' (Gram of Fun Edit)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="769"><b>Basement Freaks</b> - Insane Brains
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="940"><b>Phibes</b> - Hold On</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1110"><b>Extra Medium & Mr Switch</b> -
+                Swinggae</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1245"><b>N.O.R.E</b> -
+                Nothin' (DJ Scene Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1332"><b>WBBL</b> - Danger Machine</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1463"><b>Bobby McFerrin</b> - Thinking About
+                Your Body (J-Sound Edit)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1550"><b>Bobby McFerrin</b> - Don't Worry Be
+                Happy (Father Funk Edit)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1717"><b>Leo</b> - You</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1853"><b>J Sound</b> -
+                Boss DAT!</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1963"><b>J Sound</b> -
+                On & On</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2071"><b>Father Funk &
+                    Howla</b> - Got Swing</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2171"><b>Dancefloor Outlaws</b> - Panda</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2255"><b>Moby</b> - Run On (WBBL Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2371"><b>Cockney Nutjob</b> - Firepower</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2518"><b>Leo</b> - Lovin'</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2592"><b>J Sound</b> -
+                Funky Flow</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2708"><b>Lakeshore Drive</b> - Two For The
+                Crates</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2793"><b>Sammy Senior & WBBL</b> - Soul Rocka
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="2935"><b>WBBL</b> - Penguin Funk</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3085"><b>Cockney Nutjob</b> - The Master</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3276"><b>Sammy Senior</b> - Alright Now</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3355"><b>Aaron Neville
+                    v Big L</b> - Hercules 2012 (BadboE Mash-Up)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3491"><b>Father Funk</b> - Gringo Lingo</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3685"><b>The Specials</b> - A Message to You
+                Rudy (J-Sound Edit)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3800"><b>Kotch</b> - Funk Out</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3867"><b>Cat in the Hat ft. Mr Switch</b> - Sax
+                Party</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4017"><b>Father Funk</b> - Hell Yeah</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4150"><b>Lack Jemmon</b> - Hello World Hello
+                Lorde</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4375"><b> Chopstick Dubplate ft. Top Cat & Mr
+                    Williamz</b> - Worldwide Traveller</div>
         </div>
-        <div class="track" onclick="updatePosition(this)" data-time="940"><b>Phibes</b> - Hold On</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1110"><b>Extra Medium & Mr Switch</b> -
-            Swinggae</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1245"><b>N.O.R.E</b> -
-            Nothin' (DJ Scene Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1332"><b>WBBL</b> - Danger Machine</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1463"><b>Bobby McFerrin</b> - Thinking About
-            Your Body (J-Sound Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1550"><b>Bobby McFerrin</b> - Don't Worry Be
-            Happy (Father Funk Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1717"><b>Leo</b> - You</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1853"><b>J Sound</b> -
-            Boss DAT!</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1963"><b>J Sound</b> -
-            On & On</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2071"><b>Father Funk &
-                Howla</b> - Got Swing</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2171"><b>Dancefloor Outlaws</b> - Panda</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2255"><b>Moby</b> - Run On (WBBL Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2371"><b>Cockney Nutjob</b> - Firepower</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2518"><b>Leo</b> - Lovin'</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2592"><b>J Sound</b> -
-            Funky Flow</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2708"><b>Lakeshore Drive</b> - Two For The
-            Crates</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2793"><b>Sammy Senior & WBBL</b> - Soul Rocka
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="2935"><b>WBBL</b> - Penguin Funk</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3085"><b>Cockney Nutjob</b> - The Master</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3276"><b>Sammy Senior</b> - Alright Now</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3355"><b>Aaron Neville
-                v Big L</b> - Hercules 2012 (BadboE Mash-Up)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3491"><b>Father Funk</b> - Gringo Lingo</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3685"><b>The Specials</b> - A Message to You
-            Rudy (J-Sound Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3800"><b>Kotch</b> - Funk Out</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3867"><b>Cat in the Hat ft. Mr Switch</b> - Sax
-            Party</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4017"><b>Father Funk</b> - Hell Yeah</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4150"><b>Lack Jemmon</b> - Hello World Hello
-            Lorde</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4375"><b> Chopstick Dubplate ft. Top Cat & Mr
-                Williamz</b> - Worldwide Traveller</div>
     </div>
 </div>
 

@@ -105,77 +105,79 @@ include '../header.html'; ?>
 </div>
 
 
-<div class=stack2>
-    <div class="eq_viz">
+<div class="restack">
+    <div class=stack2>
+        <div class="eq_viz">
 
-        <canvas id="canvas1"></canvas>
+            <canvas id="canvas1"></canvas>
+        </div>
+        <div class="eqSliders">
+            <div>
+                <label for="lows-slider">Lows</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
+            </div>
+            <div>
+                <label for="mids-slider">Mids</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
+            </div>
+            <div>
+                <label for="highs-slider">Highs</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
+            </div>
+        </div>
+
     </div>
-    <div class="eqSliders">
-        <div>
-            <label for="lows-slider">Lows</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
-        </div>
-        <div>
-            <label for="mids-slider">Mids</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
-        </div>
-        <div>
-            <label for="highs-slider">Highs</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
-        </div>
-    </div>
 
-</div>
+    <div class=stack3>
 
-<div class=stack3>
-
-    <div class="playing" id="title">Mrs. Winslow's Soothing Syrup (1:02:11)</div>
+        <div class="playing" id="title">Mrs. Winslow's Soothing Syrup (1:02:11)</div>
 
 
-    <div class="tracklist">
-        <div class="track" onclick="updatePosition(this)" data-time="0"><b>Withnail & I</b>intro</div>
-        <div class="track" onclick="updatePosition(this)" data-time="31"><b>Kool Hertz</b> - Supadupa Bad</div>
-        <div class="track" onclick="updatePosition(this)" data-time="150"><b>A Skillz vs Beatvandals</b> - Hot Dogg
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="245"><b>The Funk Hunters</b> - Rollin Young
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="396"><b>Kool Hertz</b>
-            - Originator</div>
-        <div class="track" onclick="updatePosition(this)" data-time="465"><b>WBBL</b> - Buggin'</div>
-        <div class="track" onclick="updatePosition(this)" data-time="599"><b>The Funk Hunters</b> - Shoop Booty
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="739"><b>Dusty Springfield</b> - Spooky (Jayl
-            Funk Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="874"><b>Beat Fatigue</b> - Smudged Fudge</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1033"><b>WBBL</b> - Give It Up</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1167"><b>Stevie Wonder</b> - Livin' For The
-            City (Grinny Grandad Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1352"><b>Stylust Beats
-                & Neon Steve</b> - Heavy Metal Shit</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1499"><b>Father Funk</b> - Dance Til You Drop
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="1589"><b>Dusty Springfield</b> - Son Of A
-            Preacher Man (Basschimp Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1745"><b>The Ohio Players</b> - Fire (The Funk
-            Hunters & Qdup Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1891"><b>Pimpsoul</b> - Pimp Deep</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2056"><b>Betty Wright</b> - Clean Up Woman
-            (Father Funk Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2218"><b>Sammy Senior</b> - Sweet Funk</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2355"><b>WBBL</b> - Got That Feeling</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2520"><b>Roast Beatz</b> - Think 2wice</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2665"><b>Father Funk &
-                X Ray Ted</b> - Jarreubics</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2849"><b>A Skillz vs Beatvandals</b> - $19.99
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="2999"><b>Etta James</b> - Tell Mama (Copycat
-            Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3125"><b>CMC & Silenta</b> - Let's Dance</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3266"><b>The Phunk Junkies</b> - Big Spender
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="3490"><b>Peggy Lee vs.
-                Ludacris</b> - Hallelujah</div>
+        <div class="tracklist">
+            <div class="track" onclick="updatePosition(this)" data-time="0"><b>Withnail & I</b>intro</div>
+            <div class="track" onclick="updatePosition(this)" data-time="31"><b>Kool Hertz</b> - Supadupa Bad</div>
+            <div class="track" onclick="updatePosition(this)" data-time="150"><b>A Skillz vs Beatvandals</b> - Hot Dogg
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="245"><b>The Funk Hunters</b> - Rollin Young
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="396"><b>Kool Hertz</b>
+                - Originator</div>
+            <div class="track" onclick="updatePosition(this)" data-time="465"><b>WBBL</b> - Buggin'</div>
+            <div class="track" onclick="updatePosition(this)" data-time="599"><b>The Funk Hunters</b> - Shoop Booty
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="739"><b>Dusty Springfield</b> - Spooky (Jayl
+                Funk Booty)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="874"><b>Beat Fatigue</b> - Smudged Fudge</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1033"><b>WBBL</b> - Give It Up</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1167"><b>Stevie Wonder</b> - Livin' For The
+                City (Grinny Grandad Booty)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1352"><b>Stylust Beats
+                    & Neon Steve</b> - Heavy Metal Shit</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1499"><b>Father Funk</b> - Dance Til You Drop
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="1589"><b>Dusty Springfield</b> - Son Of A
+                Preacher Man (Basschimp Booty)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1745"><b>The Ohio Players</b> - Fire (The Funk
+                Hunters & Qdup Remix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1891"><b>Pimpsoul</b> - Pimp Deep</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2056"><b>Betty Wright</b> - Clean Up Woman
+                (Father Funk Booty)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2218"><b>Sammy Senior</b> - Sweet Funk</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2355"><b>WBBL</b> - Got That Feeling</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2520"><b>Roast Beatz</b> - Think 2wice</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2665"><b>Father Funk &
+                    X Ray Ted</b> - Jarreubics</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2849"><b>A Skillz vs Beatvandals</b> - $19.99
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="2999"><b>Etta James</b> - Tell Mama (Copycat
+                Booty)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3125"><b>CMC & Silenta</b> - Let's Dance</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3266"><b>The Phunk Junkies</b> - Big Spender
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="3490"><b>Peggy Lee vs.
+                    Ludacris</b> - Hallelujah</div>
 
+        </div>
     </div>
 </div>
 

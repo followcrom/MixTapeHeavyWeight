@@ -102,77 +102,79 @@ include '../header.html'; ?>
 </div>
 
 
-<div class=stack2>
-    <div class="eq_viz">
+<div class="restack">
+    <div class=stack2>
+        <div class="eq_viz">
 
-        <canvas id="canvas1"></canvas>
+            <canvas id="canvas1"></canvas>
+        </div>
+        <div class="eqSliders">
+            <div>
+                <label for="lows-slider">Lows</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
+            </div>
+            <div>
+                <label for="mids-slider">Mids</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
+            </div>
+            <div>
+                <label for="highs-slider">Highs</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
+            </div>
+        </div>
+
     </div>
-    <div class="eqSliders">
-        <div>
-            <label for="lows-slider">Lows</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
+
+    <div class=stack3>
+
+        <div class="playing" id="title">Junglistical (1:12:35)</div>
+
+
+        <div class="tracklist">
+            <div class="track" onclick="updatePosition(this)" data-time="0"><b> Visionary ft. D Suade</b> - Change Is
+                Gonna Come</div>
+            <div class="track" onclick="updatePosition(this)" data-time="170"><b>YT</b> - Save Mi Life</div>
+            <div class="track" onclick="updatePosition(this)" data-time="428"><b>Chopstick Dubplate ft. Mr Williamz</b>
+                - Girls Dem Dada (Dope Ammo Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="618"><b>Delano </b> - Big Bad & Heavy (Serial
+                Killaz Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="849"><b>Stylo G</b> - Move Back (Friction Mix)
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="1048"><b>Aries & Gold Dub</b> - Untitled Dub
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="1221"><b>Chopstick Dubplate ft. Cheshire
+                    Cat</b> - Just The Herbs</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1428"><b>Dem 2 Ruff</b> - Nice Tune (Marvellous
+                Cain Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1601"><b>Serial
+                    Killaz</b> - Worries In The Dance</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1744"><b>Chopstick Dubplate ft. Mr Williamz</b>
+                - Holla Fi We (J Man Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1981"><b>Conquering Lion</b> - Code Red (Serial
+                Killaz 2015 Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2159"><b>Defkline </b> - Magnificent</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2298"><b>Cadenza ft. Stylo G & Busy Signal</b>
+                - Foundation (Benny Page Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2458"><b>DJ Krome & Mr Time </b> - Ganja Man
+                (Serial Killaz Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2648"><b>Serial
+                    Killaz</b> - Murder Ya Sound (UK Jungle Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2833"><b>Chopstick Dubplate ft. Cheshire
+                    Cat</b> - Police Officer</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3050"><b>Killa Mosquito ft. Mr Williamz</b> -
+                Ganja Man Ganja Woman (Marcus Visionary Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3277"><b>Audiomission</b> - Soon Forward</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3513"><b>Benny Page</b> - Know Fi Move Your
+                Waist (Original Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3676"><b>Chopstick Dubplate ft. Cheshire
+                    Cat</b> - Bounty Hunter</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3851"><b>Johnny
+                    Osbourne</b> - Buddy Bye (D4N Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4058"><b>Top Cat</b> - Haul & Pull Up</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4115"><b>Chase Status ft. Top Cat</b> - Come
+                Back</div>
+
         </div>
-        <div>
-            <label for="mids-slider">Mids</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
-        </div>
-        <div>
-            <label for="highs-slider">Highs</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
-        </div>
-    </div>
-
-</div>
-
-<div class=stack3>
-
-    <div class="playing" id="title">Junglistical (1:12:35)</div>
-
-
-    <div class="tracklist">
-        <div class="track" onclick="updatePosition(this)" data-time="0"><b> Visionary ft. D Suade</b> - Change Is
-            Gonna Come</div>
-        <div class="track" onclick="updatePosition(this)" data-time="170"><b>YT</b> - Save Mi Life</div>
-        <div class="track" onclick="updatePosition(this)" data-time="428"><b>Chopstick Dubplate ft. Mr Williamz</b>
-            - Girls Dem Dada (Dope Ammo Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="618"><b>Delano </b> - Big Bad & Heavy (Serial
-            Killaz Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="849"><b>Stylo G</b> - Move Back (Friction Mix)
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="1048"><b>Aries & Gold Dub</b> - Untitled Dub
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="1221"><b>Chopstick Dubplate ft. Cheshire
-                Cat</b> - Just The Herbs</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1428"><b>Dem 2 Ruff</b> - Nice Tune (Marvellous
-            Cain Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1601"><b>Serial
-                Killaz</b> - Worries In The Dance</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1744"><b>Chopstick Dubplate ft. Mr Williamz</b>
-            - Holla Fi We (J Man Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1981"><b>Conquering Lion</b> - Code Red (Serial
-            Killaz 2015 Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2159"><b>Defkline </b> - Magnificent</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2298"><b>Cadenza ft. Stylo G & Busy Signal</b>
-            - Foundation (Benny Page Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2458"><b>DJ Krome & Mr Time </b> - Ganja Man
-            (Serial Killaz Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2648"><b>Serial
-                Killaz</b> - Murder Ya Sound (UK Jungle Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2833"><b>Chopstick Dubplate ft. Cheshire
-                Cat</b> - Police Officer</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3050"><b>Killa Mosquito ft. Mr Williamz</b> -
-            Ganja Man Ganja Woman (Marcus Visionary Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3277"><b>Audiomission</b> - Soon Forward</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3513"><b>Benny Page</b> - Know Fi Move Your
-            Waist (Original Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3676"><b>Chopstick Dubplate ft. Cheshire
-                Cat</b> - Bounty Hunter</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3851"><b>Johnny
-                Osbourne</b> - Buddy Bye (D4N Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4058"><b>Top Cat</b> - Haul & Pull Up</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4115"><b>Chase Status ft. Top Cat</b> - Come
-            Back</div>
-
     </div>
 </div>
 

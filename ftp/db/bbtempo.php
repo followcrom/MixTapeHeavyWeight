@@ -104,73 +104,75 @@ include '../header.html'; ?>
 </div>
 
 
-<div class=stack2>
-    <div class="eq_viz">
+<div class="restack">
+    <div class=stack2>
+        <div class="eq_viz">
 
-        <canvas id="canvas1"></canvas>
+            <canvas id="canvas1"></canvas>
+        </div>
+        <div class="eqSliders">
+            <div>
+                <label for="lows-slider">Lows</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
+            </div>
+            <div>
+                <label for="mids-slider">Mids</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
+            </div>
+            <div>
+                <label for="highs-slider">Highs</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
+            </div>
+        </div>
+
     </div>
-    <div class="eqSliders">
-        <div>
-            <label for="lows-slider">Lows</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
-        </div>
-        <div>
-            <label for="mids-slider">Mids</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
-        </div>
-        <div>
-            <label for="highs-slider">Highs</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
-        </div>
-    </div>
 
-</div>
+    <div class=stack3>
 
-<div class=stack3>
-
-    <div class="playing" id="title">Big Boy Tempo (1:02:59)</div>
+        <div class="playing" id="title">Big Boy Tempo (1:02:59)</div>
 
 
-    <div class="tracklist">
-        <div class="track" onclick="updatePosition(this)" data-time="0"><b>Big T<b> - Intro</div>
-        <div class="track" onclick="updatePosition(this)" data-time="51"><b>Snow</b> - Informer (Fleck Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="134"><b>Ruffstuff</b> - Bounce</div>
-        <div class="track" onclick="updatePosition(this)" data-time="226"><b>WBBL</b> - Oh Please</div>
-        <div class="track" onclick="updatePosition(this)" data-time="391"><b>Bou</b> - Conclusion</div>
-        <div class="track" onclick="updatePosition(this)" data-time="488"><b>Twisted Individual</b> - Phlegmtrail</div>
-        <div class="track" onclick="updatePosition(this)" data-time="598"><b>DJ Evol</b> - Texas Chainsaw</div>
-        <div class="track" onclick="updatePosition(this)" data-time="737"><b>Subcriminal</b> - Uptown Rebel</div>
-        <div class="track" onclick="updatePosition(this)" data-time="826"><b>Serial Killaz</b> - Jungle Came First</div>
-        <div class="track" onclick="updatePosition(this)" data-time="951"><b>Selecta J-Man ft. Blackout JA, Da Fuchaman,
-                YT, Rev Monks Man, Raphael
-                & Solo Banton</b> - The Takeover</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1197"><b>Dope Ammo</b> - Dub Criminal</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1330"><b>Specimen A & Deekline</b> - All The Way Up
+        <div class="tracklist">
+            <div class="track" onclick="updatePosition(this)" data-time="0"><b>Big T<b> - Intro</div>
+            <div class="track" onclick="updatePosition(this)" data-time="51"><b>Snow</b> - Informer (Fleck Booty)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="134"><b>Ruffstuff</b> - Bounce</div>
+            <div class="track" onclick="updatePosition(this)" data-time="226"><b>WBBL</b> - Oh Please</div>
+            <div class="track" onclick="updatePosition(this)" data-time="391"><b>Bou</b> - Conclusion</div>
+            <div class="track" onclick="updatePosition(this)" data-time="488"><b>Twisted Individual</b> - Phlegmtrail</div>
+            <div class="track" onclick="updatePosition(this)" data-time="598"><b>DJ Evol</b> - Texas Chainsaw</div>
+            <div class="track" onclick="updatePosition(this)" data-time="737"><b>Subcriminal</b> - Uptown Rebel</div>
+            <div class="track" onclick="updatePosition(this)" data-time="826"><b>Serial Killaz</b> - Jungle Came First</div>
+            <div class="track" onclick="updatePosition(this)" data-time="951"><b>Selecta J-Man ft. Blackout JA, Da Fuchaman,
+                    YT, Rev Monks Man, Raphael
+                    & Solo Banton</b> - The Takeover</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1197"><b>Dope Ammo</b> - Dub Criminal</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1330"><b>Specimen A & Deekline</b> - All The Way Up
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="1423"><b>Dossa ft. Deliman</b> - Rock A Dub (Run
+                Tingz Cru Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1634"><b>Deekline & Fish ft. Blackout JA &
+                    Navigator</b> - Champion Sound</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1798"><b>Jo</b> - R-Type (Chopstick Dubplate Mix)
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="1876"><b>Vital Elements & Micky Finn</b> - Double
+                Time Swing</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1987"><b>Tree of Life ft. Richie Urban</b> - Run
+                Come (Inna Culture Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2175"><b>Marlon Asher</b> - Ganja Farmer (Aries &
+                Jacky Murda Remix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2377"><b>Serial Killaz ft. Ragga Twins</b> - Duppy
+                Sound</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2538"><b>Selecta J-Man ft. Daddy Freddy & Blackout
+                    JA</b> - Kill Dem Again</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2660"><b>Selecta J-Man ft. Cheshire Cat</b> -
+                Coconut Chalwa</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2832"><b>Selecta J-Man ft. Blackout JA & Daddy
+                    Freddy</b> - Dancehall Extravaganza</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2996"><b>Taiwan MC</b> - Dem A Wonder (Fleck & G
+                Duppy Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3254"><b>Supa Ape</b> - Feel Me</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3567"><b>Fleck vs Cutty Ranks</b> - Pon Pause</div>
         </div>
-        <div class="track" onclick="updatePosition(this)" data-time="1423"><b>Dossa ft. Deliman</b> - Rock A Dub (Run
-            Tingz Cru Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1634"><b>Deekline & Fish ft. Blackout JA &
-                Navigator</b> - Champion Sound</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1798"><b>Jo</b> - R-Type (Chopstick Dubplate Mix)
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="1876"><b>Vital Elements & Micky Finn</b> - Double
-            Time Swing</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1987"><b>Tree of Life ft. Richie Urban</b> - Run
-            Come (Inna Culture Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2175"><b>Marlon Asher</b> - Ganja Farmer (Aries &
-            Jacky Murda Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2377"><b>Serial Killaz ft. Ragga Twins</b> - Duppy
-            Sound</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2538"><b>Selecta J-Man ft. Daddy Freddy & Blackout
-                JA</b> - Kill Dem Again</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2660"><b>Selecta J-Man ft. Cheshire Cat</b> -
-            Coconut Chalwa</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2832"><b>Selecta J-Man ft. Blackout JA & Daddy
-                Freddy</b> - Dancehall Extravaganza</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2996"><b>Taiwan MC</b> - Dem A Wonder (Fleck & G
-            Duppy Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3254"><b>Supa Ape</b> - Feel Me</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3567"><b>Fleck vs Cutty Ranks</b> - Pon Pause</div>
     </div>
 </div>
 

@@ -108,80 +108,82 @@ include '../header.html'; ?>
 </div>
 
 
-<div class=stack2>
-    <div class="eq_viz">
+<div class="restack">
+    <div class=stack2>
+        <div class="eq_viz">
 
-        <canvas id="canvas1"></canvas>
+            <canvas id="canvas1"></canvas>
+        </div>
+        <div class="eqSliders">
+            <div>
+                <label for="lows-slider">Lows</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
+            </div>
+            <div>
+                <label for="mids-slider">Mids</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
+            </div>
+            <div>
+                <label for="highs-slider">Highs</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
+            </div>
+        </div>
+
     </div>
-    <div class="eqSliders">
-        <div>
-            <label for="lows-slider">Lows</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
-        </div>
-        <div>
-            <label for="mids-slider">Mids</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
-        </div>
-        <div>
-            <label for="highs-slider">Highs</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
-        </div>
-    </div>
 
-</div>
+    <div class=stack3>
 
-<div class=stack3>
-
-    <div class="playing" id="title">Turn On, Tune In, Drop Out (1:14:56)</div>
+        <div class="playing" id="title">Turn On, Tune In, Drop Out (1:14:56)</div>
 
 
-    <div class="tracklist">
-        <div class="track" onclick="updatePosition(this)" data-time="0"><b>Copycat</b> - Funkbox Party</div>
-        <div class="track" onclick="updatePosition(this)" data-time="194"><b>Nas ft. Dougie
-                Fresh & Ludacris</b> - Virgo (Qdup's Virgogo Re-Rub)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="274"><b>The Dixie Cups</b> - Iko Iko (Qdup's Future
-            Go-Go Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="309"><b>Rita Marley</b> - One Draw (Father Funk
-            Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="483"><b>J-Sound</b> - I Scream Sound</div>
-        <div class="track" onclick="updatePosition(this)" data-time="605"><b>The Niceguys</b> - Stand Up</div>
-        <div class="track" onclick="updatePosition(this)" data-time="740"><b>Kool & The Gang</b> - Let's Go Dancin'
-            (Shaka Loves You Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="897"><b>Slynk</b> - Boomin' (DCDJ Calypso Mix)
+        <div class="tracklist">
+            <div class="track" onclick="updatePosition(this)" data-time="0"><b>Copycat</b> - Funkbox Party</div>
+            <div class="track" onclick="updatePosition(this)" data-time="194"><b>Nas ft. Dougie
+                    Fresh & Ludacris</b> - Virgo (Qdup's Virgogo Re-Rub)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="274"><b>The Dixie Cups</b> - Iko Iko (Qdup's Future
+                Go-Go Edit)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="309"><b>Rita Marley</b> - One Draw (Father Funk
+                Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="483"><b>J-Sound</b> - I Scream Sound</div>
+            <div class="track" onclick="updatePosition(this)" data-time="605"><b>The Niceguys</b> - Stand Up</div>
+            <div class="track" onclick="updatePosition(this)" data-time="740"><b>Kool & The Gang</b> - Let's Go Dancin'
+                (Shaka Loves You Booty)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="897"><b>Slynk</b> - Boomin' (DCDJ Calypso Mix)
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="1043"><b>Pete Rock & C.L Smooth</b> - T.R.O.Y
+                (Father Funk Booty)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1264"><b>Featurecast</b> - My Thing</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1386"><b>Steppenwolf</b> - Magic Carpet Ride (Shaka
+                Loves You Booty)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1572"><b>Father Funk</b> - Jungle Strut</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1663"><b>James Brown</b> - Payback (B-Side Booty)
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="1756"><b>The Niceguys</b> - Yonder</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1916"><b>DJ Marky & XRS</b> - The Way (Featurecast
+                Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2078"><b>Public Enemy</b> - Harder Than You Think
+                (Featurecast Booty)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2267"><b>2C</b> - Happy (J-Sound Remix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2474"><b>Joss Stone</b> - Put Your Hands On Me
+                (Beat Fatigue Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2759"><b>The Great Flood Catastrophe</b> - Fallen
+                Love (Kill Paris Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2925"><b>Shaka Loves You</b> - Flip The Funk</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3079"><b>Father Funk</b> - Don't Stop</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3129"><b>Nirvana</b> -
+                Smells Like Teen Spirit (Phibes Booty)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3309"><b>B-Side & Detta</b> - Rock 'Em Right</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3402"><b>The Commmitments</b> - Mustang Sally
+                (Bezwun Booty)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3598"><b>The Niceguys</b> - Funky Bird</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3780"><b>Bobby C Sound
+                    TV</b> - Papa Grande</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3890"><b>Rockwell</b> - I Need U (Featurecast &
+                WBBL Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4115"><b>Father Funk</b> - Party Rocker</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4222"><b>Chris Malinchak</b> - So Good To Me
+                (Chamber Mix)</div>
         </div>
-        <div class="track" onclick="updatePosition(this)" data-time="1043"><b>Pete Rock & C.L Smooth</b> - T.R.O.Y
-            (Father Funk Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1264"><b>Featurecast</b> - My Thing</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1386"><b>Steppenwolf</b> - Magic Carpet Ride (Shaka
-            Loves You Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1572"><b>Father Funk</b> - Jungle Strut</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1663"><b>James Brown</b> - Payback (B-Side Booty)
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="1756"><b>The Niceguys</b> - Yonder</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1916"><b>DJ Marky & XRS</b> - The Way (Featurecast
-            Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2078"><b>Public Enemy</b> - Harder Than You Think
-            (Featurecast Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2267"><b>2C</b> - Happy (J-Sound Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2474"><b>Joss Stone</b> - Put Your Hands On Me
-            (Beat Fatigue Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2759"><b>The Great Flood Catastrophe</b> - Fallen
-            Love (Kill Paris Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2925"><b>Shaka Loves You</b> - Flip The Funk</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3079"><b>Father Funk</b> - Don't Stop</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3129"><b>Nirvana</b> -
-            Smells Like Teen Spirit (Phibes Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3309"><b>B-Side & Detta</b> - Rock 'Em Right</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3402"><b>The Commmitments</b> - Mustang Sally
-            (Bezwun Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3598"><b>The Niceguys</b> - Funky Bird</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3780"><b>Bobby C Sound
-                TV</b> - Papa Grande</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3890"><b>Rockwell</b> - I Need U (Featurecast &
-            WBBL Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4115"><b>Father Funk</b> - Party Rocker</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4222"><b>Chris Malinchak</b> - So Good To Me
-            (Chamber Mix)</div>
     </div>
 </div>
 

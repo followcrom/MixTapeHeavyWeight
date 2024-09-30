@@ -109,86 +109,88 @@ include '../header.html'; ?>
 </div>
 
 
-<div class=stack2>
-    <div class="eq_viz">
+<div class="restack">
+    <div class=stack2>
+        <div class="eq_viz">
 
-        <canvas id="canvas1"></canvas>
+            <canvas id="canvas1"></canvas>
+        </div>
+        <div class="eqSliders">
+            <div>
+                <label for="lows-slider">Lows</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
+            </div>
+            <div>
+                <label for="mids-slider">Mids</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
+            </div>
+            <div>
+                <label for="highs-slider">Highs</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
+            </div>
+        </div>
+
     </div>
-    <div class="eqSliders">
-        <div>
-            <label for="lows-slider">Lows</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
-        </div>
-        <div>
-            <label for="mids-slider">Mids</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
-        </div>
-        <div>
-            <label for="highs-slider">Highs</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
-        </div>
-    </div>
 
-</div>
+    <div class=stack3>
 
-<div class=stack3>
-
-    <div class="playing" id="title">A 7% Solution (1:00:12)</div>
+        <div class="playing" id="title">A 7% Solution (1:00:12)</div>
 
 
-    <div class="tracklist">
-        <div class="track" onclick="updatePosition(this)" data-time="0"><b>LTJ Bukem</b> - Music (Technicolour 12"
-            Rework)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="321"><b>Breakage</b> - Rudeboy Stuff</div>
-        <div class="track" onclick="updatePosition(this)" data-time="439"><b>Brian Brainstorm</b> - Judgement (D&B
-            Mix)
+        <div class="tracklist">
+            <div class="track" onclick="updatePosition(this)" data-time="0"><b>LTJ Bukem</b> - Music (Technicolour 12"
+                Rework)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="321"><b>Breakage</b> - Rudeboy Stuff</div>
+            <div class="track" onclick="updatePosition(this)" data-time="439"><b>Brian Brainstorm</b> - Judgement (D&B
+                Mix)
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="548"><b>Mozey</b> - Lapa Drums</div>
+            <div class="track" onclick="updatePosition(this)" data-time="678"><b>Clipz</b> - Again (Instrumental)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="831"><b>Saxxon ft. Navigator</b> - Rollcall
+                (Junglizm)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="931"><b>T.Kay</b> - Oh! Dread</div>
+            <div class="track" onclick="updatePosition(this)" data-time="989"><b>Macky Gee</b> - Seduction</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1086"><b>Kumo</b> - Devils Lettuce</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1226"><b>Krak In Dub</b> - Original Sample
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="1326"><b>WBBL</b> - Ripgroove</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1423"><b>Marcus Visionary ft. Bunny General</b>
+                -
+                Sound War</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1591"><b>King Toppa & Mowty Mahlyka</b> - Kill
+                Dem
+                Already (Isaac Maya Remix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1703"><b>I Wayne & Mr Bertus</b> - They Have No
+                Love
+                (Jamie Bostron Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1799"><b>Dubtime</b> - Run for Cover</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1926"><b>Selecta J-Man</b> - Cuss Cuss</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2030"><b>Mystic Pulse & Fleck</b> - Chant Dem
+                Down
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="2117"><b>Dope Tingz ft. Top Cat</b> - Shaolin
+                Monk
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="2227"><b>Wickaman ft. Singing Bird</b> - If A
+                War
+                (VIP)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2388"><b>Ricky Tuff & Brian Brainstorm</b> -
+                Las
+                Teresitas</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2508"><b>Jam Thieves</b> - Love Forever</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2649"><b>Veak</b> - Herb Generation</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2718"><b>Marcus Visionary & Johnny Osbourne</b>
+                -
+                Rock it Tonight</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2856"><b>Lost City</b> - We Run the Dance</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2978"><b>Serial Killaz</b> - Rinse Some Tune
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="3112"><b>Upgrade</b> - The Voice</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3220"><b>Taxman</b> - Made of Stone</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3370"><b>Bass Brothers</b> - Oh My</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3534"><b>LTJ Bukem</b> - Music (Technicolour
+                Reprise)</div>
         </div>
-        <div class="track" onclick="updatePosition(this)" data-time="548"><b>Mozey</b> - Lapa Drums</div>
-        <div class="track" onclick="updatePosition(this)" data-time="678"><b>Clipz</b> - Again (Instrumental)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="831"><b>Saxxon ft. Navigator</b> - Rollcall
-            (Junglizm)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="931"><b>T.Kay</b> - Oh! Dread</div>
-        <div class="track" onclick="updatePosition(this)" data-time="989"><b>Macky Gee</b> - Seduction</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1086"><b>Kumo</b> - Devils Lettuce</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1226"><b>Krak In Dub</b> - Original Sample
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="1326"><b>WBBL</b> - Ripgroove</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1423"><b>Marcus Visionary ft. Bunny General</b>
-            -
-            Sound War</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1591"><b>King Toppa & Mowty Mahlyka</b> - Kill
-            Dem
-            Already (Isaac Maya Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1703"><b>I Wayne & Mr Bertus</b> - They Have No
-            Love
-            (Jamie Bostron Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1799"><b>Dubtime</b> - Run for Cover</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1926"><b>Selecta J-Man</b> - Cuss Cuss</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2030"><b>Mystic Pulse & Fleck</b> - Chant Dem
-            Down
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="2117"><b>Dope Tingz ft. Top Cat</b> - Shaolin
-            Monk
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="2227"><b>Wickaman ft. Singing Bird</b> - If A
-            War
-            (VIP)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2388"><b>Ricky Tuff & Brian Brainstorm</b> -
-            Las
-            Teresitas</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2508"><b>Jam Thieves</b> - Love Forever</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2649"><b>Veak</b> - Herb Generation</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2718"><b>Marcus Visionary & Johnny Osbourne</b>
-            -
-            Rock it Tonight</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2856"><b>Lost City</b> - We Run the Dance</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2978"><b>Serial Killaz</b> - Rinse Some Tune
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="3112"><b>Upgrade</b> - The Voice</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3220"><b>Taxman</b> - Made of Stone</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3370"><b>Bass Brothers</b> - Oh My</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3534"><b>LTJ Bukem</b> - Music (Technicolour
-            Reprise)</div>
     </div>
 </div>
 

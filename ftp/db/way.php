@@ -108,85 +108,87 @@ include '../header.html'; ?>
 </div>
 
 
-<div class=stack2>
-    <div class="eq_viz">
+<div class="restack">
+    <div class=stack2>
+        <div class="eq_viz">
 
-        <canvas id="canvas1"></canvas>
+            <canvas id="canvas1"></canvas>
+        </div>
+        <div class="eqSliders">
+            <div>
+                <label for="lows-slider">Lows</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
+            </div>
+            <div>
+                <label for="mids-slider">Mids</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
+            </div>
+            <div>
+                <label for="highs-slider">Highs</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
+            </div>
+        </div>
+
     </div>
-    <div class="eqSliders">
-        <div>
-            <label for="lows-slider">Lows</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
-        </div>
-        <div>
-            <label for="mids-slider">Mids</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
-        </div>
-        <div>
-            <label for="highs-slider">Highs</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
-        </div>
-    </div>
 
-</div>
+    <div class=stack3>
 
-<div class=stack3>
-
-    <div class="playing" id="title">The Way (1:13:14)</div>
+        <div class="playing" id="title">The Way (1:13:14)</div>
 
 
-    <div class="tracklist">
-        <div class="track" onclick="updatePosition(this)" data-time="0"><b>Danny Byrd ft. MC GQ</b><b> - Salute
+        <div class="tracklist">
+            <div class="track" onclick="updatePosition(this)" data-time="0"><b>Danny Byrd ft. MC GQ</b><b> - Salute
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="147"><b>RMS</b><b> - About The Music</div>
+            <div class="track" onclick="updatePosition(this)" data-time="258"><b>Parly B & G Duppy</b><b> - Dem Sick
+                    (Serial Killaz Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="419"><b>Veak</b><b> - Masta Blasta</div>
+            <div class="track" onclick="updatePosition(this)" data-time="488"><b>Marcus Visionary ft. Sugar
+                    Minott</b><b> - Ruff & Tuff</div>
+            <div class="track" onclick="updatePosition(this)" data-time="687"><b>Fleck & Selecta J-Man</b><b> -
+                    Rockstone</div>
+            <div class="track" onclick="updatePosition(this)" data-time="839"><b>Ikon B & Crisis</b><b> - Jah Warrior
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="1048"><b>Leaf</b><b> -
+                    Dub Tang</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1256"><b>Benny Page</b><b> - That Girl</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1382"><b>Symptom</b><b> - Stay Tough</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1559"><b>Sanxion</b><b> - System 16</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1708"><b>Sanxion</b><b> - Dope Stories (Ikon B
+                    & Crisis Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1875"><b>Taktix</b><b>
+                    - It's The Way (Serum Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2134"><b>Secure Unit</b><b> - Lionheart
+                    Bizzness</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2243"><b>Serum</b><b> - Lumberjack</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2406"><b>Twisted Individual</b><b> - F Word
+                    (Twisted Individual 2017 Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2560"><b>Twisted Individual</b><b> - Galloping
+                    Elephant (DJ Limited Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2744"><b>Dublic</b><b>
+                    - The Butcher</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2884"><b>Truespirit</b><b> - Kill It Properly
+                    (Fleck Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2986"><b>Didak</b><b> - African</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3147"><b>Nicky Blackmarket</b><b> - This Way
+                    (Brian Brainstorm Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3321"><b>6Blocc</b><b>
+                    - Artikal Junglist</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3419"><b>Ed Solo & Deekline ft. Yolanda</b><b>
+                    - Bam Bam (Serial Killaz Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3558"><b>Selecta J-Man
+                    ft. Blackout JA & Raphael</b><b> - Unite</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3703"><b>Aries & Jacky
+                    Murda</b><b> - Clash 77</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3851"><b>Aries & Jacky
+                    Murda ft. Spyda</b><b> - Jungle Style</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3982"><b>Chopstick Dubplate ft. Jah
+                    Roamy</b><b> - 50 Pound a Weed</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4092"><b>Rumble ft. Blackout JA</b><b> -
+                    Dancehall Crown</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4220"><b>Rumble ft. Blackout JA</b><b> - Weed
+                    Weed</div>
         </div>
-        <div class="track" onclick="updatePosition(this)" data-time="147"><b>RMS</b><b> - About The Music</div>
-        <div class="track" onclick="updatePosition(this)" data-time="258"><b>Parly B & G Duppy</b><b> - Dem Sick
-                (Serial Killaz Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="419"><b>Veak</b><b> - Masta Blasta</div>
-        <div class="track" onclick="updatePosition(this)" data-time="488"><b>Marcus Visionary ft. Sugar
-                Minott</b><b> - Ruff & Tuff</div>
-        <div class="track" onclick="updatePosition(this)" data-time="687"><b>Fleck & Selecta J-Man</b><b> -
-                Rockstone</div>
-        <div class="track" onclick="updatePosition(this)" data-time="839"><b>Ikon B & Crisis</b><b> - Jah Warrior
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="1048"><b>Leaf</b><b> -
-                Dub Tang</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1256"><b>Benny Page</b><b> - That Girl</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1382"><b>Symptom</b><b> - Stay Tough</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1559"><b>Sanxion</b><b> - System 16</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1708"><b>Sanxion</b><b> - Dope Stories (Ikon B
-                & Crisis Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1875"><b>Taktix</b><b>
-                - It's The Way (Serum Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2134"><b>Secure Unit</b><b> - Lionheart
-                Bizzness</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2243"><b>Serum</b><b> - Lumberjack</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2406"><b>Twisted Individual</b><b> - F Word
-                (Twisted Individual 2017 Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2560"><b>Twisted Individual</b><b> - Galloping
-                Elephant (DJ Limited Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2744"><b>Dublic</b><b>
-                - The Butcher</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2884"><b>Truespirit</b><b> - Kill It Properly
-                (Fleck Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2986"><b>Didak</b><b> - African</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3147"><b>Nicky Blackmarket</b><b> - This Way
-                (Brian Brainstorm Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3321"><b>6Blocc</b><b>
-                - Artikal Junglist</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3419"><b>Ed Solo & Deekline ft. Yolanda</b><b>
-                - Bam Bam (Serial Killaz Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3558"><b>Selecta J-Man
-                ft. Blackout JA & Raphael</b><b> - Unite</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3703"><b>Aries & Jacky
-                Murda</b><b> - Clash 77</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3851"><b>Aries & Jacky
-                Murda ft. Spyda</b><b> - Jungle Style</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3982"><b>Chopstick Dubplate ft. Jah
-                Roamy</b><b> - 50 Pound a Weed</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4092"><b>Rumble ft. Blackout JA</b><b> -
-                Dancehall Crown</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4220"><b>Rumble ft. Blackout JA</b><b> - Weed
-                Weed</div>
     </div>
 </div>
 

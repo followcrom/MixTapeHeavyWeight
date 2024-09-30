@@ -108,79 +108,81 @@ include '../header.html'; ?>
 </div>
 
 
-<div class=stack2>
-    <div class="eq_viz">
+<div class="restack">
+    <div class=stack2>
+        <div class="eq_viz">
 
-        <canvas id="canvas1"></canvas>
+            <canvas id="canvas1"></canvas>
+        </div>
+        <div class="eqSliders">
+            <div>
+                <label for="lows-slider">Lows</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
+            </div>
+            <div>
+                <label for="mids-slider">Mids</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
+            </div>
+            <div>
+                <label for="highs-slider">Highs</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
+            </div>
+        </div>
+
     </div>
-    <div class="eqSliders">
-        <div>
-            <label for="lows-slider">Lows</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
-        </div>
-        <div>
-            <label for="mids-slider">Mids</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
-        </div>
-        <div>
-            <label for="highs-slider">Highs</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
-        </div>
-    </div>
 
-</div>
+    <div class=stack3>
 
-<div class=stack3>
-
-    <div class="playing" id="title">Full Tilt Boogie (01:05:51)</div>
+        <div class="playing" id="title">Full Tilt Boogie (01:05:51)</div>
 
 
-    <div class="tracklist">
-        <div class="track" onclick="updatePosition(this)" data-time="0"><b>DJ Kool vs Cutty Ranks</b> - Limb By Limb
-            (DJ Maars Mash-Up)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="107"><b>El Bomba</b> - Never Dibby Dibby</div>
-        <div class="track" onclick="updatePosition(this)" data-time="179"><b>Arthur Conley</b> - Funky Street
-            (Odjbox Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="331"><b>DJ Maars</b> - Smokin' Funk</div>
-        <div class="track" onclick="updatePosition(this)" data-time="529"><b>Father Funk</b> - Sayer What</div>
-        <div class="track" onclick="updatePosition(this)" data-time="681"><b>WBBL</b> - Talkin' Bout My Baby</div>
-        <div class="track" onclick="updatePosition(this)" data-time="861"><b>Slynk</b> - Boomin'</div>
-        <div class="track" onclick="updatePosition(this)" data-time="977"><b>Jackson 5</b> - A.B.C (A.Skillz Edit)
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="1083"><b>Duke Dumont ft. AME</b> - Need U 100%
-            (WBBL Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1248"><b>Public Enemy</b> - Bring The Noise
-            (Phibes Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1352"><b>NOG & Perkulator</b> - Surfin'
-            Supernatural</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1467"><b>Johnny Cash</b> - Get Rhythm (Sammy
-            Senior Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1674"><b>Parliament</b> - Flash Light (Slynk
-            Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1776"><b>Featurecast</b> - Make You Happy</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1858"><b>Father Funk</b> - Emperor Groove</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1960"><b>Featurecast</b> - Rock Ya Body</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2150"><b>Prince</b> - 1999 (Warp 9 Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2329"><b>Father Funk</b> - Juggernaut</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2420"><b>Featurecast</b> - Dread</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2528"><b>Howla & WBBL</b> - Crazy Pavers</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2609"><b>The Captain</b> - In The Summertime
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="2822"><b>Uncle Louie</b> - Full Tilt Boogie
-            (Slynk & Stickybuds Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2954"><b>Dephicit & The Fritz</b> - Shaker
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="3084"><b>Nick Thayer & Ali B</b> - N.E Way
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="3190"><b>DJ LBR & Big Ali</b> - Real Party
-            (Slynk Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3315"><b>General Narco</b> - Oh Well</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3422"><b>Mooqee & Beatvandals</b> - Back Up
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="3618"><b>Kidda</b> - Wanna Be Loved (Dancefloor
-            Outlaws Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3812"><b>Basement Freaks</b> - Mo Diggity</div>
+        <div class="tracklist">
+            <div class="track" onclick="updatePosition(this)" data-time="0"><b>DJ Kool vs Cutty Ranks</b> - Limb By Limb
+                (DJ Maars Mash-Up)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="107"><b>El Bomba</b> - Never Dibby Dibby</div>
+            <div class="track" onclick="updatePosition(this)" data-time="179"><b>Arthur Conley</b> - Funky Street
+                (Odjbox Edit)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="331"><b>DJ Maars</b> - Smokin' Funk</div>
+            <div class="track" onclick="updatePosition(this)" data-time="529"><b>Father Funk</b> - Sayer What</div>
+            <div class="track" onclick="updatePosition(this)" data-time="681"><b>WBBL</b> - Talkin' Bout My Baby</div>
+            <div class="track" onclick="updatePosition(this)" data-time="861"><b>Slynk</b> - Boomin'</div>
+            <div class="track" onclick="updatePosition(this)" data-time="977"><b>Jackson 5</b> - A.B.C (A.Skillz Edit)
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="1083"><b>Duke Dumont ft. AME</b> - Need U 100%
+                (WBBL Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1248"><b>Public Enemy</b> - Bring The Noise
+                (Phibes Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1352"><b>NOG & Perkulator</b> - Surfin'
+                Supernatural</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1467"><b>Johnny Cash</b> - Get Rhythm (Sammy
+                Senior Edit)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1674"><b>Parliament</b> - Flash Light (Slynk
+                Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1776"><b>Featurecast</b> - Make You Happy</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1858"><b>Father Funk</b> - Emperor Groove</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1960"><b>Featurecast</b> - Rock Ya Body</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2150"><b>Prince</b> - 1999 (Warp 9 Edit)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2329"><b>Father Funk</b> - Juggernaut</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2420"><b>Featurecast</b> - Dread</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2528"><b>Howla & WBBL</b> - Crazy Pavers</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2609"><b>The Captain</b> - In The Summertime
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="2822"><b>Uncle Louie</b> - Full Tilt Boogie
+                (Slynk & Stickybuds Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2954"><b>Dephicit & The Fritz</b> - Shaker
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="3084"><b>Nick Thayer & Ali B</b> - N.E Way
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="3190"><b>DJ LBR & Big Ali</b> - Real Party
+                (Slynk Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3315"><b>General Narco</b> - Oh Well</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3422"><b>Mooqee & Beatvandals</b> - Back Up
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="3618"><b>Kidda</b> - Wanna Be Loved (Dancefloor
+                Outlaws Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3812"><b>Basement Freaks</b> - Mo Diggity</div>
 
+        </div>
     </div>
 </div>
 

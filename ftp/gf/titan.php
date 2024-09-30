@@ -116,97 +116,99 @@ include '../header.html'; ?>
 </div>
 
 
-<div class=stack2>
-    <div class="eq_viz">
+<div class="restack">
+    <div class=stack2>
+        <div class="eq_viz">
 
-        <canvas id="canvas1"></canvas>
+            <canvas id="canvas1"></canvas>
+        </div>
+        <div class="eqSliders">
+            <div>
+                <label for="lows-slider">Lows</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
+            </div>
+            <div>
+                <label for="mids-slider">Mids</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
+            </div>
+            <div>
+                <label for="highs-slider">Highs</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
+            </div>
+        </div>
+
+
     </div>
-    <div class="eqSliders">
-        <div>
-            <label for="lows-slider">Lows</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
+
+    <div class=stack3>
+
+        <div class="playing" id="title">Titan Spinning (1:29:55)</div>
+
+
+        <div class="tracklist">
+            <div class="track" onclick="updatePosition(this)" data-time="0"><b>WBBL</b> - Keep Me</div>
+            <div class="track" onclick="updatePosition(this)" data-time="141"><b>D'Angelo</b> - Brown Sugar (Father Funk
+                Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="256"><b>Cut La Roc</b> - Bassheads (Mr. No Hands
+                Remix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="376"><b>Crash Party</b>
+                - Dread Or Alive</div>
+            <div class="track" onclick="updatePosition(this)" data-time="498"><b>Major Lazer ft. Bad Royale</b> - My
+                Number (Dub:ra Edit)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="609"><b>Father Funk</b>
+                - Nomesayin'</div>
+            <div class="track" onclick="updatePosition(this)" data-time="750"><b>Father Funk ft. Timothy Wisdom</b> - Get
+                Happy</div>
+            <div class="track" onclick="updatePosition(this)" data-time="836"><b>Kibosh</b> - No
+                Matter</div>
+            <div class="track" onclick="updatePosition(this)" data-time="955"><b>Liberty Chaps</b> - Fun Addict</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1092"><b>Beat Le Juice</b> - Day After Day</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1246"><b>Visual</b> - The Music Got Me (Frankee
+                More Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1403"><b>Outkast</b> - Roses (The Niceguys Mix)
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="1569"><b>Arteo</b> - Funky Technician</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1657"><b>Sammy Senior</b> - Break It Down</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1851"><b>Slynk</b> - Dancefloor Silly</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1992"><b>Griz & Big Gigantic</b> - Come On
+                (Featurecast Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2110"><b>Jimi Needles</b> - Biggie Banger</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2235"><b>Arteo</b> - You'll Never Know with Born
+                To Roll (Acapella)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2411"><b>Lords of the Underground</b> - Funky
+                Child (Featurecast Booty)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2488"><b>Trashmen vs. Yuri Viroj</b> - Surfing
+                Bird Dreams (Featurecast Mash-Up)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2605"><b>Sammy Senior</b> - Mandela Effect</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2753"><b>Skeewiff</b> -
+                No Puede Esperar</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2885"><b>Father Funk</b> - Golden Era</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2954"><b>De La Soul</b>
+                - Ring Ring Ring (Frankee More Re-Funk) with Spam (Acapella)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3115"><b>Slynk</b> - Lady Pepper Groove</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3217"><b>Slynk</b> - Holy Calamity</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3356"><b>Jimi Hendrix</b> - Voodoo Child (Father
+                Funk Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3492"><b>Captain Flatcap</b> - Awakening
+                (Liberty Chaps Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3650"><b>Grandmaster Flash and the Furious 5</b>
+                - The Message (WBBL Rekt Remix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3829"><b>De La Soul</b>
+                - Eye Know (X-Ray Tedit)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3996"><b>Cookin' On 3 Burners</b> - This Girl
+                (Father Funk Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4170"><b>The Clash</b> - Train In Vain (Bobby C
+                Sound TV Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4359"><b>Rolling Stones</b> - Sympathy For The
+                Devil (The Captain & Goodgroove Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4689"><b>Skeewiff</b> -
+                Mr Debonair (Instrumental)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4809"><b>Skeewiff ft. Vanessa Contenay</b> - Mr
+                Debonair</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4947"><b>J Hus</b> - Did You See?</div>
+            <div class="track" onclick="updatePosition(this)" data-time="5132"><b>Fetty Wap ft.
+                    Monty</b> - Way You Are</div>
         </div>
-        <div>
-            <label for="mids-slider">Mids</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
-        </div>
-        <div>
-            <label for="highs-slider">Highs</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
-        </div>
-    </div>
-
-
-</div>
-
-<div class=stack3>
-
-    <div class="playing" id="title">Titan Spinning (1:29:55)</div>
-
-
-    <div class="tracklist">
-        <div class="track" onclick="updatePosition(this)" data-time="0"><b>WBBL</b> - Keep Me</div>
-        <div class="track" onclick="updatePosition(this)" data-time="141"><b>D'Angelo</b> - Brown Sugar (Father Funk
-            Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="256"><b>Cut La Roc</b> - Bassheads (Mr. No Hands
-            Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="376"><b>Crash Party</b>
-            - Dread Or Alive</div>
-        <div class="track" onclick="updatePosition(this)" data-time="498"><b>Major Lazer ft. Bad Royale</b> - My
-            Number (Dub:ra Edit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="609"><b>Father Funk</b>
-            - Nomesayin'</div>
-        <div class="track" onclick="updatePosition(this)" data-time="750"><b>Father Funk ft. Timothy Wisdom</b> - Get
-            Happy</div>
-        <div class="track" onclick="updatePosition(this)" data-time="836"><b>Kibosh</b> - No
-            Matter</div>
-        <div class="track" onclick="updatePosition(this)" data-time="955"><b>Liberty Chaps</b> - Fun Addict</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1092"><b>Beat Le Juice</b> - Day After Day</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1246"><b>Visual</b> - The Music Got Me (Frankee
-            More Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1403"><b>Outkast</b> - Roses (The Niceguys Mix)
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="1569"><b>Arteo</b> - Funky Technician</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1657"><b>Sammy Senior</b> - Break It Down</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1851"><b>Slynk</b> - Dancefloor Silly</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1992"><b>Griz & Big Gigantic</b> - Come On
-            (Featurecast Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2110"><b>Jimi Needles</b> - Biggie Banger</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2235"><b>Arteo</b> - You'll Never Know with Born
-            To Roll (Acapella)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2411"><b>Lords of the Underground</b> - Funky
-            Child (Featurecast Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2488"><b>Trashmen vs. Yuri Viroj</b> - Surfing
-            Bird Dreams (Featurecast Mash-Up)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2605"><b>Sammy Senior</b> - Mandela Effect</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2753"><b>Skeewiff</b> -
-            No Puede Esperar</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2885"><b>Father Funk</b> - Golden Era</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2954"><b>De La Soul</b>
-            - Ring Ring Ring (Frankee More Re-Funk) with Spam (Acapella)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3115"><b>Slynk</b> - Lady Pepper Groove</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3217"><b>Slynk</b> - Holy Calamity</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3356"><b>Jimi Hendrix</b> - Voodoo Child (Father
-            Funk Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3492"><b>Captain Flatcap</b> - Awakening
-            (Liberty Chaps Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3650"><b>Grandmaster Flash and the Furious 5</b>
-            - The Message (WBBL Rekt Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3829"><b>De La Soul</b>
-            - Eye Know (X-Ray Tedit)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3996"><b>Cookin' On 3 Burners</b> - This Girl
-            (Father Funk Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4170"><b>The Clash</b> - Train In Vain (Bobby C
-            Sound TV Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4359"><b>Rolling Stones</b> - Sympathy For The
-            Devil (The Captain & Goodgroove Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4689"><b>Skeewiff</b> -
-            Mr Debonair (Instrumental)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4809"><b>Skeewiff ft. Vanessa Contenay</b> - Mr
-            Debonair</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4947"><b>J Hus</b> - Did You See?</div>
-        <div class="track" onclick="updatePosition(this)" data-time="5132"><b>Fetty Wap ft.
-                Monty</b> - Way You Are</div>
     </div>
 </div>
 
