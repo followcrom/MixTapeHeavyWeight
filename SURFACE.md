@@ -154,8 +154,7 @@ nano /etc/nginx/sites-available/mthw
 
 ```nginx
 server {
-    # Define the domain names this server block will respond to
-    server_name www.mixtape.followcrom.online mixtape.followcrom.online;
+    server_name mixtape-heavyweight.one www.mixtape-heavyweight.one;
 
     # Set the root directory for serving static files
     root /var/www/mthw;
@@ -164,45 +163,44 @@ server {
 
     # Location block for handling general requests
     location / {
-        # Try to serve the file requested by the user, fall back to /index.html if not found
-        try_files $uri $uri/ /index.html?$query_string;
-        # Custom error page for 404 errors
+        try_files $uri $uri/ =404;
         error_page 404 /404.html;
-    }
+        location = /404.html {
+            root /var/www/mthw;
+            internal;
+        }
+}
 
-    # Location block handles all PHP files in the entire web root directory (/var/www/mthw). This includes the PHP files in the gf and db directories.
+    # Location block for PHP files
     location ~ \.php$ {
         include snippets/fastcgi-php.conf;
         fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         include fastcgi_params;
+        error_page 404 /404.html;  # Use custom 404 page for PHP files
     }
 
-    # Enable SSL for this server block
     listen 443 ssl; # managed by Certbot
-
-    # Path to the SSL certificate and key
-    ssl_certificate /etc/letsencrypt/live/mixtape.followcrom.online/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/mixtape.followcrom.online/privkey.pem; # managed by Certbot
-
-    # Include SSL settings provided by Certbot
+    ssl_certificate /etc/letsencrypt/live/mixtape-heavyweight.one/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/mixtape-heavyweight.one/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    # Include Diffie-Hellman parameter file for improved security
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-}
 
-# Redirect HTTP to HTTPS
+
+}
 server {
-    # Redirect HTTP requests to HTTPS
-    if ($host = mixtape.followcrom.online) {
+    if ($host = www.mixtape-heavyweight.one) {
         return 301 https://$host$request_uri;
     } # managed by Certbot
 
-    # Define the domain name for this server block
-    server_name mixtape.followcrom.online;
-    # Listen on port 80 for HTTP requests
+
+    if ($host = mixtape-heavyweight.one) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
     listen 80;
-    # Return a 404 error for unmatched requests
+    server_name mixtape-heavyweight.one www.mixtape-heavyweight.one;
     return 404; # managed by Certbot
 }
 ```
@@ -371,7 +369,7 @@ return [
 Ensure that your configuration files have appropriate file permissions so that only the web server user (or application user) can read them:
 
 ```bash
-chmod 600 config.php
+chmod 644 config.php
 ```
 
 🌐 In the PHP code in the site, include the configuration file and use the values as below:
@@ -398,6 +396,18 @@ SHOW DATABASES;
 USE mixtape_reviews;
 SHOW TABLES;
 SELECT * FROM reviews;
+```
+
+### Delete Records 🗑️
+
+```sql
+DELETE FROM reviews WHERE id IN (2, 3, 4);
+```
+
+### Update Records 📝
+
+```sql
+UPDATE reviews SET stars = 5 WHERE id = 1;
 ```
 
 ### 📦 Storing Credentials in a MySQL Configuration File 🪪
