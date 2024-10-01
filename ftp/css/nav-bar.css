@@ -6,7 +6,7 @@
 }
 
 footer {
-  position: relative;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -16,7 +16,7 @@ footer {
   /* background-image: linear-gradient(to bottom, black, gold 60%); */
   margin: 0px;
   padding: 0px;
-  padding-top: 5px;
+  padding-top: 10px;
 }
 
 .icon_row {
@@ -46,13 +46,15 @@ footer {
   flex: 1;
   align-items: center;
   justify-content: left;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 2.15vw;
 }
 
 .static-div {
   color: white;
+  font-weight: bold;
 }
+
 .nav_hover {
   font-family: "Graff", Arial, Helvetica, sans-serif;
   color: #0f4c81;
@@ -77,22 +79,16 @@ a:hover {
 
   .static-div {
     padding-bottom: 10px;
-    font-family: Arial, Helvetica, sans-serif;
   }
 }
 
 /* For screens larger than 1024px and less than 1439px */
 @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-  /* footer {
-    background-color: lightcoral;
-  } */
-
   .rollover_row {
     font-size: 2.5vw;
   }
 
   .static-div {
-    color: white;
     padding-left: 10px;
   }
   .nav_hover {
@@ -125,13 +121,13 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5vw;
+    gap: 8vw;
     padding: 2px;
   }
 
   .icon {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
   }
 
   .rollover_row {
@@ -143,7 +139,6 @@ a:hover {
 @media (max-width: 639px) {
   footer {
     position: relative;
-    background-color: gold;
   }
 
   .icon_row {
@@ -154,7 +149,7 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5vw;
+    gap: 8vw;
     padding: 2px;
   }
 
@@ -163,7 +158,7 @@ a:hover {
   }
 
   .icon {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
   }
 }

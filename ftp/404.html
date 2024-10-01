@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>followCrom - MixTape HeavyWeight</title>
+    <title>MixTape HeavyWeight</title>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="A dynamic web app made specifically for DJ mixes. As the mix plays, the tracklist updates automatically, so the listener knows at a glance which song the DJ is spinning. Additional features include an audio visualizer, skippable playlist, and comments section."
+      content="Bludclart Jungle Techno from the MixTape HeavyWeight. Free mmixes to stream and download. Features an audio visualizer, skippable playlist, and comments section."
     />
+    />
+    <meta name="keywords" content="jungle,techno,free,mmixes,stream,download" />
     <meta name="theme-color" content="#000" />
 
-    <link rel="stylesheet" type="text/css" href="/css/mixtape.css" />
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://mixtape-heavyweight.one/" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/404.css" />
+    <link rel="stylesheet" href="css/nav-bar.css" />
 
     <!-- FontAwesome -->
     <link
@@ -28,11 +35,7 @@
       rel="stylesheet"
     />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap"
-      rel="stylesheet"
-    />
-
+    <!-- Favicons -->
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
     <link
       rel="apple-touch-icon"
@@ -54,40 +57,104 @@
   </head>
 
   <body>
-    <div class="content">
-      <div class="topBox">
-        <div class="liner">
-          <a href="https://ttt.followcrom.online/fc/">followCrom presents...</a>
-        </div>
-        <div class="banner">Mixtape HeavyWeight</div>
-      </div>
-
-      <div class="content_boxes">
-        <div class="content_box_left">
-          <h1>404 - Page Not Found</h1>
-          <p>
-            The page you are looking for does not exist. Please check the URL
-            and try again.
-          </p>
-          <p>
-            If you are looking for a mix, please check the
-            <a class="page" href="/index.html">mixtape page</a> for the latest
-            available mixes.
-          </p>
-        </div>
+    <div class="topBox">
+      <div class="banner">MixTape HeavyWeight</div>
+    </div>
+    <div class="container">
+      <h1>404 - Page Not Found</h1>
+      <h3>
+        If you are looking for a mix, please check the
+        <a class="page" href="/index.html">mixtape page</a> for all available
+        mixes.
+      </h3>
+      <div class="image">
+        <img src="images/404_crop.png" alt="404 Error Image" />
       </div>
     </div>
 
     <footer>
-      <div
-        class="footer"
-        style="background-color: #000; color: #fff; padding: 20px"
-      >
-        <p>
-          &copy; 2024 followCrom - Mixtape Heavyweight - Website designed by
-          <a href="https://ttt.followcrom.online/fc/index.html">followCrom</a> -
-          All rights reserved.
-        </p>
+      <script src="js/rollovers.js"></script>
+
+      <div class="icon_row">
+        <div class="grid-container">
+          <div
+            class="grid-item"
+            onmouseover="showHiddenText(this, 'online')"
+            onmouseout="hideHiddenText(this)"
+          >
+            <a class="footer" href="https://followcrom.com/">
+              <img
+                class="icon"
+                src="images/icons/home-2.png"
+                alt="followCrom home"
+                title="followCrom home"
+              />
+            </a>
+          </div>
+
+          <div
+            class="grid-item"
+            onmouseover="showHiddenText(this, 'on LinkedIn')"
+            onmouseout="hideHiddenText(this)"
+          >
+            <a
+              class="footer"
+              href="https://linkedin.com/in/followCrom"
+              target="_blank"
+            >
+              <img
+                class="icon"
+                src="images/icons/linkedin.png"
+                alt="followCrom on Linked In"
+                title="followCrom on Linked In"
+              />
+            </a>
+          </div>
+
+          <div
+            class="grid-item"
+            onmouseover="showHiddenText(this, 'on GitHub')"
+            onmouseout="hideHiddenText(this)"
+          >
+            <a
+              class="footer"
+              href="https://github.com/followcrom"
+              target="_blank"
+            >
+              <img
+                class="icon"
+                src="images/icons/github.png"
+                alt="followCrom on Git Hub"
+                title="followCrom on Git Hub"
+              />
+            </a>
+          </div>
+
+          <div
+            class="grid-item"
+            onmouseover="showHiddenText(this, 'on Medium')"
+            onmouseout="hideHiddenText(this)"
+          >
+            <a
+              class="footer"
+              href="https://medium.com/@followcrom"
+              target="_blank"
+            >
+              <img
+                class="icon"
+                src="images/icons/medium.png"
+                alt="followCrom on Medium"
+                title="followCrom on Medium"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="rollover_row">
+        <div class="static-div">followCrom</div>
+
+        <div id="nav_hover" class="nav_hover">on the decks</div>
       </div>
     </footer>
   </body>

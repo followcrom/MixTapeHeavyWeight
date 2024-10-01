@@ -143,3 +143,18 @@ input[type="submit"]:hover {
   font-size: 1em;
   border-bottom: gold 2px solid;
 }
+
+/* Screens less than 640px */
+@media (max-width: 639px) {
+  .comments_div {
+    flex: 1.8;
+    padding: 2px;
+  }
+
+  .date_div {
+    flex: 1.2;
+    padding: 2px;
+    font-size: 0.8em;
+    border-bottom: gold 2px solid;
+  }
+}

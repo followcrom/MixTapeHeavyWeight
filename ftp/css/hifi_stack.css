@@ -472,8 +472,34 @@ a.label_link:hover {
 
 /* For screens larger than or equal to 2500px */
 @media only screen and (min-width: 2500px) {
-  .content_boxes {
-    font-size: 18px;
+  .top_label {
+    padding-top: 20px;
+  }
+
+  .navigation {
+    height: 100px;
+  }
+
+  .progress-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .progress-background {
+    background-color: #ddd;
+    cursor: pointer;
+    width: 80%;
+    height: 80px;
+  }
+
+  .currTime {
+    height: 80px;
+    font-size: 26px;
+  }
+
+  .transportContainer {
+    margin-top: 25px;
   }
 }
 
@@ -488,7 +514,7 @@ a.label_link:hover {
   }
 
   .img-container img {
-    height: 80px;
+    height: 70px;
   }
 
   .navigation {
@@ -581,11 +607,13 @@ a.label_link:hover {
   }
 
   .top_label {
-    border-top: green solid 8px;
-    border-bottom: red solid 8px;
     color: black;
     margin: 0px auto 10px auto;
     font-size: 1rem;
+    padding-top: 10px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
   }
 
   .transportContainer {
@@ -606,10 +634,6 @@ a.label_link:hover {
     padding: 8px;
   }
 
-  .tape_reel-container {
-    gap: 0rem;
-  }
-
   .action-btn {
     font-size: 15px;
     padding: 0px;
@@ -618,10 +642,6 @@ a.label_link:hover {
 
   .action-btn.action-btn-big {
     font-size: 24px;
-  }
-
-  .audioPlayer {
-    display: none;
   }
 
   #volume-slider {
@@ -646,7 +666,7 @@ a.label_link:hover {
   }
 
   .currTime {
-    font-size: 10px;
+    font-size: 11px;
     width: 40%;
     height: 30px;
   }
@@ -703,11 +723,11 @@ a.label_link:hover {
 
   .reviewContainer {
     order: -1;
-    width: 80%;
+    width: 85%;
     margin: auto;
     background-color: #000;
     border-radius: 15px;
-    margin-bottom: 1.5vh;
+    margin-bottom: 1vh;
   }
 
   .reviewContainer h1 {

@@ -20,7 +20,7 @@ body {
   background-repeat: no-repeat;
   background-color: #000;
   padding: 0px;
-  /* padding-bottom: 10vh; */
+  padding-bottom: 10vh;
 }
 
 .topBox {
@@ -134,6 +134,11 @@ a:hover a:visited {
 
 /* For screens larger than or equal to 2500px */
 @media only screen and (min-width: 2500px) {
+  .content {
+    background-size: 48vw auto;
+    padding-bottom: 10vh;
+  }
+
   .content_boxes {
     font-size: 18px;
   }
@@ -148,10 +153,11 @@ a:hover a:visited {
 @media only screen and (min-width: 1024px) and (max-width: 1439px) {
   .content {
     background-size: 48vw auto;
-    padding-bottom: 15vh;
+    padding-bottom: 12vh;
   }
+
   .content_boxes {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .fa-brands,
@@ -168,7 +174,7 @@ a:hover a:visited {
   }
 
   .content_boxes {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .fa-brands,
@@ -177,8 +183,8 @@ a:hover a:visited {
   }
 }
 
-/* For screens smaller than or equal to 699px */
-@media only screen and (max-width: 699px) {
+/* Screens less than 640px */
+@media (max-width: 639px) {
   .content {
     display: flex;
     flex-direction: column;

@@ -221,7 +221,7 @@ function kickOff() {
 
 function drawVisualiser(bufferLength, x, barWidth, barHeight, dataArray) {
   for (let i = 0; i < bufferLength; i++) {
-    barHeight = dataArray[i] * 4;
+    barHeight = dataArray[i] * 3;
     const red = (i * barHeight)/20;
     const green = i * 4;
     const blue = barHeight / 2;
@@ -232,7 +232,7 @@ function drawVisualiser(bufferLength, x, barWidth, barHeight, dataArray) {
     x += barWidth;
   }
   for (let i = 0; i < bufferLength; i++) {
-    barHeight = dataArray[i] * 4;
+    barHeight = dataArray[i] * 3;
     const red = (i * barHeight)/30;
     const green = 200;
     const blue = barHeight;
