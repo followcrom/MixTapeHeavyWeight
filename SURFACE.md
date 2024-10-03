@@ -156,6 +156,11 @@ nano /etc/nginx/sites-available/mthw
 server {
     server_name mixtape-heavyweight.one www.mixtape-heavyweight.one;
 
+    # Redirect www to non-www
+    if ($host = www.mixtape-heavyweight.one) {
+        return 301 $scheme://mixtape-heavyweight.one$request_uri;
+    }
+
     # Set the root directory for serving static files
     root /var/www/mthw;
     # Specify the default file to serve if no file is specified
@@ -169,7 +174,7 @@ server {
             root /var/www/mthw;
             internal;
         }
-}
+    }
 
     # Location block for PHP files
     location ~ \.php$ {
@@ -185,19 +190,16 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/mixtape-heavyweight.one/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-
-
 }
+
 server {
     if ($host = www.mixtape-heavyweight.one) {
-        return 301 https://$host$request_uri;
+        return 301 $scheme://mixtape-heavyweight.one$request_uri;
     } # managed by Certbot
-
 
     if ($host = mixtape-heavyweight.one) {
         return 301 https://$host$request_uri;
     } # managed by Certbot
-
 
     listen 80;
     server_name mixtape-heavyweight.one www.mixtape-heavyweight.one;

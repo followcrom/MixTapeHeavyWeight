@@ -52,7 +52,7 @@ include '../header.html'; ?>
             <input type="range" min="-1" max="1" step="0.1" value="-0.1" id="volume-slider">
 
 
-            <a href="../audio/05x2.mp3" download><button class="action-btn action-btn-big">
+            <a href="../audio/db/information_centre.mp3" download><button class="action-btn action-btn-big">
                     <i class="fas fa-download"></i>
                 </button></a>
         </div>
@@ -65,8 +65,7 @@ include '../header.html'; ?>
 
 <div class="audioPlayer">
     <audio id="audio" preload="none">
-        <!-- <source src="../audio/supafly.ogg" type="../audio/ogg"> -->
-        <source src="../audio/05x2.mp3" type="audio/mpeg">
+        <source src="../audio/db/information_centre.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
     </audio>
 </div>
@@ -134,7 +133,7 @@ include '../header.html'; ?>
 
     <div class=stack3>
 
-        <div class="playing" id="title">Information Centre (x:xx:xx)</div>
+        <div class="playing" id="title">Information Centre (1:14:01)</div>
 
 
         <div class="tracklist">
