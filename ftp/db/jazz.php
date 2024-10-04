@@ -134,7 +134,7 @@ include '../header.html'; ?>
 
     <div class=stack3>
 
-        <div class="playing" id="title">Jazz 'n' All That (x:xx:xx)</div>
+        <div class="playing" id="title">Jazz 'n' All That (1:22:32)</div>
 
 
         <div class="tracklist">

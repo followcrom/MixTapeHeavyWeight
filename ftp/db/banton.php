@@ -1,5 +1,5 @@
 <?php
-$mixtape = 'Original Banton';
+$mixtape = 'Banton the Ruler';
 include '../header.html'; ?>
 
 <div class="tapeReelBox">
@@ -135,7 +135,7 @@ include '../header.html'; ?>
 
     <div class=stack3>
 
-        <div class="playing" id="title">Original Banton (1:13:53)</div>
+        <div class="playing" id="title">Banton the Ruler (1:13:53)</div>
 
 
         <div class="tracklist">

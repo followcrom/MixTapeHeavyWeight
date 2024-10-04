@@ -273,7 +273,7 @@ body {
 
 /* Individual Slider Control */
 .eqSliders div {
-  background-color: #555555;
+  background-color: #555;
   border-radius: 10px;
   opacity: 0.85;
   display: flex;
@@ -290,15 +290,87 @@ body {
 
 /* Slider Input */
 .eqSliders input[type="range"] {
-  /* Ensure vertical orientation */
-  -webkit-appearance: slider-vertical; /* Safari */
+  writing-mode: vertical-lr;
+  direction: rtl;
   height: 140px;
-  width: 14px;
+  width: 10px;
   cursor: pointer;
+  appearance: none;
+  background: transparent;
+}
+
+/* Most changes are made to the track */
+.eqSliders input[type="range"]::-webkit-slider-runnable-track {
+  width: 10px;
+  height: 140px;
+  background: #eee;
+  border-radius: 7px;
+}
+
+/* Most changes are made to the thumb */
+.eqSliders input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #555;
+  cursor: pointer;
+  border: white solid 2px;
+  border-radius: 50%;
+  margin: -4px;
+}
+
+/* Firefox */
+.eqSliders input[type="range"]::-moz-range-track {
+  width: 14px;
+  height: 140px;
+  background: red;
+  border-radius: 7px;
+}
+
+.eqSliders input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: red;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+}
+
+/* IE/Edge, but does not seem to work */
+.eqSliders input[type="range"]::-ms-track {
+  width: 14px;
+  height: 140px;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.eqSliders input[type="range"]::-ms-fill-lower,
+.eqSliders input[type="range"]::-ms-fill-upper {
+  background: red;
+  border-radius: 7px;
+}
+
+.eqSliders input[type="range"]::-ms-thumb {
+  width: 14px;
+  height: 14px;
+  background: red;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
 /* Additional styles for slider thumbs */
-.eqSliders input::-webkit-slider-thumb {
+/* .eqSliders input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 20px;
+  cursor: pointer;
+  background: white;
+} */
+
+/* .eqSliders input::-moz-range-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 10px;
@@ -307,17 +379,7 @@ body {
   background: white;
 }
 
-/* Firefox styles */
-.eqSliders input::-moz-range-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 10px;
-  height: 20px;
-  cursor: pointer;
-  background: white;
-}
 
-/* IE/Edge styles */
 .eqSliders input::-ms-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -325,7 +387,7 @@ body {
   height: 20px;
   cursor: pointer;
   background: white;
-}
+} */
 
 #canvas1 {
   width: 100%;
