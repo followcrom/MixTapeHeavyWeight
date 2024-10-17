@@ -166,6 +166,11 @@ server {
     # Specify the default file to serve if no file is specified
     index index.php index.html;
 
+    # Redirect /index.html to root
+    if ($request_uri = /index.html) {
+        return 301 https://mixtape-heavyweight.one/;
+    }
+
     # Location block for handling general requests
     location / {
         try_files $uri $uri/ =404;
@@ -410,6 +415,8 @@ DELETE FROM reviews WHERE id IN (2, 3, 4);
 
 ```sql
 UPDATE reviews SET stars = 5 WHERE id = 1;
+
+UPDATE reviews SET comments = 'Not quite my tempo 🥁' WHERE id = 14;
 ```
 
 ### 📦 Storing Credentials in a MySQL Configuration File 🪪

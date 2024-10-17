@@ -10,6 +10,10 @@
       content="Bludclart Jungle Techno from the MixTape HeavyWeight. Free mixes to stream and download. Features an audio visualizer, skippable playlist, and comments section."
     />
     <meta name="keywords" content="jungle,techno,free,mixes,stream,download" />
+
+    <link rel="manifest" href="manifest.json" />
+
+    <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#000" />
 
     <!-- Canonical Link -->
@@ -101,6 +105,24 @@
       }
     </script>
   </head>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("service-worker.js")
+          .then((registration) => {
+            console.log(
+              "Service Worker registered with scope:",
+              registration.scope
+            );
+          })
+          .catch((error) => {
+            console.error("Service Worker registration failed:", error);
+          });
+      });
+    }
+  </script>
 
   <body>
     <div class="content">
