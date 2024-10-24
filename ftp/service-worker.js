@@ -1,6 +1,5 @@
-const CACHE_NAME = 'mixtape-cache-v1';
-const urlsToCache = [
-  '/',
+const CACHE_NAME = "jellygut-cache-norf-v1";
+const PRECACHE_ASSETS = [
   '/index.html',
   '/css/404.css',
   '/css/hifi_stack.css',
@@ -10,39 +9,51 @@ const urlsToCache = [
   '/js/djMixPlayer.js',
   '/js/djMixPlayer_Sma.js',
   '/js/rollovers.js',
-  'images/apple-touch-icon.png',
-  'images/favicon-32x32.png'
 ];
 
-self.addEventListener('install', (event) => {
+// Install event - Precaching
+self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => {
-        return cache.addAll(urlsToCache);
+    caches
+      .open(CACHE_NAME)
+      .then((cache) => cache.addAll(PRECACHE_ASSETS))
+      .catch((error) => {
+        console.error("Error in caching during install", error);
+        throw error; // Rethrow to ensure the service worker installation fails.
       })
   );
 });
 
-self.addEventListener('fetch', (event) => {
+// Fetch event - Cache-first strategy
+self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        return response || fetch(event.request);
-      })
+    caches.match(event.request).then((response) => {
+      if (response) {
+        console.log("Found in cache:", event.request.url);
+        return response;
+      }
+      return fetch(event.request);
+    })
   );
 });
 
-self.addEventListener('activate', (event) => {
-  const cacheWhitelist = [CACHE_NAME];
+// Activate event - Clean up old caches
+self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
+    caches.keys().then((keyList) => {
       return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (!cacheWhitelist.includes(cacheName)) {
-            return caches.delete(cacheName);
+        keyList.map((key) => {
+          if (key !== CACHE_NAME) {
+            console.log(`Deleting old cache: ${key}`);
+            return caches
+              .delete(key)
+              .catch((err) =>
+                console.error(`Error deleting cache: ${key}`, err)
+              );
           }
         })
       );
     })
   );
+  event.waitUntil(self.clients.claim());
 });

@@ -3,9 +3,9 @@
     "short_name": "MTHW",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#000000",
+    "background_color": "gold",
     "theme_color": "#000000",
-    "description": "A music-related site",
+    "description": "Bludclart Jungle Techno from the MixTape HeavyWeight.",
     "icons": [
       {
         "src": "images/apple-touch-icon.png",
@@ -14,7 +14,7 @@
       },
       {
         "src": "images/favicon-32x32.png",
-        "sizes": "2x32",
+        "sizes": "32x32",
         "type": "image/png"
       },
       {
