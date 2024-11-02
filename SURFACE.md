@@ -166,11 +166,6 @@ server {
     # Specify the default file to serve if no file is specified
     index index.php index.html;
 
-    # Redirect /index.html to root
-    if ($request_uri = /index.html) {
-        return 301 https://mixtape-heavyweight.one/;
-    }
-
     # Location block for handling general requests
     location / {
         try_files $uri $uri/ =404;

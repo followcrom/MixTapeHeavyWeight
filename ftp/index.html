@@ -13,8 +13,17 @@
 
     <link rel="manifest" href="manifest.json" />
 
+    <!-- PWA Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="MixTape HeavyWeight" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="theme-color" content="#000000" />
+
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#000" />
 
     <!-- Canonical Link -->
     <link rel="canonical" href="https://mixtape-heavyweight.one/" />
@@ -56,6 +65,18 @@
       type="image/png"
       sizes="16x16"
       href="images/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="images/icon-512x512.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="images/icon-192x192.png"
     />
 
     <!-- Google tag -->
@@ -106,25 +127,25 @@
     </script>
   </head>
 
-  <script>
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker
-          .register("service-worker.js")
-          .then((registration) => {
-            console.log(
-              "Service Worker registered with scope:",
-              registration.scope
-            );
-          })
-          .catch((error) => {
-            console.error("Service Worker registration failed:", error);
-          });
-      });
-    }
-  </script>
-
   <body>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("service-worker.js")
+            .then((registration) => {
+              console.log(
+                "Service Worker registered with scope:",
+                registration.scope
+              );
+            })
+            .catch((error) => {
+              console.error("Service Worker registration failed:", error);
+            });
+        });
+      }
+    </script>
+
     <div class="content">
       <div class="topBox">
         <div class="banner">M1xTape HeavyW3i6ht</div>
