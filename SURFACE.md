@@ -296,7 +296,7 @@ Log in to MySQL as the root user:
 sudo mysql -u root -p
 ```
 
-I did not set a root password during the `mysql_secure_installation` process, so can **just hit enter** when prompted for the root user password.
+I did not set a root password during the `mysql_secure_installation` process, so can **just hit enter** when prompted for the root user password. (Password can be found in `ftp/config.php`)
 
 ```sql
 -- Create a new database:
