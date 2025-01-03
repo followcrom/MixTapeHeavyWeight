@@ -106,9 +106,10 @@ input[type="submit"]:hover {
 
 .reviewFeedback {
   justify-content: center;
+  text-align: center;
   font-family: ColfaxAI;
   color: gold;
-  padding: 5px;
+  padding: 15px;
 }
 
 .mixtape_div {

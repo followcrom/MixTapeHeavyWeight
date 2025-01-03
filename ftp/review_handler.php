@@ -3,58 +3,78 @@
 
 // Include the configuration
 $config = include('config.php');
-$host_name = $config['host_name'];
-$database = $config['database'];
-$user_name = $config['user_name'];
-$password = $config['password'];
+$database = $config['reviews'];
+
+echo "Database: " . $database . "<br>";
+echo "Mixtape: " . $mixtape . "<br>";
 
 // Create a connection
-$link = new mysqli($host_name, $user_name, $password, $database);
-
-// Check connection
-if ($link->connect_error) {
-    die("Connection failed: " . $link->connect_error);
+try {
+    $link = new PDO("sqlite:$database");
+    $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connection to SQLite database successful.<br>";
+} catch (PDOException $e) {
+    die("Connection failed: " . htmlspecialchars($e->getMessage()));
 }
+
+// Ensure `$mixtape` is set and valid
+if (!isset($mixtape) || empty($mixtape)) {
+    die("Mixtape not specified.");
+}
+$mixtape = htmlspecialchars(trim($mixtape)); // Sanitize to avoid XSS
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check if stars and comments are set in POST data
     if (isset($_POST['stars']) && isset($_POST['comments'])) {
         $stars = intval($_POST['stars']);
-        $comments = trim($_POST['comments']);
-        # $comments = $link->real_escape_string($comments);
+        $comments = htmlspecialchars(trim($_POST['comments']));
         $date = date("Y-m-d H:i:s");
 
-        // Prepare and execute the INSERT query
-        $stmt = $link->prepare("INSERT INTO reviews (mixtape, stars, comments, date) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("siss", $mixtape, $stars, $comments, $date);
+        // Debug sanitized input
+        echo "Sanitized inputs: Mixtape=$mixtape, Stars=$stars, Comments=$comments, Date=$date<br>";
 
-        if (!$stmt->execute()) {
-            die("Error executing query: " . $stmt->error);
+        try {
+            // Prepare and execute the INSERT query
+            $stmt = $link->prepare("INSERT INTO reviews_table (mixtape, stars, comments) VALUES (?, ?, ?)");
+            $success = $stmt->execute([$mixtape, $stars, $comments]);
+
+            if (!$success) {
+                $errorInfo = $stmt->errorInfo();
+                die("Error executing query: " . implode(", ", $errorInfo) . "<br>");
+            } else {
+                echo "Review submitted successfully!<br>";
+            }
+        } catch (PDOException $e) {
+            die("Database error again: " . htmlspecialchars($e->getMessage()) . "<br>");
         }
-        $stmt->close();
+    } else {
+        die("Form data is incomplete. Stars or comments missing.<br>");
     }
 }
 
 // Prepare and execute the SELECT query
-$stmt = $link->prepare("SELECT mixtape, stars, comments, date FROM reviews WHERE mixtape = ? ORDER BY date DESC");
-$stmt->bind_param("s", $mixtape);
-$stmt->execute();
-$result = $stmt->get_result();
+try {
+    $stmt = $link->prepare("SELECT stars, comments, date FROM reviews_table WHERE mixtape = ? ORDER BY date DESC");
+    $stmt->execute([$mixtape]);
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-if ($result->num_rows > 0) {
-    echo "<div class='mixtape_div'>Feedback for " . htmlspecialchars($mixtape) . ":</div>";
-    while ($row = $result->fetch_assoc()) {
-        $num = $row['stars'];
-        echo "<div class='review-container'>";
-        echo "<div class='stars_div'>" . str_repeat("*", $num) . "</div>";
-        echo "<div class='comments_div'><i>" . htmlspecialchars($row['comments']) . "</i></div>";
-        echo "<div class='date_div'>" . htmlspecialchars($row['date']) . "</div>";
-        echo "</div>";
+    if (count($result) > 0) {
+        echo "<div class='mixtape_div'>Feedback for " . htmlspecialchars($mixtape) . ":</div>";
+        foreach ($result as $row) {
+            $num = $row['stars'];
+            echo "<div class='review-container'>";
+            echo "<div class='stars_div'>" . str_repeat("*", $num) . "</div>";
+            echo "<div class='comments_div'><i>" . htmlspecialchars($row['comments']) . "</i></div>";
+            echo "<div class='date_div'>" . htmlspecialchars($row['date']) . "</div>";
+            echo "</div>";
+        }
+    } else {
+        echo "<div class='comments_div'>Be the first to review this mixtape!</div>";
     }
-} else {
-    echo "<div class='comments_div'>Be the first to review this mixtape!</div>";
+} catch (PDOException $e) {
+    die("Error fetching reviews: " . htmlspecialchars($e->getMessage()));
 }
 
-// Close statement and connection
-$stmt->close();
-$link->close();
+// Close connection
+$link = null;

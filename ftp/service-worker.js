@@ -1,4 +1,4 @@
-const CACHE_NAME = "jellygut-cache-norf-v2"; // Incremented version
+const CACHE_NAME = "jellygut-cache-norf-v3"; // Incremented version
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
@@ -29,6 +29,11 @@ self.addEventListener("install", (event) => {
 
 // Fetch event - Network-first with fallback to cache
 self.addEventListener("fetch", (event) => {
+  if (event.request.method === 'POST') {
+    // Don't cache POST requests (e.g., form submissions)
+    return;
+  }
+
   event.respondWith(
     fetch(event.request)
       .then((response) => {
@@ -49,13 +54,14 @@ self.addEventListener("fetch", (event) => {
   );
 });
 
+
 // Activate event - Clean up old caches and claim clients
 self.addEventListener("activate", (event) => {
   console.log("Service Worker: Activate event");
-  
+
   event.waitUntil(
     caches.keys().then((keyList) => {
-      return Promise.all(
+      return Promise.allSettled(
         keyList.map((key) => {
           if (key !== CACHE_NAME) {
             console.log(`Deleting old cache: ${key}`);
@@ -65,7 +71,6 @@ self.addEventListener("activate", (event) => {
       );
     })
   );
-  
-  // Immediately take control of all pages under this service worker's scope
+
   event.waitUntil(self.clients.claim());
 });

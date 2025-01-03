@@ -263,49 +263,51 @@ volumeSlider.addEventListener("input", () => {
 
 
 
-// use Fetch API to submit the form without reloading the page
-const form = document.getElementById('form');
-const reviewFeedback = document.getElementById('review-feedback');
+// use Fetch API to submit a form without reloading the page:
+const form = document.getElementById("form");
+const reviewFeedback = document.getElementById("review-feedback");
 
-form.addEventListener('submit', (event) => {
+form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const formData = new FormData(form)
+  const formData = new FormData(form);
 
-let selected = false;
-const rating = document.getElementsByName("stars");
-for (let i = 0; i < rating.length; i++) {
-if (rating[i].checked) {
-selected = true;
-break;
-}
-}
-
-if (!selected) {
-reviewFeedback.innerHTML = "Please select a rating.";
-return false;
-}
-
-  fetch('', {
-    method: 'POST',
-    body: formData
-  })
-  .then(response => {
-    if (response.ok) {
-      // Form submission was successful
-      console.log('Form submission successful!');
-      reviewFeedback.innerHTML = 'Thanks for your review!';
-    } else {
-      // Form submission failed
-      console.log('Form submission failed.');
-      reviewFeedback.innerHTML = 'Form submission failed.';
+  let selected = false;
+  const rating = document.getElementsByName("stars");
+  for (let i = 0; i < rating.length; i++) {
+    if (rating[i].checked) {
+      selected = true;
+      break;
     }
-  })
-  .catch(error => {
-    // An error occurred while submitting the form
-    console.log('An error occurred while submitting the form:', error);
-    reviewFeedback.innerHTML = 'An error occurred while submitting the form.';
-  });
+  }
+
+  if (!selected) {
+    reviewFeedback.innerHTML = "Please select a rating.";
+    // console.log("Rating not selected.");
+    return false;
+  }
+
+  fetch("", {
+    method: "POST",
+    body: formData,
+})
+    .then((response) => {
+      if (response.ok) {
+        // Form submission was successful
+        console.log("Form submission successful!");
+        console.log("Server response:", response.text());
+        reviewFeedback.innerHTML = "Thanks for your review! Reload the page to view (playback will stop).";
+      } else {
+        // Form submission failed
+        console.log("Form submission failed.");
+        reviewFeedback.innerHTML = "Sorry, we didn't quite get that. Please try again.";
+      }
+    })
+    .catch((error) => {
+      // An error occurred while submitting the form
+      console.log("An error occurred while submitting the form:", error);
+      reviewFeedback.innerHTML = "Sorry, we didn't quite get that. Please try again.";
+    });
 });
 
 
