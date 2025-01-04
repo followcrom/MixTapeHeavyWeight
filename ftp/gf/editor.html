@@ -2,20 +2,19 @@
 <html lang="en">
 
 <head>
-    <title>followCrom - Mixtape Heavyweight</title>
+    <title>MixTape HeavyWeight - <?php echo $mixtape; ?></title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="A dynamic web app made specifically for DJ mixes. As the mix plays, the tracklist updates automatically, so the listener knows at a glance which song the DJ is spinning. Additional features include an audio visualizer, skippable playlist, and comments section.">
+        content="A dynamic web app made specifically for DJ mixes. As the mix plays, the tracklist updates automatically, so the listener knows at a glance which song the DJ is spinning. Additional features include an audio visualizer, skippable playlist, and a comments section.">
     <meta name="theme-color" content="#000">
 
     <!-- Canonical Link -->
     <link rel="canonical" href="https://www.followcrom.online/djmixes/">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../css/mthw.css">
-    <link rel="stylesheet" href="../css/nav-bar.css">
+    <link rel="stylesheet" href="../css/hifi_stack.css">
     <link rel="stylesheet" href="../css/reviews.css">
 
     <!-- FontAwesome -->
@@ -31,77 +30,31 @@
         href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway&family=Exo+2&family=Changa&family=Slackey&family=Reggae+One&display=swap"
         rel="stylesheet">
 
-
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-
-
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQWYHCCECC"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQWYHCCECC"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-        gtag('config', 'G-TQWYHCCECC');
-    </script>
+    gtag('config', 'G-TQWYHCCECC');
+    </script> -->
 
+    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
 </head>
 
 <body>
 
-    <script src="../js/rollovers.js"></script>
-
-    <div class="icon_row">
-        <div class="grid-container">
-
-            <div class="grid-item" onmouseover="showHiddenText(this, 'all mixes')" onmouseout="hideHiddenText(this)">
-                <a class="footer" href="../index.html"><img class="icon" src="../images/icons/dj.png"
-                        alt="follow Crom home" title="All DJ mixes"></a>
-            </div>
-
-            <div class="grid-item" onmouseover="showHiddenText(this, 'online')" onmouseout="hideHiddenText(this)">
-                <a class="footer" href="https://www.followcrom.online/"><img class="icon"
-                        src="../images/icons/home-2.png" alt="follow Crom home" title="follow Crom home"></a>
-            </div>
-
-            <div class="grid-item" onmouseover="showHiddenText(this, 'on LinkedIn')" onmouseout="hideHiddenText(this)">
-                <a class="footer" href="https://linkedin.com/in/followCrom" target="_blank"><img class="icon"
-                        src="../images/icons/linkedin.png" alt="follow Crom on Linked In"
-                        title="follow Crom on Linked In"></a>
-            </div>
-
-            <div class="grid-item" onmouseover="showHiddenText(this, 'on GitHub')" onmouseout="hideHiddenText(this)">
-                <a class="footer" href="https://github.com/followcrom" target="_blank"><img class="icon"
-                        src="../images/icons/github.png" alt="follow Crom on Git Hub"
-                        title="follow Crom on Git Hub"></a>
-            </div>
-
-            <div class="grid-item" onmouseover="showHiddenText(this, 'on Medium')" onmouseout="hideHiddenText(this)">
-                <a class="footer" href="https://medium.com/@followcrom" target="_blank"><img class="icon"
-                        src="../images/icons/medium.png" alt="follow Crom on Medium" title="follow Crom on Medium"></a>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="rollover_row">
-        <div class="left-div">
-            followCrom
-        </div>
-
-        <div id="nav_hover" class="nav_hover">DJ mixes
-        </div>
-    </div>
-
     <div class="content">
         
-        <div class="tape">
-    <div class="top_label">A: Mrs. Winslow's Soothing Syrup (1:02:11)</div>
-
-    <div class="tapeReelBox">
+    <div class="tape">
+    
+        <div class="top_label"><i class="fa-solid fa-drum"></i>/<a class="label_link" href="../index.html">A: M&#9834;xT4pe HeavyW3ight</a>::<i class="fa-solid fa-microchip"></i></div>
+    
+        <div class="tapeReelBox">
 
         <div class="tape_reel-container" id="music-container">
 
@@ -204,6 +157,8 @@
 </div>
 
 
+<div class="restack">
+<div class="restack">
 <div class=stack2>
     <div class="eq_viz">
 
@@ -228,7 +183,7 @@
 
 <div class=stack3>
 
-    <div class="playing" id="title">Tracklist (click on a song to play)</div>
+    <div class="playing" id="title">Mrs. Winslow's Soothing Syrup (1:02:11)</div>
 
 
     <div class="tracklist">
@@ -241,42 +196,9 @@
         </div>
         <div class="track" onclick="updatePosition(this)" data-time="396"><b>Kool Hertz</b>
             - Originator</div>
-        <div class="track" onclick="updatePosition(this)" data-time="465"><b>WBBL</b> - Buggin'</div>
-        <div class="track" onclick="updatePosition(this)" data-time="599"><b>The Funk Hunters</b> - Shoop Booty
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="739"><b>Dusty Springfield</b> - Spooky (Jayl
-            Funk Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="874"><b>Beat Fatigue</b> - Smudged Fudge</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1033"><b>WBBL</b> - Give It Up</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1167"><b>Stevie Wonder</b> - Livin' For The
-            City (Grinny Grandad Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1352"><b>Stylust Beats
-                & Neon Steve</b> - Heavy Metal Shit</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1499"><b>Father Funk</b> - Dance Til You Drop
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="1589"><b>Dusty Springfield</b> - Son Of A
-            Preacher Man (Basschimp Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1745"><b>The Ohio Players</b> - Fire (The Funk
-            Hunters & Qdup Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1891"><b>Pimpsoul</b> - Pimp Deep</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2056"><b>Betty Wright</b> - Clean Up Woman
-            (Father Funk Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2218"><b>Sammy Senior</b> - Sweet Funk</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2355"><b>WBBL</b> - Got That Feeling</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2520"><b>Roast Beatz</b> - Think 2wice</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2665"><b>Father Funk &
-                X Ray Ted</b> - Jarreubics</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2849"><b>A Skillz vs Beatvandals</b> - $19.99
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="2999"><b>Etta James</b> - Tell Mama (Copycat
-            Booty)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3125"><b>CMC & Silenta</b> - Let's Dance</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3266"><b>The Phunk Junkies</b> - Big Spender
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="3490"><b>Peggy Lee vs.
-                Ludacris</b> - Hallelujah</div>
 
     </div>
+</div>
 </div>
 
 

@@ -49,7 +49,7 @@
 
 ## ✍🏻 Authors 🙋‍♂️
 
-🌐 followCrom: [followcrom.online](https://followcrom.com/index.html) 🌐
+🌐 followCrom: [followCrom online](https://followcrom.com/index.html) 🌐
 
 📫 followCrom: [get in touch](https://followcrom.com/contact/contact.php) 📫
 

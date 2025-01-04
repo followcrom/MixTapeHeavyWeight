@@ -221,7 +221,7 @@ function kickOff() {
 
 function drawVisualiser(bufferLength, x, barWidth, barHeight, dataArray) {
   for (let i = 0; i < bufferLength; i++) {
-    barHeight = dataArray[i] * 2;
+    barHeight = dataArray[i] * 3;
     const red = (i * barHeight)/20;
     const green = i * 4;
     const blue = barHeight / 2;
@@ -232,7 +232,7 @@ function drawVisualiser(bufferLength, x, barWidth, barHeight, dataArray) {
     x += barWidth;
   }
   for (let i = 0; i < bufferLength; i++) {
-    barHeight = dataArray[i] * 2;
+    barHeight = dataArray[i] * 3;
     const red = (i * barHeight)/30;
     const green = 200;
     const blue = barHeight;
@@ -263,51 +263,59 @@ volumeSlider.addEventListener("input", () => {
 
 
 
-// use Fetch API to submit the form without reloading the page
-const form = document.getElementById('form');
-const reviewFeedback = document.getElementById('review-feedback');
+// use Fetch API to submit a form without reloading the page:
+const form = document.getElementById("form");
+const reviewFeedback = document.getElementById("review-feedback");
+const reviewsBox = document.querySelector(".reviewsBox");
 
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
+form.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-  const formData = new FormData(form)
-
-let selected = false;
-const rating = document.getElementsByName("stars");
-for (let i = 0; i < rating.length; i++) {
-if (rating[i].checked) {
-selected = true;
-break;
-}
-}
-
-if (!selected) {
-reviewFeedback.innerHTML = "Please select a rating.";
-return false;
-}
-
-  fetch('', {
-    method: 'POST',
-    body: formData
-  })
-  .then(response => {
-    if (response.ok) {
-      // Form submission was successful
-      console.log('Form submission successful!');
-      reviewFeedback.innerHTML = 'Thanks for your review!';
-    } else {
-      // Form submission failed
-      console.log('Form submission failed.');
-      reviewFeedback.innerHTML = 'Form submission failed.';
+    const rating = document.getElementsByName("stars");
+    let selected = false;
+    for (let i = 0; i < rating.length; i++) {
+        if (rating[i].checked) {
+            selected = true;
+            break;
+        }
     }
-  })
-  .catch(error => {
-    // An error occurred while submitting the form
-    console.log('An error occurred while submitting the form:', error);
-    reviewFeedback.innerHTML = 'An error occurred while submitting the form.';
-  });
-});
 
+    if (!selected) {
+        reviewFeedback.innerHTML = "Please select a rating.";
+        return false;
+    }
+
+    const formData = new FormData(form);
+
+    try {
+        // Using the current page URL (which includes review_handler.php)
+        const response = await fetch("", {
+            method: "POST",
+            body: formData
+        });
+
+        if (response.ok) {
+            const html = await response.text();
+            console.log("HTML:", html);
+            reviewFeedback.innerHTML = "Thanks for your review!";
+            form.reset();
+            
+            // Extract just the reviews content
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = html;
+            const newReviewsBox = tempDiv.querySelector('.reviewsBox');
+            if (newReviewsBox) {
+                reviewsBox.innerHTML = newReviewsBox.innerHTML;
+            }
+        } else {
+            reviewFeedback.innerHTML = "Sorry, we didn't quite get that. Please try again.";
+            console.error("HTTP error:", response.status);
+        }
+    } catch (error) {
+        console.error("An error occurred while submitting the form:", error);
+        reviewFeedback.innerHTML = "Sorry, we didn't quite get that. Please try again.";
+    }
+});
 
 
 

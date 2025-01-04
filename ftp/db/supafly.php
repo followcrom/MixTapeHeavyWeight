@@ -1,65 +1,64 @@
-<?php include '../header.html'; ?>
+<?php
+$mixtape = 'Supafly';
+include '../header.html'; ?>
 
-<div class="tape">
-    <div class="top_label">Side A: Supafly (40:01)</div>
+<div class="tapeReelBox">
 
-    <div class="tapeReelBox">
+    <div class="tape_reel-container" id="music-container">
 
-        <div class="tape_reel-container" id="music-container">
+        <div class="img-container">
+            <img src="../images/tape_cog.png" alt="Spinning tape cog" id="cover" />
+        </div>
 
-            <div class="img-container">
-                <img src="../images/tape_cog.png" alt="Spinning tape cog" id="cover" />
+        <div class="progress-container" id="progress-container">
+
+
+            <div class="progress-background" id="progress-background">
+
+                <div class="progress" id="progress"></div>
             </div>
 
-            <div class="progress-container" id="progress-container">
-
-
-                <div class="progress-background" id="progress-background">
-
-                    <div class="progress" id="progress"></div>
-                </div>
-
-                <div class="currTime" id="currTime">00:00:00</div>
-            </div>
+            <div class="currTime" id="currTime">00:00:00</div>
+        </div>
 
 
 
-            <div class="img-container">
-                <img src="../images/tape_cog.png" alt="Spinning tape cog" id="cover" />
-            </div>
+        <div class="img-container">
+            <img src="../images/tape_cog.png" alt="Spinning tape cog" id="cover" />
+        </div>
+    </div>
+
+</div>
+
+<div class="transportContainer">
+
+    <div class="transportControls">
+
+        <div class="navigation" id="navigation">
+            <button class="action-btn" id="stop">
+                <i class="fas fa-stop"></i>
+            </button>
+            <button id="prev" class="action-btn">
+                <i class="fas fa-backward"></i>
+            </button>
+            <button id="play" class="action-btn action-btn-big">
+                <i class="fas fa-play"></i>
+            </button>
+            <button id="next" class="action-btn">
+                <i class="fas fa-forward"></i>
+            </button>
+
+
+            <input type="range" min="-1" max="1" step="0.1" value="-0.1" id="volume-slider">
+
+
+            <a href="../audio/db/supafly.mp3" download><button class="action-btn action-btn-big">
+                    <i class="fas fa-download"></i>
+                </button></a>
         </div>
 
     </div>
-
-    <div class="transportContainer">
-
-        <div class="transportControls">
-
-            <div class="navigation" id="navigation">
-                <button class="action-btn" id="stop">
-                    <i class="fas fa-stop"></i>
-                </button>
-                <button id="prev" class="action-btn">
-                    <i class="fas fa-backward"></i>
-                </button>
-                <button id="play" class="action-btn action-btn-big">
-                    <i class="fas fa-play"></i>
-                </button>
-                <button id="next" class="action-btn">
-                    <i class="fas fa-forward"></i>
-                </button>
-
-
-                <input type="range" min="-1" max="1" step="0.1" value="-0.1" id="volume-slider">
-
-
-                <a href="../audio/db/supafly.mp3" download><button class="action-btn action-btn-big">
-                        <i class="fas fa-download"></i>
-                    </button></a>
-            </div>
-
-        </div>
-    </div>
+</div>
 
 </div>
 
@@ -96,96 +95,98 @@
 </div>
 
 
-<div class=stack2>
-    <div class="eq_viz">
+<div class="restack">
+    <div class=stack2>
+        <div class="eq_viz">
 
-        <canvas id="canvas1"></canvas>
+            <canvas id="canvas1"></canvas>
+        </div>
+        <div class="eqSliders">
+            <div>
+                <label for="lows-slider">Lows</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
+            </div>
+            <div>
+                <label for="mids-slider">Mids</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
+            </div>
+            <div>
+                <label for="highs-slider">Highs</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
+            </div>
+        </div>
+
     </div>
-    <div class="eqSliders">
-        <div>
-            <label for="lows-slider">Lows</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
-        </div>
-        <div>
-            <label for="mids-slider">Mids</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
-        </div>
-        <div>
-            <label for="highs-slider">Highs</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
-        </div>
-    </div>
 
-</div>
+    <div class=stack3>
 
-<div class=stack3>
-
-    <div class="playing" id="title">Tracklist (click on a song to play)</div>
+        <div class="playing" id="title">Supafly (40:01)</div>
 
 
-    <div class="tracklist">
-        <div class="track" onclick="updatePosition(this)" data-time="0">
-            <b>Deekline & Specimen A</b> - Click Clack
-        </div>
+        <div class="tracklist">
+            <div class="track" onclick="updatePosition(this)" data-time="0">
+                <b>Deekline & Specimen A</b> - Click Clack
+            </div>
 
-        <div class="track" onclick="updatePosition(this)" data-time="238">
-            <b>Upgrade</b> - Stop Talking
-        </div>
+            <div class="track" onclick="updatePosition(this)" data-time="238">
+                <b>Upgrade</b> - Stop Talking
+            </div>
 
-        <div class="track" onclick="updatePosition(this)" data-time="320">
-            <b>Sizzla</b> - Blessed (Benny Page Remix)
-        </div>
+            <div class="track" onclick="updatePosition(this)" data-time="320">
+                <b>Sizzla</b> - Blessed (Benny Page Remix)
+            </div>
 
-        <div class="track" onclick="updatePosition(this)" data-time="480">
-            <b>Shaggy</b> - I Got You (Benny Page Remix)
-        </div>
+            <div class="track" onclick="updatePosition(this)" data-time="480">
+                <b>Shaggy</b> - I Got You (Benny Page Remix)
+            </div>
 
-        <div class="track" onclick="updatePosition(this)" data-time="643">
-            <b>Gorillaz</b> - Clint Eastwood (Phibes Remix)
-        </div>
+            <div class="track" onclick="updatePosition(this)" data-time="643">
+                <b>Gorillaz</b> - Clint Eastwood (Phibes Remix)
+            </div>
 
-        <div class="track" onclick="updatePosition(this)" data-time="725">
-            <b>Serum & Voltage</b> - Cyber Funkin'
-        </div>
+            <div class="track" onclick="updatePosition(this)" data-time="725">
+                <b>Serum & Voltage</b> - Cyber Funkin'
+            </div>
 
-        <div class="track" onclick="updatePosition(this)" data-time="859">
-            <b>Marvellous Cain ft. Cutty Ranks</b> - Hit Man (T.I Mix)
-        </div>
+            <div class="track" onclick="updatePosition(this)" data-time="859">
+                <b>Marvellous Cain ft. Cutty Ranks</b> - Hit Man (T.I Mix)
+            </div>
 
-        <div class="track" onclick="updatePosition(this)" data-time="949">
-            <b>Deekline</b> - Don't Smoke (Deekline & Ed Solo vs System Mix)
-        </div>
+            <div class="track" onclick="updatePosition(this)" data-time="949">
+                <b>Deekline</b> - Don't Smoke (Deekline & Ed Solo vs System Mix)
+            </div>
 
-        <div class="track" onclick="updatePosition(this)" data-time="1075">
-            <b>Serial Killaz</b> - Walk 'n' Skank (2017 Version)
-        </div>
+            <div class="track" onclick="updatePosition(this)" data-time="1075">
+                <b>Serial Killaz</b> - Walk 'n' Skank (2017 Version)
+            </div>
 
-        <div class="track" onclick="updatePosition(this)" data-time="1204">
-            <b>DJ Mixjah & DJ Embassy</b> - Drop The Bass
-        </div>
+            <div class="track" onclick="updatePosition(this)" data-time="1204">
+                <b>DJ Mixjah & DJ Embassy</b> - Drop The Bass
+            </div>
 
-        <div class="track" onclick="updatePosition(this)" data-time="1399">
-            <b>Kickback</b> - Something There
-        </div>
+            <div class="track" onclick="updatePosition(this)" data-time="1399">
+                <b>Kickback</b> - Something There
+            </div>
 
-        <div class="track" onclick="updatePosition(this)" data-time="1491">
-            <b>Optymun</b> - Bullet Proof
-        </div>
+            <div class="track" onclick="updatePosition(this)" data-time="1491">
+                <b>Optymun</b> - Bullet Proof
+            </div>
 
-        <div class="track" onclick="updatePosition(this)" data-time="1614">
-            <b>Serum</b> - Square Root
-        </div>
+            <div class="track" onclick="updatePosition(this)" data-time="1614">
+                <b>Serum</b> - Square Root
+            </div>
 
-        <div class="track" onclick="updatePosition(this)" data-time="1761">
-            <b>Filthy Habits</b> - Abandoned
-        </div>
+            <div class="track" onclick="updatePosition(this)" data-time="1761">
+                <b>Filthy Habits</b> - Abandoned
+            </div>
 
-        <div class="track" onclick="updatePosition(this)" data-time="1938">
-            <b>Kosine</b> - Kill Them Now
-        </div>
+            <div class="track" onclick="updatePosition(this)" data-time="1938">
+                <b>Kosine</b> - Kill Them Now
+            </div>
 
-        <div class="track" onclick="updatePosition(this)" data-time="2168">
-            <b>Blue Hill</b> - Too Much Informers
+            <div class="track" onclick="updatePosition(this)" data-time="2168">
+                <b>Blue Hill</b> - Too Much Informers
+            </div>
         </div>
     </div>
 </div>
@@ -197,7 +198,6 @@
     <div class="reviewsBox">
 
         <?php
-        $mixtape = 'Supafly';
         include('../review_handler.php');
         ?>
 

@@ -1,146 +1,426 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>MixTape HeavyWeight</title>
 
-<head>
-    <title>followCrom - MixTape HeavyWeight</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Bludclart Jungle Techno from the MixTape HeavyWeight. Free mixes to stream and download. Features an audio visualizer, skippable playlist, and comments section."
+    />
+    <meta name="keywords" content="jungle,techno,free,mixes,stream,download" />
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="A dynamic web app made specifically for DJ mixes. As the mix plays, the tracklist updates automatically, so the listener knows at a glance which song the DJ is spinning. Additional features include an audio visualizer, skippable playlist, and comments section.">
-    <meta name="theme-color" content="#000">
+    <link rel="manifest" href="manifest.json" />
 
+    <!-- PWA Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="MixTape HeavyWeight" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="theme-color" content="#000000" />
 
+    <meta name="robots" content="index, follow" />
 
-    <link rel="stylesheet" href="css/mixtape.css">
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://mixtape-heavyweight.one/" />
 
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/mixtape.css" />
+    <link rel="stylesheet" href="css/nav-bar.css" />
 
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway&display=swap"
+      rel="stylesheet"
+    />
 
-    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <!-- Favicon icons -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="images/icon-512x512.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="images/icon-192x192.png"
+    />
 
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <!-- Google tag -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-TQWYHCCECC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-TQWYHCCECC");
+    </script>
 
-</head>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://www.mixtape-heavyweight.one/#webpage",
+        "url": "https://www.mixtape-heavyweight.one/",
+        "name": "MixTape HeavyWeight - DJ Mix Player",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://followcrom.com/#website",
+          "name": "followCrom online",
+          "url": "https://followcrom.com/"
+        },
+        "about": {
+          "@type": "WebApplication",
+          "name": "MixTape HeavyWeight",
+          "description": "DJ mix player built with PHP & JavaScript, featuring Web Audio API and Canvas API.",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "author": {
+            "@type": "Person",
+            "@id": "https://followcrom.com/#person",
+            "name": "followCrom"
+          }
+        }
+      }
+    </script>
+  </head>
 
-<body>
+  <body>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("service-worker.js")
+            .then((registration) => {
+              console.log(
+                "Service Worker registered with scope:",
+                registration.scope
+              );
+            })
+            .catch((error) => {
+              console.error("Service Worker registration failed:", error);
+            });
+        });
+      }
+    </script>
 
     <div class="content">
+      <div class="topBox">
+        <div class="banner">M1xTape HeavyW3i6ht</div>
+      </div>
 
-        <div class="topBox">
-            <div class="liner"><a href="https://ttt.followcrom.online/fc/">followCrom presents...</a></div>
-            <div class="banner">Mixtape HeavyWeight</div>
+      <div class="content_boxes">
+        <div class="content_box_left">
+          <h1>100 - 120bpm</h1>
+
+          <h3>
+            DJ mixes featuring tracks from Father Funk, Jimi Needles, WBBL,
+            Sammy Senior, Slynk, and many more...
+          </h3>
+
+          <!-- <i class="fa-solid fa-crosshairs"></i> ::
+          <a class="page" href="gf/full_tilt.php"
+            >Full Tilt B&oslash;&oslash;g&yuml;</a
+          >
+
+          <br /><br /> -->
+
+          <i class="fa-solid fa-hand-peace"></i> ::
+          <a class="page" href="gf/totido.php"
+            >Turn &#9774;n/Tune &#300;n/Drop &#9775;ut</a
+          >
+
+          <br /><br />
+
+          <!-- <i class="fa-solid fa-wine-bottle"></i> ::
+          <a class="page" href="gf/mwss.php"
+            >&#8499;rs. Winslow's S&#9680;&#9681;thing Sizzurp</a
+          >
+
+          <br /><br /> -->
+
+          <i class="fa-solid fa-drum"></i> ::
+          <a class="page" href="gf/straight_time.php"
+            >Stra&uarr;ght T&uArr;me</a
+          >
+
+          <br /><br />
+
+          <i class="fa-solid fa-compact-disc"></i> ::
+          <a class="page" href="gf/rufus_sound.php"
+            >The &#8476;ufus S&#9883;und</a
+          >
+
+          <br /><br />
+
+          <i class="fa-solid fa-hotel"></i> ::
+          <a class="page" href="gf/housing.php">Ghetto Housing &#9873;roject</a>
+
+          <br /><br />
+
+          <i class="fa-solid fa-bowl-rice"></i> ::
+          <a class="page" href="gf/noodles.php">N&#8734;dles</a>
+
+          <br /><br />
+
+          <i class="fa-solid fa-arrows-spin"></i> ::
+          <a class="page" href="gf/titan.php"
+            >T&#8560;tan &sect;p&#8544;nn&#8544;ng</a
+          >
+
+          <br /><br />
+
+          <i class="fa-solid fa-fill"></i> ::
+          <a class="page" href="gf/get_deep.php">Gettin' Dee&#8369;</a>
+
+          <br /><br />
+
+          <i class="fa-solid fa-heart"></i> ::
+          <a class="page" href="gf/lovehouse.php">L&#10048;ve in the House</a>
         </div>
 
-        <div class="content_boxes">
+        <div class="content_box_right">
+          <h1>160 - 180bpm</h1>
 
-            <div class="content_box_left">
+          <h3>
+            DJ mixes featuring tracks from Serial Killaz, Benny Page,
+            Bladerunner, Ed Solo, Deekline, and many more...
+          </h3>
 
-                <h1>
-                    100 - 120bpm
-                </h1>
+          <!-- <i class="fa-solid fa-vial"></i> ::
+          <a class="page" href="db/solution.php">A7% S&#10050;l&#10755;tion</a>
 
-                <h3>DJ mixes featuring tracks from Father Funk, Jimi Needles, WBBL, Sammy Senior, Slynk,
-                    and many more...
-                </h3>
+          <br /><br /> -->
 
-                <i class="fa-solid fa-compact-disc"></i> :: <a class="page" href="gf/full_tilt.php">Full Tilt
-                    Boogie</a>
+          <i class="fa-solid fa-hands-clapping"></i> ::
+          <a class="page" href="db/gospel.php"
+            >The S&#10685;und of Gos&thorn;el</a
+          >
 
-                <br><br>
+          <br /><br />
 
-                <i class="fa-solid fa-compact-disc"></i> :: <a class="page" href="gf/totido.php">Turn On, Tune In,
-                    Drop
-                    Out</a>
+          <i class="fa-solid fa-fan"></i> ::
+          <a class="page" href="db/jazz.php">Jazz 'n' &#8704;ll That</a>
 
-                <br><br>
+          <br /><br />
 
-                <i class="fa-solid fa-compact-disc"></i> :: <a class="page" href="gf/mwss.php">Mrs. Winslow's
-                    Soothing
-                    Syrup</a>
+          <i class="fa-solid fa-microchip"></i> ::
+          <a class="page" href="db/intelligentsia.php">lntell&icirc;gentsl&</a>
 
-                <br><br>
+          <br /><br />
 
-                <i class="fa-solid fa-compact-disc"></i> :: <a class="page" href="gf/straight_time.php">Straight
-                    Time</a>
+          <i class="fa-solid fa-face-angry"></i> ::
+          <a class="page" href="db/bbtempo.php"
+            >B1g B&#9991;y T&#8496;mp&#9991;</a
+          >
 
-                <br><br>
+          <br /><br />
 
-                <i class="fa-solid fa-compact-disc"></i> :: <a class="page" href="gf/rufus_sound.php">The Rufus
-                    Sound</a>
+          <i class="fa-solid fa-leaf"></i> ::
+          <a class="page" href="db/junglistical.php">Jungl&#9833;stc&aring;l</a>
 
-                <br><br>
+          <br /><br />
 
-                <i class="fa-solid fa-compact-disc"></i> :: <a class="page" href="gf/noodles.php">Noodles</a>
+          <i class="fa-solid fa-rainbow"></i> ::
+          <a class="page" href="db/rainbow.php"
+            >&#10818;nder t&#9836;e Black R&#8706;inbow</a
+          >
 
-                <br><br>
+          <br /><br />
 
-                <i class="fa-solid fa-compact-disc"></i> :: <a class="page" href="gf/titan.php">Titan Spinning</a>
+          <i class="fa-solid fa-face-grin-tongue"></i> ::
+          <a class="page" href="db/plus-minus.php">+&#8744;-</a>
 
-            </div>
+          <br /><br />
 
-            <div class="content_box_right">
-                <h1>
-                    160 - 180bpm
-                </h1>
+          <i class="fa-solid fa-circle-half-stroke"></i> ::
+          <a class="page" href="db/halftime.php">Halft&icirc;m&#8715;</a>
 
-                <h3>DJ mixes featuring tracks from Serial Killaz, Benny Page, Bladerunner, Ed
-                    Solo, Deekline, and many more...
-                </h3>
+          <br /><br />
 
-                <i class="fa-solid fa-compact-disc"></i> :: <a class="page" href="db/supafly.php">Supafly</a>
+          <i class="fa-solid fa-circle-info"></i> ::
+          <a class="page" href="db/info_centre.php"
+            >&#8638;nformation C&#8912;ntre</a
+          >
 
-                <br><br>
+          <br /><br />
 
-                <i class="fa-solid fa-compact-disc"></i> :: <a class="page" href="db/gospel.php">The Sound of Gospel</a>
+          <i class="fa-solid fa-cannabis"></i> ::
+          <a class="page" href="db/original.php"
+            >&#8366;h&#10763; &#10026;r1g1nal</a
+          >
 
-                <br><br>
+          <br /><br />
 
-                <i class="fa-solid fa-compact-disc"></i> :: <a class="page"
-                    href="db/intelligentsia.php">Intelligentsia</a>
+          <i class="fa-solid fa-jedi"></i> ::
+          <a class="page" href="db/dubsmith.php">D&#10818;bsmith</a>
 
-                <br><br>
+          <br /><br />
 
-                <i class="fa-solid fa-compact-disc"></i> :: <a class="page" href="db/bbtempo.php">Big Boy Tempo</a>
+          <i class="fa-solid fa-swatchbook"></i> ::
+          <a class="page" href="db/banton.php">B&#11162;nton the Ru&#9833;er</a>
 
-                <br><br>
+          <br /><br />
 
-                <i class="fa-solid fa-compact-disc"></i> :: <a class="page" href="db/junglistical.php">Junglistical</a>
+          <i class="fa-solid fa-spaghetti-monster-flying"></i> ::
+          <a class="page" href="db/supafly.php">Su&#9872;&#10193;fly</a>
 
-                <br><br>
+          <br /><br />
 
-                <i class="fa-solid fa-compact-disc"></i> :: <a class="page" href="db/lake.php">Beyond the Silver
-                    Lake</a>
+          <i class="fa-solid fa-biohazard"></i> ::
+          <a class="page" href="db/a2z.php">A2Z</a>
 
-                <br><br>
+          <br /><br />
 
-                <i class="fa-solid fa-compact-disc"></i> :: <a class="page" href="db/plus-minus.php">Plus or Minus</a>
+          <i class="fa-solid fa-shoe-prints"></i> ::
+          <a class="page" href="db/yard_stick.php">Yard &#8747;tick</a>
 
-                <br><br>
+          <br /><br />
 
-                <i class="fa-solid fa-compact-disc"></i> :: <a class="page" href="db/rainbow.php">Under the Black
-                    Rainbow</a>
+          <i class="fa-solid fa-bugs"></i> ::
+          <a class="page" href="db/05x2.php">0.5&#10800;2</a>
 
-            </div>
+          <br /><br />
+
+          <i class="fa-solid fa-water"></i> ::
+          <a class="page" href="db/lake.php"
+            >Bey&#10050;n&ETH; t&#9836;e Silver Lake</a
+          >
+
+          <br /><br />
+
+          <i class="fa-solid fa-signs-post"></i> ::
+          <a class="page" href="db/way.php">Th&#8712; W&#10716;y</a>
         </div>
+      </div>
     </div>
 
     <footer>
-        <div class="footer" style="background-color: #000; color: #fff; padding: 20px;">
-            <p>&copy; 2024 followCrom - Mixtape Heavyweight - Website designed by <a href="https://ttt.followcrom.online/fc/index.html">followCrom</a> - All rights reserved.</p>
+      <script src="js/rollovers.js"></script>
+
+      <div class="icon_row">
+        <div class="grid-container">
+          <div
+            class="grid-item"
+            onmouseover="showHiddenText(this, 'online')"
+            onmouseout="hideHiddenText(this)"
+          >
+            <a class="footer" href="https://followcrom.com/">
+              <img
+                class="icon"
+                src="images/icons/home-2.png"
+                alt="followCrom home"
+                title="followCrom home"
+              />
+            </a>
+          </div>
+
+          <div
+            class="grid-item"
+            onmouseover="showHiddenText(this, 'on LinkedIn')"
+            onmouseout="hideHiddenText(this)"
+          >
+            <a
+              class="footer"
+              href="https://linkedin.com/in/followCrom"
+              target="_blank"
+            >
+              <img
+                class="icon"
+                src="images/icons/linkedin.png"
+                alt="followCrom on Linked In"
+                title="followCrom on Linked In"
+              />
+            </a>
+          </div>
+
+          <div
+            class="grid-item"
+            onmouseover="showHiddenText(this, 'on GitHub')"
+            onmouseout="hideHiddenText(this)"
+          >
+            <a
+              class="footer"
+              href="https://github.com/followcrom"
+              target="_blank"
+            >
+              <img
+                class="icon"
+                src="images/icons/github.png"
+                alt="followCrom on Git Hub"
+                title="followCrom on Git Hub"
+              />
+            </a>
+          </div>
+
+          <div
+            class="grid-item"
+            onmouseover="showHiddenText(this, 'on Medium')"
+            onmouseout="hideHiddenText(this)"
+          >
+            <a
+              class="footer"
+              href="https://medium.com/@followcrom"
+              target="_blank"
+            >
+              <img
+                class="icon"
+                src="images/icons/medium.png"
+                alt="followCrom on Medium"
+                title="followCrom on Medium"
+              />
+            </a>
+          </div>
         </div>
+      </div>
+
+      <div class="rollover_row">
+        <div class="static-div">followCrom</div>
+
+        <div id="nav_hover" class="nav_hover">on the decks</div>
+      </div>
     </footer>
-
-</body>
-
+  </body>
 </html>

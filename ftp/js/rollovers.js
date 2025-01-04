@@ -3,5 +3,5 @@ function showHiddenText(icon, text) {
 }
 
 function hideHiddenText(icon) {
-  document.getElementById("nav_hover").innerHTML = "DJ mixes";
+  document.getElementById("nav_hover").innerHTML = "on the decks";
 }

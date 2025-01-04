@@ -1,96 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>
+      MixTape HeavyWeight - <?php echo isset($mixtape) ?
+      htmlspecialchars($mixtape) : 'Bloodclart Jungle Techno'; ?>
+    </title>
 
-<head>
-    <title>followCrom - MixTape HeavyWeight</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Bludclart Jungle Techno from the MixTape HeavyWeight. Free mmixes to stream and download. The site features direct song selection, an audio visualizer, skippable playlist, and a comments section."
+    />
+    />
+    <meta name="keywords" content="jungle,techno,free,mmixes,stream,download" />
+    <meta name="theme-color" content="#000" />
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="A dynamic web app made specifically for DJ mixes. As the mix plays, the tracklist updates automatically, so the listener knows at a glance which song the DJ is spinning. Additional features include an audio visualizer, skippable playlist, and comments section.">
-    <meta name="theme-color" content="#000">
+    <meta name="robots" content="index, follow" />
 
-    <!-- Canonical Link -->
-    <link rel="canonical" href="https://www.followcrom.online/djmixes/">
+    <link
+    rel="sitemap"
+    type="application/xml"
+    title="Sitemap"
+    href="https://mixtape-heavyweight.one/sitemap.xml"
+  />
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../css/mthw.css">
-    <link rel="stylesheet" href="../css/nav-bar.css">
-    <link rel="stylesheet" href="../css/reviews.css">
+    <link rel="stylesheet" href="../css/hifi_stack.css" />
+    <link rel="stylesheet" href="../css/reviews.css" />
 
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway&family=Exo+2&family=Changa&family=Slackey&family=Reggae+One&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway&family=Shadows+Into+Light&display=swap"
+      rel="stylesheet"
+    />
 
-    <!-- Google tag (gtag.js) -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQWYHCCECC"></script>
+    <!-- Google tag -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-TQWYHCCECC"
+    ></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-TQWYHCCECC");
+    </script>
 
-    gtag('config', 'G-TQWYHCCECC');
-    </script> -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon-16x16.png"
+    />
+  </head>
 
-    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
-</head>
-
-<body>
-
-    <script src="../js/rollovers.js"></script>
-
-    <div class="icon_row">
-        <div class="grid-container">
-
-            <div class="grid-item" onmouseover="showHiddenText(this, 'all mixes')" onmouseout="hideHiddenText(this)">
-                <a class="footer" href="../index.html"><img class="icon" src="../images/icons/dj.png"
-                        alt="follow Crom home" title="All DJ mixes"></a>
-            </div>
-
-            <div class="grid-item" onmouseover="showHiddenText(this, 'online')" onmouseout="hideHiddenText(this)">
-                <a class="footer" href="https://ttt.followcrom.online/fc/"><img class="icon"
-                        src="../images/icons/home-2.png" alt="follow Crom home" title="follow Crom home"></a>
-            </div>
-
-            <div class="grid-item" onmouseover="showHiddenText(this, 'on LinkedIn')" onmouseout="hideHiddenText(this)">
-                <a class="footer" href="https://linkedin.com/in/followCrom" target="_blank"><img class="icon"
-                        src="../images/icons/linkedin.png" alt="follow Crom on Linked In"
-                        title="follow Crom on Linked In"></a>
-            </div>
-
-            <div class="grid-item" onmouseover="showHiddenText(this, 'on GitHub')" onmouseout="hideHiddenText(this)">
-                <a class="footer" href="https://github.com/followcrom" target="_blank"><img class="icon"
-                        src="../images/icons/github.png" alt="follow Crom on Git Hub"
-                        title="follow Crom on Git Hub"></a>
-            </div>
-
-            <div class="grid-item" onmouseover="showHiddenText(this, 'on Medium')" onmouseout="hideHiddenText(this)">
-                <a class="footer" href="https://medium.com/@followcrom" target="_blank"><img class="icon"
-                        src="../images/icons/medium.png" alt="follow Crom on Medium" title="follow Crom on Medium"></a>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="rollover_row">
-        <div class="left-div">
-            followCrom
-        </div>
-
-        <div id="nav_hover" class="nav_hover">DJ mixes
-        </div>
-    </div>
-
+  <body>
     <div class="content">
+      <div class="tape">
+        <div class="top_label">
+          <i class="fa-solid fa-drum"></i>/<a
+            class="label_link"
+            href="../index.html"
+            >A: M&#9834;xT4pe HeavyW3ight</a
+          >::<i class="fa-solid fa-microchip"></i>
+        </div>

@@ -1,8 +1,10 @@
 # 🖭 MixTape HeavyWeight 🤼 on Digital Ocean 🌊🪸🐚🐬
 
-git push origin SURFACE:main --force
-
 ssh into the Digital Ocean box:
+
+`dobox`
+
+or
 
 ```bash
 ssh -i ~/.ssh/digiocean root@139.59.161.31
@@ -50,21 +52,31 @@ nslookup mixtape-heavyweight.one
 
 This should return the public IP address of your VM.
 
-## 📜 SSL Certificate 👑
+## PHP-FPM Configuration
+
+Run this command to list installed PHP modules:
+
+bash
+Copy code
+php -m
+
+## 📜 Certbot: SSL Certificates 👑
 
 Use Certbot to generate an SSL certificate for your domain.
 
-```bash
-sudo apt install python3-certbot-nginx
-```
-
-This command will automatically configure the SSL settings in your Nginx configuration.
+Install Certbot:
 
 ```bash
-sudo certbot --nginx
+apt install python3-certbot-nginx
 ```
 
-or more specifically:
+Automatically configure the SSL settings in your Nginx configuration:
+
+```bash
+certbot --nginx
+```
+
+or more verbose:
 
 ```bash
 certbot --nginx -d mixtape-heavyweight.one -d www.mixtape-heavyweight.one
@@ -73,7 +85,7 @@ certbot --nginx -d mixtape-heavyweight.one -d www.mixtape-heavyweight.one
 Let's Encrypt certificates are valid for 90 days, but Certbot can automate the renewal process. The command below can be used to manually test renewal:
 
 ```bash
-sudo certbot renew --dry-run
+certbot renew --dry-run
 ```
 
 The `--dry-run` flag is a test to simulate the renewal process without actually renewing the certificate. It's useful to check if the renewal will work without issues. You typically run `--dry-run` after initial setup or when you're debugging a renewal issue, but not every time you get an expiry warning.
@@ -83,7 +95,7 @@ The `--dry-run` flag is a test to simulate the renewal process without actually 
 Certbot, by default, installs a cron job or systemd timer that automatically checks for certificate renewals twice a day. You can check for the presence of these tasks:
 
 ```bash
-sudo systemctl list-timers | grep certbot
+systemctl list-timers | grep certbot
 ```
 
 If your certificate is due to expire (within 30 days), Certbot will automatically attempt to renew it.
@@ -98,53 +110,24 @@ If you're concerned: You can manually trigger the renewal by running:
 sudo certbot renew
 ```
 
-### Transfer Your SSL Certificate to Another VM
-
-You do not need to delete the old certificate before generating a new one on the new VM. Using the same domain name for a new certificate is perfectly fine; Let's Encrypt allows this. Simply reissue the certificate by installing Certbot and running it again on the new server.
-
-If you really want to, you can copy the following files from your existing server:
-
-- Certificate file (e.g., /etc/letsencrypt/live/yourdomain.com/fullchain.pem)
-- Private key (e.g., /etc/letsencrypt/live/yourdomain.com/privkey.pem)
-- Certificate chain (e.g., /etc/letsencrypt/live/yourdomain.com/chain.pem)
-
-You can use scp or another secure file transfer method to copy them to your new server. Example:
-
-```bash
-scp -r /etc/letsencrypt/live/yourdomain.com user@new_vm_ip:/path/to/destination/
-```
-
-### Install the Certificate on the New Server
-
-Move the certificates to the appropriate location on the new server, like `/etc/letsencrypt/live/yourdomain.com/`.
-
-Update your web server configuration to point to the certificate and private key on the new VM. In Nginx:
-
-```nginx
-server {
-    listen 443 ssl;
-    server_name yourdomain.com;
-
-    ssl_certificate /etc/letsencrypt/live/yourdomain.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/yourdomain.com/privkey.pem;
-
-    # Other configurations...
-}
-```
-
-### Install Certbot on the New VM (Optional):
-
-If you plan to continue using Let's Encrypt for automatic renewals, you'll need to install Certbot on the new server.
 
 ### Let's Encrypt Logs
 
 ```bash
-sudo cat /var/log/letsencrypt/letsencrypt.log
+cat /var/log/letsencrypt/letsencrypt.log
 ```
 
 <br>
 
 ## 🌍 Configure the Nginx Server 🥪
+
+### Nginx Logs 🪸
+
+`cd /var/log/nginx/`
+
+`cat /var/log/nginx/error.log`
+
+`cat /var/log/nginx/access.log`
 
 Add a new server block for the **Mixtape site** in the Nginx configuration file:
 
@@ -154,8 +137,12 @@ nano /etc/nginx/sites-available/mthw
 
 ```nginx
 server {
-    # Define the domain names this server block will respond to
-    server_name www.mixtape.followcrom.online mixtape.followcrom.online;
+    server_name mixtape-heavyweight.one www.mixtape-heavyweight.one;
+
+    # Redirect www to non-www
+    if ($host = www.mixtape-heavyweight.one) {
+        return 301 $scheme://mixtape-heavyweight.one$request_uri;
+    }
 
     # Set the root directory for serving static files
     root /var/www/mthw;
@@ -164,45 +151,41 @@ server {
 
     # Location block for handling general requests
     location / {
-        # Try to serve the file requested by the user, fall back to /index.html if not found
-        try_files $uri $uri/ /index.html?$query_string;
-        # Custom error page for 404 errors
+        try_files $uri $uri/ =404;
         error_page 404 /404.html;
+        location = /404.html {
+            root /var/www/mthw;
+            internal;
+        }
     }
 
-    # Location block handles all PHP files in the entire web root directory (/var/www/mthw). This includes the PHP files in the gf and db directories.
+    # Location block for PHP files
     location ~ \.php$ {
         include snippets/fastcgi-php.conf;
         fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         include fastcgi_params;
+        error_page 404 /404.html;  # Use custom 404 page for PHP files
     }
 
-    # Enable SSL for this server block
     listen 443 ssl; # managed by Certbot
-
-    # Path to the SSL certificate and key
-    ssl_certificate /etc/letsencrypt/live/mixtape.followcrom.online/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/mixtape.followcrom.online/privkey.pem; # managed by Certbot
-
-    # Include SSL settings provided by Certbot
+    ssl_certificate /etc/letsencrypt/live/mixtape-heavyweight.one/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/mixtape-heavyweight.one/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    # Include Diffie-Hellman parameter file for improved security
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 }
 
-# Redirect HTTP to HTTPS
 server {
-    # Redirect HTTP requests to HTTPS
-    if ($host = mixtape.followcrom.online) {
+    if ($host = www.mixtape-heavyweight.one) {
+        return 301 $scheme://mixtape-heavyweight.one$request_uri;
+    } # managed by Certbot
+
+    if ($host = mixtape-heavyweight.one) {
         return 301 https://$host$request_uri;
     } # managed by Certbot
 
-    # Define the domain name for this server block
-    server_name mixtape.followcrom.online;
-    # Listen on port 80 for HTTP requests
     listen 80;
-    # Return a 404 error for unmatched requests
+    server_name mixtape-heavyweight.one www.mixtape-heavyweight.one;
     return 404; # managed by Certbot
 }
 ```
@@ -212,232 +195,6 @@ sudo nginx -t
 nginx -s reload # or
 systemctl reload nginx # same as above
 ```
-
-📌 For the full **ttt configuration**, see the [Nginx Configuration](#full-nginx-configuration) section.
-
-<br>
-
-# 🛢️ MySQL 🐘
-
-## Install MySQL on the Server
-
-Since the MTHW reviews use MySQL, install it on the server:
-
-```bash
-sudo apt update
-sudo apt install mysql-server
-```
-
-After installation, start the MySQL service and enable it to start on boot:
-
-```bash
-sudo systemctl start mysql
-sudo systemctl enable mysql
-```
-
-### 🔐 Secure the MySQL Installation
-
-Run the following command to secure your MySQL installation:
-
-```bash
-sudo mysql_secure_installation
-
-# the output will be similar to the following:
-
-Securing the MySQL server deployment.
-
-Connecting to MySQL using a blank password. # I created a password later
-
-VALIDATE PASSWORD COMPONENT can be used to test passwords and improve security. It checks the strength of password
-and allows the users to set only those passwords which are secure enough. Would you like to setup VALIDATE PASSWORD component?
-
-Press y|Y for Yes, any other key for No: n
-
-Skipping password set for root as authentication with auth_socket is used by default.
-If you would like to use password authentication instead, this can be done with the "ALTER_USER" command.
-See https://dev.mysql.com/doc/refman/8.0/en/alter-user.html#alter-user-password-management for more information.
-
-By default, a MySQL installation has an anonymous user, allowing anyone to log into MySQL without having to have
-a user account created for them. This is intended only for testing, and to make the installation go a bit smoother.
-You should remove them before moving into a production environment.
-
-Remove anonymous users? (Press y|Y for Yes, any other key for No) : y
-Success.
-
-Normally, root should only be allowed to connect from 'localhost'. This ensures that someone cannot guess at the root password from the network.
-
-Disallow root login remotely? (Press y|Y for Yes, any other key for No) : y
-Success.
-
-By default, MySQL comes with a database named 'test' that anyone can access. This is also intended only for testing,
-and should be removed before moving into a production environment.
-
-
-Remove test database and access to it? (Press y|Y for Yes, any other key for No) : y
- - Dropping test database...
-Success.
-
- - Removing privileges on test database...
-Success.
-
-Reloading the privilege tables will ensure that all changes made so far will take effect immediately.
-
-Reload privilege tables now? (Press y|Y for Yes, any other key for No) : y
-Success.
-
-All done!
-```
-
-### Create a New Database and User 🙋‍♂️
-
-Log in to MySQL as the root user:
-
-```bash
-sudo mysql -u root -p
-```
-
-I did not set a root password during the `mysql_secure_installation` process, so can **just hit enter** when prompted for the root user password.
-
-```sql
--- Create a new database:
-CREATE DATABASE mixtape_reviews;
-
--- Create a new MySQL user:
-CREATE USER 'heavyweight'@'localhost' IDENTIFIED BY ''; --  I created a password later
-
--- Grant privileges to the new user:
-GRANT ALL PRIVILEGES ON mixtape_reviews.* TO 'heavyweight'@'localhost';
-
--- Flush the privileges to apply changes:
-FLUSH PRIVILEGES;
-
--- Exit MySQL:
-EXIT;
-```
-
-### Create the Reviews Table 🖥
-
-```bash
-# Log in to MySQL using the new user:
-mysql -u heavyweight -p mixtape_reviews
-```
-
-Now in MySQL:
-
-```sql
--- Create the Necessary Tables:
-CREATE TABLE reviews (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    stars INT NOT NULL,
-    comments TEXT NOT NULL,
-    date DATETIME DEFAULT CURRENT_TIMESTAMP
-);
-```
-
-### 🔄 Change the MySQL User Password 🔑
-
-Log in to MySQL as the root user:
-
-```bash
-sudo mysql -u root -p
-# There is no root password, so just hit enter when prompted for the password.
-```
-
-```sql
--- Change the password for an heavyweight user:
-ALTER USER 'heavyweight'@'localhost' IDENTIFIED BY '********';
-
--- Flush privileges to ensure changes take effect:
-FLUSH PRIVILEGES;
-
-EXIT;
-```
-
-### 🛡️ Securely Handle Database Credentials 🔏
-
-Create a `config.php` file in the web directory - `/var/www/mthw/config.php`. (I was advised to create the file outside the web directory, but did not do that.)
-
-```php
-<?php
-return [
-    'host_name' => 'localhost',
-    'database' => 'mixtape_reviews',
-    'user_name' => 'heavyweight',
-    'password' => 'password'
-];
-?>
-```
-
-Ensure that your configuration files have appropriate file permissions so that only the web server user (or application user) can read them:
-
-```bash
-chmod 600 config.php
-```
-
-🌐 In the PHP code in the site, include the configuration file and use the values as below:
-
-```php
-    $config = include('../config.php');
-
-    $host_name = $config['host_name'];
-    $database = $config['database'];
-    $user_name = $config['user_name'];
-    $password = $config['password'];
-```
-
-## 🧐📖 Reading the Database
-
-(A better method is to run an SQL script. See below. 🏃‍♀️)
-
-`mysql -u heavyweight -p`
-
-Enter the password when prompted (in `config.php`).
-
-```sql
-SHOW DATABASES;
-USE mixtape_reviews;
-SHOW TABLES;
-SELECT * FROM reviews;
-```
-
-### 📦 Storing Credentials in a MySQL Configuration File 🪪
-
-You can store credentials in a MySQL configuration file (`~/.my.cnf`) to avoid passing the password directly:
-
-```bash
-# Create `~/.my.cnf`:
-nano ~/.my.cnf
-
-# Add the Following Content:
-[client]
-user = heavyweight
-password = password # (in `config.php`)
-
-# Set the permissions of the file:
-chmod 600 ~/.my.cnf
-```
-
-With this config file, you can use the `mysql` command without the password:
-
-`mysql -u heavyweight`
-
-### 🏃 Running SQL Scripts
-
-If you have a SQL file with a series of commands, you can execute it from the command line:
-
-```bash
-mysql mixtape_reviews < read_db.sql
-```
-
-You should not need to enter the password when running the script.
-
-### 🧾 Logs 🪵
-
-```bash
-tail -f /var/log/mysql/error.log
-```
-
-<br>
 
 ### 🖥️ Full Nginx Configuration for the TTT, Mixtape, and FollowCrom Sites
 
@@ -558,14 +315,14 @@ server {
 
 When PHP-FPM is set to spawn new workers on demand, the first request can take longer because it has to spin up workers. To address this:
 
-Increase PHP-FPM pool settings in /etc/php/8.1/fpm/pool.d/www.conf (or your specific pool config):
-ini
-Copy code
+Increase PHP-FPM pool settings in /etc/php/8.1/fpm/pool.d/www.conf:
+
 pm = dynamic
 pm.max_children = 10 # Increase if the server has enough resources
 pm.start_servers = 3 # Start more servers to avoid cold starts
 pm.min_spare_servers = 2 # Ensure a minimum number of idle workers
 pm.max_spare_servers = 5
+
 This configuration ensures that enough PHP-FPM workers are already running when the first request hits.
 
 <br>

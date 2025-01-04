@@ -1,65 +1,64 @@
-<?php include '../header.html'; ?>
+<?php
+$mixtape = 'Banton the Ruler';
+include '../header.html'; ?>
 
-<div class="tape">
-    <div class="top_label">A: Original Banton (1:13:53)</div>
+<div class="tapeReelBox">
 
-    <div class="tapeReelBox">
+    <div class="tape_reel-container" id="music-container">
 
-        <div class="tape_reel-container" id="music-container">
+        <div class="img-container">
+            <img src="../images/tape_cog.png" alt="Spinning tape cog" id="cover">
+        </div>
 
-            <div class="img-container">
-                <img src="../images/tape_cog.png" alt="Spinning tape cog" id="cover">
+        <div class="progress-container" id="progress-container">
+
+
+            <div class="progress-background" id="progress-background">
+
+                <div class="progress" id="progress"></div>
             </div>
 
-            <div class="progress-container" id="progress-container">
-
-
-                <div class="progress-background" id="progress-background">
-
-                    <div class="progress" id="progress"></div>
-                </div>
-
-                <div class="currTime" id="currTime">00:00:00</div>
-            </div>
+            <div class="currTime" id="currTime">00:00:00</div>
+        </div>
 
 
 
-            <div class="img-container">
-                <img src="../images/tape_cog.png" alt="Spinning tape cog" id="cover">
-            </div>
+        <div class="img-container">
+            <img src="../images/tape_cog.png" alt="Spinning tape cog" id="cover">
+        </div>
+    </div>
+
+</div>
+
+<div class="transportContainer">
+
+    <div class="transportControls">
+
+        <div class="navigation" id="navigation">
+            <button class="action-btn" id="stop">
+                <i class="fas fa-stop"></i>
+            </button>
+            <button id="prev" class="action-btn">
+                <i class="fas fa-backward"></i>
+            </button>
+            <button id="play" class="action-btn action-btn-big">
+                <i class="fas fa-play"></i>
+            </button>
+            <button id="next" class="action-btn">
+                <i class="fas fa-forward"></i>
+            </button>
+
+
+            <input type="range" min="-1" max="1" step="0.1" value="-0.1" id="volume-slider">
+
+
+            <a href="../audio/db/og_banton.mp3" download><button class="action-btn action-btn-big">
+                    <i class="fas fa-download"></i>
+                </button></a>
         </div>
 
     </div>
-
-    <div class="transportContainer">
-
-        <div class="transportControls">
-
-            <div class="navigation" id="navigation">
-                <button class="action-btn" id="stop">
-                    <i class="fas fa-stop"></i>
-                </button>
-                <button id="prev" class="action-btn">
-                    <i class="fas fa-backward"></i>
-                </button>
-                <button id="play" class="action-btn action-btn-big">
-                    <i class="fas fa-play"></i>
-                </button>
-                <button id="next" class="action-btn">
-                    <i class="fas fa-forward"></i>
-                </button>
-
-
-                <input type="range" min="-1" max="1" step="0.1" value="-0.1" id="volume-slider">
-
-
-                <a href="../audio/db/og_banton.mp3" download><button class="action-btn action-btn-big">
-                        <i class="fas fa-download"></i>
-                    </button></a>
-            </div>
-
-        </div>
-    </div>
+</div>
 
 </div>
 
@@ -111,89 +110,91 @@
 </div>
 
 
-<div class=stack2>
-    <div class="eq_viz">
+<div class="restack">
+    <div class=stack2>
+        <div class="eq_viz">
 
-        <canvas id="canvas1"></canvas>
+            <canvas id="canvas1"></canvas>
+        </div>
+        <div class="eqSliders">
+            <div>
+                <label for="lows-slider">Lows</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
+            </div>
+            <div>
+                <label for="mids-slider">Mids</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
+            </div>
+            <div>
+                <label for="highs-slider">Highs</label>
+                <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
+            </div>
+        </div>
+
     </div>
-    <div class="eqSliders">
-        <div>
-            <label for="lows-slider">Lows</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="lows-slider">
-        </div>
-        <div>
-            <label for="mids-slider">Mids</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="mids-slider">
-        </div>
-        <div>
-            <label for="highs-slider">Highs</label>
-            <input type="range" min="0" max="100" step="1" value="30" id="highs-slider">
-        </div>
-    </div>
 
-</div>
+    <div class=stack3>
 
-<div class=stack3>
-
-    <div class="playing" id="title">Tracklist (click on a song to play)</div>
+        <div class="playing" id="title">Banton the Ruler (1:13:53)</div>
 
 
-    <div class="tracklist">
-        <div class="track" onclick="updatePosition(this)" data-time="0"><b>Kamille</b> - Body (Brookes Brothers Mix)
+        <div class="tracklist">
+            <div class="track" onclick="updatePosition(this)" data-time="0"><b>Kamille</b> - Body (Brookes Brothers Mix)
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="200"><b>Deekline</b> - Funky Child</div>
+            <div class="track" onclick="updatePosition(this)" data-time="341"><b>Veak</b> - Coca Cola Bottle Shape</div>
+            <div class="track" onclick="updatePosition(this)" data-time="460"><b>Ed Solo
+                    & JFB</b> - BBQ</div>
+            <div class="track" onclick="updatePosition(this)" data-time="526"><b>Pull Up
+                    Collective</b> - Big Up (Kartoon Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="588"><b>Brian Brainstorm</b> - Already Dead
+                (Jump Up Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="775"><b>Ed Solo</b> - Anye Up</div>
+            <div class="track" onclick="updatePosition(this)" data-time="905"><b>Ed Solo</b> - Ganja Smuggling</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1014"><b>Nectax
+                    & Scudd</b> - Trouble Riddim (VIP)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1230"><b>Preditah</b> - Selecta (Dr Meaker Mix)
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="1353"><b>Smash & Grab ft. Rubi Dan</b> - X
+                Rated</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1480"><b>Benny Page</b> - Flava</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1568"><b>King Bee</b> - Back By Dope Demand (Al
+                Pack Bootleg)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1699"><b>Ed Solo & Bonnot ft. Mr. Williamz</b>
+                - Raggamuffin DJ</div>
+            <div class="track" onclick="updatePosition(this)" data-time="1860"><b>Freddie McGregor</b> - Reggae Boom (Ed
+                Solo Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2061"><b>Psycho
+                    Freud</b> - Boom Wah Dis (Serial Killaz Remix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2234"><b>Rumble
+                    ft. Ward 21</b> - Siren (DnB Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2376"><b>Serum</b> - Bad Boys (Serial Killaz
+                Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2549"><b>Noah D
+                    ft. Anthony B</b> - Good Sound (Benny Page Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2657"><b>Bladerunner</b> - Jungle Jungle</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2810"><b>London's Most Wanted</b> - Girls Dem
+                Want It (Ed Solo Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="2916"><b>Deekline & Ed Solo</b> - Good Looking
+                Girl</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3079"><b>Leaf</b> - Shoot Off</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3255"><b>Morgan
+                    Heritage</b> - Down By The River</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3403"><b>Bunny General</b> - Sound War (Dread
+                Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3598"><b>J-Man & Aries ft. Blackout JA &
+                    Courtney Melody</b> - Ninja Mi Ninja</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3764"><b>Navigator ft. Ranking Joe</b> -
+                Junglist Sound (Serial Killaz Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="3915"><b>Dope Ammo</b> - Jazz Funk (Baron VIP)
+            </div>
+            <div class="track" onclick="updatePosition(this)" data-time="4002"><b>Burro Banton</b> - No Problem (Riffz
+                Mix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4118"><b>Opius Dapz</b> - After Laughter Comes
+                Tears</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4287"><b>Fleck & Kings Hi-Fi ft. Demolition
+                    Man</b> - Fire</div>
         </div>
-        <div class="track" onclick="updatePosition(this)" data-time="200"><b>Deekline</b> - Funky Child</div>
-        <div class="track" onclick="updatePosition(this)" data-time="341"><b>Veak</b> - Coca Cola Bottle Shape</div>
-        <div class="track" onclick="updatePosition(this)" data-time="460"><b>Ed Solo
-                & JFB</b> - BBQ</div>
-        <div class="track" onclick="updatePosition(this)" data-time="526"><b>Pull Up
-                Collective</b> - Big Up (Kartoon Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="588"><b>Brian Brainstorm</b> - Already Dead
-            (Jump Up Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="775"><b>Ed Solo</b> - Anye Up</div>
-        <div class="track" onclick="updatePosition(this)" data-time="905"><b>Ed Solo</b> - Ganja Smuggling</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1014"><b>Nectax
-                & Scudd</b> - Trouble Riddim (VIP)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1230"><b>Preditah</b> - Selecta (Dr Meaker Mix)
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="1353"><b>Smash & Grab ft. Rubi Dan</b> - X
-            Rated</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1480"><b>Benny Page</b> - Flava</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1568"><b>King Bee</b> - Back By Dope Demand (Al
-            Pack Bootleg)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1699"><b>Ed Solo & Bonnot ft. Mr. Williamz</b>
-            - Raggamuffin DJ</div>
-        <div class="track" onclick="updatePosition(this)" data-time="1860"><b>Freddie McGregor</b> - Reggae Boom (Ed
-            Solo Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2061"><b>Psycho
-                Freud</b> - Boom Wah Dis (Serial Killaz Remix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2234"><b>Rumble
-                ft. Ward 21</b> - Siren (DnB Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2376"><b>Serum</b> - Bad Boys (Serial Killaz
-            Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2549"><b>Noah D
-                ft. Anthony B</b> - Good Sound (Benny Page Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2657"><b>Bladerunner</b> - Jungle Jungle</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2810"><b>London's Most Wanted</b> - Girls Dem
-            Want It (Ed Solo Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="2916"><b>Deekline & Ed Solo</b> - Good Looking
-            Girl</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3079"><b>Leaf</b> - Shoot Off</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3255"><b>Morgan
-                Heritage</b> - Down By The River</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3403"><b>Bunny General</b> - Sound War (Dread
-            Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3598"><b>J-Man & Aries ft. Blackout JA &
-                Courtney Melody</b> - Ninja Mi Ninja</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3764"><b>Navigator ft. Ranking Joe</b> -
-            Junglist Sound (Serial Killaz Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="3915"><b>Dope Ammo</b> - Jazz Funk (Baron VIP)
-        </div>
-        <div class="track" onclick="updatePosition(this)" data-time="4002"><b>Burro Banton</b> - No Problem (Riffz
-            Mix)</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4118"><b>Opius Dapz</b> - After Laughter Comes
-            Tears</div>
-        <div class="track" onclick="updatePosition(this)" data-time="4287"><b>Fleck & Kings Hi-Fi ft. Demolition
-                Man</b> - Fire</div>
     </div>
 </div>
 
@@ -204,7 +205,6 @@
     <div class="reviewsBox">
 
         <?php
-        $mixtape = 'Original Banton';  // Change this value for each PHP page to reflect the mixtape
         include('../review_handler.php');
         ?>
 

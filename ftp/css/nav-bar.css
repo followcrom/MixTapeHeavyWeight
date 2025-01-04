@@ -1,105 +1,98 @@
-.icon_row {
-  text-align: center;
-  padding: 0.5vw 0px 0vw 0px;
-  margin-top: 0;
-  width : 100%;
+@font-face {
+  font-family: "Graff";
+  src: url("../fonts/kosalsayshy.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-image: linear-gradient(to bottom, transparent, gold 60%);
+  /* background-image: linear-gradient(to bottom, black, gold 60%); */
+  margin: 0px;
+  padding: 0px;
+  padding-top: 10px;
+}
+
+.icon_row {
+  flex: 1;
+  padding: 0.75vw 0px 0.5vw 0px;
+}
 
 .grid-container {
   display: grid;
-  grid-template-columns: 5% 5% 5% 5% 5%;
-  justify-content: center;
-  gap: 2em;
-  padding: 0px;
+  grid-template-columns: repeat(4, 10%); /* Adjust grid columns */
+  justify-content: right;
+  gap: 1.2em;
 }
-
-
-/* .grid-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2em;
-  padding: 0px;
-} */
-
 
 .grid-item {
-  text-align: center;
+  padding: 0px;
 }
-
 
 .icon {
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
 }
-
 
 .rollover_row {
-  padding: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  flex: 1;
   align-items: center;
-  gap: 1rem;
-  /* font-size: clamp(2vw, 3vw, 4vw); */
-  font-size: 4vw;
-  margin-bottom: 2vh;
-  font-family: 'Exo 2', sans-serif;
-  margin: 0 auto; /* add this line to center the element horizontally */
-  border-bottom: 5px solid #000;
+  justify-content: left;
+  font-family: "Open Sans", sans-serif;
+  font-size: 2.15vw;
 }
 
-
-
-
-/* .rollover_row {
-  padding: 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  font-size: 3vw;
-  margin-bottom: 2vh;
-  font-family: 'Raleway', sans-serif;
-} */
-
-
-.left-div {
-  width: 50%;
-  margin-left: 5vw;
-  text-align: right;
-  color: #0f4c81;
+.static-div {
+  color: white;
+  font-weight: bold;
 }
 
 .nav_hover {
-  width: 50%;
-  text-align: left;
-  color: #85cdff;
+  font-family: "Graff", Arial, Helvetica, sans-serif;
+  color: #0f4c81;
+  padding-left: 10px;
+  margin-top: 10px;
 }
 
-
-
-
-
-a:link, a:visited, a:hover {
+a:link,
+a:visited,
+a:hover {
   color: inherit;
   text-decoration: inherit;
 }
 
-
-@media only screen and (max-width: 1023px) {
+/* For screens larger than or equal to 2500px */
+@media only screen and (min-width: 2500px) {
   .grid-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5vw;
-    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 8%); /* Adjust grid columns */
+    justify-content: right;
   }
 
+  .static-div {
+    padding-bottom: 10px;
+  }
+}
+
+/* For screens larger than 1024px and less than 1439px */
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
   .rollover_row {
-    height: 0;
-    overflow: hidden;
-    border-bottom: 2px solid #000;
+    font-size: 2.5vw;
+  }
+
+  .static-div {
+    padding-left: 10px;
+  }
+  .nav_hover {
+    font-size: 2.5vm;
   }
 
   .icon {
@@ -108,21 +101,64 @@ a:link, a:visited, a:hover {
   }
 }
 
+/* Screens between 640px and 1023px */
+@media (min-width: 640px) and (max-width: 1023px) {
+  footer {
+    position: relative;
+  }
 
-/* For high-resolution screens (e.g., Retina displays) */
-@media only screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
-      only screen and (min-device-width: 768px) and (min-resolution: 192dpi) {
+  .static-div {
+    color: white;
+  }
+  .nav_hover {
+    font-size: 2vm;
+  }
+  .icon_row {
+    width: 100%;
+  }
+
   .grid-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5vw;
-    padding: 10px;
+    gap: 8vw;
+    padding: 2px;
   }
-  
+
+  .icon {
+    width: 36px;
+    height: 36px;
+  }
+
   .rollover_row {
-    height: 0;
-    overflow: hidden;
-    border-bottom: 2px solid #000;
+    display: none;
+  }
+}
+
+/* Screens less than 640px */
+@media (max-width: 639px) {
+  footer {
+    position: relative;
+  }
+
+  .icon_row {
+    width: 100%;
+  }
+
+  .grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8vw;
+    padding: 2px;
+  }
+
+  .rollover_row {
+    display: none;
+  }
+
+  .icon {
+    width: 28px;
+    height: 28px;
   }
 }

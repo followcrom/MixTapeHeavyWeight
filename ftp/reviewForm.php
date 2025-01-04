@@ -1,6 +1,6 @@
 <!-- reviewForm.php -->
 <div class="reviewContainer">
-    <h1>Leave a comment without stopping playback. (Reload the page to view.)</h1>
+    <h1>Leave a comment (without stopping playback)</h1>
     <form id="form" method="post">
         <div style="display: inline-flex;">
             <fieldset class="rating">
