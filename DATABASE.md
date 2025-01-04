@@ -1,7 +1,5 @@
 # 🥊👊 MTHW Database 🛢️🥷🥋
 
-Migrate to sqlite db.
-
 <img src="imgs/belt_tape.png" alt="Image Description" width="200" height="200">
 
 ## 🏠 Local testing
