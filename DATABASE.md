@@ -1,5 +1,7 @@
 # 🥊👊 MTHW Database 🛢️🥷🥋
 
+Migrate to sqlite db.
+
 <img src="imgs/belt_tape.png" alt="Image Description" width="200" height="200">
 
 ## 🏠 Local testing
@@ -11,7 +13,7 @@ php -S localhost:8000
 
 # 📦 On the Box ˚˖𓍢ִִ໋🌊🦈˚˖𓍢ִ✧˚.
 
-The task was to repalce the memory-hungry **mysql-server** db with a lightweight **sqlite3** db.
+The task was to replace the memory-hungry **mysql-server** db with a lightweight **sqlite3** db.
 
 ### Useful Commands
 
