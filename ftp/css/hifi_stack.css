@@ -672,6 +672,15 @@ a.label_link:hover {
     color: black;
     margin: 0px auto 10px auto;
     font-size: 1rem;
+  }
+
+  .top_label {
+    width: 90%;
+    border-top: red solid 3px;
+    border-bottom: red solid 3px;
+    border-radius: 10px;
+    font-size: 5vw;
+    color: #555555;
     padding-top: 10px;
     padding-right: 4px;
     padding-bottom: 4px;
@@ -679,7 +688,7 @@ a.label_link:hover {
   }
 
   .transportContainer {
-    width: 95%;
+    width: 90%;
     margin: auto;
   }
 
@@ -692,7 +701,7 @@ a.label_link:hover {
   }
 
   .tapeReelBox {
-    width: 90%;
+    width: 80%;
     padding: 8px;
   }
 
@@ -794,13 +803,14 @@ a.label_link:hover {
 
   .reviewContainer h1 {
     font-size: 1em;
+    line-height: 1em;
   }
 
   .reviewsBox {
     width: 90%;
     background-color: #000;
     border-radius: 15px;
-    color: #004aad;
+    color: #85cdff;
   }
 
   #volume-slider {

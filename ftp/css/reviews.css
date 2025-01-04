@@ -155,7 +155,7 @@ input[type="submit"]:hover {
   .date_div {
     flex: 1.2;
     padding: 2px;
-    font-size: 0.8em;
+    font-size: 0.85em;
     border-bottom: gold 2px solid;
   }
 }

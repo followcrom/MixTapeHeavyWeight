@@ -266,50 +266,56 @@ volumeSlider.addEventListener("input", () => {
 // use Fetch API to submit a form without reloading the page:
 const form = document.getElementById("form");
 const reviewFeedback = document.getElementById("review-feedback");
+const reviewsBox = document.querySelector(".reviewsBox");
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+form.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-  const formData = new FormData(form);
-
-  let selected = false;
-  const rating = document.getElementsByName("stars");
-  for (let i = 0; i < rating.length; i++) {
-    if (rating[i].checked) {
-      selected = true;
-      break;
+    const rating = document.getElementsByName("stars");
+    let selected = false;
+    for (let i = 0; i < rating.length; i++) {
+        if (rating[i].checked) {
+            selected = true;
+            break;
+        }
     }
-  }
 
-  if (!selected) {
-    reviewFeedback.innerHTML = "Please select a rating.";
-    // console.log("Rating not selected.");
-    return false;
-  }
+    if (!selected) {
+        reviewFeedback.innerHTML = "Please select a rating.";
+        return false;
+    }
 
-  fetch("", {
-    method: "POST",
-    body: formData,
-})
-    .then((response) => {
-      if (response.ok) {
-        // Form submission was successful
-        console.log("Form submission successful!");
-        console.log("Server response:", response.text());
-        reviewFeedback.innerHTML = "Thanks for your review! Reload the page to view (playback will stop).";
-      } else {
-        // Form submission failed
-        console.log("Form submission failed.");
+    const formData = new FormData(form);
+
+    try {
+        // Using the current page URL (which includes review_handler.php)
+        const response = await fetch("", {
+            method: "POST",
+            body: formData
+        });
+
+        if (response.ok) {
+            const html = await response.text();
+            console.log("HTML:", html);
+            reviewFeedback.innerHTML = "Thanks for your review!";
+            form.reset();
+            
+            // Extract just the reviews content
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = html;
+            const newReviewsBox = tempDiv.querySelector('.reviewsBox');
+            if (newReviewsBox) {
+                reviewsBox.innerHTML = newReviewsBox.innerHTML;
+            }
+        } else {
+            reviewFeedback.innerHTML = "Sorry, we didn't quite get that. Please try again.";
+            console.error("HTTP error:", response.status);
+        }
+    } catch (error) {
+        console.error("An error occurred while submitting the form:", error);
         reviewFeedback.innerHTML = "Sorry, we didn't quite get that. Please try again.";
-      }
-    })
-    .catch((error) => {
-      // An error occurred while submitting the form
-      console.log("An error occurred while submitting the form:", error);
-      reviewFeedback.innerHTML = "Sorry, we didn't quite get that. Please try again.";
-    });
+    }
 });
-
 
 
 

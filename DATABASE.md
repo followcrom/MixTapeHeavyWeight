@@ -1,14 +1,17 @@
-# MTHW Database
+# 🥊👊 MTHW Database 🛢️🥷🥋
 
-## Local testing
+<img src="imgs/belt_tape.png" alt="Image Description" width="200" height="200">
 
-Start the PHP server:
-bash
-Copy code
+## 🏠 Local testing
+
+```bash
+# Start the PHP server:
 php -S localhost:8000
+```
 
+# 📦 On the Box ˚˖𓍢ִִ໋🌊🦈˚˖𓍢ִ✧˚.
 
-The task was to repalce the memory-hungry mysql db with a lightweight sqlite3 db.
+The task was to repalce the memory-hungry **mysql-server** db with a lightweight **sqlite3** db.
 
 ### Useful Commands
 
@@ -18,17 +21,17 @@ systemctl reload nginx
 systemctl restart php8.1-fpm
 ```
 
-### sqlite3 cmds from the terminal
+### 📟 sqlite3 cmds from the terminal
 
 ```bash
-sqlite3 /var/www/mthw/database.db "SELECT * FROM reviews;"
-sqlite3 /var/www/mthw/database.db "INSERT INTO reviews (mixtape, stars, comments) VALUES ('Noodles', 2, 'Fire 50');"
-sqlite3 /var/www/mthw/database.db "INSERT INTO reviews (stars, comments) VALUES (5, 'Done Mguuy');"
+sqlite3 /var/www/mthw/mthw_reviews.db "SELECT * FROM reviews_table;"
+sqlite3 /var/www/mthw/mthw_reviews.db "INSERT INTO reviews_table (mixtape, stars, comments) VALUES ('Noodles', 2, 'Fire oh');"
+sqlite3 mthw_reviews.db "INSERT INTO reviews_table (mixtape, stars, comments) VALUES ('Noodles', 2, 'A BB King number');"
 ```
 
-A big issue was that I could write INSERT statements to the new sqlitedb from the terminal (as root user), but not from the web form on mthw.
+A big issue was that I could write INSERT statements to the new sqlitedb from the terminal (as root user), but not from the website.
 
-### www-data user
+### 🧑🏻‍💻 www-data user
 
 The www-data user is commonly used by web servers like Nginx. To switch to the www-data user:
 
@@ -36,39 +39,42 @@ The www-data user is commonly used by web servers like Nginx. To switch to the w
 sudo -u www-data -s
 ```
 
-(I think) it was necessary to chown the mthw directory to the www-data user, as well as the database.
+(I think) it was necessary to `chown` the **mthw** dir to the _www-data user_, as well as the database.
 
 ```bash
-chmod 666 /var/www/mthw/database.db
+chown www-data:www-data /var/www/mthw/mthw_reviews.db
+
 chmod 775 /var/www/mthw
 chown www-data:www-data /var/www/mthw
 
 # Results in:
+-rw-r--r--  1 www-data www-data  12288 Jan  4 00:22 mthw_reviews.db
 drwxr-xr-x 10 www-data www-data 12288 Jan  2 16:15 mthw/
--rw-rw-rw-  1 www-data www-data  12288 Jan  2 16:15 database.db
 ```
 
-# sqlite3
+# 🗃️ SQLite3 🌠
 
 Suitable for small to medium-sized applications with limited concurrent access and smaller datasets. Some advanced database features found in MySQL, such as stored procedures, advanced indexing, and user permissions, are not available in SQLite.
 
-## Install SQLite
+## 🏗 Install SQLite3 📥
 
 ```bash
 sudo apt-get install sqlite3
 ```
 
-### Create the Database and Tables
+### Create the Database and Tables 🏗️
 
 Open a terminal and run the following commands:
 
 ```bash
-sqlite3 /var/www/mthw/database.db
+sqlite3 /var/www/mthw/mthw_reviews.db
 ```
 
 This command will create a new SQLite database file (if it doesn't already exist) and open the SQLite command-line interface. You can name your SQLite database file anything you like, as long as it has the .sqlite or .db extension.
 
-Inside the SQLite command-line interface, create the reviews table with the following SQL commands:
+### Inside the SQLite command-line interface
+
+- Create the reviews table:
 
 ```sql
 CREATE TABLE reviews_table (
@@ -80,44 +86,44 @@ CREATE TABLE reviews_table (
 );
 ```
 
-- Within a single SQLite database file, you can list all the tables:
+- List all the tables:
 
 ```sql
 SELECT name FROM sqlite_master WHERE type='table';
 ```
 
-- To insert data into the reviews table, you can use the following SQL command:
+- Insert data:
 
 ```sql
 INSERT INTO reviews (mixtape, stars, comments) VALUES ('Noodles', 2, 'Fire 50');
 ```
 
-- To retrieve data from the reviews table, you can use the following SQL command:
+- Retrieve data:
 
 ```sql
 SELECT * FROM reviews;
 ```
 
-- To list the information about the reviews table, you can use the following command:
+- List the information about the table:
 
 ```sql
-PRAGMA table_info(reviews);
+PRAGMA table_info(reviews_table);
 ```
 
-- To exit the SQLite command-line interface, you can use the following command:
+- Exit the SQLite command-line interface:
 
 ```sql
 .exit
 ```
 
-## SQLite Modules
+## 📚 SQLite Modules 📦
 
 Run the following command to list all PHP modules currently installed:
 
 ```bash
 php -m | grep sqlite
 
-# If the SQLite modules are installed, you should see output like:
+# If the SQLite modules are installed, you should see this output:
 pdo_sqlite
 sqlite3
 ```
@@ -128,18 +134,18 @@ If you don’t see pdo_sqlite or sqlite3, install them using:
 sudo apt-get install php-pdo
 ```
 
-## Config.php
-Update your config.php to include the path to your SQLite database file. For example:
+## ⚙️ Config.php
+Update `config.php` to include the path to the SQLite database file:
 
 ```php
 <?php
 return [
-    'reviews' => '/var/www/mthw/database.db'
+    'reviews' => '/var/www/mthw/mthw_reviews.db'
 ];
 ?>
 ```
 
-#### old mysql Config.php
+Old mysql server config.php:
 
 ```php
 <?php
@@ -152,34 +158,28 @@ return [
 ?>
 ```
 
-# mysql
+<br><br>
 
-Originally I installed mysql-server on linux.
+# ⛁ MySQL 🍃
+
+Originally I installed `mysql-server` on linux.
 
 ```bash
 mysql -V
 mysql  Ver 8.0.40-0ubuntu0.22.04.1 for Linux on x86_64 ((Ubuntu))
 ```
 
+`top` revealed the mysqld process was using approximately 312 MB of memory, which accounts for about 31.9% of the system's memory.
+
+There were suggestions on how to change the memory limit in the config file. Of all the files called `mysqld.cnf, my.cnf, my.cnf.fallback, mysql.cnf, mysql.conf.d/` or similar, the one that contained the configuration was `/etc/mysql/mysql.conf.d/mysql.cnf`.
 
 ```bash
-df -h
-```
+cat /etc/mysql/mysql.conf.d/mysqld.cnf
 
-
-
-`top` revealed the mysqld process was using approximately 312,276 KB (or about 312 MB) of memory, which accounts for about 31.9% of the system's memory.
-
-There were suggestions on how to change the memory limit in the config file. Of all the files called `mysqld.cnf, my.cnf, my.cnf.fallback, mysql.cnf, mysql.conf.d/` or similar, the one that contained the configuration was `/etc/mysql/mysql.conf.d/mysql.cnf`. Here it is:
-
-```bash
-#
 # The MySQL database client configuration file
 #
 # Ref to https://dev.mysql.com/doc/refman/en/mysql-command-options.html
 
-[mysql]
-root@followCrom:/etc/mysql/mysql.conf.d# cat mysqld.cnf
 #
 # The MySQL database server configuration file.
 #
@@ -192,8 +192,6 @@ root@followCrom:/etc/mysql/mysql.conf.d# cat mysqld.cnf
 
 # Here is entries for some specific programs
 # The following values assume you have at least 32M ram
-
-[mysqld]
 #
 # * Basic Settings
 #
@@ -258,60 +256,25 @@ log_error = /var/log/mysql/error.log
 max_binlog_size   = 100M
 # binlog_do_db          = include_database_name
 # binlog_ignore_db      = include_database_name
+```
 
-
+```bash
 root@followCrom:~# cat .my.cnf
+
 [client]
 user = heavyweight
 password = mthw_password
-
-root@followCrom:~# cat .mysql_history
-_HiStOrY_V2_
-SHOW\040DATABASES;
-USE\040mixtape_reviews;
-SHOW\040TABLES;
-SELECT\040*\040FROM\040reviews;
-EXIT;
-USE\040mixtape_reviews;
-SELECT\040*\040FROM\040reviews;
-DELETE\040FROM\040reviews\040WHERE\040id\040IN\040(2,\0403,\0404);
-SELECT\040*\040FROM\040reviews;
-FLUSH\040PRIVILEGES;
-EXIT;
-SHOW\040DATABASES;
-USE\040mixtape_reviews;
-SHOW\040TABLES;
-SELECT\040*\040FROM\040reviews;
-FLUSH\040PRIVILEGES;
-GRANT\040RELOAD\040ON\040*.*\040TO\040'heavyweight'@'localhost';
-exit;
-GRANT\040RELOAD\040ON\040*.*\040TO\040'heavyweight'@'localhost';
-FLUSH\040PRIVILEGES;
-SHOW\040GRANTS\040FOR\040'heavyweight'@'localhost';
-EXIT;
-USE\040mixtape_reviews;
-SELECT\040*\040FROM\040reviews;
-exit;
-USE\040mixtape_reviews;
-SELECT\040*\040FROM\040reviews;
-EXIT;
-USE\040mixtape_reviews;
-SELECT\040*\040FROM\040reviews;
-UPDATE\040reviews\040SET\040comments\040=\040'Not\040quite\040my\040tempo\040🥁'\040WHERE\040id\040=\04014;
-SELECT\040*\040FROM\040reviews;
-EXIT;
-exit;
-SHOW\040DATABASES;
-USE\040mixtape_reviews;
-SELECT\040*\040FROM\040reviews;
-OPTIMIZE\040TABLE\040reviews;
-exit;
-root@followCrom:~#
 ```
 
-## Backup mysql reviews table
+```bash
+root@followCrom:~# cat .mysql_history
 
-Log in to MySQL as the root user:
+# ... mysql history ...
+```
+
+## 📥 Backup MySQL reviews
+
+**Step 1**: Log in to MySQL as the root user:
 
 ```bash
 sudo mysql -u root -p
@@ -323,7 +286,7 @@ SHOW DATABASES;
 USE your_database_name;
 ```
 
-Export Tables as CSV
+**Step 2**: Export Tables as CSV
 
 ```sql
 SELECT * FROM reviews
@@ -335,11 +298,11 @@ LINES TERMINATED BY '\n';
 
 ### Make sure the MySQL server has write permissions to the directory
 
-The ERROR 1290 (HY000) indicates that your MySQL server is running with the --secure-file-priv option enabled, which restricts the location where files can be read or written by MySQL.
+Initially, I got the **ERROR 1290 (HY000)** which indicates the MySQL server is running with the `--secure-file-priv` option enabled, which restricts the location where files can be read or written by MySQL.
 
-Here’s how you can resolve this issue:
+To resolve this issue:
 
-Step 1: Check the Current secure-file-priv Setting
+**Step 1**: Check the current `secure-file-priv` setting
 
 To see the directory where MySQL is allowed to write files:
 
@@ -357,9 +320,9 @@ This will return something like:
 +------------------+------------------------+
 ```
 
-If the value is NULL, it means file import/export is disabled.
+(If the value is NULL, it means file import/export is disabled.)
 
-Step 2: Use the Allowed Directory
+**Step 2**: Use the allowed directory
 
 If the secure_file_priv variable specifies a directory (e.g., /var/lib/mysql-files/), modify your query to save the CSV file there:
 
@@ -371,30 +334,29 @@ ENCLOSED BY '"'
 LINES TERMINATED BY '\n';
 ```
 
-Step 4: Exit MySQL
+**Step 3**: Exit MySQL
 
 ```sql
 EXIT;
 ```
 
-Then, move the file to your desired location using sudo:
+**Step 4**: Move the file to your desired location:
 
 ```bash
-sudo mv /var/lib/mysql-files/old_reviews.csv /var/www/mthw/old_reviews/
+mv /var/lib/mysql-files/old_reviews.csv /var/www/mthw/old_reviews/
 ```
 
+<br><br>
 
-# Remove MySQL
+# 🗑️ Remove MySQL 🧹
 
-To remove MySQL 8.0.40-0ubuntu0.22.04.1 from your Ubuntu system, follow these steps:
-
-Stop MySQL Service:
+**Step 1**: Stop MySQL Service
 
 ```bash
 systemctl stop mysql
 ```
 
-Uninstall MySQL Packages:
+**Step 2**: Uninstall MySQL Packages
 
 ```bash
 sudo apt purge mysql-server mysql-client
@@ -405,7 +367,7 @@ sudo apt autoclean
 After this operation, 195 MB disk space will be freed.
 
 
-Remove MySQL Configuration and Data Files:
+**Step 3**: Remove MySQL Configuration and Data Files
 
 ```bash
 rm -rf /etc/mysql
@@ -416,7 +378,7 @@ rm -rf /var/log/mysql*
 ```
 
 
-Verify Removal
+**Step 4**: Verify Removal
 
 This command will list any remaining MySQL packages. If there are none, MySQL has been successfully removed.
 
@@ -424,34 +386,29 @@ This command will list any remaining MySQL packages. If there are none, MySQL ha
 dpkg -l | grep -i mysql
 ```
 
-If any packages still show up, remove them manually with sudo apt remove <package-name>.
+If any packages still show up, remove them manually with `sudo apt remove _package-name_`. In my case, these remained;
 
-In my case, the below remained. These are typically used to enable PHP to interact with MySQL databases.
-
-Details:
-php-mysql:
+#### php-mysql
 
 This is a metapackage that installs the default PHP MySQL module for your PHP version (in this case, PHP 8.1).
-php8.1-mysql:
+
+#### php8.1-mysql
 
 This is the actual MySQL module for PHP 8.1, allowing PHP scripts to connect to and interact with MySQL databases.
 
 
-Since you are moving to SQLite and no longer using MySQL, you can safely remove these packages to clean up your system.
-
-Uninstall Instructions:
-To remove these packages, use the following commands:
+Since I was moving to SQLite and no longer using MySQL, i could safely remove these packages to clean up my system:
 
 ```bash
 sudo apt-get purge php-mysql php8.1-mysql
 sudo apt-get autoremove --purge
 ```
 
-#### Logs
+## Logs 🪵🪵
 
-SQLite itself does not have built-in logging like MySQL.
+SQLite itself does not have built-in logging like MySQL, but `tail -f /var/log/nginx/error.log` may show some relevant logs.
 
-#### Filesystem
+## 🧮 Filesystem 🔰
 
 Before uninstall:
 

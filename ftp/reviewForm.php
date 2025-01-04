@@ -1,8 +1,7 @@
 <!-- reviewForm.php -->
 <div class="reviewContainer">
-    <h1>Leave a comment without stopping playback. (Reload the page to view.)</h1>
+    <h1>Leave a comment (without stopping playback)</h1>
     <form id="form" method="post">
-        <!-- input type="hidden" name="mixtape" value="<?php echo htmlspecialchars($mixtape); ?>" -->
         <div style="display: inline-flex;">
             <fieldset class="rating">
                 <input type="radio" id="star1" name="stars" value="5"><label for="star1" title="5 stars">star</label>

@@ -15,5 +15,13 @@ ftp/gf/editor.html
 ftp/db/editor.html
 
 # Ignore the scripts
-OLD_BOX_ESS.md
 user_data.sh
+
+# Ignore the database
+ftp/mthw_reviews.db
+
+# Ignore the backup scripts
+ftp/review_handler_mysql8.php
+ftp/reviewForm_mysql.php
+
+old_reviews/old_reviews.csv
