@@ -15,7 +15,7 @@ ftp/gf/editor.html
 ftp/db/editor.html
 
 # Ignore the scripts
-user_data.sh
+# user_data.sh
 
 # Ignore the database
 ftp/mthw_reviews.db
