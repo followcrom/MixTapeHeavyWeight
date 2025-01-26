@@ -103,7 +103,7 @@ include '../header.html'; ?>
     3715 | PsychoFreud ft. Demolition Man - High Grade (Liondub Remix)
     3890 | Veak - Roots Reality
     4000 | 6Blocc - Pretty Girl (Steppin' Mix)
-    4218 | Serum & Voltage - 8-Bit (Taxman Remix)
+    4218 | Serum & Voltage - 8 Bit (Taxman Remix)
     4350 | Dijeyow - Brush Me
     4523 | Isaac Maya - Peace & Unity
     4720 | Brookes Brothers - Tear You Down
@@ -168,7 +168,7 @@ include '../header.html'; ?>
             <div class="track" onclick="updatePosition(this)" data-time="3715"><b>PsychoFreud ft. Demolition Man<b> - High Grade (Liondub Remix)</div>
             <div class="track" onclick="updatePosition(this)" data-time="3890"><b>Veak<b> - Roots Reality</div>
             <div class="track" onclick="updatePosition(this)" data-time="4000"><b>6Blocc<b> - Pretty Girl (Steppin' Mix)</div>
-            <div class="track" onclick="updatePosition(this)" data-time="4218"><b>Serum & Voltage<b> - 8-Bit (Taxman Remix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="4218"><b>Serum & Voltage<b> - 8 Bit (Taxman Remix)</div>
             <div class="track" onclick="updatePosition(this)" data-time="4350"><b>Dijeyow<b> - Brush Me</div>
             <div class="track" onclick="updatePosition(this)" data-time="4523"><b>Isaac Maya<b> - Peace & Unity</div>
             <div class="track" onclick="updatePosition(this)" data-time="4720"><b>Brookes Brothers<b> - Tear You Down</div>

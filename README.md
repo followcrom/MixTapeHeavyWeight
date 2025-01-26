@@ -5,7 +5,6 @@
 ![GitHub watchers](https://img.shields.io/github/watchers/followcrom/MixTapeHeavyWeight?style=social) ![GitHub followers](https://img.shields.io/github/followers/followcrom?style=social)
 
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/followcrom/MixTapeHeavyWeight)
-
 ![GitHub last commit](https://img.shields.io/github/last-commit/followcrom/MixTapeHeavyWeight)
 
 ## ▶️ Getting Started 🚦

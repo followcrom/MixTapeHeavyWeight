@@ -80,7 +80,7 @@ include '../header.html'; ?>
     506 | Liondub - Foundation Special
     606 | Breakage - Ric Flair Strut
     737 | General Levy - Guide & Protect (Ed Solo Remix)
-    870 | unior Murvin - Cool Out Son (Brian Brainstorm Remix)
+    870 | Junior Murvin - Cool Out Son (Brian Brainstorm Remix)
     1022 | Slynk - Bad Duppy Walk
     1177 | Deekline - Alibaba
     1286 | Chopstick Dubplate ft. Cheshire Cat - I'm Sure
@@ -141,7 +141,7 @@ include '../header.html'; ?>
             <div class="track" onclick="updatePosition(this)" data-time="506"><b>Liondub<b> - Foundation Special</div>
             <div class="track" onclick="updatePosition(this)" data-time="606"><b>Breakage<b> - Ric Flair Strut</div>
             <div class="track" onclick="updatePosition(this)" data-time="737"><b>General Levy<b> - Guide & Protect (Ed Solo Remix)</div>
-            <div class="track" onclick="updatePosition(this)" data-time="870"><b>unior Murvin<b> - Cool Out Son (Brian Brainstorm Remix)</div>
+            <div class="track" onclick="updatePosition(this)" data-time="870"><b>Junior Murvin<b> - Cool Out Son (Brian Brainstorm Remix)</div>
             <div class="track" onclick="updatePosition(this)" data-time="1022"><b>Slynk<b> - Bad Duppy Walk</div>
             <div class="track" onclick="updatePosition(this)" data-time="1177"><b>Deekline<b> - Alibaba</div>
             <div class="track" onclick="updatePosition(this)" data-time="1286"><b>Chopstick Dubplate ft. Cheshire Cat<b> - I'm Sure</div>
