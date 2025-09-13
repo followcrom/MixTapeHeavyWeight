@@ -7,13 +7,19 @@ ssh into the Digital Ocean box:
 or
 
 ```bash
-ssh -i ~/.ssh/digiocean root@139.59.161.31
+ssh -i ~/.ssh/digiocean root@xxx.xxx.xxx.xx
+```
+
+To check the public IP address of your VM, run:
+
+```bash
+curl ifconfig.me
 ```
 
 ## Update Files
 
 ```bash
-rsync -avz -e "ssh -i ~/.ssh/digiocean" ftp/ root@139.59.161.31:/var/www/mthw
+rsync -avz -e "ssh -i ~/.ssh/digiocean" ftp/ root@xxx.xxx.xxx.xx:/var/www/mthw
 ```
 
 **rsync** is an efficient tool for synchronizing files between your local machine and the VM. It’s particularly useful if you regularly update files, as it only copies the differences, making the process faster.
@@ -56,9 +62,9 @@ This should return the public IP address of your VM.
 
 Run this command to list installed PHP modules:
 
-bash
-Copy code
+```bash
 php -m
+```
 
 ## 📜 Certbot: SSL Certificates 👑
 
@@ -100,7 +106,7 @@ systemctl list-timers | grep certbot
 
 If your certificate is due to expire (within 30 days), Certbot will automatically attempt to renew it.
 
-### What to Do When You Get an Expiry Email
+### ⌯⌲ What to Do When You Get an Expiry Email
 
 Nothing, if Certbot is working properly: Certbot should automatically renew your certificate before it expires, so no action is needed.
 
@@ -111,7 +117,7 @@ sudo certbot renew
 ```
 
 
-### Let's Encrypt Logs
+### Let's Encrypt Logs 🪵
 
 ```bash
 cat /var/log/letsencrypt/letsencrypt.log
@@ -128,6 +134,94 @@ cat /var/log/letsencrypt/letsencrypt.log
 `cat /var/log/nginx/error.log`
 
 `cat /var/log/nginx/access.log`
+
+Add a new server block for the **Mixtape site** in `/etc/nginx/sites-available`. Listen on port 80 for now. Certbot will handle SSL in the next step.
+
+```nginx
+server {
+    listen 80;
+
+    server_name mixtape.followcrom.com www.mixtape.followcrom.com;
+
+    # Redirect www to non-www for the new domain
+    if ($host = www.mixtape.followcrom.com) {
+        return 301 https://mixtape.followcrom.com$request_uri;
+    }
+
+    root /var/www/mthw;
+    index index.php index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+        error_page 404 /404.html;
+        location = /404.html {
+            root /var/www/mthw;
+            internal;
+        }
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+        error_page 404 /404.html;
+    }
+
+    # Certbot will add SSL configuration here. When you use the `--nginx` flag (see below), you are telling Certbot to use its Nginx plugin. This plugin is specifically designed to parse and automatically edit your Nginx configuration files.
+}
+```
+
+#### 🧩 Enable the new site 💫
+
+```bash
+sudo ln -s /etc/nginx/sites-available/mthw /etc/nginx/sites-enabled/
+```
+
+#### 🔬 Test the configuration 🕵️
+
+```bash
+sudo nginx -t
+```
+
+### 🛡️ Obtain SSL Certificates 🔐
+
+```bash
+sudo certbot --nginx -d mixtape.followcrom.com -d www.mixtape.followcrom.com
+```
+
+Certbot may ask you a couple of questions. It will then obtain the new certificates and automatically edit your mixtape.followcrom.com.conf file to include the SSL certificate paths and redirect HTTP traffic to HTTPS, just like your old setup.
+
+Console output:
+
+```
+Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/mixtape.followcrom.com/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/mixtape.followcrom.com/privkey.pem
+This certificate expires on 2025-12-12.
+These files will be updated when the certificate renews.
+Certbot has set up a scheduled task to automatically renew this certificate in the background.
+
+Deploying certificate
+Successfully deployed certificate for mixtape.followcrom.com to /etc/nginx/sites-enabled/mthw
+Successfully deployed certificate for www.mixtape.followcrom.com to /etc/nginx/sites-enabled/mthw
+Congratulations! You have successfully enabled HTTPS on https://mixtape.followcrom.com and https://www.mixtape.followcrom.com
+```
+
+
+After Certbot finishes, reload Nginx to apply all the changes:
+
+```bash
+sudo systemctl reload nginx
+```
+
+---
+
+<br>
+
+### Old Nginx Configuration for the Mixtape Site ⚙️
+
+The below is for when the site has its own domain name and was not a subdirectory of another site.
 
 Add a new server block for the **Mixtape site** in the Nginx configuration file:
 
@@ -331,7 +425,7 @@ This configuration ensures that enough PHP-FPM workers are already running when 
 
 ## Configure the S3 bucket to serve audio files publicly
 
-Step 1: Unblock Public Access
+1️⃣ Step 1: Unblock Public Access
 
 - Select your S3 bucket.
 - Go to the Permissions tab.
@@ -339,7 +433,7 @@ Step 1: Unblock Public Access
 - Uncheck "Block all public access".
 - Confirm the change by clicking Save.
 
-Step 2: Add a Bucket Policy
+2️⃣Step 2: Add a Bucket Policy
 
 ```json
 {
@@ -356,7 +450,7 @@ Step 2: Add a Bucket Policy
 }
 ```
 
-Step 3: Add or Modify the CORS Configuration
+3️⃣ Step 3: Add or Modify the CORS Configuration
 
 ```json
 [
@@ -375,7 +469,7 @@ Step 3: Add or Modify the CORS Configuration
 ]
 ```
 
-Step 4: Make the audio files downloadable
+4️⃣ Step 4: Make the audio files downloadable
 
 You can set the `Content-Disposition` header to `attachment `in your S3 bucket settings. This header can force the browser to download the file instead of displaying it.
 
@@ -413,7 +507,7 @@ or
 </a>
 ```
 
-## Update the HTML
+## </> Update the HTML</> 
 
 Ensure the streaming audio tag looks like this:
 
@@ -433,12 +527,14 @@ Ensure the streaming audio tag looks like this:
 
 - The S3 URI (e.g. `s3://your-bucket-name/path/to/your-file.mp3`) is mainly used within AWS services, SDKs, and CLI for referencing objects in S3 and is not directly usable in a web browser or for embedding in web pages.
 
-## Debugging
+<br>
+
+## 🔨 Debugging 👾
 
 **Use curl** to test your S3 endpoint directly. This can help determine if it's a server-side or client-side issue:
 
 ```bash
-curl -I -H "Origin: https://mixtape.followcrom.online" https://mthw.s3.eu-west-2.amazonaws.com/gf/supafly.mp3
+curl -I -H "Origin: https://mixtape.followcrom.com" https://mthw.s3.eu-west-2.amazonaws.com/gf/supafly.mp3
 ```
 
 This should return headers including Access-Control-Allow-Origin if CORS is correctly configured.
