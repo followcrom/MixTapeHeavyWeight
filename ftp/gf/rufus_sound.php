@@ -65,9 +65,7 @@ include '../header.html'; ?>
 
 <div class="audioPlayer">
     <audio id="audio" preload="none" crossorigin="anonymous">
-        <source
-            src="https://mthw.s3.eu-west-2.amazonaws.com/gf/rufus_sound.mp3"
-            type="audio/mpeg" />
+        <source src="../audio/gf/rufus_sound.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
     </audio>
 </div>
